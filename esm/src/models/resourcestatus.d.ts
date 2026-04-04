@@ -16,9 +16,9 @@ export declare const ResourceStatus: {
 export type ResourceStatus = OpenEnum<typeof ResourceStatus>;
 export declare const ResourceStatus$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     live: "live";
+    upcoming: "upcoming";
     beta: "beta";
     development: "development";
-    upcoming: "upcoming";
     considering: "considering";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 //# sourceMappingURL=resourcestatus.d.ts.map

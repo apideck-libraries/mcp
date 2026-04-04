@@ -21,8 +21,8 @@ export declare const TimeOffRequestStatus$zodSchema: z.ZodUnion<readonly [z.ZodE
     other: "other";
     deleted: "deleted";
     approved: "approved";
-    declined: "declined";
     requested: "requested";
+    declined: "declined";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**
  * The type of request
@@ -43,10 +43,10 @@ export type RequestType = OpenEnum<typeof RequestType>;
 export declare const RequestType$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     other: "other";
     personal: "personal";
-    volunteer: "volunteer";
     vacation: "vacation";
     sick: "sick";
     jury_duty: "jury_duty";
+    volunteer: "volunteer";
     bereavement: "bereavement";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**

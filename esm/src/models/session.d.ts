@@ -10,8 +10,8 @@ export declare const AllowAction: {
 };
 export type AllowAction = OpenEnum<typeof AllowAction>;
 export declare const AllowAction$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    delete: "delete";
     disconnect: "disconnect";
+    delete: "delete";
     reauthorize: "reauthorize";
     disable: "disable";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;

@@ -16,11 +16,11 @@ export declare const ConnectionHealth: {
  */
 export type ConnectionHealth = OpenEnum<typeof ConnectionHealth>;
 export declare const ConnectionHealth$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    ok: "ok";
     revoked: "revoked";
     missing_settings: "missing_settings";
     needs_consent: "needs_consent";
     needs_auth: "needs_auth";
     pending_refresh: "pending_refresh";
+    ok: "ok";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 //# sourceMappingURL=connectionhealth.d.ts.map

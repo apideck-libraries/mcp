@@ -106419,9 +106419,10 @@ var serveCommand = buildCommand({
       },
       mode: {
         kind: "enum",
-        brief: "Server mode (dynamic: expose list_tools, describe_tool, and execute_tool instead of individual tools)",
+        brief: "Server mode (dynamic is default; use --mode static for all tools)",
         values: ["dynamic"],
-        optional: true
+        optional: true,
+        default: "dynamic"
       },
       "tool-annotations": {
         kind: "parsed",
@@ -106541,9 +106542,10 @@ var startCommand = buildCommand({
       },
       mode: {
         kind: "enum",
-        brief: "Server mode (dynamic: expose list_tools, describe_tool, and execute_tool instead of individual tools)",
+        brief: "Server mode (dynamic is default; use --mode static for all tools)",
         values: ["dynamic"],
-        optional: true
+        optional: true,
+        default: "dynamic"
       },
       "tool-annotations": {
         kind: "parsed",
@@ -106650,5 +106652,5 @@ export {
   app
 };
 
-//# debugId=91454CF01571430764756E2164756E21
+//# debugId=124056E97A5CCE0664756E2164756E21
 //# sourceMappingURL=mcp-server.js.map

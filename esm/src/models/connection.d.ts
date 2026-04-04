@@ -27,9 +27,9 @@ export declare const ConnectionStatus: {
  */
 export type ConnectionStatus = OpenEnum<typeof ConnectionStatus>;
 export declare const ConnectionStatus$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
+    requested: "requested";
     live: "live";
     upcoming: "upcoming";
-    requested: "requested";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export declare const Target: {
     readonly CustomFields: "custom_fields";
@@ -72,12 +72,12 @@ export declare const Health: {
  */
 export type Health = OpenEnum<typeof Health>;
 export declare const Health$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    ok: "ok";
     revoked: "revoked";
     missing_settings: "missing_settings";
     needs_consent: "needs_consent";
     needs_auth: "needs_auth";
     pending_refresh: "pending_refresh";
+    ok: "ok";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type Connection = {
     id?: string | undefined;

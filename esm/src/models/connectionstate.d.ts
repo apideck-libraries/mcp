@@ -16,9 +16,9 @@ export declare const ConnectionState: {
 export type ConnectionState = OpenEnum<typeof ConnectionState>;
 export declare const ConnectionState$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     invalid: "invalid";
-    authorized: "authorized";
     available: "available";
     callable: "callable";
     added: "added";
+    authorized: "authorized";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 //# sourceMappingURL=connectionstate.d.ts.map
