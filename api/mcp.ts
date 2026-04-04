@@ -7,7 +7,12 @@ import { createConsoleLogger } from "../src/mcp-server/console-logger.js";
 import { ApideckMcpCore } from "../src/core.js";
 
 const logger = createConsoleLogger("info");
-const analytics = createAnalytics(process.env["POSTHOG_API_KEY"], logger);
+
+function getAnalytics() {
+  const key = process.env["POSTHOG_API_KEY"];
+  logger.info("PostHog init", { hasKey: !!key });
+  return createAnalytics(key, logger);
+}
 
 export const config = {
   maxDuration: 60,
@@ -67,6 +72,7 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
     });
   };
 
+  const analytics = getAnalytics();
   const transport = new StreamableHTTPServerTransport({});
 
   const { server: mcpServer } = createMCPServer({
