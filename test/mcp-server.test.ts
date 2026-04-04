@@ -1,12 +1,12 @@
 /**
  * MCP Server Integration Tests
  *
- * Tests the Apideck Unify MCP server against a running instance.
+ * Tests the Apideck MCP server against a running instance.
  * Supports both local and remote endpoints.
  *
  * Usage:
  *   npx tsx test/mcp-server.test.ts                          # local (localhost:4567)
- *   MCP_URL=https://mcp-server-one-mu.vercel.app/mcp npx tsx test/mcp-server.test.ts  # remote
+ *   MCP_URL=https://mcp.apideck.dev/mcp npx tsx test/mcp-server.test.ts  # remote
  */
 
 const MCP_URL = process.env.MCP_URL || "http://localhost:4567/mcp";

@@ -182,7 +182,7 @@ Speakeasy generates a Cloudflare Workers deployment (`wrangler.toml` + Durable O
 
 ### Current deployment
 
-`https://mcp-server-one-mu.vercel.app/mcp` — deployed on the Apideck Vercel org. The Vercel API route (`api/mcp.ts`) wraps the Speakeasy-generated server with credential resolution from headers and runs in dynamic mode.
+`https://mcp.apideck.dev/mcp` — deployed on the Apideck Vercel org. The Vercel API route (`api/mcp.ts`) wraps the Speakeasy-generated server with credential resolution from headers and runs in dynamic mode.
 
 ## Post-Generation Fixes
 
