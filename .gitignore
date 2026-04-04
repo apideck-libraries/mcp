@@ -1,0 +1,7 @@
+node_modules/
+.eslintcache
+.env
+*.tsbuildinfo
+.vercel/
+.wrangler/
+speakeasy-spec.yml

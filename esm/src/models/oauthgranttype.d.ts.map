@@ -1,0 +1,1 @@
+{"version":3,"file":"oauthgranttype.d.ts","sourceRoot":"","sources":["../../../src/models/oauthgranttype.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AACzB,OAAO,EAAyB,QAAQ,EAAE,MAAM,mBAAmB,CAAC;AAEpE;;GAEG;AACH,eAAO,MAAM,cAAc;;;;CAIjB,CAAC;AACX;;GAEG;AACH,MAAM,MAAM,cAAc,GAAG,QAAQ,CAAC,OAAO,cAAc,CAAC,CAAC;AAE7D,eAAO,MAAM,wBAAwB;;;;sGASpC,CAAC"}

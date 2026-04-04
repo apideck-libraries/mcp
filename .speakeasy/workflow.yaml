@@ -1,0 +1,14 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    apideck-unify:
+        inputs:
+            - location: https://ci-spec-unify.s3.eu-central-1.amazonaws.com/speakeasy-spec.yml
+        overlays:
+            - location: ./mcp-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/apideck/apideck/apideck-unify
+targets:
+    unify-mcp:
+        target: mcp-typescript
+        source: apideck-unify

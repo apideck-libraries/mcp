@@ -1,0 +1,1 @@
+{"version":3,"file":"linkedworktag.d.ts","sourceRoot":"","sources":["../../../src/models/linkedworktag.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,aAAa,GAAG;IAC1B,EAAE,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IACxB,KAAK,CAAC,EAAE,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;CACnC,CAAC;AAEF,eAAO,MAAM,uBAAuB,EAAE,CAAC,CAAC,OAAO,CAAC,aAAa,CAG3D,CAAC"}

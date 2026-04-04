@@ -1,0 +1,1 @@
+{"version":3,"file":"consumersfilter.d.ts","sourceRoot":"","sources":["../../../src/models/consumersfilter.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,eAAe,GAAG;IAC5B,WAAW,CAAC,EAAE,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;IACxC,MAAM,CAAC,EAAE,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;CACpC,CAAC;AAEF,eAAO,MAAM,yBAAyB,EAAE,CAAC,CAAC,OAAO,CAAC,eAAe,CAO/D,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"consentrecordinput.d.ts","sourceRoot":"","sources":["../../../src/models/consentrecordinput.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AACzB,OAAO,EACL,wBAAwB,EAEzB,MAAM,+BAA+B,CAAC;AAEvC,MAAM,MAAM,kBAAkB,GAAG;IAC/B,OAAO,EAAE,OAAO,CAAC;IACjB,SAAS,EAAE,wBAAwB,CAAC;CACrC,CAAC;AAEF,eAAO,MAAM,4BAA4B,EAAE,CAAC,CAAC,OAAO,CAAC,kBAAkB,CAQnE,CAAC"}

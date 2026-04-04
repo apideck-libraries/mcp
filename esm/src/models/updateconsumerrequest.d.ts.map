@@ -1,0 +1,1 @@
+{"version":3,"file":"updateconsumerrequest.d.ts","sourceRoot":"","sources":["../../../src/models/updateconsumerrequest.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AACzB,OAAO,EACL,gBAAgB,EAEjB,MAAM,uBAAuB,CAAC;AAE/B,MAAM,MAAM,qBAAqB,GAAG;IAAE,QAAQ,CAAC,EAAE,gBAAgB,GAAG,SAAS,CAAA;CAAE,CAAC;AAEhF,eAAO,MAAM,+BAA+B,EAAE,CAAC,CAAC,OAAO,CAAC,qBAAqB,CAKzE,CAAC"}

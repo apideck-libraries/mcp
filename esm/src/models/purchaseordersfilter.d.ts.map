@@ -1,0 +1,1 @@
+{"version":3,"file":"purchaseordersfilter.d.ts","sourceRoot":"","sources":["../../../src/models/purchaseordersfilter.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,oBAAoB,GAAG;IACjC,aAAa,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IACnC,WAAW,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;CAClC,CAAC;AAEF,eAAO,MAAM,8BAA8B,EAAE,CAAC,CAAC,OAAO,CAAC,oBAAoB,CAIvE,CAAC"}

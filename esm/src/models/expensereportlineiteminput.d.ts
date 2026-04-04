@@ -1,0 +1,32 @@
+import * as z from "zod";
+import { Currency } from "./currency.js";
+import { LinkedCustomerInput } from "./linkedcustomerinput.js";
+import { LinkedDepartmentInput } from "./linkeddepartmentinput.js";
+import { LinkedExpenseCategory } from "./linkedexpensecategory.js";
+import { LinkedLedgerAccount } from "./linkedledgeraccount.js";
+import { LinkedLocationInput } from "./linkedlocationinput.js";
+import { LinkedTaxRateInput } from "./linkedtaxrateinput.js";
+import { LinkedTrackingCategory } from "./linkedtrackingcategory.js";
+export type ExpenseReportLineItemInput = {
+    line_number?: number | null | undefined;
+    expense_category?: LinkedExpenseCategory | undefined;
+    account?: LinkedLedgerAccount | null | undefined;
+    description?: string | null | undefined;
+    quantity?: number | null | undefined;
+    unit_price?: number | null | undefined;
+    amount: number;
+    tax_rate?: LinkedTaxRateInput | undefined;
+    tax_amount?: number | null | undefined;
+    total_amount?: number | null | undefined;
+    transaction_date?: string | null | undefined;
+    billable?: boolean | null | undefined;
+    reimbursable?: boolean | null | undefined;
+    customer?: LinkedCustomerInput | null | undefined;
+    department?: LinkedDepartmentInput | null | undefined;
+    location?: LinkedLocationInput | null | undefined;
+    tracking_categories?: Array<LinkedTrackingCategory | null> | null | undefined;
+    receipt_url?: string | null | undefined;
+    currency?: Currency | null | undefined;
+};
+export declare const ExpenseReportLineItemInput$zodSchema: z.ZodType<ExpenseReportLineItemInput>;
+//# sourceMappingURL=expensereportlineiteminput.d.ts.map
