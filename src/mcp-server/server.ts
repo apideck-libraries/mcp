@@ -12,6 +12,7 @@ import {
   createRegisterResourceTemplate,
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
+import type { Analytics } from "./analytics.js";
 import {
   createRegisterTool,
   MCPToolAnnotationFilter,
@@ -259,6 +260,7 @@ export function createMCPServer(deps: {
   consumerId?: SDKOptions["consumerId"] | undefined;
   appId?: SDKOptions["appId"] | undefined;
   serverIdx?: SDKOptions["serverIdx"] | undefined;
+  analytics?: Analytics | undefined;
 }) {
   const server = new McpServer({
     name: "ApideckMcp",
@@ -292,6 +294,7 @@ export function createMCPServer(deps: {
     allowedTools,
     deps.dynamic,
     deps.annotationFilter,
+    deps.analytics,
   );
   const resource = createRegisterResource(
     deps.logger,
@@ -540,7 +543,7 @@ export function createMCPServer(deps: {
   tool(tool$vaultLogsList);
 
   if (deps.dynamic) {
-    registerDynamicTools(deps.logger, server, getClient, toolMap, scopes);
+    registerDynamicTools(deps.logger, server, getClient, toolMap, scopes, deps.analytics);
   }
 
   return { server, tools };

@@ -113,11 +113,11 @@ Add to your MCP client config:
 ```bash
 npm install
 
-# Static mode (all 229 tools)
+# Dynamic mode (default — progressive discovery, 4 meta-tools, ~1,300 tokens)
 node bin/mcp-server.js start --api-key "$APIDECK_API_KEY" --consumer-id "$APIDECK_CONSUMER_ID" --app-id "$APIDECK_APP_ID"
 
-# Dynamic mode (progressive discovery — 4 meta-tools, ~1,300 tokens)
-node bin/mcp-server.js start --api-key "$APIDECK_API_KEY" --consumer-id "$APIDECK_CONSUMER_ID" --app-id "$APIDECK_APP_ID" --mode dynamic
+# Static mode (all 229 tools)
+node bin/mcp-server.js start --api-key "$APIDECK_API_KEY" --consumer-id "$APIDECK_CONSUMER_ID" --app-id "$APIDECK_APP_ID" --mode static
 
 # Read-only tools only
 node bin/mcp-server.js start --api-key "$APIDECK_API_KEY" --consumer-id "$APIDECK_CONSUMER_ID" --app-id "$APIDECK_APP_ID" --scope read
@@ -157,8 +157,8 @@ agent = Agent("anthropic:claude-sonnet-4-5", mcp_servers=[
 
 | Mode | Tools exposed | Initial tokens | Best for |
 |---|---|---|---|
-| `static` (default) | All 229 tools | ~25-40K | Focused agents doing specific operations |
-| `dynamic` | 4 meta-tools: `list_tools`, `describe_tool_input`, `execute_tool`, `list_scopes` | ~1,300 | General-purpose agents, token-sensitive contexts |
+| `dynamic` (default) | 4 meta-tools: `list_tools`, `describe_tool_input`, `execute_tool`, `list_scopes` | ~1,300 | General-purpose agents, token-sensitive contexts |
+| `static` | All 229 tools | ~25-40K | Focused agents doing specific operations |
 
 In dynamic mode, agents discover tools progressively:
 

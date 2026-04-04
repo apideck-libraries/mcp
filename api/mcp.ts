@@ -1,11 +1,13 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
+import { createAnalytics } from "../src/mcp-server/analytics.js";
 import { createMCPServer } from "../src/mcp-server/server.js";
 import { createConsoleLogger } from "../src/mcp-server/console-logger.js";
 import { ApideckMcpCore } from "../src/core.js";
 
 const logger = createConsoleLogger("info");
+const analytics = createAnalytics(process.env["POSTHOG_API_KEY"], logger);
 
 export const config = {
   maxDuration: 60,
@@ -69,6 +71,7 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
 
   const { server: mcpServer } = createMCPServer({
     logger,
+    analytics,
     dynamic: true,
     getSDK,
   });
@@ -81,4 +84,5 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
 
   await mcpServer.connect(transport as Transport);
   await transport.handleRequest(req, res, req.body);
+  await analytics.flush();
 }
