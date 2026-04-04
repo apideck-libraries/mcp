@@ -17,6 +17,7 @@ import * as z from "zod";
 import { ApideckMcpCore } from "../core.js";
 import { ConsoleLogger } from "./console-logger.js";
 import { MCPServerFlags } from "./flags.js";
+import type { Analytics } from "./analytics.js";
 import { MCPScope, mcpScopes } from "./scopes.js";
 import { valueToBase64 } from "./shared.js";
 
@@ -135,6 +136,7 @@ export function createRegisterTool(
   allowedTools?: Set<string>,
   dynamic?: boolean,
   annotationFilter?: MCPToolAnnotationFilter,
+  analytics?: Analytics,
 ): [
   <A extends ZodRawShapeCompat | undefined>(tool: ToolDefinition<A>) => void,
   Array<{ name: string; description: string }>,
@@ -212,7 +214,19 @@ export function createRegisterTool(
           annotations: tool.annotations,
         },
         async (args, ctx) => {
-          return tool.tool(getSDK(), args, ctx);
+          const start = Date.now();
+          const result = await tool.tool(getSDK(), args, ctx);
+          analytics?.capture({
+            distinctId: "mcp-server",
+            event: "mcp_tool_called",
+            properties: {
+              tool_name: tool.name,
+              is_error: result.isError ?? false,
+              duration_ms: Date.now() - start,
+              mode: "static",
+            },
+          });
+          return result;
         },
       );
     } else {
@@ -223,7 +237,19 @@ export function createRegisterTool(
           annotations: tool.annotations,
         },
         async (ctx) => {
-          return tool.tool(getSDK(), ctx);
+          const start = Date.now();
+          const result = await tool.tool(getSDK(), ctx);
+          analytics?.capture({
+            distinctId: "mcp-server",
+            event: "mcp_tool_called",
+            properties: {
+              tool_name: tool.name,
+              is_error: result.isError ?? false,
+              duration_ms: Date.now() - start,
+              mode: "static",
+            },
+          });
+          return result;
         },
       );
     }
@@ -263,6 +289,7 @@ export function registerDynamicTools(
   getSDK: () => ApideckMcpCore,
   toolMap: Map<string, ToolDefinition<ZodRawShapeCompat | undefined>>,
   allowedScopes: Set<MCPScope>,
+  analytics?: Analytics,
 ): void {
   // 1. list_tools
   server.registerTool("list_tools", {
@@ -421,14 +448,35 @@ export function registerDynamicTools(
       }
     }
 
+    const start = Date.now();
     try {
-      if (def.args) {
-        return await def.tool(getSDK(), validatedInput, ctx);
-      } else {
-        return await def.tool(getSDK(), ctx);
-      }
+      const result = def.args
+        ? await def.tool(getSDK(), validatedInput, ctx)
+        : await def.tool(getSDK(), ctx);
+      analytics?.capture({
+        distinctId: "mcp-server",
+        event: "mcp_tool_called",
+        properties: {
+          tool_name: args.tool_name,
+          is_error: result.isError ?? false,
+          duration_ms: Date.now() - start,
+          mode: "dynamic",
+        },
+      });
+      return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
+      analytics?.capture({
+        distinctId: "mcp-server",
+        event: "mcp_tool_called",
+        properties: {
+          tool_name: args.tool_name,
+          is_error: true,
+          error: message,
+          duration_ms: Date.now() - start,
+          mode: "dynamic",
+        },
+      });
       return {
         content: [{
           type: "text",

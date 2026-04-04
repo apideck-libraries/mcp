@@ -41,7 +41,7 @@ export const serveCommand = buildCommand({
         kind: "enum",
         brief:
           "Server mode (dynamic is default; use --mode static for all tools)",
-        values: ["dynamic"],
+        values: ["dynamic", "static"],
         optional: true,
         default: "dynamic",
       },

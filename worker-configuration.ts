@@ -9,4 +9,5 @@ export interface Env {
   // MY_DURABLE_OBJECT: DurableObjectNamespace;
   APIDECK_MCP_MCP: DurableObjectNamespace;
   ASSETS: Fetcher; // For serving static assets
+  POSTHOG_API_KEY?: string;
 }
