@@ -3,7 +3,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import { createMCPServer } from "../src/mcp-server/server.js";
 import { createConsoleLogger } from "../src/mcp-server/console-logger.js";
-import { ApideckAccountingMcpCore } from "../src/core.js";
+import { ApideckMcpCore } from "../src/core.js";
 
 const logger = createConsoleLogger("info");
 
@@ -27,9 +27,9 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
     res.statusCode = 200;
     return res.end(
       JSON.stringify({
-        name: "Apideck Unify MCP Server",
+        name: "Apideck MCP Server",
         description:
-          "MCP server for Apideck Unified APIs — Accounting, File Storage, HRIS, Vault, Proxy",
+          "MCP server for Apideck — Accounting, File Storage, HRIS, Vault, Proxy",
         tools: 229,
         modes: ["static", "dynamic"],
       })
@@ -57,7 +57,7 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
       process.env["APIDECK_API_KEY"] ||
       "";
 
-    return new ApideckAccountingMcpCore({
+    return new ApideckMcpCore({
       security: async () => ({ apiKey }),
       consumerId:
         headers.get("x-apideck-consumer-id") || process.env["APIDECK_CONSUMER_ID"] || undefined,
