@@ -1,0 +1,16 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - RELEASES.md
+
+jobs:
+  publish:
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      npm_token: ${{ secrets.NPM_TOKEN }}
