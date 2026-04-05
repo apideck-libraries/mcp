@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
+import { waitUntil } from "@vercel/functions";
 import { createAnalytics } from "../src/mcp-server/analytics.js";
 import { createMCPServer } from "../src/mcp-server/server.js";
 import { createConsoleLogger } from "../src/mcp-server/console-logger.js";
@@ -10,7 +11,7 @@ const logger = createConsoleLogger("info");
 
 function getAnalytics() {
   const key = process.env["POSTHOG_API_KEY"];
-  return createAnalytics(key, logger);
+  return createAnalytics(key, logger, waitUntil);
 }
 
 export const config = {
