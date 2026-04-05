@@ -10,7 +10,6 @@ const logger = createConsoleLogger("info");
 
 function getAnalytics() {
   const key = process.env["POSTHOG_API_KEY"];
-  logger.info("PostHog init", { hasKey: !!key });
   return createAnalytics(key, logger);
 }
 
@@ -90,5 +89,4 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
 
   await mcpServer.connect(transport as Transport);
   await transport.handleRequest(req, res, req.body);
-  await analytics.flush();
 }

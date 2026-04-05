@@ -21,9 +21,7 @@ export function createAnalytics(
     return { async capture() {}, async flush() {} };
   }
 
-  const pending: Promise<void>[] = [];
-
-  function send(event: AnalyticsEvent): Promise<void> {
+  async function send(event: AnalyticsEvent): Promise<void> {
     const payload = {
       api_key: apiKey,
       batch: [
@@ -39,28 +37,26 @@ export function createAnalytics(
       ],
     };
 
-    return fetch(`${POSTHOG_API_HOST}/batch`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    }).then((res) => {
+    try {
+      const res = await fetch(`${POSTHOG_API_HOST}/batch`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
       if (!res.ok) {
         logger.warning("PostHog batch failed", { status: res.status });
       }
-    }).catch((err) => {
+    } catch (err) {
       logger.warning("PostHog batch error", {
         error: err instanceof Error ? err.message : String(err),
       });
-    });
+    }
   }
 
   return {
     async capture(event: AnalyticsEvent) {
-      const p = send(event);
-      pending.push(p);
+      await send(event);
     },
-    async flush() {
-      await Promise.all(pending.splice(0));
-    },
+    async flush() {},
   };
 }
