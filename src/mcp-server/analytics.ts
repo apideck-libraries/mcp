@@ -34,6 +34,7 @@ export function createAnalytics(
           properties: {
             ...event.properties,
             $lib: "apideck-mcp",
+            environment: process.env["VERCEL_ENV"] || "development",
           },
           timestamp: new Date().toISOString(),
         },
