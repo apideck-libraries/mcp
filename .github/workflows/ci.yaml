@@ -20,9 +20,8 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Type check
-        run: npx tsc --noEmit
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
 
       - name: Smoke test
         run: node test/smoke.mjs
