@@ -16,6 +16,7 @@
     "deploy": "wrangler deploy",
     "check": "npm run lint",
     "lint": "eslint --cache --max-warnings=0 src",
+    "test": "node test/smoke.mjs",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
