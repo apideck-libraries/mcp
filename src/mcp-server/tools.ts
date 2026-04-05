@@ -216,7 +216,7 @@ export function createRegisterTool(
         async (args, ctx) => {
           const start = Date.now();
           const result = await tool.tool(getSDK(), args, ctx);
-          analytics?.capture({
+          await analytics?.capture({
             distinctId: "mcp-server",
             event: "mcp_tool_called",
             properties: {
@@ -239,7 +239,7 @@ export function createRegisterTool(
         async (ctx) => {
           const start = Date.now();
           const result = await tool.tool(getSDK(), ctx);
-          analytics?.capture({
+          await analytics?.capture({
             distinctId: "mcp-server",
             event: "mcp_tool_called",
             properties: {
