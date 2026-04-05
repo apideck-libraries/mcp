@@ -215,15 +215,17 @@ export function createRegisterTool(
         },
         async (args, ctx) => {
           const start = Date.now();
-          const result = await tool.tool(getSDK(), args, ctx);
+          const sdk = getSDK();
+          const result = await tool.tool(sdk, args, ctx);
           await analytics?.capture({
-            distinctId: "mcp-server",
+            distinctId: sdk._options.appId || "mcp-server",
             event: "mcp_tool_called",
             properties: {
               tool_name: tool.name,
               is_error: result.isError ?? false,
               duration_ms: Date.now() - start,
               mode: "static",
+              app_id: sdk._options.appId,
             },
           });
           return result;
@@ -238,15 +240,17 @@ export function createRegisterTool(
         },
         async (ctx) => {
           const start = Date.now();
-          const result = await tool.tool(getSDK(), ctx);
+          const sdk = getSDK();
+          const result = await tool.tool(sdk, ctx);
           await analytics?.capture({
-            distinctId: "mcp-server",
+            distinctId: sdk._options.appId || "mcp-server",
             event: "mcp_tool_called",
             properties: {
               tool_name: tool.name,
               is_error: result.isError ?? false,
               duration_ms: Date.now() - start,
               mode: "static",
+              app_id: sdk._options.appId,
             },
           });
           return result;
@@ -449,25 +453,27 @@ export function registerDynamicTools(
     }
 
     const start = Date.now();
+    const sdk = getSDK();
     try {
       const result = def.args
-        ? await def.tool(getSDK(), validatedInput, ctx)
-        : await def.tool(getSDK(), ctx);
+        ? await def.tool(sdk, validatedInput, ctx)
+        : await def.tool(sdk, ctx);
       await analytics?.capture({
-        distinctId: "mcp-server",
+        distinctId: sdk._options.appId || "mcp-server",
         event: "mcp_tool_called",
         properties: {
           tool_name: args.tool_name,
           is_error: result.isError ?? false,
           duration_ms: Date.now() - start,
           mode: "dynamic",
+          app_id: sdk._options.appId,
         },
       });
       return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
       await analytics?.capture({
-        distinctId: "mcp-server",
+        distinctId: sdk._options.appId || "mcp-server",
         event: "mcp_tool_called",
         properties: {
           tool_name: args.tool_name,
@@ -475,6 +481,7 @@ export function registerDynamicTools(
           error: message,
           duration_ms: Date.now() - start,
           mode: "dynamic",
+          app_id: sdk._options.appId,
         },
       });
       return {
