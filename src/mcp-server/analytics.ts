@@ -21,20 +21,19 @@ export function createAnalytics(
     return { async capture() {}, async flush() {} };
   }
 
-  async function send(event: AnalyticsEvent) {
+  const buffer: Array<{
+    event: string;
+    distinct_id: string;
+    properties: Record<string, unknown>;
+    timestamp: string;
+  }> = [];
+
+  async function sendBatch(
+    batch: typeof buffer,
+  ) {
     const payload = {
       api_key: apiKey,
-      batch: [
-        {
-          event: event.event,
-          distinct_id: event.distinctId,
-          properties: {
-            ...event.properties,
-            $lib: "apideck-mcp",
-          },
-          timestamp: new Date().toISOString(),
-        },
-      ],
+      batch,
     };
 
     try {
@@ -55,8 +54,20 @@ export function createAnalytics(
 
   return {
     async capture(event: AnalyticsEvent) {
-      await send(event);
+      buffer.push({
+        event: event.event,
+        distinct_id: event.distinctId,
+        properties: {
+          ...event.properties,
+          $lib: "apideck-mcp",
+        },
+        timestamp: new Date().toISOString(),
+      });
     },
-    async flush() {},
+    async flush() {
+      if (buffer.length === 0) return;
+      const batch = buffer.splice(0);
+      await sendBatch(batch);
+    },
   };
 }

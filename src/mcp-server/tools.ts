@@ -453,7 +453,7 @@ export function registerDynamicTools(
       const result = def.args
         ? await def.tool(getSDK(), validatedInput, ctx)
         : await def.tool(getSDK(), ctx);
-      analytics?.capture({
+      await analytics?.capture({
         distinctId: "mcp-server",
         event: "mcp_tool_called",
         properties: {
@@ -466,7 +466,7 @@ export function registerDynamicTools(
       return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      analytics?.capture({
+      await analytics?.capture({
         distinctId: "mcp-server",
         event: "mcp_tool_called",
         properties: {
