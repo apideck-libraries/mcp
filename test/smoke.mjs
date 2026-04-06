@@ -38,7 +38,7 @@ function assert(condition, message) {
 try {
   // Start server
   server = exec(
-    `node bin/mcp-server.js serve --port ${PORT} --mode dynamic --scope read --api-key dummy --app-id test-app --consumer-id test-consumer`,
+    `node bin/mcp-server.js serve --port ${PORT} --mode dynamic --scope read --scope write --api-key dummy --app-id test-app --consumer-id test-consumer`,
     { cwd: process.cwd() },
   );
   server.stderr.on("data", () => {});
@@ -104,12 +104,40 @@ try {
   assert(execResult.result != null, "execute_tool returns a result");
   assert(execResult.result.content?.[0]?.type === "text", "result has text content");
 
-  // 5. Invalid method returns error
+  // 5. Execute tool with base64 body (binary upload must not crash with double-parse)
+  console.log("Test: execute_tool with base64 body (binary upload)");
+  const uploadResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(5, "tools/call", {
+      name: "execute_tool",
+      arguments: {
+        tool_name: "accounting-attachments-upload",
+        input: {
+          request: {
+            reference_type: "bill",
+            reference_id: "test-123",
+            body: "JVBERi0xLjQgdGVzdA==", // base64 PDF content
+          },
+        },
+      },
+    }),
+  });
+  const uploadResult = parseSSE(await uploadResp.text());
+  assert(uploadResult.result != null, "upload returns a result");
+  // Should get an auth/API error, NOT an "expected string, received Uint8Array" validation error
+  const uploadText = uploadResult.result.content?.[0]?.text ?? "";
+  assert(
+    !uploadText.includes("expected string, received Uint8Array"),
+    "base64 body is not double-transformed to Uint8Array",
+  );
+
+  // 6. Invalid method returns error
   console.log("Test: invalid method");
   const badResp = await fetch(BASE, {
     method: "POST",
     headers: HEADERS,
-    body: rpc(5, "nonexistent/method", {}),
+    body: rpc(6, "nonexistent/method", {}),
   });
   const bad = parseSSE(await badResp.text());
   assert(bad.error != null, "invalid method returns JSON-RPC error");
