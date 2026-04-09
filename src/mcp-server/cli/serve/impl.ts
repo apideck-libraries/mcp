@@ -6,7 +6,6 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import express from "express";
 import { LocalContext } from "../../cli.js";
-import { createAnalytics } from "../../analytics.js";
 import {
   ConsoleLoggerLevel,
   createConsoleLogger,
@@ -35,7 +34,6 @@ export async function main(this: LocalContext, flags: ServeCommandFlags) {
 
 async function startStreamableHTTP(cliFlags: ServeCommandFlags) {
   const logger = createConsoleLogger(cliFlags["log-level"]);
-  const analytics = createAnalytics(process.env["POSTHOG_API_KEY"], logger);
   const app = express();
 
   // Enable CORS for cross-origin requests
@@ -66,7 +64,6 @@ async function startStreamableHTTP(cliFlags: ServeCommandFlags) {
 
     const { server: mcpServer } = createMCPServer({
       logger,
-      analytics,
       allowedTools: cliFlags.tool,
       dynamic: cliFlags.mode === "dynamic",
       annotationFilter: buildAnnotationFilter(cliFlags["tool-annotations"]),
@@ -98,9 +95,8 @@ async function startStreamableHTTP(cliFlags: ServeCommandFlags) {
     logger.info("MCP Streamable HTTP server started", { host });
   });
 
-  const shutdown = async () => {
+  const shutdown = () => {
     logger.info("Shutting down HTTP server");
-    await analytics.flush();
 
     const timer = setTimeout(() => {
       logger.info("Forcing shutdown");

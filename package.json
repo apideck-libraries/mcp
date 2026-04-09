@@ -1,9 +1,13 @@
 {
   "name": "@apideck/mcp",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Apideck",
   "type": "module",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apideck-libraries/mcp.git"
+  },
   "bin": {
     "@apideck/mcp": "bin/mcp-server.js",
     "mcp": "bin/mcp-server.js"

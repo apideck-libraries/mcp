@@ -23,9 +23,9 @@ export function serverURLFromOptions(options) {
 }
 export const SDK_METADATA = {
     language: "typescript",
-    openapiDocVersion: "10.24.13",
-    sdkVersion: "0.1.6",
+    openapiDocVersion: "10.24.18",
+    sdkVersion: "0.1.7",
     genVersion: "2.879.6",
-    userAgent: "speakeasy-sdk/mcp-typescript 0.1.6 2.879.6 10.24.13 @apideck/mcp",
+    userAgent: "speakeasy-sdk/mcp-typescript 0.1.7 2.879.6 10.24.18 @apideck/mcp",
 };
 //# sourceMappingURL=config.js.map

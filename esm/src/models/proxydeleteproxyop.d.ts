@@ -12,6 +12,7 @@ export type ProxyDeleteProxyRequest = {
     xApideckUnifiedApi?: string | undefined;
     xApideckDownstreamUrl: string;
     xApideckDownstreamAuthorization?: string | undefined;
+    xApideckTimeout?: number | undefined;
 };
 export declare const ProxyDeleteProxyRequest$zodSchema: z.ZodType<ProxyDeleteProxyRequest>;
 export type ProxyDeleteProxyResponseResult = {

@@ -7,7 +7,6 @@ import { McpAgent } from "agents/mcp";
 import type { Env } from "../../worker-configuration.js";
 import { ApideckMcpCore } from "../core.js";
 import { landingPage } from "../landing-page.js";
-import { createAnalytics } from "../mcp-server/analytics.js";
 import { createConsoleLogger } from "../mcp-server/console-logger.js";
 import { createMCPServer } from "../mcp-server/server.js";
 
@@ -19,12 +18,8 @@ export class AtApideckMcpMCP extends McpAgent<Env, State, Props> {
   server!: McpServer;
 
   async init() {
-    const logger = createConsoleLogger("debug");
-    const analytics = createAnalytics(this.env.POSTHOG_API_KEY, logger);
-
     const { server } = createMCPServer({
-      logger,
-      analytics,
+      logger: createConsoleLogger("debug"),
       getSDK: () => this.getSDK(),
     });
 

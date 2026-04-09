@@ -28,6 +28,7 @@ export type ProxyOptionsProxyRequest = {
   xApideckUnifiedApi?: string | undefined;
   xApideckDownstreamUrl: string;
   xApideckDownstreamAuthorization?: string | undefined;
+  xApideckTimeout?: number | undefined;
 };
 
 export const ProxyOptionsProxyRequest$zodSchema: z.ZodType<
@@ -44,6 +45,9 @@ export const ProxyOptionsProxyRequest$zodSchema: z.ZodType<
   xApideckDownstreamUrl: z.string().describe("Downstream URL"),
   xApideckServiceId: z.string().describe(
     "Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.",
+  ),
+  xApideckTimeout: z.int().default(28000).describe(
+    "Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds).",
   ),
   xApideckUnifiedApi: z.string().describe(
     "Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.",

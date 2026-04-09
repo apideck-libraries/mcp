@@ -17,7 +17,6 @@ import * as z from "zod";
 import { ApideckMcpCore } from "../core.js";
 import { ConsoleLogger } from "./console-logger.js";
 import { MCPServerFlags } from "./flags.js";
-import type { Analytics } from "./analytics.js";
 import { MCPScope, mcpScopes } from "./scopes.js";
 import { valueToBase64 } from "./shared.js";
 
@@ -136,7 +135,6 @@ export function createRegisterTool(
   allowedTools?: Set<string>,
   dynamic?: boolean,
   annotationFilter?: MCPToolAnnotationFilter,
-  analytics?: Analytics,
 ): [
   <A extends ZodRawShapeCompat | undefined>(tool: ToolDefinition<A>) => void,
   Array<{ name: string; description: string }>,
@@ -214,22 +212,7 @@ export function createRegisterTool(
           annotations: tool.annotations,
         },
         async (args, ctx) => {
-          const start = Date.now();
-          const sdk = getSDK();
-          const result = await tool.tool(sdk, args, ctx);
-          await analytics?.capture({
-            distinctId: [sdk._options.appId, sdk._options.consumerId].filter(Boolean).join(":") || "mcp-server",
-            event: "mcp_tool_called",
-            properties: {
-              tool_name: tool.name,
-              is_error: result.isError ?? false,
-              duration_ms: Date.now() - start,
-              mode: "static",
-              app_id: sdk._options.appId,
-              consumer_id: sdk._options.consumerId,
-            },
-          });
-          return result;
+          return tool.tool(getSDK(), args, ctx);
         },
       );
     } else {
@@ -240,22 +223,7 @@ export function createRegisterTool(
           annotations: tool.annotations,
         },
         async (ctx) => {
-          const start = Date.now();
-          const sdk = getSDK();
-          const result = await tool.tool(sdk, ctx);
-          await analytics?.capture({
-            distinctId: [sdk._options.appId, sdk._options.consumerId].filter(Boolean).join(":") || "mcp-server",
-            event: "mcp_tool_called",
-            properties: {
-              tool_name: tool.name,
-              is_error: result.isError ?? false,
-              duration_ms: Date.now() - start,
-              mode: "static",
-              app_id: sdk._options.appId,
-              consumer_id: sdk._options.consumerId,
-            },
-          });
-          return result;
+          return tool.tool(getSDK(), ctx);
         },
       );
     }
@@ -295,7 +263,6 @@ export function registerDynamicTools(
   getSDK: () => ApideckMcpCore,
   toolMap: Map<string, ToolDefinition<ZodRawShapeCompat | undefined>>,
   allowedScopes: Set<MCPScope>,
-  analytics?: Analytics,
 ): void {
   // 1. list_tools
   server.registerTool("list_tools", {
@@ -377,22 +344,14 @@ export function registerDynamicTools(
         try {
           const jsonSchema = z.toJSONSchema(z.object(def.args), {
             target: "draft-2020-12",
-            unrepresentable: "any",
           });
           schemaText += JSON.stringify(jsonSchema, null, 2);
         } catch {
-          const fallback: Record<string, unknown> = {};
-          for (const [key, val] of Object.entries(def.args)) {
-            const desc = val && typeof val === "object" && "description" in val
-              ? (val as { description?: string }).description
-              : undefined;
-            fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
-          }
-          schemaText += JSON.stringify({
-            type: "object",
-            properties: fallback,
-            note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters.",
-          }, null, 2);
+          const jsonSchema = z.toJSONSchema(z.object(def.args), {
+            target: "draft-2020-12",
+            unrepresentable: "any",
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
         }
       } else {
         schemaText += "This tool takes no input parameters.";
@@ -454,40 +413,14 @@ export function registerDynamicTools(
       }
     }
 
-    const start = Date.now();
-    const sdk = getSDK();
     try {
-      const result = def.args
-        ? await def.tool(sdk, validatedInput, ctx)
-        : await def.tool(sdk, ctx);
-      await analytics?.capture({
-        distinctId: [sdk._options.appId, sdk._options.consumerId].filter(Boolean).join(":") || "mcp-server",
-        event: "mcp_tool_called",
-        properties: {
-          tool_name: args.tool_name,
-          is_error: result.isError ?? false,
-          duration_ms: Date.now() - start,
-          mode: "dynamic",
-          app_id: sdk._options.appId,
-          consumer_id: sdk._options.consumerId,
-        },
-      });
-      return result;
+      if (def.args) {
+        return await def.tool(getSDK(), validatedInput, ctx);
+      } else {
+        return await def.tool(getSDK(), ctx);
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      await analytics?.capture({
-        distinctId: [sdk._options.appId, sdk._options.consumerId].filter(Boolean).join(":") || "mcp-server",
-        event: "mcp_tool_called",
-        properties: {
-          tool_name: args.tool_name,
-          is_error: true,
-          error: message,
-          duration_ms: Date.now() - start,
-          mode: "dynamic",
-          app_id: sdk._options.appId,
-          consumer_id: sdk._options.consumerId,
-        },
-      });
       return {
         content: [{
           type: "text",

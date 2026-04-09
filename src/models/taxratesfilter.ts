@@ -3,6 +3,29 @@
  */
 
 import * as z from "zod";
+import { catchUnrecognizedEnum, OpenEnum } from "../types/enums.js";
+
+/**
+ * Filter by tax rate status
+ */
+export const TaxRatesFilterStatus = {
+  Active: "active",
+  Inactive: "inactive",
+  Archived: "archived",
+} as const;
+/**
+ * Filter by tax rate status
+ */
+export type TaxRatesFilterStatus = OpenEnum<typeof TaxRatesFilterStatus>;
+
+export const TaxRatesFilterStatus$zodSchema = z.union([
+  z.enum([
+    "active",
+    "inactive",
+    "archived",
+  ]),
+  z.string().transform(catchUnrecognizedEnum),
+]).describe("Filter by tax rate status");
 
 export type TaxRatesFilter = {
   assets?: boolean | undefined;
@@ -10,6 +33,7 @@ export type TaxRatesFilter = {
   expenses?: boolean | undefined;
   liabilities?: boolean | undefined;
   revenue?: boolean | undefined;
+  status?: TaxRatesFilterStatus | undefined;
 };
 
 export const TaxRatesFilter$zodSchema: z.ZodType<TaxRatesFilter> = z.object({
@@ -27,5 +51,8 @@ export const TaxRatesFilter$zodSchema: z.ZodType<TaxRatesFilter> = z.object({
   ),
   revenue: z.boolean().optional().describe(
     "Boolean to describe if tax rate can be used for revenue accounts",
+  ),
+  status: TaxRatesFilterStatus$zodSchema.optional().describe(
+    "Filter by tax rate status",
   ),
 });

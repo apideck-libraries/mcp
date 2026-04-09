@@ -72,9 +72,9 @@ export declare const ProjectPriority: {
  */
 export type ProjectPriority = OpenEnum<typeof ProjectPriority>;
 export declare const ProjectPriority$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    critical: "critical";
     high: "high";
     low: "low";
+    critical: "critical";
     medium: "medium";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**
