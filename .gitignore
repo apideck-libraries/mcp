@@ -3,8 +3,6 @@
 **/.speakeasy/temp/
 /.eslintcache
 /.tsbuildinfo
-/bin
-/esm
 /node_modules
 bun.lock
 .DS_Store
