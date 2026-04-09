@@ -50323,6 +50323,9 @@ var init_mcp = __esm(() => {
   };
 });
 
+// src/hooks/registration.ts
+function initHooks(hooks) {}
+
 // src/hooks/hooks.ts
 class SDKHooks {
   sdkInitHooks = [];
@@ -50349,6 +50352,7 @@ class SDKHooks {
         this.registerAfterErrorHook(hook);
       }
     }
+    initHooks(this);
   }
   registerSDKInitHook(hook) {
     this.sdkInitHooks.push(hook);
@@ -50400,6 +50404,7 @@ class SDKHooks {
     return { response: res, error: err };
   }
 }
+var init_hooks = () => {};
 
 // src/models/errors/httpclienterrors.ts
 var HTTPClientError, UnexpectedClientError, InvalidRequestError, RequestAbortedError, RequestTimeoutError, ConnectionError;
@@ -50498,10 +50503,10 @@ var init_config = __esm(() => {
   ];
   SDK_METADATA = {
     language: "typescript",
-    openapiDocVersion: "10.24.13",
-    sdkVersion: "0.1.6",
+    openapiDocVersion: "10.24.18",
+    sdkVersion: "0.1.7",
     genVersion: "2.879.6",
-    userAgent: "speakeasy-sdk/mcp-typescript 0.1.6 2.879.6 10.24.13 @apideck/mcp"
+    userAgent: "speakeasy-sdk/mcp-typescript 0.1.7 2.879.6 10.24.18 @apideck/mcp"
   };
 });
 
@@ -51301,6 +51306,7 @@ async function logResponse(logger, res, req) {
 }
 var gt, webWorkerLike, isBrowserLike, jsonLikeContentTypeRE, jsonlLikeContentTypeRE;
 var init_sdks = __esm(() => {
+  init_hooks();
   init_httpclienterrors();
   init_base64();
   init_config();
@@ -51593,24 +51599,10 @@ function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
 
 `;
       if (def.args) {
-        try {
-          const jsonSchema = toJSONSchema(object(def.args), {
-            target: "draft-2020-12",
-            unrepresentable: "any"
-          });
-          schemaText += JSON.stringify(jsonSchema, null, 2);
-        } catch {
-          const fallback = {};
-          for (const [key, val] of Object.entries(def.args)) {
-            const desc = val && typeof val === "object" && "description" in val ? val.description : undefined;
-            fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
-          }
-          schemaText += JSON.stringify({
-            type: "object",
-            properties: fallback,
-            note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters."
-          }, null, 2);
-        }
+        const jsonSchema = toJSONSchema(object(def.args), {
+          target: "draft-2020-12"
+        });
+        schemaText += JSON.stringify(jsonSchema, null, 2);
       } else {
         schemaText += "This tool takes no input parameters.";
       }
@@ -82336,15 +82328,24 @@ var init_gettaxratesresponse = __esm(() => {
 });
 
 // src/models/taxratesfilter.ts
-var TaxRatesFilter$zodSchema;
+var TaxRatesFilterStatus$zodSchema, TaxRatesFilter$zodSchema;
 var init_taxratesfilter = __esm(() => {
   init_zod();
+  TaxRatesFilterStatus$zodSchema = union([
+    _enum([
+      "active",
+      "inactive",
+      "archived"
+    ]),
+    string2().transform(catchUnrecognizedEnum)
+  ]).describe("Filter by tax rate status");
   TaxRatesFilter$zodSchema = object({
     assets: boolean2().optional().describe("Boolean to describe if tax rate can be used for asset accounts"),
     equity: boolean2().optional().describe("Boolean to describe if tax rate can be used for equity accounts"),
     expenses: boolean2().optional().describe("Boolean to describe if tax rate can be used for expense accounts"),
     liabilities: boolean2().optional().describe("Boolean to describe if tax rate can be used for liability accounts"),
-    revenue: boolean2().optional().describe("Boolean to describe if tax rate can be used for revenue accounts")
+    revenue: boolean2().optional().describe("Boolean to describe if tax rate can be used for revenue accounts"),
+    status: TaxRatesFilterStatus$zodSchema.optional().describe("Filter by tax rate status")
   });
 });
 
@@ -95296,6 +95297,7 @@ var init_proxydeleteproxyop = __esm(() => {
     xApideckDownstreamAuthorization: string2().describe("Downstream authorization header. This will skip the Vault token injection.").optional(),
     xApideckDownstreamUrl: string2().describe("Downstream URL"),
     xApideckServiceId: string2().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API."),
+    xApideckTimeout: int().default(28000).describe("Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds)."),
     xApideckUnifiedApi: string2().describe("Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.").optional()
   });
   ProxyDeleteProxyResponseResult$zodSchema = union([
@@ -95348,6 +95350,7 @@ async function $do201(client$, request, options) {
     "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
     "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
     "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+    "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
     "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" })
   }));
   const securityInput = await extractSecurity(client$._options.security);
@@ -95470,6 +95473,7 @@ var init_proxygetproxyop = __esm(() => {
     xApideckDownstreamAuthorization: string2().describe("Downstream authorization header. This will skip the Vault token injection.").optional(),
     xApideckDownstreamUrl: string2().describe("Downstream URL"),
     xApideckServiceId: string2().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API."),
+    xApideckTimeout: int().default(28000).describe("Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds)."),
     xApideckUnifiedApi: string2().describe("Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.").optional()
   });
   ProxyGetProxyResponseResult$zodSchema = union([
@@ -95522,6 +95526,7 @@ async function $do202(client$, request, options) {
     "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
     "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
     "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+    "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
     "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" })
   }));
   const securityInput = await extractSecurity(client$._options.security);
@@ -95644,6 +95649,7 @@ var init_proxyoptionsproxyop = __esm(() => {
     xApideckDownstreamAuthorization: string2().describe("Downstream authorization header. This will skip the Vault token injection.").optional(),
     xApideckDownstreamUrl: string2().describe("Downstream URL"),
     xApideckServiceId: string2().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API."),
+    xApideckTimeout: int().default(28000).describe("Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds)."),
     xApideckUnifiedApi: string2().describe("Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.").optional()
   });
   ProxyOptionsProxyResponseResult$zodSchema = union([
@@ -95696,6 +95702,7 @@ async function $do203(client$, request, options) {
     "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
     "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
     "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+    "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
     "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" })
   }));
   const securityInput = await extractSecurity(client$._options.security);
@@ -95820,6 +95827,7 @@ var init_proxypatchproxyop = __esm(() => {
     xApideckDownstreamAuthorization: string2().describe("Downstream authorization header. This will skip the Vault token injection.").optional(),
     xApideckDownstreamUrl: string2().describe("Downstream URL"),
     xApideckServiceId: string2().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API."),
+    xApideckTimeout: int().default(28000).describe("Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds)."),
     xApideckUnifiedApi: string2().describe("Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.").optional()
   });
   ProxyPatchProxyResponseResult$zodSchema = union([
@@ -95873,6 +95881,7 @@ async function $do204(client$, request, options) {
     "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
     "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
     "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+    "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
     "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" })
   }));
   const securityInput = await extractSecurity(client$._options.security);
@@ -95998,6 +96007,7 @@ var init_proxypostproxyop = __esm(() => {
     xApideckDownstreamAuthorization: string2().describe("Downstream authorization header. This will skip the Vault token injection.").optional(),
     xApideckDownstreamUrl: string2().describe("Downstream URL"),
     xApideckServiceId: string2().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API."),
+    xApideckTimeout: int().default(28000).describe("Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds)."),
     xApideckUnifiedApi: string2().describe("Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.").optional()
   });
   ProxyPostProxyResponseResult$zodSchema = union([
@@ -96051,6 +96061,7 @@ async function $do205(client$, request, options) {
     "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
     "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
     "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+    "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
     "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" })
   }));
   const securityInput = await extractSecurity(client$._options.security);
@@ -96176,6 +96187,7 @@ var init_proxyputproxyop = __esm(() => {
     xApideckDownstreamAuthorization: string2().describe("Downstream authorization header. This will skip the Vault token injection.").optional(),
     xApideckDownstreamUrl: string2().describe("Downstream URL"),
     xApideckServiceId: string2().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API."),
+    xApideckTimeout: int().default(28000).describe("Override the default downstream request timeout in milliseconds. The default is 28000 (28 seconds)."),
     xApideckUnifiedApi: string2().describe("Specify which unified API to use for the connection lookup. Required for multi-API connectors (e.g., Workday) to ensure the correct credentials are used.").optional()
   });
   ProxyPutProxyResponseResult$zodSchema = union([
@@ -96229,6 +96241,7 @@ async function $do206(client$, request, options) {
     "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
     "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
     "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+    "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
     "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" })
   }));
   const securityInput = await extractSecurity(client$._options.security);
@@ -101151,7 +101164,7 @@ Note:
 function createMCPServer(deps) {
   const server = new McpServer({
     name: "ApideckMcp",
-    version: "0.1.6"
+    version: "0.1.7"
   });
   const getClient = deps.getSDK || (() => new ApideckMcpCore({
     security: deps.security,
@@ -103966,7 +103979,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "consumer-id" = "YOUR_CONSUMER_ID",
         <h1>Instructions</h1>
         <p>One-click installation for Claude Desktop users</p>
         <div class="instruction-item">
-          <a href="./mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
+          <a href="https://github.com/apideck-libraries/mcp/releases/download/v0.1.7/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
             \uD83D\uDCE5 Download MCP Bundle
           </a>
         </div>
@@ -106419,10 +106432,9 @@ var serveCommand = buildCommand({
       },
       mode: {
         kind: "enum",
-        brief: "Server mode (dynamic is default; use --mode static for all tools)",
+        brief: "Server mode (dynamic: expose list_tools, describe_tool, and execute_tool instead of individual tools)",
         values: ["dynamic"],
-        optional: true,
-        default: "dynamic"
+        optional: true
       },
       "tool-annotations": {
         kind: "parsed",
@@ -106542,10 +106554,9 @@ var startCommand = buildCommand({
       },
       mode: {
         kind: "enum",
-        brief: "Server mode (dynamic is default; use --mode static for all tools)",
+        brief: "Server mode (dynamic: expose list_tools, describe_tool, and execute_tool instead of individual tools)",
         values: ["dynamic"],
-        optional: true,
-        default: "dynamic"
+        optional: true
       },
       "tool-annotations": {
         kind: "parsed",
@@ -106644,7 +106655,7 @@ var routes = buildRouteMap({
 var app = buildApplication(routes, {
   name: "mcp",
   versionInfo: {
-    currentVersion: "0.1.6"
+    currentVersion: "0.1.7"
   }
 });
 run(app, process4.argv.slice(2), buildContext(process4));
@@ -106652,5 +106663,5 @@ export {
   app
 };
 
-//# debugId=124056E97A5CCE0664756E2164756E21
+//# debugId=6A530AE2348E686064756E2164756E21
 //# sourceMappingURL=mcp-server.js.map

@@ -1,9 +1,13 @@
 {
   "name": "@apideck/mcp",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Apideck",
   "type": "module",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apideck-libraries/mcp.git"
+  },
   "bin": {
     "@apideck/mcp": "bin/mcp-server.js",
     "mcp": "bin/mcp-server.js"
@@ -16,13 +20,11 @@
     "deploy": "wrangler deploy",
     "check": "npm run lint",
     "lint": "eslint --cache --max-warnings=0 src",
-    "test": "node test/smoke.mjs",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.26.0",
     "@stricli/core": "^1.1.2",
-    "@vercel/functions": "^3.4.3",
     "agents": "0.3.10",
     "express": "^5.1.0",
     "zod": "^4.0.0"

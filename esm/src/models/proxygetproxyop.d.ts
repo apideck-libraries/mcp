@@ -12,6 +12,7 @@ export type ProxyGetProxyRequest = {
     xApideckUnifiedApi?: string | undefined;
     xApideckDownstreamUrl: string;
     xApideckDownstreamAuthorization?: string | undefined;
+    xApideckTimeout?: number | undefined;
 };
 export declare const ProxyGetProxyRequest$zodSchema: z.ZodType<ProxyGetProxyRequest>;
 export type ProxyGetProxyResponseResult = {

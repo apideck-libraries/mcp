@@ -16,6 +16,7 @@ export type ProxyPutProxyRequest = {
     xApideckUnifiedApi?: string | undefined;
     xApideckDownstreamUrl: string;
     xApideckDownstreamAuthorization?: string | undefined;
+    xApideckTimeout?: number | undefined;
     body?: Uint8Array | string | undefined;
 };
 export declare const ProxyPutProxyRequest$zodSchema: z.ZodType<ProxyPutProxyRequest>;

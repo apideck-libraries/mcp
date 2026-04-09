@@ -47,6 +47,7 @@ async function $do(client$, request, options) {
         "x-apideck-downstream-authorization": encodeSimple("x-apideck-downstream-authorization", payload$.xApideckDownstreamAuthorization, { explode: false, charEncoding: "none" }),
         "x-apideck-downstream-url": encodeSimple("x-apideck-downstream-url", payload$.xApideckDownstreamUrl, { explode: false, charEncoding: "none" }),
         "x-apideck-service-id": encodeSimple("x-apideck-service-id", payload$.xApideckServiceId, { explode: false, charEncoding: "none" }),
+        "x-apideck-timeout": encodeSimple("x-apideck-timeout", payload$.xApideckTimeout, { explode: false, charEncoding: "none" }),
         "x-apideck-unified-api": encodeSimple("x-apideck-unified-api", payload$.xApideckUnifiedApi, { explode: false, charEncoding: "none" }),
     }));
     const securityInput = await extractSecurity(client$._options.security);

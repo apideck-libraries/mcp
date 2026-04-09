@@ -40,10 +40,9 @@ export const serveCommand = buildCommand({
       mode: {
         kind: "enum",
         brief:
-          "Server mode (dynamic is default; use --mode static for all tools)",
-        values: ["dynamic", "static"],
+          "Server mode (dynamic: expose list_tools, describe_tool, and execute_tool instead of individual tools)",
+        values: ["dynamic"],
         optional: true,
-        default: "dynamic",
       },
       "tool-annotations": {
         kind: "parsed",

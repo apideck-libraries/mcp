@@ -11,7 +11,7 @@ import { MCPScope } from "./scopes.js";
  */
 export interface MCPServerFlags {
   readonly tool?: string[];
-  readonly mode?: "dynamic" | "static" | undefined;
+  readonly mode?: "dynamic" | undefined;
   readonly "tool-annotations"?: string[] | undefined;
   readonly scope?: MCPScope[];
   readonly "api-key"?: string | undefined;

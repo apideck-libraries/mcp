@@ -23,9 +23,9 @@ export declare const FormFieldType$zodSchema: z.ZodEnum<{
     email: "email";
     url: "url";
     date: "date";
+    password: "password";
     time: "time";
     text: "text";
-    password: "password";
     datetime: "datetime";
     checkbox: "checkbox";
     tel: "tel";

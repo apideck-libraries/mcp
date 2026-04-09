@@ -1,3 +1,16 @@
+**/.speakeasy/logs/
+**/.speakeasy/reports/
+**/.speakeasy/temp/
+/.eslintcache
+/.tsbuildinfo
+/bin
+/esm
+/node_modules
+bun.lock
+.DS_Store
+.dev.vars
+.env.local
+*.mcpb
 node_modules/
 .eslintcache
 .env

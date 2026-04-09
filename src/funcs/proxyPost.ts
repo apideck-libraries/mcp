@@ -127,6 +127,11 @@ async function $do(
       payload$.xApideckServiceId,
       { explode: false, charEncoding: "none" },
     ),
+    "x-apideck-timeout": encodeSimple(
+      "x-apideck-timeout",
+      payload$.xApideckTimeout,
+      { explode: false, charEncoding: "none" },
+    ),
     "x-apideck-unified-api": encodeSimple(
       "x-apideck-unified-api",
       payload$.xApideckUnifiedApi,
