@@ -341,10 +341,18 @@ export function registerDynamicTools(
 
       let schemaText = `<input_schema tool="${toolName}">\n\n`;
       if (def.args) {
-        const jsonSchema = z.toJSONSchema(z.object(def.args), {
-          target: "draft-2020-12",
-        });
-        schemaText += JSON.stringify(jsonSchema, null, 2);
+        try {
+          const jsonSchema = z.toJSONSchema(z.object(def.args), {
+            target: "draft-2020-12",
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
+        } catch {
+          const jsonSchema = z.toJSONSchema(z.object(def.args), {
+            target: "draft-2020-12",
+            unrepresentable: "any",
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
+        }
       } else {
         schemaText += "This tool takes no input parameters.";
       }

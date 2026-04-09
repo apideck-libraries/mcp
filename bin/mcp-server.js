@@ -51599,10 +51599,18 @@ function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
 
 `;
       if (def.args) {
-        const jsonSchema = toJSONSchema(object(def.args), {
-          target: "draft-2020-12"
-        });
-        schemaText += JSON.stringify(jsonSchema, null, 2);
+        try {
+          const jsonSchema = toJSONSchema(object(def.args), {
+            target: "draft-2020-12"
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
+        } catch {
+          const jsonSchema = toJSONSchema(object(def.args), {
+            target: "draft-2020-12",
+            unrepresentable: "any"
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
+        }
       } else {
         schemaText += "This tool takes no input parameters.";
       }
@@ -106663,5 +106671,5 @@ export {
   app
 };
 
-//# debugId=6A530AE2348E686064756E2164756E21
+//# debugId=1FAD269EAFF4198C64756E2164756E21
 //# sourceMappingURL=mcp-server.js.map
