@@ -7,7 +7,7 @@ sources:
         overlays:
             - location: ./mcp-overlay.yaml
         registry:
-            location: registry.speakeasyapi.dev/apideck/apideck/apideck-unify
+            location: registry.speakeasyapi.dev/apideck-k2o/apideck/apideck-unify
 targets:
     unify-mcp:
         target: mcp-typescript
