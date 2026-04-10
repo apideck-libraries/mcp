@@ -388,9 +388,14 @@ export function registerDynamicTools(
 
     let validatedInput: Record<string, unknown> = {};
     if (def.args) {
-      const vres = z.object(def.args).safeParse(args.input ?? {});
+      const rawInput = args.input ?? {};
+      const vres = z.object(def.args).safeParse(rawInput);
       if (vres.success) {
-        validatedInput = vres.data;
+        // Use the raw input instead of transformed output. The tool's SDK
+        // function re-parses with the same schema, so passing transformed
+        // data (e.g. Uint8Array from a base64 transform) would fail the
+        // second parse which expects the original input type (string).
+        validatedInput = rawInput;
       } else {
         const issues = z.prettifyError(vres.error);
 
