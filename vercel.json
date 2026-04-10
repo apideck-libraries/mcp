@@ -1,4 +1,9 @@
 {
+  "git": {
+    "deploymentEnabled": {
+      "preview": false
+    }
+  },
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": null,
