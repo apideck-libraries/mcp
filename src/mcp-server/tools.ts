@@ -341,10 +341,26 @@ export function registerDynamicTools(
 
       let schemaText = `<input_schema tool="${toolName}">\n\n`;
       if (def.args) {
-        const jsonSchema = z.toJSONSchema(z.object(def.args), {
-          target: "draft-2020-12",
-        });
-        schemaText += JSON.stringify(jsonSchema, null, 2);
+        try {
+          const jsonSchema = z.toJSONSchema(z.object(def.args), {
+            target: "draft-2020-12",
+            unrepresentable: "any",
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
+        } catch {
+          const fallback: Record<string, unknown> = {};
+          for (const [key, val] of Object.entries(def.args)) {
+            const desc = val && typeof val === "object" && "description" in val
+              ? (val as { description?: string }).description
+              : undefined;
+            fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
+          }
+          schemaText += JSON.stringify({
+            type: "object",
+            properties: fallback,
+            note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters.",
+          }, null, 2);
+        }
       } else {
         schemaText += "This tool takes no input parameters.";
       }

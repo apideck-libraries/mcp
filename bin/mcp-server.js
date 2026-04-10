@@ -51599,10 +51599,24 @@ function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
 
 `;
       if (def.args) {
-        const jsonSchema = toJSONSchema(object(def.args), {
-          target: "draft-2020-12"
-        });
-        schemaText += JSON.stringify(jsonSchema, null, 2);
+        try {
+          const jsonSchema = toJSONSchema(object(def.args), {
+            target: "draft-2020-12",
+            unrepresentable: "any"
+          });
+          schemaText += JSON.stringify(jsonSchema, null, 2);
+        } catch {
+          const fallback = {};
+          for (const [key, val] of Object.entries(def.args)) {
+            const desc = val && typeof val === "object" && "description" in val ? val.description : undefined;
+            fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
+          }
+          schemaText += JSON.stringify({
+            type: "object",
+            properties: fallback,
+            note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters."
+          }, null, 2);
+        }
       } else {
         schemaText += "This tool takes no input parameters.";
       }
@@ -106663,5 +106677,5 @@ export {
   app
 };
 
-//# debugId=11E2C28C7E95532664756E2164756E21
+//# debugId=22B18585A5DB60FB64756E2164756E21
 //# sourceMappingURL=mcp-server.js.map
