@@ -104,12 +104,137 @@ try {
   assert(execResult.result != null, "execute_tool returns a result");
   assert(execResult.result.content?.[0]?.type === "text", "result has text content");
 
-  // 5. Execute tool with base64 body (binary upload must not crash with double-parse)
+  // 5. list_tools with search filter
+  console.log("Test: list_tools with search_terms");
+  const filteredResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(5, "tools/call", {
+      name: "list_tools",
+      arguments: { search_terms: ["invoice"] },
+    }),
+  });
+  const filtered = parseSSE(await filteredResp.text());
+  const filteredTools = JSON.parse(filtered.result.content[0].text);
+  assert(Array.isArray(filteredTools), "filtered list_tools returns an array");
+  assert(filteredTools.length > 0, "search for 'invoice' returns results");
+  assert(filteredTools.length < tools.length, "filtered results are a subset");
+  assert(
+    filteredTools.every((t) => {
+      const hay = `${t.name} ${t.description}`.toLowerCase();
+      return hay.includes("invoice");
+    }),
+    "all filtered results match search term",
+  );
+
+  // 6. list_tools with no-match filter returns empty
+  console.log("Test: list_tools with non-matching search");
+  const emptyFilterResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(6, "tools/call", {
+      name: "list_tools",
+      arguments: { search_terms: ["zzz_nonexistent_zzz"] },
+    }),
+  });
+  const emptyFilter = parseSSE(await emptyFilterResp.text());
+  const emptyTools = JSON.parse(emptyFilter.result.content[0].text);
+  assert(Array.isArray(emptyTools) && emptyTools.length === 0, "non-matching search returns empty array");
+
+  // 7. describe_tool_input with unknown tool
+  console.log("Test: describe_tool_input with unknown tool");
+  const descUnknownResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(7, "tools/call", {
+      name: "describe_tool_input",
+      arguments: { tool_names: ["nonexistent-tool-xyz"] },
+    }),
+  });
+  const descUnknown = parseSSE(await descUnknownResp.text());
+  assert(!descUnknown.result.isError, "describe unknown tool does not set isError");
+  assert(
+    descUnknown.result.content[0].text.includes("Unknown tools: nonexistent-tool-xyz"),
+    "describe unknown tool lists unknown name",
+  );
+
+  // 8. describe_tool_input with empty array
+  console.log("Test: describe_tool_input with empty array");
+  const descEmptyResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(8, "tools/call", {
+      name: "describe_tool_input",
+      arguments: { tool_names: [] },
+    }),
+  });
+  const descEmpty = parseSSE(await descEmptyResp.text());
+  assert(!descEmpty.result.isError, "describe empty array does not set isError");
+  assert(
+    descEmpty.result.content[0].text === "No tool names provided.",
+    "describe empty array returns expected message",
+  );
+
+  // 9. describe_tool_input with mix of valid and unknown tools
+  console.log("Test: describe_tool_input mixed valid/unknown");
+  const descMixResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(9, "tools/call", {
+      name: "describe_tool_input",
+      arguments: { tool_names: [tools[0].name, "fake-tool"] },
+    }),
+  });
+  const descMix = parseSSE(await descMixResp.text());
+  assert(!descMix.result.isError, "describe mixed does not set isError");
+  const mixText = descMix.result.content[0].text;
+  assert(mixText.includes("input_schema"), "mixed response includes valid schema");
+  assert(mixText.includes("Unknown tools: fake-tool"), "mixed response lists unknown tool");
+
+  // 10. execute_tool with unknown tool
+  console.log("Test: execute_tool with unknown tool");
+  const execUnknownResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(10, "tools/call", {
+      name: "execute_tool",
+      arguments: { tool_name: "nonexistent-tool-xyz", input: {} },
+    }),
+  });
+  const execUnknown = parseSSE(await execUnknownResp.text());
+  assert(execUnknown.result.isError === true, "execute unknown tool sets isError");
+  assert(
+    execUnknown.result.content[0].text.includes("Unknown tool"),
+    "execute unknown tool returns error message",
+  );
+
+  // 11. execute_tool with invalid input (missing required fields)
+  console.log("Test: execute_tool with invalid input");
+  const execInvalidResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(11, "tools/call", {
+      name: "execute_tool",
+      arguments: {
+        tool_name: tools[0].name,
+        input: { request: { invalid_field: "bad" } },
+      },
+    }),
+  });
+  const execInvalid = parseSSE(await execInvalidResp.text());
+  assert(execInvalid.result != null, "execute with invalid input returns a result");
+  // Should get either a validation error or an API error, but not crash
+  assert(
+    execInvalid.result.content?.[0]?.type === "text",
+    "invalid input returns text content",
+  );
+
+  // 12. Execute tool with base64 body (binary upload must not crash with double-parse)
   console.log("Test: execute_tool with base64 body (binary upload)");
   const uploadResp = await fetch(BASE, {
     method: "POST",
     headers: HEADERS,
-    body: rpc(5, "tools/call", {
+    body: rpc(12, "tools/call", {
       name: "execute_tool",
       arguments: {
         tool_name: "accounting-attachments-upload",
@@ -132,12 +257,29 @@ try {
     "base64 body is not double-transformed to Uint8Array",
   );
 
-  // 6. Invalid method returns error
+  // 13. execute_tool without input (omitted optional param)
+  console.log("Test: execute_tool without input param");
+  const execNoInputResp = await fetch(BASE, {
+    method: "POST",
+    headers: HEADERS,
+    body: rpc(13, "tools/call", {
+      name: "execute_tool",
+      arguments: { tool_name: tools[0].name },
+    }),
+  });
+  const execNoInput = parseSSE(await execNoInputResp.text());
+  assert(execNoInput.result != null, "execute without input returns a result");
+  assert(
+    execNoInput.result.content?.[0]?.type === "text",
+    "execute without input returns text content",
+  );
+
+  // 14. Invalid method returns error
   console.log("Test: invalid method");
   const badResp = await fetch(BASE, {
     method: "POST",
     headers: HEADERS,
-    body: rpc(6, "nonexistent/method", {}),
+    body: rpc(14, "nonexistent/method", {}),
   });
   const bad = parseSSE(await badResp.text());
   assert(bad.error != null, "invalid method returns JSON-RPC error");
