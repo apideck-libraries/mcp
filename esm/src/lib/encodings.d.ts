@@ -48,5 +48,6 @@ export declare const encodeSpaceDelimitedQuery: BulkQueryEncoder;
 export declare const encodePipeDelimitedQuery: BulkQueryEncoder;
 export declare const encodeDeepObjectQuery: BulkQueryEncoder;
 export declare function appendForm(fd: FormData, key: string, value: unknown, fileName?: string): void;
+export declare function normalizeBlob(value: Pick<Blob, "arrayBuffer" | "type">): Promise<Blob>;
 export {};
 //# sourceMappingURL=encodings.d.ts.map

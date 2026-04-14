@@ -1,12 +1,12 @@
-speakeasyVersion: 1.761.1
+speakeasyVersion: 1.761.4
 sources:
     apideck-unify:
         sourceNamespace: apideck-unify
-        sourceRevisionDigest: sha256:034ac011ab19f3e1d0c617eef80e5d141f4098a25ad3b7c7c9c813d0e693fa35
-        sourceBlobDigest: sha256:9ca3d4e6c746a8c7ab473923854c87c20b41ca5446f760de4dcd3195d322728f
+        sourceRevisionDigest: sha256:e7a568513a53fedb193c034cec497d40b0f6d5702d8d695aa370e0e18aa89d1e
+        sourceBlobDigest: sha256:fc73047902a64c3fb98014de2c09339f37e70e7817ae2ff7b34bffbcd28f16c9
         tags:
             - latest
-            - 10.24.21
+            - 10.24.22
 targets:
     accounting-mcp:
         source: apideck-unify
@@ -16,8 +16,8 @@ targets:
     unify-mcp:
         source: apideck-unify
         sourceNamespace: apideck-unify
-        sourceRevisionDigest: sha256:034ac011ab19f3e1d0c617eef80e5d141f4098a25ad3b7c7c9c813d0e693fa35
-        sourceBlobDigest: sha256:9ca3d4e6c746a8c7ab473923854c87c20b41ca5446f760de4dcd3195d322728f
+        sourceRevisionDigest: sha256:e7a568513a53fedb193c034cec497d40b0f6d5702d8d695aa370e0e18aa89d1e
+        sourceBlobDigest: sha256:fc73047902a64c3fb98014de2c09339f37e70e7817ae2ff7b34bffbcd28f16c9
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

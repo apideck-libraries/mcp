@@ -380,4 +380,10 @@ export function appendForm(fd, key, value, fileName) {
         fd.append(key, String(value));
     }
 }
+export async function normalizeBlob(value) {
+    if (value instanceof Blob) {
+        return value;
+    }
+    return new Blob([await value.arrayBuffer()], { type: value.type });
+}
 //# sourceMappingURL=encodings.js.map
