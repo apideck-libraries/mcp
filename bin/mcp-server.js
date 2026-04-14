@@ -51656,9 +51656,10 @@ function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
     }
     let validatedInput = {};
     if (def.args) {
-      const vres = object(def.args).safeParse(args.input ?? {});
+      const rawInput = args.input ?? {};
+      const vres = object(def.args).safeParse(rawInput);
       if (vres.success) {
-        validatedInput = vres.data;
+        validatedInput = rawInput;
       } else {
         const issues = prettifyError(vres.error);
         return {
@@ -106677,5 +106678,5 @@ export {
   app
 };
 
-//# debugId=22B18585A5DB60FB64756E2164756E21
+//# debugId=93FD3249BA29174A64756E2164756E21
 //# sourceMappingURL=mcp-server.js.map

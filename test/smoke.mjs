@@ -250,10 +250,11 @@ try {
   });
   const uploadResult = parseSSE(await uploadResp.text());
   assert(uploadResult.result != null, "upload returns a result");
-  // Verify server does not crash on binary upload; it should return a structured response
+  // Should get an auth/API error, NOT an "expected string, received Uint8Array" validation error
+  const uploadText = uploadResult.result.content?.[0]?.text ?? "";
   assert(
-    uploadResult.result.content?.[0]?.type === "text",
-    "upload returns text content (no crash)",
+    !uploadText.includes("expected string, received Uint8Array"),
+    "base64 body is not double-transformed to Uint8Array",
   );
 
   // 13. execute_tool without input (omitted optional param)
