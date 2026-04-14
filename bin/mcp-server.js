@@ -50503,10 +50503,10 @@ var init_config = __esm(() => {
   ];
   SDK_METADATA = {
     language: "typescript",
-    openapiDocVersion: "10.24.21",
-    sdkVersion: "0.1.8",
-    genVersion: "2.879.6",
-    userAgent: "speakeasy-sdk/mcp-typescript 0.1.8 2.879.6 10.24.21 @apideck/mcp"
+    openapiDocVersion: "10.24.22",
+    sdkVersion: "0.1.9",
+    genVersion: "2.879.13",
+    userAgent: "speakeasy-sdk/mcp-typescript 0.1.9 2.879.13 10.24.22 @apideck/mcp"
   };
 });
 
@@ -101164,7 +101164,7 @@ Note:
 function createMCPServer(deps) {
   const server = new McpServer({
     name: "ApideckMcp",
-    version: "0.1.8"
+    version: "0.1.9"
   });
   const getClient = deps.getSDK || (() => new ApideckMcpCore({
     security: deps.security,
@@ -103979,7 +103979,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "consumer-id" = "YOUR_CONSUMER_ID",
         <h1>Instructions</h1>
         <p>One-click installation for Claude Desktop users</p>
         <div class="instruction-item">
-          <a href="https://github.com/apideck-libraries/mcp/releases/download/v0.1.8/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
+          <a href="https://github.com/apideck-libraries/mcp/releases/download/v0.1.9/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
             \uD83D\uDCE5 Download MCP Bundle
           </a>
         </div>
@@ -106655,7 +106655,7 @@ var routes = buildRouteMap({
 var app = buildApplication(routes, {
   name: "mcp",
   versionInfo: {
-    currentVersion: "0.1.8"
+    currentVersion: "0.1.9"
   }
 });
 run(app, process4.argv.slice(2), buildContext(process4));
@@ -106663,5 +106663,5 @@ export {
   app
 };
 
-//# debugId=8B22CCEDB2A480F164756E2164756E21
+//# debugId=11E2C28C7E95532664756E2164756E21
 //# sourceMappingURL=mcp-server.js.map

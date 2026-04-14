@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "@apideck/mcp",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "",
   "long_description": "Apideck: The Apideck OpenAPI Spec: SDK Optimized",
   "author": {

@@ -23,8 +23,8 @@ export declare const ConnectorSettingType$zodSchema: z.ZodEnum<{
     url: "url";
     date: "date";
     password: "password";
-    time: "time";
     text: "text";
+    time: "time";
     datetime: "datetime";
     checkbox: "checkbox";
     tel: "tel";
