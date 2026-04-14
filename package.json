@@ -13,7 +13,7 @@
     "mcp": "bin/mcp-server.js"
   },
   "scripts": {
-    "build": "bun i && bun src/mcp-server/build.mts && tsc",
+    "build": "bun i && bun src/mcp-server/build.mts && NODE_OPTIONS=--max-old-space-size=4096 tsc",
     "mcpb:build": "bun i && bun src/mcp-server/build.mts --pack && tsc",
     "types": "wrangler types",
     "dev": "wrangler dev",
