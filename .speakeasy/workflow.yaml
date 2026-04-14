@@ -12,3 +12,6 @@ targets:
     unify-mcp:
         target: mcp-typescript
         source: apideck-unify
+        publish:
+            npm:
+                token: $npm_token
