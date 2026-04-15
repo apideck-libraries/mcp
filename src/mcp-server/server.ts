@@ -262,7 +262,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "ApideckMcp",
-    version: "0.1.9",
+    version: "0.1.10",
   });
 
   const getClient = deps.getSDK || (() =>
