@@ -25,3 +25,11 @@ jobs:
 
       - name: Smoke test
         run: node test/smoke.mjs
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel production deploy
+        run: curl -sS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
