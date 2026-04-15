@@ -32,7 +32,7 @@ generation:
     skipResponseBodyAssertions: false
   schemaPath: https://ci-spec-unify.s3.eu-central-1.amazonaws.com/speakeasy-spec.yml
 mcp-typescript:
-  version: 0.1.9
+  version: 0.1.10
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
