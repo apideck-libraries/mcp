@@ -33,8 +33,22 @@ sed -i.bak 's/values: \["dynamic"\],$/values: ["dynamic"],\n        default: "dy
 sed -i.bak 's/values: \["dynamic"\],$/values: ["dynamic"],\n        default: "dynamic",/' src/mcp-server/cli/serve/command.ts
 rm -f src/mcp-server/cli/start/command.ts.bak src/mcp-server/cli/serve/command.ts.bak
 
+# Fix 4: Restore Vercel deployment requirements
+# Speakeasy regen overwrites package.json (dropping @vercel/functions)
+# and .gitignore (adding /bin and /esm which must be tracked for Vercel
+# since buildCommand is empty).
+if ! grep -q '@vercel/functions' package.json; then
+  sed -i.bak 's/"@stricli\/core": "\^1.1.2",/"@stricli\/core": "^1.1.2",\n    "@vercel\/functions": "^3.4.3",/' package.json
+  rm -f package.json.bak
+  echo "  - package.json: restored @vercel/functions dependency"
+fi
+sed -i.bak '/^\/bin$/d; /^\/esm$/d' .gitignore
+rm -f .gitignore.bak
+
 echo "Post-generation fixes applied."
 echo "  - tools.ts: describe_tool_input with unrepresentable: 'any' + try/catch"
 echo "  - tools.ts: execute_tool raw input to prevent binary double-parse"
 echo "  - wrangler.toml: worker name + sqlite migration"
 echo "  - start/serve: dynamic mode is now the default"
+echo "  - package.json: @vercel/functions dependency preserved"
+echo "  - .gitignore: /bin and /esm kept tracked for Vercel deploy"
