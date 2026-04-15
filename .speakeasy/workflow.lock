@@ -1,0 +1,35 @@
+speakeasyVersion: 1.761.5
+sources:
+    apideck-unify:
+        sourceNamespace: apideck-unify
+        sourceRevisionDigest: sha256:ae6f48ef43023ea547f77c0fcf32432fe9048015aa6376efc1824bd3c060b676
+        sourceBlobDigest: sha256:b8d28058941b2a696113848a92537b7faaf0672c7f06ccda6450c7a259b26199
+        tags:
+            - latest
+            - 10.24.23
+targets:
+    accounting-mcp:
+        source: apideck-unify
+        sourceNamespace: apideck-unify
+        sourceRevisionDigest: sha256:badfc5960efe096f41836facaa9f994b39ada9031dccf377b5374dfbca4332f9
+        sourceBlobDigest: sha256:7960add33ed47beb541eb2d94434f54d89553c4115263ba79e0169d101a5ec3f
+    unify-mcp:
+        source: apideck-unify
+        sourceNamespace: apideck-unify
+        sourceRevisionDigest: sha256:ae6f48ef43023ea547f77c0fcf32432fe9048015aa6376efc1824bd3c060b676
+        sourceBlobDigest: sha256:b8d28058941b2a696113848a92537b7faaf0672c7f06ccda6450c7a259b26199
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        apideck-unify:
+            inputs:
+                - location: https://ci-spec-unify.s3.eu-central-1.amazonaws.com/speakeasy-spec.yml
+            overlays:
+                - location: ./mcp-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/apideck-k2o/apideck/apideck-unify
+    targets:
+        unify-mcp:
+            target: mcp-typescript
+            source: apideck-unify

@@ -1,0 +1,62 @@
+name: Generate
+
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force regeneration even if spec hasn't changed
+        type: boolean
+        default: false
+  schedule:
+    # Check for spec changes daily at 6am UTC
+    - cron: "0 6 * * *"
+
+jobs:
+  generate:
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/workflow-executor.yaml@v15
+    with:
+      force: ${{ github.event.inputs.force }}
+      mode: pr
+      speakeasy_version: latest
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+
+  post-generate:
+    needs: generate
+    runs-on: ubuntu-latest
+    if: always() && needs.generate.result == 'success'
+    steps:
+      - name: Find Speakeasy PR branch
+        id: find-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH=$(gh pr list --repo "${{ github.repository }}" \
+            --author "app/speakeasybot" --state open --json headRefName \
+            --jq '.[0].headRefName // empty')
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.find-branch.outputs.branch != ''
+        with:
+          ref: ${{ steps.find-branch.outputs.branch }}
+
+      - name: Apply post-generation fixes
+        if: steps.find-branch.outputs.branch != ''
+        run: ./post-generate.sh
+
+      - name: Commit fixes
+        if: steps.find-branch.outputs.branch != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Apply post-generation fixes (Zod transforms + wrangler)"
+          git push

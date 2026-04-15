@@ -1,0 +1,37 @@
+import * as z from "zod";
+import { Currency } from "./currency.js";
+import { CustomFieldUnion } from "./customfieldunion.js";
+import { PassThroughBody } from "./passthroughbody.js";
+export type OpportunityInput = {
+    title: string;
+    primary_contact_id?: string | null | undefined;
+    description?: string | null | undefined;
+    type?: string | null | undefined;
+    monetary_amount?: number | null | undefined;
+    currency?: Currency | null | undefined;
+    win_probability?: number | null | undefined;
+    close_date?: string | null | undefined;
+    loss_reason_id?: string | null | undefined;
+    loss_reason?: string | null | undefined;
+    won_reason_id?: string | null | undefined;
+    won_reason?: string | null | undefined;
+    pipeline_id?: string | null | undefined;
+    pipeline_stage_id?: string | null | undefined;
+    source_id?: string | null | undefined;
+    lead_id?: string | null | undefined;
+    lead_source?: string | null | undefined;
+    contact_id?: string | null | undefined;
+    contact_ids?: Array<string> | undefined;
+    company_id?: string | null | undefined;
+    company_name?: string | null | undefined;
+    owner_id?: string | null | undefined;
+    priority?: string | null | undefined;
+    status?: string | null | undefined;
+    status_id?: string | null | undefined;
+    tags?: Array<string> | null | undefined;
+    custom_fields?: Array<CustomFieldUnion> | undefined;
+    stage_last_changed_at?: string | null | undefined;
+    pass_through?: Array<PassThroughBody> | undefined;
+};
+export declare const OpportunityInput$zodSchema: z.ZodType<OpportunityInput>;
+//# sourceMappingURL=opportunityinput.d.ts.map

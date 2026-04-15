@@ -1,0 +1,1 @@
+{"version":3,"file":"payrollsfilter.d.ts","sourceRoot":"","sources":["../../../src/models/payrollsfilter.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,cAAc,GAAG;IAC3B,UAAU,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IAChC,QAAQ,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;CAC/B,CAAC;AAEF,eAAO,MAAM,wBAAwB,EAAE,CAAC,CAAC,OAAO,CAAC,cAAc,CAO7D,CAAC"}

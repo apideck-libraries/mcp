@@ -1,0 +1,1 @@
+{"version":3,"file":"refundsfilter.d.ts","sourceRoot":"","sources":["../../../src/models/refundsfilter.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,aAAa,GAAG;IAC1B,aAAa,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IACnC,WAAW,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;CAClC,CAAC;AAEF,eAAO,MAAM,uBAAuB,EAAE,CAAC,CAAC,OAAO,CAAC,aAAa,CAG3D,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"linkedtaxstatusdetail.d.ts","sourceRoot":"","sources":["../../../src/models/linkedtaxstatusdetail.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,qBAAqB,GAAG;IAClC,OAAO,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IAC7B,sBAAsB,CAAC,EAAE,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;CACpD,CAAC;AAEF,eAAO,MAAM,+BAA+B,EAAE,CAAC,CAAC,OAAO,CAAC,qBAAqB,CAMzE,CAAC"}

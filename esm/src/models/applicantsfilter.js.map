@@ -1,0 +1,1 @@
+{"version":3,"file":"applicantsfilter.js","sourceRoot":"","sources":["../../../src/models/applicantsfilter.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAIzB,MAAM,CAAC,MAAM,0BAA0B,GAAgC,CAAC,CAAC,MAAM,CAC7E;IACE,MAAM,EAAE,CAAC,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE,CAAC,QAAQ,CAAC,4BAA4B,CAAC;CACrE,CACF,CAAC"}

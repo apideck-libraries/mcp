@@ -1,0 +1,94 @@
+name: Manual Publish to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Semver bump type"
+        required: true
+        type: choice
+        default: patch
+        options:
+          - patch
+          - minor
+          - major
+          - prepatch
+          - preminor
+          - premajor
+      version:
+        description: "Exact version (overrides bump if set, e.g. 1.0.0-beta.1)"
+        required: false
+        type: string
+      dry_run:
+        description: "Dry run (build and pack only, skip publish/commit/tag)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Bump version
+        id: bump
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_BUMP: ${{ inputs.bump }}
+        run: |
+          if [[ -n "$INPUT_VERSION" ]]; then
+            npm version "$INPUT_VERSION" --no-git-tag-version
+          else
+            npm version "$INPUT_BUMP" --no-git-tag-version
+          fi
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Bumped to $VERSION"
+
+      - name: Sync version to gen.yaml and gen.lock
+        run: |
+          sed -i "s/^  version: .*/  version: ${{ steps.bump.outputs.version }}/" .speakeasy/gen.yaml
+          echo "gen.yaml version updated:"
+          grep "version:" .speakeasy/gen.yaml
+          git diff --exit-code .speakeasy/gen.yaml && echo "ERROR: gen.yaml was not updated" && exit 1 || true
+
+          sed -i "s/^  releaseVersion: .*/  releaseVersion: ${{ steps.bump.outputs.version }}/" .speakeasy/gen.lock
+          echo "gen.lock releaseVersion updated:"
+          grep "releaseVersion:" .speakeasy/gen.lock
+          git diff --exit-code .speakeasy/gen.lock && echo "ERROR: gen.lock was not updated" && exit 1 || true
+
+      - name: Build
+        run: npm run build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+
+      - name: Commit and tag
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json .speakeasy/gen.yaml .speakeasy/gen.lock
+          git commit -m "release: v${{ steps.bump.outputs.version }}"
+          git tag "v${{ steps.bump.outputs.version }}"
+          git push origin main --follow-tags
+
+      - name: Publish
+        if: ${{ !inputs.dry_run }}
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish (dry run)
+        if: ${{ inputs.dry_run }}
+        run: npm publish --dry-run --access public

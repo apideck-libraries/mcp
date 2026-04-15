@@ -1,0 +1,1 @@
+{"version":3,"file":"updateconsumerrequest.js","sourceRoot":"","sources":["../../../src/models/updateconsumerrequest.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AACzB,OAAO,EAEL,0BAA0B,GAC3B,MAAM,uBAAuB,CAAC;AAI/B,MAAM,CAAC,MAAM,+BAA+B,GAC1C,CAAC,CAAC,MAAM,CAAC;IACP,QAAQ,EAAE,0BAA0B,CAAC,QAAQ,EAAE,CAAC,QAAQ,CACtD,uHAAuH,CACxH;CACF,CAAC,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"apisfilter.d.ts","sourceRoot":"","sources":["../../../src/models/apisfilter.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AACzB,OAAO,EAAE,SAAS,EAAuB,MAAM,gBAAgB,CAAC;AAEhE,MAAM,MAAM,UAAU,GAAG;IAAE,MAAM,CAAC,EAAE,SAAS,GAAG,SAAS,CAAA;CAAE,CAAC;AAE5D,eAAO,MAAM,oBAAoB,EAAE,CAAC,CAAC,OAAO,CAAC,UAAU,CAIrD,CAAC"}

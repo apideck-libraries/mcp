@@ -1,0 +1,34 @@
+import * as z from "zod";
+import { LineItemType } from "./lineitemtype.js";
+import { LinkedCustomer } from "./linkedcustomer.js";
+import { LinkedDepartment } from "./linkeddepartment.js";
+import { LinkedInvoiceItem } from "./linkedinvoiceitem.js";
+import { LinkedLedgerAccount } from "./linkedledgeraccount.js";
+import { LinkedLocation } from "./linkedlocation.js";
+import { LinkedTaxRate } from "./linkedtaxrate.js";
+import { LinkedTrackingCategory } from "./linkedtrackingcategory.js";
+import { Rebilling } from "./rebilling.js";
+export type ExpenseLineItem = {
+    id?: string | undefined;
+    tracking_categories?: Array<LinkedTrackingCategory | null> | null | undefined;
+    account_id?: string | undefined;
+    account?: LinkedLedgerAccount | null | undefined;
+    customer_id?: string | undefined;
+    customer?: LinkedCustomer | null | undefined;
+    department_id?: string | null | undefined;
+    department?: LinkedDepartment | null | undefined;
+    location_id?: string | null | undefined;
+    location?: LinkedLocation | null | undefined;
+    tax_rate?: LinkedTaxRate | undefined;
+    description?: string | null | undefined;
+    type?: LineItemType | null | undefined;
+    total_amount: number | null;
+    tax_amount?: number | null | undefined;
+    quantity?: number | null | undefined;
+    unit_price?: number | null | undefined;
+    item?: LinkedInvoiceItem | undefined;
+    line_number?: number | null | undefined;
+    rebilling?: Rebilling | null | undefined;
+};
+export declare const ExpenseLineItem$zodSchema: z.ZodType<ExpenseLineItem>;
+//# sourceMappingURL=expenselineitem.d.ts.map

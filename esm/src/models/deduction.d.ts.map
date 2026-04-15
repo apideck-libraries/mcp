@@ -1,0 +1,1 @@
+{"version":3,"file":"deduction.d.ts","sourceRoot":"","sources":["../../../src/models/deduction.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,SAAS,GAAG;IACtB,IAAI,CAAC,EAAE,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;IACjC,MAAM,CAAC,EAAE,MAAM,GAAG,IAAI,GAAG,SAAS,CAAC;CACpC,CAAC;AAEF,eAAO,MAAM,mBAAmB,EAAE,CAAC,CAAC,OAAO,CAAC,SAAS,CAGnD,CAAC"}

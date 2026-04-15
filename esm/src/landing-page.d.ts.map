@@ -1,0 +1,1 @@
+{"version":3,"file":"landing-page.d.ts","sourceRoot":"","sources":["../../src/landing-page.ts"],"names":[],"mappings":"AAIA,OAAO,EACL,OAAO,IAAI,cAAc,EACzB,QAAQ,IAAI,eAAe,EAC5B,MAAM,SAAS,CAAC;AAIjB,wBAAgB,WAAW,CAAC,GAAG,EAAE,OAAO,GAAG,QAAQ,CAKlD;AAGD,wBAAgB,kBAAkB,CAAC,GAAG,EAAE,cAAc,EAAE,GAAG,EAAE,eAAe,QAG3E;AAED,wBAAgB,eAAe,CAAC,MAAM,EAAE,MAAM,GAAG,MAAM,CA0hCtD"}

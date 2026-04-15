@@ -1,0 +1,55 @@
+import * as z from "zod";
+import { ClosedEnum } from "../types/enums.js";
+import { FormFieldOption } from "./formfieldoption.js";
+export declare const FormFieldType: {
+    readonly Text: "text";
+    readonly Checkbox: "checkbox";
+    readonly Tel: "tel";
+    readonly Email: "email";
+    readonly Url: "url";
+    readonly Textarea: "textarea";
+    readonly Select: "select";
+    readonly FilteredSelect: "filtered-select";
+    readonly MultiSelect: "multi-select";
+    readonly Datetime: "datetime";
+    readonly Date: "date";
+    readonly Time: "time";
+    readonly Number: "number";
+    readonly Password: "password";
+};
+export type FormFieldType = ClosedEnum<typeof FormFieldType>;
+export declare const FormFieldType$zodSchema: z.ZodEnum<{
+    number: "number";
+    email: "email";
+    url: "url";
+    date: "date";
+    password: "password";
+    text: "text";
+    time: "time";
+    datetime: "datetime";
+    checkbox: "checkbox";
+    tel: "tel";
+    textarea: "textarea";
+    select: "select";
+    "filtered-select": "filtered-select";
+    "multi-select": "multi-select";
+}>;
+export type FormField = {
+    id?: string | undefined;
+    label?: string | undefined;
+    placeholder?: string | null | undefined;
+    description?: string | null | undefined;
+    type?: FormFieldType | undefined;
+    required?: boolean | undefined;
+    custom_field?: boolean | undefined;
+    allow_custom_values?: boolean | undefined;
+    disabled?: boolean | null | undefined;
+    hidden?: boolean | null | undefined;
+    deprecated?: boolean | null | undefined;
+    sensitive?: boolean | null | undefined;
+    prefix?: string | null | undefined;
+    suffix?: string | null | undefined;
+    options?: Array<FormFieldOption> | undefined;
+};
+export declare const FormField$zodSchema: z.ZodType<FormField>;
+//# sourceMappingURL=formfield.d.ts.map

@@ -1,0 +1,240 @@
+overlay: 1.0.0
+info:
+  title: Apideck MCP Overlay — Accounting, Filestorage, Hris, Vault, Proxy
+  version: 0.0.1
+actions:
+- target: $.paths["/ats/applicants"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ats/applicants/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ats/applications"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ats/applications/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ats/jobs"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ats/jobs/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/apis"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/apis/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/apis/{id}/resources/{resource_id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/apis/{id}/resources/{resource_id}/coverage"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/connectors"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/connectors/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/connectors/{id}/docs/{doc_id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/connector/connectors/{id}/resources/{resource_id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/activities"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/activities/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/companies"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/companies/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/contacts"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/contacts/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/custom-object-schemas"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/custom-object-schemas/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/custom-objects/{object_id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/custom-objects/{object_id}/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/leads"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/leads/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/notes"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/notes/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/opportunities"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/opportunities/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/pipelines"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/pipelines/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/users"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/crm/users/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/customers"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/customers/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/orders"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/orders/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/products"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/products/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/ecommerce/store"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/tags"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/tickets"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/tickets/{ticket_id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/tickets/{ticket_id}/comments"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/tickets/{ticket_id}/comments/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/users"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/issue-tracking/collections/{collection_id}/users/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/sms/messages"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/sms/messages/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/webhook/logs"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/webhook/webhooks"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths["/webhook/webhooks/{id}"].*
+  update:
+    x-speakeasy-mcp:
+      disabled: true
+- target: $.paths.*["get","head"]
+  update:
+    x-speakeasy-mcp:
+      scopes:
+      - read
+- target: $.paths.*["post","put","patch"]
+  update:
+    x-speakeasy-mcp:
+      scopes:
+      - write
+- target: $.paths.*["delete"]
+  update:
+    x-speakeasy-mcp:
+      scopes:
+      - destructive

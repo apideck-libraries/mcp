@@ -1,0 +1,1 @@
+{"version":3,"file":"supportedproperty.d.ts","sourceRoot":"","sources":["../../../src/models/supportedproperty.ts"],"names":[],"mappings":"AAIA,OAAO,KAAK,CAAC,MAAM,KAAK,CAAC;AAEzB,MAAM,MAAM,iBAAiB,GAAG;IAC9B,gBAAgB,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IACtC,gBAAgB,CAAC,EAAE,KAAK,CAAC,iBAAiB,CAAC,GAAG,SAAS,CAAC;CACzD,CAAC;AAEF,eAAO,MAAM,2BAA2B,EAAE,CAAC,CAAC,OAAO,CAAC,iBAAiB,CAOjE,CAAC"}
