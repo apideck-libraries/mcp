@@ -25,6 +25,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.26.0",
     "@stricli/core": "^1.1.2",
+    "@vercel/functions": "^3.4.3",
     "agents": "0.3.10",
     "express": "^5.1.0",
     "zod": "^4.0.0"

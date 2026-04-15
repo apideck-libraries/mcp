@@ -31,16 +31,29 @@ jobs:
   post-generate:
     needs: generate
     runs-on: ubuntu-latest
-    if: always() && needs.generate.result == 'success' && needs.generate.outputs.branch_name != ''
+    if: always() && needs.generate.result == 'success'
     steps:
+      - name: Find Speakeasy PR branch
+        id: find-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH=$(gh pr list --repo "${{ github.repository }}" \
+            --author "app/speakeasybot" --state open --json headRefName \
+            --jq '.[0].headRefName // empty')
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v4
+        if: steps.find-branch.outputs.branch != ''
         with:
-          ref: ${{ needs.generate.outputs.branch_name }}
+          ref: ${{ steps.find-branch.outputs.branch }}
 
       - name: Apply post-generation fixes
+        if: steps.find-branch.outputs.branch != ''
         run: ./post-generate.sh
 
       - name: Commit fixes
+        if: steps.find-branch.outputs.branch != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
