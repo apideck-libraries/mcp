@@ -43,11 +43,14 @@ jobs:
 
       - name: Bump version
         id: bump
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_BUMP: ${{ inputs.bump }}
         run: |
-          if [[ -n "${{ inputs.version }}" ]]; then
-            npm version "${{ inputs.version }}" --no-git-tag-version
+          if [[ -n "$INPUT_VERSION" ]]; then
+            npm version "$INPUT_VERSION" --no-git-tag-version
           else
-            npm version "${{ inputs.bump }}" --no-git-tag-version
+            npm version "$INPUT_BUMP" --no-git-tag-version
           fi
           VERSION=$(node -p "require('./package.json').version")
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
@@ -55,24 +58,15 @@ jobs:
 
       - name: Sync version to gen.yaml
         run: |
-          sed -i "s/^    version: .*/    version: ${{ steps.bump.outputs.version }}/" .speakeasy/gen.yaml
+          sed -i "s/^  version: .*/  version: ${{ steps.bump.outputs.version }}/" .speakeasy/gen.yaml
           echo "gen.yaml version updated:"
           grep "version:" .speakeasy/gen.yaml
+          git diff --exit-code .speakeasy/gen.yaml && echo "ERROR: gen.yaml was not updated" && exit 1 || true
 
       - name: Build
         run: npm run build
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
-
-      - name: Publish
-        if: ${{ !inputs.dry_run }}
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish (dry run)
-        if: ${{ inputs.dry_run }}
-        run: npm publish --dry-run --access public
 
       - name: Commit and tag
         if: ${{ !inputs.dry_run }}
@@ -83,3 +77,13 @@ jobs:
           git commit -m "release: v${{ steps.bump.outputs.version }}"
           git tag "v${{ steps.bump.outputs.version }}"
           git push origin main --follow-tags
+
+      - name: Publish
+        if: ${{ !inputs.dry_run }}
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish (dry run)
+        if: ${{ inputs.dry_run }}
+        run: npm publish --dry-run --access public
