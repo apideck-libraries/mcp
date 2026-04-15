@@ -16,6 +16,13 @@ sed -i.bak '/schemaText += JSON\.stringify(jsonSchema, null, 2);/c\          sch
 sed -i.bak 's/^        const jsonSchema = try/        try/' src/mcp-server/tools.ts
 rm -f src/mcp-server/tools.ts.bak
 
+# Fix 1b: execute_tool — use raw input to prevent binary upload double-parse
+# Speakeasy regen uses `vres.data` (transformed) which breaks base64 uploads.
+# The SDK re-parses input, so we must pass the original untransformed values.
+sed -i.bak 's/const vres = z\.object(def\.args)\.safeParse(args\.input ?? {});/const rawInput = args.input ?? {};\n      const vres = z.object(def.args).safeParse(rawInput);/' src/mcp-server/tools.ts
+sed -i.bak 's/validatedInput = vres\.data;/validatedInput = rawInput;/' src/mcp-server/tools.ts
+rm -f src/mcp-server/tools.ts.bak
+
 # Fix 2: wrangler.toml — fix worker name and use sqlite for free plan
 sed -i.bak 's/name = "@apideck\/mcp-mcp-server"/name = "apideck-mcp-server"/' wrangler.toml
 sed -i.bak 's/new_classes = /new_sqlite_classes = /' wrangler.toml
@@ -28,5 +35,6 @@ rm -f src/mcp-server/cli/start/command.ts.bak src/mcp-server/cli/serve/command.t
 
 echo "Post-generation fixes applied."
 echo "  - tools.ts: describe_tool_input with unrepresentable: 'any' + try/catch"
+echo "  - tools.ts: execute_tool raw input to prevent binary double-parse"
 echo "  - wrangler.toml: worker name + sqlite migration"
 echo "  - start/serve: dynamic mode is now the default"
