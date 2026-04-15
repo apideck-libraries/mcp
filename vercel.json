@@ -1,5 +1,4 @@
 {
-  "ignoreCommand": "[ \"$VERCEL_ENV\" != \"production\" ]",
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": null,
