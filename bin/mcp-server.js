@@ -50503,10 +50503,10 @@ var init_config = __esm(() => {
   ];
   SDK_METADATA = {
     language: "typescript",
-    openapiDocVersion: "10.24.22",
-    sdkVersion: "0.1.9",
+    openapiDocVersion: "10.24.23",
+    sdkVersion: "0.1.10",
     genVersion: "2.879.13",
-    userAgent: "speakeasy-sdk/mcp-typescript 0.1.9 2.879.13 10.24.22 @apideck/mcp"
+    userAgent: "speakeasy-sdk/mcp-typescript 0.1.10 2.879.13 10.24.23 @apideck/mcp"
   };
 });
 
@@ -51599,24 +51599,10 @@ function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
 
 `;
       if (def.args) {
-        try {
-          const jsonSchema = toJSONSchema(object(def.args), {
-            target: "draft-2020-12",
-            unrepresentable: "any"
-          });
-          schemaText += JSON.stringify(jsonSchema, null, 2);
-        } catch {
-          const fallback = {};
-          for (const [key, val] of Object.entries(def.args)) {
-            const desc = val && typeof val === "object" && "description" in val ? val.description : undefined;
-            fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
-          }
-          schemaText += JSON.stringify({
-            type: "object",
-            properties: fallback,
-            note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters."
-          }, null, 2);
-        }
+        const jsonSchema = toJSONSchema(object(def.args), {
+          target: "draft-2020-12"
+        });
+        schemaText += JSON.stringify(jsonSchema, null, 2);
       } else {
         schemaText += "This tool takes no input parameters.";
       }
@@ -51656,10 +51642,9 @@ function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
     }
     let validatedInput = {};
     if (def.args) {
-      const rawInput = args.input ?? {};
-      const vres = object(def.args).safeParse(rawInput);
+      const vres = object(def.args).safeParse(args.input ?? {});
       if (vres.success) {
-        validatedInput = rawInput;
+        validatedInput = vres.data;
       } else {
         const issues = prettifyError(vres.error);
         return {
@@ -101179,7 +101164,7 @@ Note:
 function createMCPServer(deps) {
   const server = new McpServer({
     name: "ApideckMcp",
-    version: "0.1.9"
+    version: "0.1.10"
   });
   const getClient = deps.getSDK || (() => new ApideckMcpCore({
     security: deps.security,
@@ -103994,7 +103979,7 @@ http_headers = { "api-key" = "YOUR_API_KEY", "consumer-id" = "YOUR_CONSUMER_ID",
         <h1>Instructions</h1>
         <p>One-click installation for Claude Desktop users</p>
         <div class="instruction-item">
-          <a href="https://github.com/apideck-libraries/mcp/releases/download/v0.1.9/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
+          <a href="https://github.com/apideck-libraries/mcp/releases/download/v0.1.10/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
             \uD83D\uDCE5 Download MCP Bundle
           </a>
         </div>
@@ -106670,7 +106655,7 @@ var routes = buildRouteMap({
 var app = buildApplication(routes, {
   name: "mcp",
   versionInfo: {
-    currentVersion: "0.1.9"
+    currentVersion: "0.1.10"
   }
 });
 run(app, process4.argv.slice(2), buildContext(process4));
@@ -106678,5 +106663,5 @@ export {
   app
 };
 
-//# debugId=93FD3249BA29174A64756E2164756E21
+//# debugId=CCFD0B2AA8F53BCF64756E2164756E21
 //# sourceMappingURL=mcp-server.js.map

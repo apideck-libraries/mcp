@@ -42,9 +42,9 @@ export type SDKOptions = {
 export declare function serverURLFromOptions(options: SDKOptions): URL | null;
 export declare const SDK_METADATA: {
     readonly language: "typescript";
-    readonly openapiDocVersion: "10.24.22";
-    readonly sdkVersion: "0.1.9";
+    readonly openapiDocVersion: "10.24.23";
+    readonly sdkVersion: "0.1.10";
     readonly genVersion: "2.879.13";
-    readonly userAgent: "speakeasy-sdk/mcp-typescript 0.1.9 2.879.13 10.24.22 @apideck/mcp";
+    readonly userAgent: "speakeasy-sdk/mcp-typescript 0.1.10 2.879.13 10.24.23 @apideck/mcp";
 };
 //# sourceMappingURL=config.d.ts.map
