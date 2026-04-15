@@ -9,8 +9,7 @@
     "url": "https://github.com/apideck-libraries/mcp.git"
   },
   "bin": {
-    "@apideck/mcp": "bin/mcp-server.js",
-    "mcp": "bin/mcp-server.js"
+    "apideck-mcp": "bin/mcp-server.js"
   },
   "scripts": {
     "build": "bun i && bun src/mcp-server/build.mts && NODE_OPTIONS=--max-old-space-size=4096 tsc",
