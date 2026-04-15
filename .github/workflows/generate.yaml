@@ -1,4 +1,4 @@
-name: Generate MCP Server
+name: Generate
 
 permissions:
   checks: write
