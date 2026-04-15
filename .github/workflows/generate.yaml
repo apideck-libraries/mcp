@@ -1,4 +1,4 @@
-name: Generate MCP Server
+name: Generate
 
 permissions:
   checks: write
@@ -31,7 +31,7 @@ jobs:
   post-generate:
     needs: generate
     runs-on: ubuntu-latest
-    if: needs.generate.outputs.has_changes == 'true'
+    if: always() && needs.generate.result == 'success' && needs.generate.outputs.branch_name != ''
     steps:
       - uses: actions/checkout@v4
         with:
