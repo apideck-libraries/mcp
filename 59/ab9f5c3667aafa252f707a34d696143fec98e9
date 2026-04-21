@@ -1,0 +1,29 @@
+server.json
+  d7ae585b8ca3d3f9 1-63
+.gitignore
+  d7ae585b8ca3d3f9 9-16
+package.json
+  d7ae585b8ca3d3f9 3
+.github/workflows/publish-mcp-registry.yaml
+  d7ae585b8ca3d3f9 1-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "59ab9f5c3667aafa252f707a34d696143fec98e9",
+  "prompts": {
+    "d7ae585b8ca3d3f9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f659b5c2-262b-479f-aff4-129a86b80335",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 2762,
+      "total_deletions": 115,
+      "accepted_lines": 2322,
+      "overriden_lines": 0
+    }
+  }
+}
