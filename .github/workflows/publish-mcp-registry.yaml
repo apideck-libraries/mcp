@@ -1,0 +1,78 @@
+name: Publish to MCP Registry
+
+# Runs after the npm publish workflow completes successfully, syncs the version
+# in server.json to match what was just published on npm, and pushes to the
+# official MCP registry at registry.modelcontextprotocol.io.
+#
+# One-time setup required:
+#   1. Generate an Ed25519 keypair (e.g. `openssl genpkey -algorithm Ed25519`).
+#   2. Publish the public key as a DNS TXT record on apideck.com:
+#        apideck.com. IN TXT "v=MCPv1; k=ed25519; p=<BASE64_PUBKEY>"
+#   3. Add the private key (hex) as the `MCP_REGISTRY_PRIVATE_KEY` repo secret.
+
+permissions:
+  contents: read
+
+"on":
+  workflow_run:
+    workflows: ["Publish to npm"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Sync server.json version to package.json
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "Syncing server.json to version $VERSION"
+          jq --arg v "$VERSION" \
+            '.version = $v | .packages[0].version = $v' \
+            server.json > server.json.tmp
+          mv server.json.tmp server.json
+          cat server.json
+
+      - name: Wait for npm propagation
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          for i in 1 2 3 4 5 6; do
+            if npm view "@apideck/mcp@$VERSION" version > /dev/null 2>&1; then
+              echo "Package @apideck/mcp@$VERSION is live on npm"
+              exit 0
+            fi
+            echo "Not yet on npm, retrying in 10s... ($i/6)"
+            sleep 10
+          done
+          echo "::error::Package @apideck/mcp@$VERSION never appeared on npm"
+          exit 1
+
+      - name: Install mcp-publisher
+        run: |
+          ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
+          OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_${OS}_${ARCH}.tar.gz" \
+            | tar xz mcp-publisher
+          sudo mv mcp-publisher /usr/local/bin/
+          mcp-publisher --help
+
+      - name: Authenticate with MCP Registry (DNS)
+        run: mcp-publisher login dns --domain=apideck.com --private-key="$MCP_REGISTRY_PRIVATE_KEY"
+        env:
+          MCP_REGISTRY_PRIVATE_KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
+
+      - name: Publish
+        run: mcp-publisher publish
+
+      - name: Verify in registry
+        run: |
+          sleep 5
+          curl -fsSL "https://registry.modelcontextprotocol.io/v0.1/servers?search=com.apideck/mcp" | jq .
