@@ -7,7 +7,7 @@
     "source": "github"
   },
   "version": "0.1.10",
-  "websiteUrl": "https://www.apideck.com",
+  "websiteUrl": "https://www.apideck.com/mcp-server",
   "packages": [
     {
       "registryType": "npm",
