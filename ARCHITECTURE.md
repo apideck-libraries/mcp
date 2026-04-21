@@ -11,7 +11,7 @@ Every major agent framework (OpenAI Agents SDK, Pydantic AI, LangChain, CrewAI, 
 agent = Agent(name="AP Agent", mcp_servers=[apideck_mcp])
 ```
 
-Xero, Stripe, and Intuit all ship MCP servers for this reason. Apideck's Unified API — covering 100+ connectors across accounting systems, HRIS platforms, and more through one integration — is a natural fit.
+Xero, Stripe, and Intuit all ship MCP servers for this reason. Apideck's Unified API — covering 200+ connectors across accounting systems, HRIS platforms, and more through one integration — is a natural fit.
 
 ## MCP + CLI: Complementary, Not Competing
 
