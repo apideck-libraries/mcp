@@ -1,6 +1,6 @@
 # Apideck MCP Server
 
-Model Context Protocol server for the [Apideck Unified API](https://www.apideck.com). Connect any MCP-compatible agent framework to 20+ accounting systems, HRIS platforms, file storage providers, and more through one integration.
+Model Context Protocol server for the [Apideck Unified API](https://www.apideck.com). Connect any MCP-compatible agent framework to 200+ connectors — accounting systems, HRIS platforms, file storage providers, and more — through one integration.
 
 Generated from Apideck's OpenAPI spec using [Speakeasy](https://www.speakeasy.com).
 
