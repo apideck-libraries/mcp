@@ -5,6 +5,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { ApideckMcpCore } from "../core.js";
 import { SDKOptions } from "../lib/config.js";
+import type { Analytics } from "./analytics.js";
 import type { ConsoleLogger } from "./console-logger.js";
 import { createRegisterPrompt } from "./prompts.js";
 import {
@@ -360,6 +361,7 @@ export function createMCPServer(deps: {
   consumerId?: SDKOptions["consumerId"] | undefined;
   appId?: SDKOptions["appId"] | undefined;
   serverIdx?: SDKOptions["serverIdx"] | undefined;
+  analytics?: Analytics | undefined;
 }) {
   const server = new McpServer({
     name: "ApideckMcp",
@@ -393,6 +395,7 @@ export function createMCPServer(deps: {
     allowedTools,
     deps.dynamic,
     deps.annotationFilter,
+    deps.analytics,
   );
   const resource = createRegisterResource(
     deps.logger,
@@ -742,7 +745,7 @@ export function createMCPServer(deps: {
   tool(tool$webhookEventLogsList);
 
   if (deps.dynamic) {
-    registerDynamicTools(deps.logger, server, getClient, toolMap, scopes);
+    registerDynamicTools(deps.logger, server, getClient, toolMap, scopes, deps.analytics);
   }
 
   return { server, tools };
