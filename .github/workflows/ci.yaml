@@ -26,6 +26,9 @@ jobs:
       - name: Smoke test
         run: node test/smoke.mjs
 
+      - name: Analytics tests
+        run: node test/analytics.test.mjs
+
   deploy:
     needs: build-and-test
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
