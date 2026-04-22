@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.apideck/mcp",
-  "description": "MCP server for the Apideck Unified API — Accounting, File Storage, HRIS, Vault, and Proxy tools across 200+ connectors (QuickBooks, Xero, NetSuite, Sage, BambooHR, and more). 229 auto-generated tools with dynamic discovery.",
+  "description": "Apideck Unified API MCP — 229 tools across 200+ SaaS connectors (accounting, HRIS, file storage).",
   "repository": {
     "url": "https://github.com/apideck-libraries/mcp",
     "source": "github"
