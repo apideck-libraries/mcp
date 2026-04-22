@@ -19,10 +19,8 @@ speakeasy-spec.yml
 .vercel
 docs/superpowers/
 .claude/settings.local.json
-
 # Private keys (e.g. mcp-registry Ed25519 for namespace auth)
 *.key
 *.pem
-
 # Local-only drafts (blog posts, notes)
 /drafts/

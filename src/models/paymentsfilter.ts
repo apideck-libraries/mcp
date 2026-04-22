@@ -34,12 +34,14 @@ export const PaymentsFilterType$zodSchema = z.union([
 export type PaymentsFilter = {
   updated_since?: string | undefined;
   invoice_id?: string | undefined;
+  bill_id?: string | undefined;
   supplier_id?: string | undefined;
   customer_id?: string | undefined;
   type?: PaymentsFilterType | undefined;
 };
 
 export const PaymentsFilter$zodSchema: z.ZodType<PaymentsFilter> = z.object({
+  bill_id: z.string().optional(),
   customer_id: z.string().optional().describe("Filter by customer id"),
   invoice_id: z.string().optional(),
   supplier_id: z.string().optional(),

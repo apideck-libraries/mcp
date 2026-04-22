@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 70c348c7-eb03-42a6-8d91-a27d1f288010
 management:
-  docChecksum: 237f83614d35066b88a5d0b008deb545
-  docVersion: 10.24.23
-  speakeasyVersion: 1.761.5
-  generationVersion: 2.879.13
+  docChecksum: 6c445a592fb0c62899f7aaf5124873d7
+  docVersion: 10.24.25
+  speakeasyVersion: 1.761.9
+  generationVersion: 2.881.4
   releaseVersion: 0.1.10
   configChecksum: ca1db243dd1ecd5810a93463409e39e5
   repoURL: https://github.com/apideck-libraries/mcp.git
   installationURL: https://github.com/apideck-libraries/mcp
 persistentEdits:
-  generation_id: 937f644d-903a-4453-a5db-703672ca9544
-  pristine_commit_hash: ad9e461484a3ff3b395cff4c098866748d46f024
-  pristine_tree_hash: cc276d58ccd4592d1775ded2882d64d7e03ab047
+  generation_id: 6187dfa5-3b22-4390-8c03-dcc7dbfea1ef
+  pristine_commit_hash: d130cde77fea473fba1e36201eafe08c7886886d
+  pristine_tree_hash: 34419624992854355051d147db89eb8389f76296
 features:
   mcp-typescript:
     acceptHeaders: 0.1.0
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.0
     constsAndDefaults: 0.1.2
-    core: 1.2.25
+    core: 1.2.26
     deepObjectParams: 0.1.0
     defaultEnabledRetries: 0.1.0
     deprecations: 0.1.0
@@ -56,8 +56,8 @@ trackedFiles:
     pristine_git_object: 4f9e60a9462fc4def738d60c3aaadf8232ef185f
   manifest.json:
     id: ca642a226869
-    last_write_checksum: sha1:e10c3896574f2eb2e0d259cd20d47dce0328578d
-    pristine_git_object: d4d0c48d6c51efac003249bb320412ff158d7580
+    last_write_checksum: sha1:b518fa59bb5d0ee9318a7a18aa4b4951ed1fcdae
+    pristine_git_object: 0bc5cb0c573846894b7e3bf997637a55b470d7f8
   package.json:
     id: 7030d0b2f71b
     last_write_checksum: sha1:07a6fa7f17ba6b43a99fe2d93cbb6168e66da259
@@ -1412,8 +1412,8 @@ trackedFiles:
     pristine_git_object: 03fad277156250ac7fd2f30d7900063e87beb65f
   src/hooks/hooks.ts:
     id: a2463fc6f69b
-    last_write_checksum: sha1:327ed0fa581be991d633155a30a13e502caa80ef
-    pristine_git_object: 7709c66d855a856043daf58e863129c4dd437b6f
+    last_write_checksum: sha1:141e45a4b047589e6ec69eef5da26fab909f44e9
+    pristine_git_object: a4220b5e2f8fc59c2862870fc6bf2c38bd8efcff
   src/hooks/types.ts:
     id: 2a02d86ec24f
     last_write_checksum: sha1:27a3444c4839bec58ae89820fd8c2483edafc3f4
@@ -1428,8 +1428,8 @@ trackedFiles:
     pristine_git_object: d4bd8b341290e7a828a171d840bd0b0fff7c7cd7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:e0b94ac5a20ad8908e9c04bf9fcbd907dac906b0
-    pristine_git_object: 07abe5fd8e5e5de8b5d4565e65ca1af55ddb3786
+    last_write_checksum: sha1:7292c4959ea1e587fe4871e97a9a72eec0d67ad4
+    pristine_git_object: dfda62a3128c52f73fdeaace0d505fd03d6e3c4b
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -1476,8 +1476,8 @@ trackedFiles:
     pristine_git_object: 542d9972403c5bc4aa70619f8c4b0af3ef2ce679
   src/lib/sdks.ts:
     id: 8a6d91f1218d
-    last_write_checksum: sha1:10161da716473bfc6001ca70b47d7ef2f160582e
-    pristine_git_object: 73b8e89b5e3e3f6555a60e47d4e2c9d28298081a
+    last_write_checksum: sha1:416b46435063d2db788e9d97f6e5a1f0aa0b041e
+    pristine_git_object: 0cbabc8c5b817f42e558be8c8a95bae4e63f6da1
   src/lib/security.ts:
     id: 0502afa7922e
     last_write_checksum: sha1:8efb72d07c0ade2608ad39113d34f7d6c51f6c40
@@ -1496,16 +1496,16 @@ trackedFiles:
     pristine_git_object: b878d8de9f2a0275c3cdbfdcaed48a31092e558a
   src/mcp-server/cli/serve/command.ts:
     id: 7cd4394c80e8
-    last_write_checksum: sha1:7676746d28632d5db209b0d4c01952d804ddd4d6
-    pristine_git_object: 304518212bd9dfa9f07e815a69db415c4739fe83
+    last_write_checksum: sha1:62ede72c0450377480013c668534f5980f89c1b3
+    pristine_git_object: 70fc6cc01b23ec8c9db7cd662092c6ed7efa3028
   src/mcp-server/cli/serve/impl.ts:
     id: 03e83f226068
     last_write_checksum: sha1:6769921c115461954e81adb7c3e5824f82c6b3c8
     pristine_git_object: 610e623228ab883a8a97e7a9d5d497ad89757248
   src/mcp-server/cli/start/command.ts:
     id: b3e53408ccb4
-    last_write_checksum: sha1:502a1e44423c7635e34258d49689d4e5077a4e70
-    pristine_git_object: 3b40074c3a00b3312b6d39609acf1c3febbb71b8
+    last_write_checksum: sha1:a435fc6b5c57ed1942c487d8dc06666f6eef6a42
+    pristine_git_object: 65e6f7d27d5fd82110c1af5b2d78aa361082b949
   src/mcp-server/cli/start/impl.ts:
     id: 37494f674015
     last_write_checksum: sha1:5bc55fad11901625fcee4ee6780b5f1297a766e8
@@ -1540,16 +1540,16 @@ trackedFiles:
     pristine_git_object: f1a9fa55d8e55bd97c3c4ee3917fb3a6aeb62648
   src/mcp-server/server.ts:
     id: 2784dd48e82a
-    last_write_checksum: sha1:db2e36189948b4ce8950459cd92fae0faf38fb7b
-    pristine_git_object: 53fcdfb0c13ed00825ef2d82c49290c8e804938a
+    last_write_checksum: sha1:a818e4ca1ce1357e2cc03529727de852259ed272
+    pristine_git_object: 5591a8ee4058f37b0098020549ca63425abc16f1
   src/mcp-server/shared.ts:
     id: 074e80d4be1e
     last_write_checksum: sha1:19c9034032819a14f15c430de4350c8aba99d725
     pristine_git_object: bb74a74788ebd7d11262f5f63b8fdd29ab817f48
   src/mcp-server/tools.ts:
     id: 654d5d1f2062
-    last_write_checksum: sha1:b18699c7d897deed35184a9f8d98871f9267b9d4
-    pristine_git_object: 161b16d72de50d08d0ca3719fe121adde4bedbcf
+    last_write_checksum: sha1:18f89fa623ec9fa395192144200a4f8d13b39097
+    pristine_git_object: 66ffef16a3387729154a9595466e3c5863126657
   src/mcp-server/tools/accountingAgedCreditorsGet.ts:
     id: 66e1c35ff5e7
     last_write_checksum: sha1:a7fb14f816b40fcbe4e9702e587c8266a099d3e7
@@ -2122,6 +2122,326 @@ trackedFiles:
     id: 864d16bc7252
     last_write_checksum: sha1:3342eb4c0b0196fa6f8f7a0132c47fbfc8f7cd2d
     pristine_git_object: 77380e7814bc5b598e7beeab8ecf388f252d4318
+  src/mcp-server/tools/atsApplicantsCreate.ts:
+    id: c70cc052073c
+    last_write_checksum: sha1:92eee373458c1d52782c49edf68ef54c3ea60b56
+    pristine_git_object: d0586b8fe5a20b5e1d16909b71b83332c06d5946
+  src/mcp-server/tools/atsApplicantsDelete.ts:
+    id: 34faf7037b81
+    last_write_checksum: sha1:f91300b12c9de35934858b093831b9b6ea5807cf
+    pristine_git_object: a8ee73db4f038146888b5b1926cb55c2466e7b5d
+  src/mcp-server/tools/atsApplicantsGet.ts:
+    id: 3c546821ab09
+    last_write_checksum: sha1:af214aeb7de7955f98ed29fb6fc75931090002d4
+    pristine_git_object: 5c22ad6b6991121ca7bf81bc8e3f201ef5406479
+  src/mcp-server/tools/atsApplicantsList.ts:
+    id: 25ce84f303f6
+    last_write_checksum: sha1:ea34acc2853e05af91f8878b92fd7b00dfa144fe
+    pristine_git_object: 5bf0acb32f93c9114f525314657a7226052354b3
+  src/mcp-server/tools/atsApplicantsUpdate.ts:
+    id: 670098852abc
+    last_write_checksum: sha1:c55c5d461160b6cb3bca49975bdc6b1129835ed9
+    pristine_git_object: 965e194c0af691c6d2f7536cd2498801f1bf7f2a
+  src/mcp-server/tools/atsApplicationsCreate.ts:
+    id: 80e6e5a0e5a5
+    last_write_checksum: sha1:e1a6513757528e89324a1fbc133b164224a53f7d
+    pristine_git_object: 7332b7ca7da1b7e6490332a10948e3fa40b1a4fc
+  src/mcp-server/tools/atsApplicationsDelete.ts:
+    id: 73413ed64402
+    last_write_checksum: sha1:98a0c391bd006c9e24bec73b040b6827f8729fd5
+    pristine_git_object: 4fdaaa318fdf4f58503e85ec0168d0bfe8beb294
+  src/mcp-server/tools/atsApplicationsGet.ts:
+    id: da8b2a7b79e9
+    last_write_checksum: sha1:07791c28b4a8496f2863f63c9355d88b25a6a90d
+    pristine_git_object: 7f8da47ab7ca46334abc9b8e72d977d250b3c6f9
+  src/mcp-server/tools/atsApplicationsList.ts:
+    id: 53611e16aff0
+    last_write_checksum: sha1:6e32d1ac31f02733460b3bc81a0bab3745888a96
+    pristine_git_object: e92a5bd940fa99dfcf626d1802f9142593f64b6a
+  src/mcp-server/tools/atsApplicationsUpdate.ts:
+    id: f0f9e47abfed
+    last_write_checksum: sha1:a688913bbaf04f1e020fd97cdaae45dc7040b90c
+    pristine_git_object: 2845de5e7880b5f4cffd2c2239edc55f25deafce
+  src/mcp-server/tools/atsJobsCreate.ts:
+    id: 2f78c3ee48c4
+    last_write_checksum: sha1:07306f06defb0ebb0bde81ee1e083f441b340e21
+    pristine_git_object: f5f35642546c07421d5ee68794aa1dc45142a1e2
+  src/mcp-server/tools/atsJobsDelete.ts:
+    id: 4e8a46fc7d63
+    last_write_checksum: sha1:562d77db2daa489ff72997fce413036f7711a672
+    pristine_git_object: f36d4007c5a7abf56a4265f66a1df57282e44c2d
+  src/mcp-server/tools/atsJobsGet.ts:
+    id: 1751fc7fad0d
+    last_write_checksum: sha1:3578db563fa135e23487aa94d413dbf6fe15567b
+    pristine_git_object: 66f3b7824760b3df7f3deb7ffeb74cd2ed67f310
+  src/mcp-server/tools/atsJobsList.ts:
+    id: 7e711a0301a5
+    last_write_checksum: sha1:69c0b8bb2ebba69595ed2bd9b0591e29848a7ee1
+    pristine_git_object: e450632c631affe792c6523f9c36d9a2d8cd2700
+  src/mcp-server/tools/atsJobsUpdate.ts:
+    id: 066d729a9703
+    last_write_checksum: sha1:8614cfd2483e2402e366634c5922c1cdd5ddd4c8
+    pristine_git_object: 0ce0dfaa5af70976f5b458877d0be2f5de024e64
+  src/mcp-server/tools/connectorApiResourceCoverageGet.ts:
+    id: 92468349c74c
+    last_write_checksum: sha1:926d9361b3b669177e1a94ed1a9f583d97fb5561
+    pristine_git_object: 113d5549297adaf49d7f258ac6fa69c4e8c6c4e9
+  src/mcp-server/tools/connectorApiResourcesGet.ts:
+    id: e9aa43f73a71
+    last_write_checksum: sha1:e8abd7e2645f247ec83d85488f6ea667dba85500
+    pristine_git_object: 00ce1316e6fd625f640c5febe918d065ed4a3978
+  src/mcp-server/tools/connectorApisGet.ts:
+    id: 52bcb8bbd091
+    last_write_checksum: sha1:00fc5b9212b42be4434c6bb041af36c3a53fab08
+    pristine_git_object: d4afa8f98ce6c088ebbccec79b5d4e3e3fc01bc7
+  src/mcp-server/tools/connectorApisList.ts:
+    id: ae67fdab2458
+    last_write_checksum: sha1:12ba4a59b0bee96796437d8a19fce790423a23a8
+    pristine_git_object: d2f563887b39a1a4a390c3254da06f81fc5b4757
+  src/mcp-server/tools/connectorConnectorDocsGet.ts:
+    id: e476b3c4328d
+    last_write_checksum: sha1:e172a9d605316f6197f1c3bbe97553580455e662
+    pristine_git_object: 21e3899efe515a470235f2c662f524a1c6748775
+  src/mcp-server/tools/connectorConnectorResourcesGet.ts:
+    id: 3ec1b644e64c
+    last_write_checksum: sha1:9176ee5a5e958816558383950f4ec522cefd601a
+    pristine_git_object: 8dc29634dd216468d19286768f536cad60af3a28
+  src/mcp-server/tools/connectorConnectorsGet.ts:
+    id: 75ddd10925bf
+    last_write_checksum: sha1:097ea1192df31cebce8876e5d53abcc2f9116e38
+    pristine_git_object: fff338cf73554ce745781f2f4ab18904c772a415
+  src/mcp-server/tools/connectorConnectorsList.ts:
+    id: 4277339dae7f
+    last_write_checksum: sha1:2106b9ac0f36b3da58ad6705a9f12a4653f75648
+    pristine_git_object: e27c5968ee6b1917447457572dd69e4dbea72c04
+  src/mcp-server/tools/crmActivitiesCreate.ts:
+    id: 3e6ee614f540
+    last_write_checksum: sha1:74fe1013151661829a5abb8ea2400c66900c4d0d
+    pristine_git_object: e627a59f7e695ff9bf7c8c219d0543b9fa993c27
+  src/mcp-server/tools/crmActivitiesDelete.ts:
+    id: b97449d29716
+    last_write_checksum: sha1:8b7784280c2b0143e42a7837585af31cfe80a164
+    pristine_git_object: 17e3dcdf15080e0d7b483ef0e2b5cee0c9dd574a
+  src/mcp-server/tools/crmActivitiesGet.ts:
+    id: 9be825d908fb
+    last_write_checksum: sha1:fc0b52550d8f3ae2d6bdc6fce5e0e8ac5c2f5165
+    pristine_git_object: db556a9bb911c8c3f9d51851b01ff9618c544004
+  src/mcp-server/tools/crmActivitiesList.ts:
+    id: 4fdafb950a68
+    last_write_checksum: sha1:bf847838016062a7c2ed829dafe7346de51c68ae
+    pristine_git_object: caded59ea129bf5019925005bce594951e198558
+  src/mcp-server/tools/crmActivitiesUpdate.ts:
+    id: a51eea9103db
+    last_write_checksum: sha1:7c73b1be48bb75edb7525aa9d1abd97bf90e35f1
+    pristine_git_object: ebce8388ad63a238e5c1d6e63ca7d97dcbf65b32
+  src/mcp-server/tools/crmCompaniesCreate.ts:
+    id: 3d407cdf28f1
+    last_write_checksum: sha1:cfa332bf3cddeb8209bdfc5f23d785a91be30539
+    pristine_git_object: 81504a68968e3e27e6599d1bd4cf4e7a876c61e7
+  src/mcp-server/tools/crmCompaniesDelete.ts:
+    id: b9189e6bb566
+    last_write_checksum: sha1:9cd39a62a1ee196bfe393c8fb2deb7a9cfb7b881
+    pristine_git_object: 8839a3f22bd1e87f5cb91420b49ad7bbdf5b3d09
+  src/mcp-server/tools/crmCompaniesGet.ts:
+    id: a07e1733cb93
+    last_write_checksum: sha1:0166402a58205e24c5e14cf3422207b7346e08a8
+    pristine_git_object: 69a26b550a3ed6796e55a3f4c954f204e0e07dcd
+  src/mcp-server/tools/crmCompaniesList.ts:
+    id: 00035d526600
+    last_write_checksum: sha1:191ec6738b19f1f9f4a51776e7fd1af4bc60c286
+    pristine_git_object: 3800623376723ec50de5845a468c91436fc07c43
+  src/mcp-server/tools/crmCompaniesUpdate.ts:
+    id: 2f16f9fe05e5
+    last_write_checksum: sha1:fa31994902202ad9e06b0955586e177c495e4cf6
+    pristine_git_object: 207f86560b7ffa8f3f874d1b88e6727ac4fdfeaf
+  src/mcp-server/tools/crmContactsCreate.ts:
+    id: 9a31d9920a8d
+    last_write_checksum: sha1:2fe8fc8d46516659165c9436be9a91114e38707d
+    pristine_git_object: 93439eb2a4f1967efb31e11ca7863deef3a7d188
+  src/mcp-server/tools/crmContactsDelete.ts:
+    id: 215e2d080734
+    last_write_checksum: sha1:08f26792c9e4fcd3dcd797996e0289ac8b8bbd19
+    pristine_git_object: df56c05a6f564ae41596f264c2ba2f3958544856
+  src/mcp-server/tools/crmContactsGet.ts:
+    id: b790897fa746
+    last_write_checksum: sha1:5a44dae7a36150bb891fb68e4cc322c527d9884e
+    pristine_git_object: 8f72990ecb0a49d4819ba95aa2ef9675778e3c97
+  src/mcp-server/tools/crmContactsList.ts:
+    id: 20d78c2afa11
+    last_write_checksum: sha1:099bb41338f4d90dd92c29b21e87935df721d3b2
+    pristine_git_object: 82001922bdcb99fc0a9183eda2e44541834ddc6c
+  src/mcp-server/tools/crmContactsUpdate.ts:
+    id: 0a6a39ac92cb
+    last_write_checksum: sha1:3cae73f39fc791999f6fa1e96d07ade2d1d043ea
+    pristine_git_object: 9ccbc6b44aafce1ae982b0f0e7555408a4df44f1
+  src/mcp-server/tools/crmCustomObjectSchemasCreate.ts:
+    id: 510372ce8efb
+    last_write_checksum: sha1:33c37efd87e7b982a3091a8b6ac486eb6e957b59
+    pristine_git_object: e54a3470a46fd890991d1d7b9fd2ec06863e4a3f
+  src/mcp-server/tools/crmCustomObjectSchemasDelete.ts:
+    id: f64cc7d8c3df
+    last_write_checksum: sha1:b05f9c8cd1e16cbeac0d51d7156bb33feef83e36
+    pristine_git_object: 63d73edda5c4b3d85e48ac9a2be274ffbe6475d4
+  src/mcp-server/tools/crmCustomObjectSchemasGet.ts:
+    id: 175c569ee9fd
+    last_write_checksum: sha1:ec1588e1911767d1979011bafbe7263a3d20bb8c
+    pristine_git_object: 7ebb9111178631fba0a317395c44441839fa5e0b
+  src/mcp-server/tools/crmCustomObjectSchemasList.ts:
+    id: 50f9ab1c99f0
+    last_write_checksum: sha1:18451f95c83edfc55f5695f37789f3afd48a3897
+    pristine_git_object: 95b6e4710cee0e9683da8c4175f3c33944d498d9
+  src/mcp-server/tools/crmCustomObjectSchemasUpdate.ts:
+    id: 6b752934d1ad
+    last_write_checksum: sha1:c86e72e0d6e64737138cbea876fee8f32cea0019
+    pristine_git_object: 17376973a958a987999fa695247f8da5fbc196be
+  src/mcp-server/tools/crmCustomObjectsCreate.ts:
+    id: afc824b33692
+    last_write_checksum: sha1:e5d5289a8b00d8812146fdc9050eb00a38bc20d0
+    pristine_git_object: a6cbd7069fca17a9c1a9e940dea272d76c6bddae
+  src/mcp-server/tools/crmCustomObjectsDelete.ts:
+    id: c2a1b994630d
+    last_write_checksum: sha1:d0868b114b20407f9256241394da87a79669e8aa
+    pristine_git_object: a447d74dfc231b2c8a0dde4d3272c22c09001786
+  src/mcp-server/tools/crmCustomObjectsGet.ts:
+    id: d31c2665f53f
+    last_write_checksum: sha1:df96f4bdb04c7511dffd8b9d4e8875f0b53eab4f
+    pristine_git_object: af66560793c825c2dd28271d6276faa6d9208be9
+  src/mcp-server/tools/crmCustomObjectsList.ts:
+    id: b9f2debcce79
+    last_write_checksum: sha1:01815bf243549975e5226199c7c6e8d16bd7b1c8
+    pristine_git_object: bcd534b582a42ef92c0a2934136ae34063616fc7
+  src/mcp-server/tools/crmCustomObjectsUpdate.ts:
+    id: 711ccf270045
+    last_write_checksum: sha1:4f93f8ab28b1e00ea546527f87b76f63e1ef97f9
+    pristine_git_object: a87824d66447f8af3baedea23313764107983a00
+  src/mcp-server/tools/crmLeadsCreate.ts:
+    id: 66801e7d772b
+    last_write_checksum: sha1:02998ed7959c8ad4bb0662c19fd6dd91a6b7ff46
+    pristine_git_object: 8f00dafc459cfb2b4518a6a66d2422e683ec3fab
+  src/mcp-server/tools/crmLeadsDelete.ts:
+    id: b632d6f6733b
+    last_write_checksum: sha1:9d8940839714520f81caa1ec81e4799113b89ba9
+    pristine_git_object: acfa6a0c6f4ff2979eff9ecb01adc7c5aae5e483
+  src/mcp-server/tools/crmLeadsGet.ts:
+    id: 2dd9c4715d28
+    last_write_checksum: sha1:8c3a9ad6826070c94d303826f3bbdbd30f17a93a
+    pristine_git_object: 4f25bb7355fa51455f771d62e4e490a6b5f1daec
+  src/mcp-server/tools/crmLeadsList.ts:
+    id: 9cec63100f3d
+    last_write_checksum: sha1:9fba367ac314aec0989018917a2648340b5bb3c4
+    pristine_git_object: 8a79a1d4d9210e271320e2f75167353c036a7d94
+  src/mcp-server/tools/crmLeadsUpdate.ts:
+    id: ee3418dd2eee
+    last_write_checksum: sha1:8f7258fc555d9f4a4c26f0912dfa0f92f11cfc63
+    pristine_git_object: d85ba61ab43b44981e3d1a4992dde80f7443533b
+  src/mcp-server/tools/crmNotesCreate.ts:
+    id: 23bc0c121553
+    last_write_checksum: sha1:99742cd09debee4113c3db980ce901db2a7f533a
+    pristine_git_object: 9ca07cdfd9389a082a4cb1960928ea9f655d1829
+  src/mcp-server/tools/crmNotesDelete.ts:
+    id: d85199b13d9b
+    last_write_checksum: sha1:097cd0e7ce1556182eaf19b89dd1c929abc755af
+    pristine_git_object: 52d166cf1a233b6f637692e93d7e9e50aa33d732
+  src/mcp-server/tools/crmNotesGet.ts:
+    id: e29dcb35fa8b
+    last_write_checksum: sha1:76794df5c22bc1d7df34dc7d4fc1e3973c78d501
+    pristine_git_object: b5b10db00b673ed3ef003a71bcb19986947ca269
+  src/mcp-server/tools/crmNotesList.ts:
+    id: 54b59e5876b9
+    last_write_checksum: sha1:6a1434b3df837a2ab28ec1cda898928fb0a68e66
+    pristine_git_object: 144fa4654b33ad87ad14e5efc84809b7e8fee997
+  src/mcp-server/tools/crmNotesUpdate.ts:
+    id: 575bc4da876d
+    last_write_checksum: sha1:614d037cd1bdef516c04830330c88bb7a3bdfafd
+    pristine_git_object: 8f694504bca779f4ce8fbb73ec006eeee04dd51e
+  src/mcp-server/tools/crmOpportunitiesCreate.ts:
+    id: 69dd1bab8a77
+    last_write_checksum: sha1:9db4b5a9e4440af46550f3739e33c14d9b2a202b
+    pristine_git_object: e67b4f81f8a0bbc906e5cee80b661a7d7404eaef
+  src/mcp-server/tools/crmOpportunitiesDelete.ts:
+    id: 7ddf79417c7c
+    last_write_checksum: sha1:28784f24821baac3d063bedc1bd880e42fef5775
+    pristine_git_object: 97ead68e7442bc785e8efa4e44aa20cc5a9a9b2f
+  src/mcp-server/tools/crmOpportunitiesGet.ts:
+    id: 775189b07818
+    last_write_checksum: sha1:df69ec2944e2e038c61af20680b2691a9c3bb086
+    pristine_git_object: 88253b06ba140228aa8936abf0d61ce6a507bd2b
+  src/mcp-server/tools/crmOpportunitiesList.ts:
+    id: 60a3e195e227
+    last_write_checksum: sha1:4ee26a30ba35c26dc6c5a71d30838462cff92bd7
+    pristine_git_object: 7c1fcfef94729235ea07003d6e6bc804a1029d40
+  src/mcp-server/tools/crmOpportunitiesUpdate.ts:
+    id: 5cf8cc8a04b1
+    last_write_checksum: sha1:053c45992312635efadaa4b0ea5c3b57d2698eee
+    pristine_git_object: 8838ff581f9bedd2b83b72ef45772cab11bfffb6
+  src/mcp-server/tools/crmPipelinesCreate.ts:
+    id: c190925bc105
+    last_write_checksum: sha1:a74128f4dac28c3c3b91417f3a16c7edf77599fd
+    pristine_git_object: 96e05823f2ded84e39d4815ea636cd622fa31daa
+  src/mcp-server/tools/crmPipelinesDelete.ts:
+    id: 2bd1f6dd1ee0
+    last_write_checksum: sha1:e9c222569b3bf4edcb6ff26071415034e6e7520f
+    pristine_git_object: 10cb5d75a485699d38462958244793790904adfa
+  src/mcp-server/tools/crmPipelinesGet.ts:
+    id: b1138c28c01a
+    last_write_checksum: sha1:e17400936c4827433a7cdf7466aab09a4787d74b
+    pristine_git_object: b76f80f9fbe19856bce300bc514ba7c7c38adffa
+  src/mcp-server/tools/crmPipelinesList.ts:
+    id: faaf35553f52
+    last_write_checksum: sha1:f99abeed19254bc1d4c92de0ff0616c78f40859e
+    pristine_git_object: 01d38810d4533a91a4007f0e8238ff1b6e9fd1ab
+  src/mcp-server/tools/crmPipelinesUpdate.ts:
+    id: 7cb5dba794c7
+    last_write_checksum: sha1:d5641ccb6790c0f2f124ec93aa0d4255e077fe85
+    pristine_git_object: 7b5a70c5e5835631d92542f27408736c5e00f667
+  src/mcp-server/tools/crmUsersCreate.ts:
+    id: d8fccf4f70af
+    last_write_checksum: sha1:f4bd4163cb9d5977065fd317ca93321435e7a1d5
+    pristine_git_object: 7249388b681464660260bdd0f9ce0e5768ceb712
+  src/mcp-server/tools/crmUsersDelete.ts:
+    id: e0787727a5bb
+    last_write_checksum: sha1:52cf22e7d4c8932b69109efdb05f52b59095b17e
+    pristine_git_object: 98f12c40284b54d9afc666839f1c2cdd1bd7e032
+  src/mcp-server/tools/crmUsersGet.ts:
+    id: 625f6308a180
+    last_write_checksum: sha1:6846114842213fa9f1137e07d82215f5d56eefee
+    pristine_git_object: cbe7942ae443d7eecf01d615a735867939b7ca09
+  src/mcp-server/tools/crmUsersList.ts:
+    id: cf1cb5e1c75b
+    last_write_checksum: sha1:9ac184ed27bbfee54f6e1600d95ec2180362303f
+    pristine_git_object: 51154c499517305b6d158f5b0691ce4da83b99a9
+  src/mcp-server/tools/crmUsersUpdate.ts:
+    id: 67c21914fd30
+    last_write_checksum: sha1:7fee76a87b022eea4302c9b850fdd16c965d69a5
+    pristine_git_object: e88dec7e1d7fb207cf91b1c3543ed0374362ac17
+  src/mcp-server/tools/ecommerceCustomersGet.ts:
+    id: b91f51337c5b
+    last_write_checksum: sha1:68661b515949d6b113736618f2ef7831fff1709b
+    pristine_git_object: 8b9097251c195f57557b073c8dcbcd3b81f92dc6
+  src/mcp-server/tools/ecommerceCustomersList.ts:
+    id: 24ec50f18de9
+    last_write_checksum: sha1:3d04d00a7661189501798ee9421513b9d518e4f3
+    pristine_git_object: 3e1306d2ba2ff21b5613329b3468c875d4d505f4
+  src/mcp-server/tools/ecommerceOrdersGet.ts:
+    id: ef6b6a30400b
+    last_write_checksum: sha1:3799d953f8ca4b333f895e2846f3fee93cc6568b
+    pristine_git_object: 92f16b72cd47466d6fc4d19ac30664ebbe847752
+  src/mcp-server/tools/ecommerceOrdersList.ts:
+    id: 3378e6459128
+    last_write_checksum: sha1:5489e9d0b0c5cee7fcf3f41950957684dbc2dffe
+    pristine_git_object: fdb252ea53b8fcfd3fec8db2ec949baf38bb7538
+  src/mcp-server/tools/ecommerceProductsGet.ts:
+    id: 94633228e628
+    last_write_checksum: sha1:01d43f46832e2a2c2e927de2b72aac240e944d73
+    pristine_git_object: de44453bf0234777b2356a46a5655d51122e536d
+  src/mcp-server/tools/ecommerceProductsList.ts:
+    id: fa3e9ef66471
+    last_write_checksum: sha1:ebdf81058d50996831a554875426e318a1037836
+    pristine_git_object: 77c14063d6258e9573ec7f7577bd57cf1e53a229
+  src/mcp-server/tools/ecommerceStoresGet.ts:
+    id: 7f402b4d5de7
+    last_write_checksum: sha1:606bfa6b5c0007961858850e52a9db7ca14f27ba
+    pristine_git_object: 28ce5566cf955e64bda3bac3ce4b21d978fd9ce6
   src/mcp-server/tools/fileStorageDriveGroupsCreate.ts:
     id: c7b1a3643cab
     last_write_checksum: sha1:a47bbda1733a93ad8154a1a00d9ef6f118da1406
@@ -2350,6 +2670,66 @@ trackedFiles:
     id: 35c1c48a2d06
     last_write_checksum: sha1:a1c6c1922fc9d5481f9dc4e6ca7574d266c5f6ea
     pristine_git_object: 5a6b47ca466b877f7e267abc82a1a7c87a113947
+  src/mcp-server/tools/issueTrackingCollectionTagsList.ts:
+    id: 20620693b8e2
+    last_write_checksum: sha1:9857f60f3993f84fc8baf932e79d87c43b567dd7
+    pristine_git_object: a1976a5f17fa4ad193eaa29381eeb2b8d327c2cf
+  src/mcp-server/tools/issueTrackingCollectionTicketCommentsCreate.ts:
+    id: e0bbcddb858d
+    last_write_checksum: sha1:d58f55e69fcb224e8d2692494b663fa0d81c6dc5
+    pristine_git_object: b73e8c33241673dec2538feaaf07d88a0fd57186
+  src/mcp-server/tools/issueTrackingCollectionTicketCommentsDelete.ts:
+    id: b1b788193914
+    last_write_checksum: sha1:49f275e99a32be579d090597aee5865659278064
+    pristine_git_object: 1774d73a4f4339107c2efd10821cfc2a043c70f3
+  src/mcp-server/tools/issueTrackingCollectionTicketCommentsGet.ts:
+    id: f290c5f204fb
+    last_write_checksum: sha1:ab611bbab21b3ba008b75b18981ca982cdbf4b43
+    pristine_git_object: 6e7fe878f269ababff0c2031609932c6b438b594
+  src/mcp-server/tools/issueTrackingCollectionTicketCommentsList.ts:
+    id: 99fd6a509fb1
+    last_write_checksum: sha1:44352a5b64304dd5fcbebf3899c55798abfd74dd
+    pristine_git_object: a0708e08510577bb77f454bd04474daf6e7a5d75
+  src/mcp-server/tools/issueTrackingCollectionTicketCommentsUpdate.ts:
+    id: 048fd2a5d5b6
+    last_write_checksum: sha1:eaf4f320380614a7010fc3a114663a595bc486a0
+    pristine_git_object: b7ac646203cb59444b85974d5bc710d6703ff307
+  src/mcp-server/tools/issueTrackingCollectionTicketsCreate.ts:
+    id: 64750fab9406
+    last_write_checksum: sha1:500103a6b5d52070942ae84bb7c24f811a64786c
+    pristine_git_object: 825eb0e85c73de6c33f2b8739d93e89df4a2d882
+  src/mcp-server/tools/issueTrackingCollectionTicketsDelete.ts:
+    id: e0185e3b5ce7
+    last_write_checksum: sha1:5def25ac3fdfc003c0cc57a4bb04b4717dce86dd
+    pristine_git_object: 70a460b0d3d0cee0ad5cbbf038e876f5cc7dbe99
+  src/mcp-server/tools/issueTrackingCollectionTicketsGet.ts:
+    id: 387f5bda3ed0
+    last_write_checksum: sha1:81a05fdf9a3a3aef0b4a0d5816c159544efa242d
+    pristine_git_object: 0531082b3f78860c24e4cae64e3cb9c1d2a5b92d
+  src/mcp-server/tools/issueTrackingCollectionTicketsList.ts:
+    id: 70d817628077
+    last_write_checksum: sha1:86943a754969a53e5d326f96ada01beb3093f822
+    pristine_git_object: 47219dae4868bfd6e84517eea0d7140a37343c80
+  src/mcp-server/tools/issueTrackingCollectionTicketsUpdate.ts:
+    id: bb404faa5759
+    last_write_checksum: sha1:6d0052140f024a15f240a34c82af373f3327ae09
+    pristine_git_object: 5f3b0d654da1f1f3d9ace7ce74268d9fab444dae
+  src/mcp-server/tools/issueTrackingCollectionUsersGet.ts:
+    id: de3d4e713a8e
+    last_write_checksum: sha1:3437e4eba9650f9b6c2ad93dd557d9ab960c029c
+    pristine_git_object: f8ef898d5ef42006f084a3460e3192ae155bf55d
+  src/mcp-server/tools/issueTrackingCollectionUsersList.ts:
+    id: 3b8246f633db
+    last_write_checksum: sha1:5d34976cb35d9752d1d2ef175102367094b0ab3e
+    pristine_git_object: 43414c96dbe04186155fe103fd42e9f89958faaa
+  src/mcp-server/tools/issueTrackingCollectionsGet.ts:
+    id: dc1e51c76317
+    last_write_checksum: sha1:27bc88504bbe2fde8755f1be32260cdb431acf99
+    pristine_git_object: 9b8f31c7c22956a90731940560dbeeb3305551bf
+  src/mcp-server/tools/issueTrackingCollectionsList.ts:
+    id: 707d9ec21519
+    last_write_checksum: sha1:cc0671b97920d70e5915a98d7fec41727e340651
+    pristine_git_object: fc0d35a8e12687e4d98bca15018324db1cf89909
   src/mcp-server/tools/proxyDelete.ts:
     id: b80af529c1bf
     last_write_checksum: sha1:2682b98a558332b7f0f1a37cfd908a91bc4480b8
@@ -2466,6 +2846,30 @@ trackedFiles:
     id: 3cc7f33fc5f3
     last_write_checksum: sha1:678aca1f848a84dec475fc6b0b4ec5d969964f1c
     pristine_git_object: 93e355c95032e6c03329ddf8d067e6a34330f951
+  src/mcp-server/tools/webhookEventLogsList.ts:
+    id: 30c213eaa259
+    last_write_checksum: sha1:70f43451a830679573046391b3b2426fbf0fb108
+    pristine_git_object: fce2e617daebb817ec07ad77b6e06780c5896a4f
+  src/mcp-server/tools/webhookWebhooksCreate.ts:
+    id: 12959cda85a8
+    last_write_checksum: sha1:b6a555e80c41d20376152921280e1833bffbbbe2
+    pristine_git_object: ae509a87eb974f1bd976f390298a84abaa5397b5
+  src/mcp-server/tools/webhookWebhooksDelete.ts:
+    id: ed0fb8ffb4bf
+    last_write_checksum: sha1:507295054de01457ca5c786f6d82bed54e4d3847
+    pristine_git_object: fc6b49a16a47c35ac3dbcaf1592c8979a59aba38
+  src/mcp-server/tools/webhookWebhooksGet.ts:
+    id: a2a2762fcdb7
+    last_write_checksum: sha1:3e670c8a0ac3f403fef75739ae8d5f2921d6266e
+    pristine_git_object: 15b587c8e40b1be3d0c6efbbde8fb8c6d4c1cca2
+  src/mcp-server/tools/webhookWebhooksList.ts:
+    id: 34b228cb6f99
+    last_write_checksum: sha1:afb42bd5716d38d70387a92294128cf4221dc643
+    pristine_git_object: 5f443f75498fa2f94356530f97e8c351803c3202
+  src/mcp-server/tools/webhookWebhooksUpdate.ts:
+    id: 4451f371e94b
+    last_write_checksum: sha1:961f13c3fc698f89eeefbb69b6c7e1a18bb9feef
+    pristine_git_object: c641cca7891a1c1be5252818ac0969c9f067b6f6
   src/models/accountingagedcreditorsoneop.ts:
     id: 76712818fc02
     last_write_checksum: sha1:f642b6c9a045b508a0758ef5fbcd471facfc12b3
@@ -3280,8 +3684,8 @@ trackedFiles:
     pristine_git_object: bb6747237324f4d2e3d854edc075ec87d0665c09
   src/models/bill.ts:
     id: e48543a6a0a8
-    last_write_checksum: sha1:f0f501f789475da5c2e4356e392e6af87270c6fc
-    pristine_git_object: 5b6ca03cfc769a41cb41398fe9c1cc94f63f8987
+    last_write_checksum: sha1:1415db32dc219941d7c982004bc60a163ad0343a
+    pristine_git_object: 899c99313358029f4c3fe7a8e920e74fa08e0e86
   src/models/billlineitem.ts:
     id: e78ff5f2a0e2
     last_write_checksum: sha1:c7c0a492d1180825610bf1044593a282ba0e82bb
@@ -5518,6 +5922,10 @@ trackedFiles:
     id: b2feb6ca3ec8
     last_write_checksum: sha1:c5d3038845c8f80ba031f7c742f7a935b1bc653a
     pristine_git_object: 54f834d640bf315a2a93558ec69107da7b13e6a8
+  src/models/linkedpaymentallocations.ts:
+    id: 780856a98a7c
+    last_write_checksum: sha1:bf8fdb99585d1e2ff8be48f8b49ff99b0f5dceac
+    pristine_git_object: 5ec42cdea182baf622375607760fca0dbf4b21e0
   src/models/linkedpurchaseorder.ts:
     id: f0edacb6453d
     last_write_checksum: sha1:f47f29cb49c17868956ce87b21c322e45e5a65db
@@ -5660,8 +6068,8 @@ trackedFiles:
     pristine_git_object: c2c8fab6a07def982ee8381df3bd02095e223a6e
   src/models/paymentsfilter.ts:
     id: 672e8a59f549
-    last_write_checksum: sha1:bf6b8859c41571acd6919d9f88b1b2a2947f6c3d
-    pristine_git_object: 626051428c394ef83128528b03d55c0a8b8ab248
+    last_write_checksum: sha1:f70574d803613628ce25ef5206f22e1031ea0416
+    pristine_git_object: 84016a6f0f9bcffb4a8e9c6329479bec352d656f
   src/models/paymentssort.ts:
     id: 321ff90f229a
     last_write_checksum: sha1:29e22de82479804c5b7d1001f42df664bd6fcf80
@@ -6380,8 +6788,8 @@ trackedFiles:
     pristine_git_object: 84969be675093e898e5ed95058af25f8eafd5fc6
   src/tool-names.ts:
     id: a9977280f9eb
-    last_write_checksum: sha1:7c142c22c9f0edc8aa9cf21ba5ff187362bcc913
-    pristine_git_object: 843dc804aa597ed0fff1e2e570dd54bcce0a0d54
+    last_write_checksum: sha1:6049dede7275c6f7877b5c80f090e34d96fa2b0e
+    pristine_git_object: d5816f254e514e64415cb9dd3de3af9b3e105047
   src/types/async.ts:
     id: fac8da972f86
     last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
@@ -6607,7 +7015,7 @@ examples:
           x-apideck-app-id: "dSBdXd2H6Mqwfg0atXHXYcysLJE9qyn1VwBtXHX"
           x-apideck-service-id: "salesforce"
       requestBody:
-        application/json: {"display_id": "123456", "bill_number": "10001", "supplier": {"id": "12345", "display_name": "Windsurf Shop", "address": {"id": "123", "type": "primary", "string": "25 Spring Street, Blackburn, VIC 3130", "name": "HQ US", "line1": "Main street", "line2": "apt #", "line3": "Suite #", "line4": "delivery instructions", "line5": "Attention: Finance Dept", "street_number": "25", "city": "San Francisco", "state": "CA", "postal_code": "94104", "country": "US", "latitude": "40.759211", "longitude": "-73.984638", "county": "Santa Clara", "contact_name": "Elon Musk", "salutation": "Mr", "phone_number": "111-111-1111", "fax": "122-111-1111", "email": "elon@musk.com", "website": "https://elonmusk.com", "notes": "Address notes or delivery instructions.", "row_version": "1-12345"}}, "company_id": "12345", "location_id": "12345", "department_id": "12345", "currency": "USD", "currency_rate": 0.69, "tax_inclusive": true, "bill_date": "2020-09-30", "due_date": "2020-10-30", "paid_date": "2020-10-30", "po_number": "90000117", "reference": "INV-2024-001", "line_items": [{"row_id": "12345", "code": "120-C", "line_number": 1, "description": "Model Y is a fully electric, mid-size SUV, with seating for up to seven, dual motor AWD and unparalleled protection.", "type": "expense_account", "tax_amount": 27.5, "total_amount": 27500, "quantity": 1, "unit_price": 27500.5, "unit_of_measure": "pc.", "discount_percentage": 0.01, "discount_amount": 19.99, "location_id": "12345", "department_id": "12345", "subsidiary_id": "12345", "category_id": "12345", "shipping_id": "12345", "memo": "Some memo", "prepaid": true, "tax_applicable_on": "Domestic_Purchase_of_Goods_and_Services", "tax_recoverability": "Fully_Recoverable", "tax_method": "Due_to_Supplier", "retention_amount": 1000, "payment_amount": 1000, "item": {"id": "12344", "code": "120-C", "name": "Model Y"}, "tax_rate": {"id": "123456", "code": "N-T", "rate": 10}, "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "purchase_order": {"id": "123456", "line_id": "123456", "line_number": "1"}, "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "customer": {"id": "12345", "display_name": "Windsurf Shop", "email": "boring@boring.com"}, "rebilling": {"rebillable": true, "rebill_status": "billed", "linked_transaction_id": "txn_abc123", "linked_transaction_line_id": "line_xyz789"}, "row_version": "1-12345", "worktags": [{"id": "123456", "value": "New York"}]}], "terms": "Net 30 days", "terms_id": "12345", "balance": 27500, "deposit": 0, "sub_total": 250, "total_tax": 25, "total": 27500, "tax_code": "1234", "notes": "Some notes about this bill.", "status": "draft", "ledger_account": null, "payment_method": "cash", "channel": "email", "language": "EN", "accounting_by_row": false, "bank_account": {"bank_name": "Chase Bank", "account_number": "123465", "account_name": "Main Operating Account", "account_type": "credit_card", "iban": "GB33BUKB20201555555555", "bic": "CHASUS33", "routing_number": "021000021", "bsb_number": "062-001", "branch_identifier": "001", "bank_code": "BNH", "currency": "USD", "country": "US"}, "discount_percentage": 5.5, "template_id": "123456", "approved_by": "John Doe", "tax_method": "Due to supplier", "document_received": true, "source_document_url": "https://www.invoicesolution.com/bill/123456", "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "row_version": "1-12345", "custom_fields": [{"id": "2389328923893298", "name": "employee_level", "description": "Employee Level", "value": "Uses Salesforce and Marketo"}], "pass_through": [{"service_id": "<id>", "extend_paths": [{"path": "$.nested.property", "value": {"TaxClassificationRef": {"value": "EUC-99990201-V1-00020000"}}}]}], "accounting_period": "01-24", "attachments": [{"name": "sample.jpg", "mime_type": "image/jpeg", "is_compressed": false, "encoding": "base64", "content": "data:image/jpeg;base64,...", "notes": "A sample image"}]}
+        application/json: {"display_id": "123456", "bill_number": "10001", "supplier": {"id": "12345", "display_name": "Windsurf Shop", "address": {"id": "123", "type": "primary", "string": "25 Spring Street, Blackburn, VIC 3130", "name": "HQ US", "line1": "Main street", "line2": "apt #", "line3": "Suite #", "line4": "delivery instructions", "line5": "Attention: Finance Dept", "street_number": "25", "city": "San Francisco", "state": "CA", "postal_code": "94104", "country": "US", "latitude": "40.759211", "longitude": "-73.984638", "county": "Santa Clara", "contact_name": "Elon Musk", "salutation": "Mr", "phone_number": "111-111-1111", "fax": "122-111-1111", "email": "elon@musk.com", "website": "https://elonmusk.com", "notes": "Address notes or delivery instructions.", "row_version": "1-12345"}}, "company_id": "12345", "location_id": "12345", "department_id": "12345", "currency": "USD", "currency_rate": 0.69, "tax_inclusive": true, "bill_date": "2020-09-30", "due_date": "2020-10-30", "paid_date": "2020-10-30", "po_number": "90000117", "reference": "INV-2024-001", "line_items": [{"row_id": "12345", "code": "120-C", "line_number": 1, "description": "Model Y is a fully electric, mid-size SUV, with seating for up to seven, dual motor AWD and unparalleled protection.", "type": "expense_account", "tax_amount": 27.5, "total_amount": 27500, "quantity": 1, "unit_price": 27500.5, "unit_of_measure": "pc.", "discount_percentage": 0.01, "discount_amount": 19.99, "location_id": "12345", "department_id": "12345", "subsidiary_id": "12345", "category_id": "12345", "shipping_id": "12345", "memo": "Some memo", "prepaid": true, "tax_applicable_on": "Domestic_Purchase_of_Goods_and_Services", "tax_recoverability": "Fully_Recoverable", "tax_method": "Due_to_Supplier", "retention_amount": 1000, "payment_amount": 1000, "item": {"id": "12344", "code": "120-C", "name": "Model Y"}, "tax_rate": {"id": "123456", "code": "N-T", "rate": 10}, "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "purchase_order": {"id": "123456", "line_id": "123456", "line_number": "1"}, "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "customer": {"id": "12345", "display_name": "Windsurf Shop", "email": "boring@boring.com"}, "rebilling": {"rebillable": true, "rebill_status": "billed", "linked_transaction_id": "txn_abc123", "linked_transaction_line_id": "line_xyz789"}, "row_version": "1-12345", "worktags": [{"id": "123456", "value": "New York"}]}], "terms": "Net 30 days", "terms_id": "12345", "balance": 27500, "deposit": 0, "sub_total": 250, "total_tax": 25, "total": 27500, "tax_code": "1234", "notes": "Some notes about this bill.", "status": "draft", "ledger_account": null, "payment_method": "cash", "channel": "email", "language": "EN", "accounting_by_row": false, "bank_account": {"bank_name": "Chase Bank", "account_number": "123465", "account_name": "Main Operating Account", "account_type": "credit_card", "iban": "GB33BUKB20201555555555", "bic": "CHASUS33", "routing_number": "021000021", "bsb_number": "062-001", "branch_identifier": "001", "bank_code": "BNH", "currency": "USD", "country": "US"}, "discount_percentage": 5.5, "template_id": "123456", "approved_by": "John Doe", "tax_method": "Due to supplier", "document_received": true, "source_document_url": "https://www.invoicesolution.com/bill/123456", "payment_allocations": [{"id": "123456", "allocated_amount": 1000, "date": "2020-09-30T07:43:32.000Z"}], "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "row_version": "1-12345", "custom_fields": [{"id": "2389328923893298", "name": "employee_level", "description": "Employee Level", "value": "Uses Salesforce and Marketo"}], "pass_through": [{"service_id": "<id>", "extend_paths": [{"path": "$.nested.property", "value": {"TaxClassificationRef": {"value": "EUC-99990201-V1-00020000"}}}]}], "accounting_period": "01-24", "attachments": [{"name": "sample.jpg", "mime_type": "image/jpeg", "is_compressed": false, "encoding": "base64", "content": "data:image/jpeg;base64,...", "notes": "A sample image"}]}
       responses:
         "201":
           application/json: {"status_code": 200, "status": "OK", "service": "xero", "resource": "bills", "operation": "add", "data": {"id": "12345"}}
@@ -6638,7 +7046,7 @@ examples:
           x-apideck-company-id: "12345"
       responses:
         "200":
-          application/json: {"status_code": 200, "status": "OK", "service": "xero", "resource": "bills", "operation": "one", "data": {"id": "12345", "downstream_id": "12345", "display_id": "123456", "bill_number": "10001", "supplier": {"id": "12345", "display_id": "SUPP00101", "display_name": "Windsurf Shop", "company_name": "The boring company", "address": {"id": "123", "type": "primary", "string": "25 Spring Street, Blackburn, VIC 3130", "name": "HQ US", "line1": "Main street", "line2": "apt #", "line3": "Suite #", "line4": "delivery instructions", "line5": "Attention: Finance Dept", "street_number": "25", "city": "San Francisco", "state": "CA", "postal_code": "94104", "country": "US", "latitude": "40.759211", "longitude": "-73.984638", "county": "Santa Clara", "contact_name": "Elon Musk", "salutation": "Mr", "phone_number": "111-111-1111", "fax": "122-111-1111", "email": "elon@musk.com", "website": "https://elonmusk.com", "notes": "Address notes or delivery instructions.", "row_version": "1-12345"}}, "company_id": "12345", "location_id": "12345", "department_id": "12345", "currency": "USD", "currency_rate": 0.69, "tax_inclusive": true, "bill_date": "2020-09-30", "due_date": "2020-10-30", "paid_date": "2020-10-30", "po_number": "90000117", "reference": "INV-2024-001", "line_items": [{"id": "12345", "row_id": "12345", "code": "120-C", "line_number": 1, "description": "Model Y is a fully electric, mid-size SUV, with seating for up to seven, dual motor AWD and unparalleled protection.", "type": "expense_account", "tax_amount": 27.5, "total_amount": 27500, "quantity": 1, "unit_price": 27500.5, "unit_of_measure": "pc.", "discount_percentage": 0.01, "discount_amount": 19.99, "location_id": "12345", "department_id": "12345", "subsidiary_id": "12345", "category_id": "12345", "shipping_id": "12345", "memo": "Some memo", "prepaid": true, "tax_applicable_on": "Domestic_Purchase_of_Goods_and_Services", "tax_recoverability": "Fully_Recoverable", "tax_method": "Due_to_Supplier", "retention_amount": 1000, "payment_amount": 1000, "item": {"id": "12344", "code": "120-C", "name": "Model Y"}, "tax_rate": {"id": "123456", "code": "N-T", "name": "GST on Purchases", "rate": 10}, "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "purchase_order": {"id": "123456", "line_id": "123456", "line_number": "1"}, "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "customer": {"id": "12345", "display_id": "CUST00101", "display_name": "Windsurf Shop", "company_name": "The boring company", "email": "boring@boring.com"}, "rebilling": {"rebillable": true, "rebill_status": "billed", "linked_transaction_id": "txn_abc123", "linked_transaction_line_id": "line_xyz789"}, "row_version": "1-12345", "updated_by": "12345", "created_by": "12345", "created_at": "2020-09-30T07:43:32.000Z", "updated_at": "2020-09-30T07:43:32.000Z", "worktags": [{"id": "123456", "value": "New York"}]}], "terms": "Net 30 days", "terms_id": "12345", "balance": 27500, "deposit": 0, "sub_total": 250, "total_tax": 25, "total": 27500, "tax_code": "1234", "notes": "Some notes about this bill.", "status": "draft", "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "payment_method": "cash", "channel": "email", "language": "EN", "accounting_by_row": false, "bank_account": {"bank_name": "Chase Bank", "account_number": "123465", "account_name": "Main Operating Account", "account_type": "credit_card", "iban": "GB33BUKB20201555555555", "bic": "CHASUS33", "routing_number": "021000021", "bsb_number": "062-001", "branch_identifier": "001", "bank_code": "BNH", "currency": "USD", "country": "US"}, "discount_percentage": 5.5, "template_id": "123456", "approved_by": "John Doe", "tax_method": "Due to supplier", "document_received": true, "source_document_url": "https://www.invoicesolution.com/bill/123456", "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "updated_by": "12345", "created_by": "12345", "updated_at": "2020-09-30T07:43:32.000Z", "created_at": "2020-09-30T07:43:32.000Z", "row_version": "1-12345", "custom_fields": [{"id": "2389328923893298", "name": "employee_level", "description": "Employee Level", "value": "Uses Salesforce and Marketo"}], "pass_through": [{"service_id": "<id>", "extend_paths": [{"path": "$.nested.property", "value": {"TaxClassificationRef": {"value": "EUC-99990201-V1-00020000"}}}]}], "accounting_period": "01-24", "attachments": [{"name": "sample.jpg", "mime_type": "image/jpeg", "is_compressed": false, "encoding": "base64", "content": "data:image/jpeg;base64,...", "notes": "A sample image"}]}}
+          application/json: {"status_code": 200, "status": "OK", "service": "xero", "resource": "bills", "operation": "one", "data": {"id": "12345", "downstream_id": "12345", "display_id": "123456", "bill_number": "10001", "supplier": {"id": "12345", "display_id": "SUPP00101", "display_name": "Windsurf Shop", "company_name": "The boring company", "address": {"id": "123", "type": "primary", "string": "25 Spring Street, Blackburn, VIC 3130", "name": "HQ US", "line1": "Main street", "line2": "apt #", "line3": "Suite #", "line4": "delivery instructions", "line5": "Attention: Finance Dept", "street_number": "25", "city": "San Francisco", "state": "CA", "postal_code": "94104", "country": "US", "latitude": "40.759211", "longitude": "-73.984638", "county": "Santa Clara", "contact_name": "Elon Musk", "salutation": "Mr", "phone_number": "111-111-1111", "fax": "122-111-1111", "email": "elon@musk.com", "website": "https://elonmusk.com", "notes": "Address notes or delivery instructions.", "row_version": "1-12345"}}, "company_id": "12345", "location_id": "12345", "department_id": "12345", "currency": "USD", "currency_rate": 0.69, "tax_inclusive": true, "bill_date": "2020-09-30", "due_date": "2020-10-30", "paid_date": "2020-10-30", "po_number": "90000117", "reference": "INV-2024-001", "line_items": [{"id": "12345", "row_id": "12345", "code": "120-C", "line_number": 1, "description": "Model Y is a fully electric, mid-size SUV, with seating for up to seven, dual motor AWD and unparalleled protection.", "type": "expense_account", "tax_amount": 27.5, "total_amount": 27500, "quantity": 1, "unit_price": 27500.5, "unit_of_measure": "pc.", "discount_percentage": 0.01, "discount_amount": 19.99, "location_id": "12345", "department_id": "12345", "subsidiary_id": "12345", "category_id": "12345", "shipping_id": "12345", "memo": "Some memo", "prepaid": true, "tax_applicable_on": "Domestic_Purchase_of_Goods_and_Services", "tax_recoverability": "Fully_Recoverable", "tax_method": "Due_to_Supplier", "retention_amount": 1000, "payment_amount": 1000, "item": {"id": "12344", "code": "120-C", "name": "Model Y"}, "tax_rate": {"id": "123456", "code": "N-T", "name": "GST on Purchases", "rate": 10}, "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "purchase_order": {"id": "123456", "line_id": "123456", "line_number": "1"}, "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "customer": {"id": "12345", "display_id": "CUST00101", "display_name": "Windsurf Shop", "company_name": "The boring company", "email": "boring@boring.com"}, "rebilling": {"rebillable": true, "rebill_status": "billed", "linked_transaction_id": "txn_abc123", "linked_transaction_line_id": "line_xyz789"}, "row_version": "1-12345", "updated_by": "12345", "created_by": "12345", "created_at": "2020-09-30T07:43:32.000Z", "updated_at": "2020-09-30T07:43:32.000Z", "worktags": [{"id": "123456", "value": "New York"}]}], "terms": "Net 30 days", "terms_id": "12345", "balance": 27500, "deposit": 0, "sub_total": 250, "total_tax": 25, "total": 27500, "tax_code": "1234", "notes": "Some notes about this bill.", "status": "draft", "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "payment_method": "cash", "channel": "email", "language": "EN", "accounting_by_row": false, "bank_account": {"bank_name": "Chase Bank", "account_number": "123465", "account_name": "Main Operating Account", "account_type": "credit_card", "iban": "GB33BUKB20201555555555", "bic": "CHASUS33", "routing_number": "021000021", "bsb_number": "062-001", "branch_identifier": "001", "bank_code": "BNH", "currency": "USD", "country": "US"}, "discount_percentage": 5.5, "template_id": "123456", "approved_by": "John Doe", "tax_method": "Due to supplier", "document_received": true, "source_document_url": "https://www.invoicesolution.com/bill/123456", "payment_allocations": [{"id": "123456", "allocated_amount": 1000, "date": "2020-09-30T07:43:32.000Z"}], "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "updated_by": "12345", "created_by": "12345", "updated_at": "2020-09-30T07:43:32.000Z", "created_at": "2020-09-30T07:43:32.000Z", "row_version": "1-12345", "custom_fields": [{"id": "2389328923893298", "name": "employee_level", "description": "Employee Level", "value": "Uses Salesforce and Marketo"}], "pass_through": [{"service_id": "<id>", "extend_paths": [{"path": "$.nested.property", "value": {"TaxClassificationRef": {"value": "EUC-99990201-V1-00020000"}}}]}], "accounting_period": "01-24", "attachments": [{"name": "sample.jpg", "mime_type": "image/jpeg", "is_compressed": false, "encoding": "base64", "content": "data:image/jpeg;base64,...", "notes": "A sample image"}]}}
         "400":
           application/json: {"status_code": 400, "error": "Bad Request", "type_name": "RequestValidationError", "message": "Invalid Params", "detail": "Missing property foobar", "ref": "https://developers.apideck.com/errors#requestvalidationerror", "downstream_errors": [{"message": "Account code '100' has been archived or deleted", "detail": "Each line item must reference a valid account", "code": "VALIDATION_ERROR"}]}
         "401":
@@ -6663,7 +7071,7 @@ examples:
           x-apideck-app-id: "dSBdXd2H6Mqwfg0atXHXYcysLJE9qyn1VwBtXHX"
           x-apideck-service-id: "salesforce"
       requestBody:
-        application/json: {"display_id": "123456", "bill_number": "10001", "supplier": {"id": "12345", "display_name": "Windsurf Shop", "address": {"id": "123", "type": "primary", "string": "25 Spring Street, Blackburn, VIC 3130", "name": "HQ US", "line1": "Main street", "line2": "apt #", "line3": "Suite #", "line4": "delivery instructions", "line5": "Attention: Finance Dept", "street_number": "25", "city": "San Francisco", "state": "CA", "postal_code": "94104", "country": "US", "latitude": "40.759211", "longitude": "-73.984638", "county": "Santa Clara", "contact_name": "Elon Musk", "salutation": "Mr", "phone_number": "111-111-1111", "fax": "122-111-1111", "email": "elon@musk.com", "website": "https://elonmusk.com", "notes": "Address notes or delivery instructions.", "row_version": "1-12345"}}, "company_id": "12345", "location_id": "12345", "department_id": "12345", "currency": "USD", "currency_rate": 0.69, "tax_inclusive": true, "bill_date": "2020-09-30", "due_date": "2020-10-30", "paid_date": "2020-10-30", "po_number": "90000117", "reference": "INV-2024-001", "line_items": [{"row_id": "12345", "code": "120-C", "line_number": 1, "description": "Model Y is a fully electric, mid-size SUV, with seating for up to seven, dual motor AWD and unparalleled protection.", "type": "expense_account", "tax_amount": 27.5, "total_amount": 27500, "quantity": 1, "unit_price": 27500.5, "unit_of_measure": "pc.", "discount_percentage": 0.01, "discount_amount": 19.99, "location_id": "12345", "department_id": "12345", "subsidiary_id": "12345", "category_id": "12345", "shipping_id": "12345", "memo": "Some memo", "prepaid": true, "tax_applicable_on": "Domestic_Purchase_of_Goods_and_Services", "tax_recoverability": "Fully_Recoverable", "tax_method": "Due_to_Supplier", "retention_amount": 1000, "payment_amount": 1000, "item": {"id": "12344", "code": "120-C", "name": "Model Y"}, "tax_rate": {"id": "123456", "code": "N-T", "rate": 10}, "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "purchase_order": {"id": "123456", "line_id": "123456", "line_number": "1"}, "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "customer": {"id": "12345", "display_name": "Windsurf Shop", "email": "boring@boring.com"}, "rebilling": {"rebillable": true, "rebill_status": "billed", "linked_transaction_id": "txn_abc123", "linked_transaction_line_id": "line_xyz789"}, "row_version": "1-12345", "worktags": [{"id": "123456", "value": "New York"}]}], "terms": "Net 30 days", "terms_id": "12345", "balance": 27500, "deposit": 0, "sub_total": 250, "total_tax": 25, "total": 27500, "tax_code": "1234", "notes": "Some notes about this bill.", "status": "draft", "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "payment_method": "cash", "channel": "email", "language": "EN", "accounting_by_row": false, "bank_account": {"bank_name": "Chase Bank", "account_number": "123465", "account_name": "Main Operating Account", "account_type": "credit_card", "iban": "GB33BUKB20201555555555", "bic": "CHASUS33", "routing_number": "021000021", "bsb_number": "062-001", "branch_identifier": "001", "bank_code": "BNH", "currency": "USD", "country": "US"}, "discount_percentage": 5.5, "template_id": "123456", "approved_by": "John Doe", "tax_method": "Due to supplier", "document_received": true, "source_document_url": "https://www.invoicesolution.com/bill/123456", "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "row_version": "1-12345", "custom_fields": [{"id": "2389328923893298", "name": "employee_level", "description": "Employee Level", "value": "Uses Salesforce and Marketo"}], "pass_through": [{"service_id": "<id>", "extend_paths": [{"path": "$.nested.property", "value": {"TaxClassificationRef": {"value": "EUC-99990201-V1-00020000"}}}]}], "accounting_period": "01-24", "attachments": [{"name": "sample.jpg", "mime_type": "image/jpeg", "is_compressed": false, "encoding": "base64", "content": "data:image/jpeg;base64,...", "notes": "A sample image"}]}
+        application/json: {"display_id": "123456", "bill_number": "10001", "supplier": {"id": "12345", "display_name": "Windsurf Shop", "address": {"id": "123", "type": "primary", "string": "25 Spring Street, Blackburn, VIC 3130", "name": "HQ US", "line1": "Main street", "line2": "apt #", "line3": "Suite #", "line4": "delivery instructions", "line5": "Attention: Finance Dept", "street_number": "25", "city": "San Francisco", "state": "CA", "postal_code": "94104", "country": "US", "latitude": "40.759211", "longitude": "-73.984638", "county": "Santa Clara", "contact_name": "Elon Musk", "salutation": "Mr", "phone_number": "111-111-1111", "fax": "122-111-1111", "email": "elon@musk.com", "website": "https://elonmusk.com", "notes": "Address notes or delivery instructions.", "row_version": "1-12345"}}, "company_id": "12345", "location_id": "12345", "department_id": "12345", "currency": "USD", "currency_rate": 0.69, "tax_inclusive": true, "bill_date": "2020-09-30", "due_date": "2020-10-30", "paid_date": "2020-10-30", "po_number": "90000117", "reference": "INV-2024-001", "line_items": [{"row_id": "12345", "code": "120-C", "line_number": 1, "description": "Model Y is a fully electric, mid-size SUV, with seating for up to seven, dual motor AWD and unparalleled protection.", "type": "expense_account", "tax_amount": 27.5, "total_amount": 27500, "quantity": 1, "unit_price": 27500.5, "unit_of_measure": "pc.", "discount_percentage": 0.01, "discount_amount": 19.99, "location_id": "12345", "department_id": "12345", "subsidiary_id": "12345", "category_id": "12345", "shipping_id": "12345", "memo": "Some memo", "prepaid": true, "tax_applicable_on": "Domestic_Purchase_of_Goods_and_Services", "tax_recoverability": "Fully_Recoverable", "tax_method": "Due_to_Supplier", "retention_amount": 1000, "payment_amount": 1000, "item": {"id": "12344", "code": "120-C", "name": "Model Y"}, "tax_rate": {"id": "123456", "code": "N-T", "rate": 10}, "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "purchase_order": {"id": "123456", "line_id": "123456", "line_number": "1"}, "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "customer": {"id": "12345", "display_name": "Windsurf Shop", "email": "boring@boring.com"}, "rebilling": {"rebillable": true, "rebill_status": "billed", "linked_transaction_id": "txn_abc123", "linked_transaction_line_id": "line_xyz789"}, "row_version": "1-12345", "worktags": [{"id": "123456", "value": "New York"}]}], "terms": "Net 30 days", "terms_id": "12345", "balance": 27500, "deposit": 0, "sub_total": 250, "total_tax": 25, "total": 27500, "tax_code": "1234", "notes": "Some notes about this bill.", "status": "draft", "ledger_account": {"id": "123456", "name": "Bank account", "nominal_code": "N091", "code": "453", "parent_id": "123456", "display_id": "123456"}, "payment_method": "cash", "channel": "email", "language": "EN", "accounting_by_row": false, "bank_account": {"bank_name": "Chase Bank", "account_number": "123465", "account_name": "Main Operating Account", "account_type": "credit_card", "iban": "GB33BUKB20201555555555", "bic": "CHASUS33", "routing_number": "021000021", "bsb_number": "062-001", "branch_identifier": "001", "bank_code": "BNH", "currency": "USD", "country": "US"}, "discount_percentage": 5.5, "template_id": "123456", "approved_by": "John Doe", "tax_method": "Due to supplier", "document_received": true, "source_document_url": "https://www.invoicesolution.com/bill/123456", "payment_allocations": [{"id": "123456", "allocated_amount": 1000, "date": "2020-09-30T07:43:32.000Z"}], "tracking_categories": [{"id": "123456", "code": "100", "name": "New York", "parent_id": "123456", "parent_name": "New York"}], "row_version": "1-12345", "custom_fields": [{"id": "2389328923893298", "name": "employee_level", "description": "Employee Level", "value": "Uses Salesforce and Marketo"}], "pass_through": [{"service_id": "<id>", "extend_paths": [{"path": "$.nested.property", "value": {"TaxClassificationRef": {"value": "EUC-99990201-V1-00020000"}}}]}], "accounting_period": "01-24", "attachments": [{"name": "sample.jpg", "mime_type": "image/jpeg", "is_compressed": false, "encoding": "base64", "content": "data:image/jpeg;base64,...", "notes": "A sample image"}]}
       responses:
         "200":
           application/json: {"status_code": 200, "status": "OK", "service": "xero", "resource": "bills", "operation": "update", "data": {"id": "12345"}}
@@ -7550,7 +7958,7 @@ examples:
         query:
           raw: false
           limit: 20
-          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable"}
+          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "bill_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable"}
           sort: {"by": "updated_at", "direction": "desc"}
           pass_through: {"search": "San Francisco"}
           fields: "id,updated_at"
@@ -9082,7 +9490,7 @@ examples:
         query:
           raw: false
           limit: 20
-          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable"}
+          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "bill_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable"}
           sort: {"by": "updated_at", "direction": "desc"}
           pass_through: {"search": "San Francisco"}
           fields: "id,updated_at"

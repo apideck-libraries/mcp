@@ -6,14 +6,20 @@ Generated from Apideck's OpenAPI spec using [Speakeasy](https://www.speakeasy.co
 
 ## Tools
 
-**229 tools** across 5 unified APIs:
+**330 tools** across 10 unified APIs:
 
 | API | Tools | Coverage |
 |---|---|---|
 | Accounting | 143 | Invoices, bills, payments, suppliers, customers, journal entries, ledger accounts, purchase orders, tax rates, P&L, balance sheet, and more |
+| CRM | 50 | Companies, contacts, leads, opportunities, pipelines, notes, activities, users |
 | File Storage | 32 | Files, folders, drives, shared links, upload sessions |
 | HRIS | 25 | Employees, companies, departments, payrolls, time-off requests |
 | Vault | 23 | Connections, consumers, sessions, custom mappings, logs |
+| ATS | 15 | Applicants, applications, jobs |
+| Issue Tracking | 15 | Collections, tickets, users, tags, comments |
+| Connector | 8 | APIs, connectors, resources, coverage metadata |
+| Ecommerce | 7 | Customers, orders, products, stores |
+| Webhook | 6 | Webhook subscriptions, logs |
 | Proxy | 6 | GET, POST, PUT, PATCH, DELETE, OPTIONS |
 
 ## Hosted
@@ -116,7 +122,7 @@ npm install
 # Dynamic mode (default — progressive discovery, 4 meta-tools, ~1,300 tokens)
 node bin/mcp-server.js start --api-key "$APIDECK_API_KEY" --consumer-id "$APIDECK_CONSUMER_ID" --app-id "$APIDECK_APP_ID"
 
-# Static mode (all 229 tools)
+# Static mode (all 330 tools)
 node bin/mcp-server.js start --api-key "$APIDECK_API_KEY" --consumer-id "$APIDECK_CONSUMER_ID" --app-id "$APIDECK_APP_ID" --mode static
 
 # Read-only tools only
@@ -158,7 +164,7 @@ agent = Agent("anthropic:claude-sonnet-4-5", mcp_servers=[
 | Mode | Tools exposed | Initial tokens | Best for |
 |---|---|---|---|
 | `dynamic` (default) | 4 meta-tools: `list_tools`, `describe_tool_input`, `execute_tool`, `list_scopes` | ~1,300 | General-purpose agents, token-sensitive contexts |
-| `static` | All 229 tools | ~25-40K | Focused agents doing specific operations |
+| `static` | All 330 tools | ~35-55K | Focused agents doing specific operations |
 
 In dynamic mode, agents discover tools progressively:
 
@@ -178,8 +184,8 @@ execute_tool({"tool_name": "accounting-invoices-list", "input": {"request": {"li
 The `generate-overlay.py` script controls which Apideck APIs are included:
 
 ```bash
-# Default: accounting, fileStorage, hris, vault, proxy (229 tools)
-python generate-overlay.py
+# Default: all unified APIs except SMS (330 tools)
+python generate-overlay.py accounting,ats,connector,crm,ecommerce,fileStorage,hris,issueTracking,proxy,vault,webhook
 
 # Accounting only (143 tools)
 python generate-overlay.py accounting
@@ -187,7 +193,7 @@ python generate-overlay.py accounting
 # Custom selection
 python generate-overlay.py accounting,hris,vault
 
-# All APIs (336 tools — exceeds Speakeasy free tier of 250)
+# All APIs including SMS (~334 tools)
 python generate-overlay.py all
 
 # Then regenerate + apply fixes:
@@ -426,8 +432,8 @@ To enable dynamic mode, pass the `--mode dynamic` flag when starting your server
 In dynamic mode, the server registers only the following meta-tools instead of every individual tool:
 
 - **`list_tools`**: Lists all available tools with their names and descriptions.
-- **`describe_tool`**: Returns the input schema for one or more tools by name.
-- **`execute_tool`**: Executes a tool by name with the provided input parameters.
+- **`describe_tool_input`**: Returns the input schema for one or more tools by name.
+- **`execute_tool`**: Executes a tool by name with its arguments.
 - **`list_scopes`**: Lists the scopes available on the server.
 
 This approach significantly reduces the number of tokens sent to the LLM on each request, which is especially useful for servers with a large number of tools.

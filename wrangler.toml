@@ -1,5 +1,5 @@
 
-name = "@apideck/mcp-mcp-server"
+name = "apideck-mcp-server"
 main = "src/cloudflare-worker/cloudflare-worker.ts"
 compatibility_date = "2025-07-15"
 
@@ -14,7 +14,7 @@ class_name = "AtApideckMcpMCP"
 # Durable Object migration
 [[migrations]]
 tag = "v1"
-new_classes = ["AtApideckMcpMCP"]
+new_sqlite_classes = ["AtApideckMcpMCP"]
 
 # Static assets configuration
 [assets]

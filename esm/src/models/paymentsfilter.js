@@ -27,6 +27,7 @@ export const PaymentsFilterType$zodSchema = z.union([
     z.string().transform(catchUnrecognizedEnum),
 ]);
 export const PaymentsFilter$zodSchema = z.object({
+    bill_id: z.string().optional(),
     customer_id: z.string().optional().describe("Filter by customer id"),
     invoice_id: z.string().optional(),
     supplier_id: z.string().optional(),

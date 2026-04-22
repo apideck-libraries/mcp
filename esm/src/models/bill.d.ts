@@ -7,6 +7,7 @@ import { Currency } from "./currency.js";
 import { CustomFieldUnion } from "./customfieldunion.js";
 import { LinkedAttachment } from "./linkedattachment.js";
 import { LinkedLedgerAccount } from "./linkedledgeraccount.js";
+import { LinkedPaymentAllocations } from "./linkedpaymentallocations.js";
 import { LinkedSupplier } from "./linkedsupplier.js";
 import { LinkedSupplierInput } from "./linkedsupplierinput.js";
 import { LinkedTrackingCategory } from "./linkedtrackingcategory.js";
@@ -31,13 +32,13 @@ export declare const BillStatus: {
 export type BillStatus = OpenEnum<typeof BillStatus>;
 export declare const BillStatus$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     void: "void";
-    credit: "credit";
     draft: "draft";
-    authorised: "authorised";
-    paid: "paid";
-    deleted: "deleted";
     submitted: "submitted";
+    authorised: "authorised";
     partially_paid: "partially_paid";
+    paid: "paid";
+    credit: "credit";
+    deleted: "deleted";
     posted: "posted";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**
@@ -55,9 +56,9 @@ export declare const BillAmortizationType: {
 export type BillAmortizationType = OpenEnum<typeof BillAmortizationType>;
 export declare const BillAmortizationType$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     manual: "manual";
-    other: "other";
     receipt: "receipt";
     schedule: "schedule";
+    other: "other";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type Bill = {
     id?: string | undefined;
@@ -100,6 +101,7 @@ export type Bill = {
     tax_method?: string | null | undefined;
     document_received?: boolean | null | undefined;
     source_document_url?: string | null | undefined;
+    payment_allocations?: Array<LinkedPaymentAllocations | null> | null | undefined;
     tracking_categories?: Array<LinkedTrackingCategory | null> | null | undefined;
     updated_by?: string | null | undefined;
     created_by?: string | null | undefined;
@@ -154,6 +156,7 @@ export type BillInput = {
     tax_method?: string | null | undefined;
     document_received?: boolean | null | undefined;
     source_document_url?: string | null | undefined;
+    payment_allocations?: Array<LinkedPaymentAllocations | null> | null | undefined;
     tracking_categories?: Array<LinkedTrackingCategory | null> | null | undefined;
     row_version?: string | null | undefined;
     custom_fields?: Array<CustomFieldUnion> | undefined;
