@@ -1,7 +1,7 @@
 {
   "name": "@apideck/mcp",
   "mcpName": "com.apideck/mcp",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "author": "Apideck",
   "type": "module",
   "sideEffects": false,

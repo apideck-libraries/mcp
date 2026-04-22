@@ -6,14 +6,14 @@
     "url": "https://github.com/apideck-libraries/mcp",
     "source": "github"
   },
-  "version": "0.1.10",
+  "version": "0.1.11",
   "websiteUrl": "https://www.apideck.com/mcp-server",
   "packages": [
     {
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@apideck/mcp",
-      "version": "0.1.10",
+      "version": "0.1.11",
       "runtimeHint": "npx",
       "transport": { "type": "stdio" },
       "environmentVariables": [
