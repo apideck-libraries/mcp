@@ -1,0 +1,35 @@
+bin/mcp-server.js
+  1843bf7ab16e94b4 51462-51480,51521-51525,51532-51536,51555,51698-51699,51701-51703,51706,51713-51714,122443,122779,128732
+esm/src/mcp-server/tools.js
+  1843bf7ab16e94b4 57-75,121-125,133-137,158,303-304,306-310,314,321-322
+src/mcp-server/tools.ts
+  1843bf7ab16e94b4 18,131-155,164,242-246,257-261,301,469-470,472-476,479,486-487
+esm/src/mcp-server/server.d.ts
+  1843bf7ab16e94b4 4,20
+src/mcp-server/server.ts
+  1843bf7ab16e94b4 8,364,398,748
+esm/src/mcp-server/tools.d.ts
+  1843bf7ab16e94b4 6,45,53
+esm/src/mcp-server/server.js
+  1843bf7ab16e94b4 360,697
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "10468f9ce2400b77654453b33d8e3bd16b736f86",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 1743,
+      "total_deletions": 37,
+      "accepted_lines": 13015,
+      "overriden_lines": 0
+    }
+  }
+}
