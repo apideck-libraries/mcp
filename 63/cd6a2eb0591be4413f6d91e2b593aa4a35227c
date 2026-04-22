@@ -1,0 +1,25 @@
+server.json
+  1843bf7ab16e94b4 9,16
+package.json
+  1843bf7ab16e94b4 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "63cd6a2eb0591be4413f6d91e2b593aa4a35227c",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 8648,
+      "accepted_lines": 2638,
+      "overriden_lines": 0
+    }
+  }
+}
