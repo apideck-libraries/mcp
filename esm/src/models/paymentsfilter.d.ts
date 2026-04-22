@@ -12,18 +12,19 @@ export declare const PaymentsFilterType: {
 };
 export type PaymentsFilterType = OpenEnum<typeof PaymentsFilterType>;
 export declare const PaymentsFilterType$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    accounts_payable_credit: "accounts_payable_credit";
-    accounts_payable_overpayment: "accounts_payable_overpayment";
-    accounts_payable_prepayment: "accounts_payable_prepayment";
-    accounts_payable: "accounts_payable";
     accounts_receivable: "accounts_receivable";
+    accounts_payable: "accounts_payable";
     accounts_receivable_credit: "accounts_receivable_credit";
+    accounts_payable_credit: "accounts_payable_credit";
     accounts_receivable_overpayment: "accounts_receivable_overpayment";
+    accounts_payable_overpayment: "accounts_payable_overpayment";
     accounts_receivable_prepayment: "accounts_receivable_prepayment";
+    accounts_payable_prepayment: "accounts_payable_prepayment";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type PaymentsFilter = {
     updated_since?: string | undefined;
     invoice_id?: string | undefined;
+    bill_id?: string | undefined;
     supplier_id?: string | undefined;
     customer_id?: string | undefined;
     type?: PaymentsFilterType | undefined;

@@ -3,6 +3,7 @@ import { ShapeOutput, ZodRawShapeCompat } from "@modelcontextprotocol/sdk/server
 import { RequestHandlerExtra } from "@modelcontextprotocol/sdk/shared/protocol.js";
 import { CallToolResult, ServerNotification, ServerRequest } from "@modelcontextprotocol/sdk/types.js";
 import { ApideckMcpCore } from "../core.js";
+import type { Analytics } from "./analytics.js";
 import { ConsoleLogger } from "./console-logger.js";
 import { MCPServerFlags } from "./flags.js";
 import { MCPScope } from "./scopes.js";
@@ -41,7 +42,7 @@ export type ToolDefinition<Args extends undefined | ZodRawShapeCompat = undefine
     tool: (client: ApideckMcpCore, extra: RequestHandlerExtra<ServerRequest, ServerNotification>) => CallToolResult | Promise<CallToolResult>;
 };
 export declare function formatResult(response: Response): Promise<CallToolResult>;
-export declare function createRegisterTool(logger: ConsoleLogger, server: McpServer, getSDK: () => ApideckMcpCore, allowedScopes: Set<MCPScope>, allowedTools?: Set<string>, dynamic?: boolean, annotationFilter?: MCPToolAnnotationFilter): [
+export declare function createRegisterTool(logger: ConsoleLogger, server: McpServer, getSDK: () => ApideckMcpCore, allowedScopes: Set<MCPScope>, allowedTools?: Set<string>, dynamic?: boolean, annotationFilter?: MCPToolAnnotationFilter, analytics?: Analytics): [
     <A extends ZodRawShapeCompat | undefined>(tool: ToolDefinition<A>) => void,
     Array<{
         name: string;
@@ -49,7 +50,7 @@ export declare function createRegisterTool(logger: ConsoleLogger, server: McpSer
     }>,
     Map<string, ToolDefinition<ZodRawShapeCompat | undefined>>
 ];
-export declare function registerDynamicTools(logger: ConsoleLogger, server: McpServer, getSDK: () => ApideckMcpCore, toolMap: Map<string, ToolDefinition<ZodRawShapeCompat | undefined>>, allowedScopes: Set<MCPScope>): void;
+export declare function registerDynamicTools(logger: ConsoleLogger, server: McpServer, getSDK: () => ApideckMcpCore, toolMap: Map<string, ToolDefinition<ZodRawShapeCompat | undefined>>, allowedScopes: Set<MCPScope>, analytics?: Analytics): void;
 export declare function buildSDK(headers: Headers, cliFlags: MCPServerFlags, disableStaticAuth: boolean, logger: {
     level: string;
 }): ApideckMcpCore;

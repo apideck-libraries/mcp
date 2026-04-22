@@ -15,6 +15,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import * as z from "zod";
 import { ApideckMcpCore } from "../core.js";
+import type { Analytics } from "./analytics.js";
 import { ConsoleLogger } from "./console-logger.js";
 import { MCPServerFlags } from "./flags.js";
 import { MCPScope, mcpScopes } from "./scopes.js";
@@ -127,6 +128,31 @@ export async function formatResult(
   return response.ok ? { content } : { content, isError: true };
 }
 
+function captureToolCall(
+  analytics: Analytics | undefined,
+  sdk: ApideckMcpCore,
+  toolName: string,
+  mode: "static" | "dynamic",
+  start: number,
+  result: CallToolResult,
+): void {
+  if (!analytics) return;
+  const appId = sdk._options.appId;
+  const consumerId = sdk._options.consumerId;
+  void analytics.capture({
+    distinctId: [appId, consumerId].filter(Boolean).join(":") || "mcp-server",
+    event: "mcp_tool_called",
+    properties: {
+      tool_name: toolName,
+      is_error: result.isError ?? false,
+      duration_ms: Date.now() - start,
+      mode,
+      app_id: appId,
+      consumer_id: consumerId,
+    },
+  });
+}
+
 export function createRegisterTool(
   logger: ConsoleLogger,
   server: McpServer,
@@ -135,6 +161,7 @@ export function createRegisterTool(
   allowedTools?: Set<string>,
   dynamic?: boolean,
   annotationFilter?: MCPToolAnnotationFilter,
+  analytics?: Analytics,
 ): [
   <A extends ZodRawShapeCompat | undefined>(tool: ToolDefinition<A>) => void,
   Array<{ name: string; description: string }>,
@@ -212,7 +239,11 @@ export function createRegisterTool(
           annotations: tool.annotations,
         },
         async (args, ctx) => {
-          return tool.tool(getSDK(), args, ctx);
+          const start = Date.now();
+          const sdk = getSDK();
+          const result = await tool.tool(sdk, args, ctx);
+          captureToolCall(analytics, sdk, tool.name, "static", start, result);
+          return result;
         },
       );
     } else {
@@ -223,7 +254,11 @@ export function createRegisterTool(
           annotations: tool.annotations,
         },
         async (ctx) => {
-          return tool.tool(getSDK(), ctx);
+          const start = Date.now();
+          const sdk = getSDK();
+          const result = await tool.tool(sdk, ctx);
+          captureToolCall(analytics, sdk, tool.name, "static", start, result);
+          return result;
         },
       );
     }
@@ -263,6 +298,7 @@ export function registerDynamicTools(
   getSDK: () => ApideckMcpCore,
   toolMap: Map<string, ToolDefinition<ZodRawShapeCompat | undefined>>,
   allowedScopes: Set<MCPScope>,
+  analytics?: Analytics,
 ): void {
   // 1. list_tools
   server.registerTool("list_tools", {
@@ -353,12 +389,16 @@ export function registerDynamicTools(
             const desc = val && typeof val === "object" && "description" in val
               ? (val as { description?: string }).description
               : undefined;
-            fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
+            fallback[key] = {
+              type: "unknown",
+              description: desc ?? `Parameter: ${key}`,
+            };
           }
           schemaText += JSON.stringify({
             type: "object",
             properties: fallback,
-            note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters.",
+            note:
+              "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters.",
           }, null, 2);
         }
       } else {
@@ -374,16 +414,16 @@ export function registerDynamicTools(
 
     return { content: [{ type: "text", text: parts.join("\n\n") }] };
   });
-  logger.debug("Registered dynamic meta-tool", { name: "describe_tool" });
+  logger.debug("Registered dynamic meta-tool", { name: "describe_tool_input" });
 
   // 3. execute_tool
   server.registerTool("execute_tool", {
     description:
-      "Execute a tool by name with the provided input parameters. If executing a given tool for the first time, it is recommended to call describe_tool_input first to understand the expected input schema.",
+      "Execute a tool by name with its arguments. If executing a given tool for the first time, it is recommended to call describe_tool_input first to understand the expected `arguments` shape.",
     inputSchema: {
-      tool_name: z.string().describe("The name of the tool to execute"),
-      input: z.record(z.string(), z.unknown()).optional().describe(
-        "Input parameters for the tool as a JSON object",
+      name: z.string().describe("The name of the tool to execute"),
+      arguments: z.looseObject({}).optional().describe(
+        "Arguments for the target tool as a JSON object, matching the schema returned by describe_tool_input.",
       ),
     },
     annotations: {
@@ -394,17 +434,17 @@ export function registerDynamicTools(
       openWorldHint: true,
     },
   }, async (args, ctx) => {
-    const def = toolMap.get(args.tool_name);
+    const def = toolMap.get(args.name);
     if (!def) {
       return {
-        content: [{ type: "text", text: `Unknown tool: ${args.tool_name}` }],
+        content: [{ type: "text", text: `Unknown tool: ${args.name}` }],
         isError: true,
       };
     }
 
     let validatedInput: Record<string, unknown> = {};
     if (def.args) {
-      const rawInput = args.input ?? {};
+      const rawInput = args.arguments ?? {};
       const vres = z.object(def.args).safeParse(rawInput);
       if (vres.success) {
         // Use the raw input instead of transformed output. The tool's SDK
@@ -419,28 +459,32 @@ export function registerDynamicTools(
           content: [{
             type: "text",
             text:
-              `Invalid input for tool ${args.tool_name}:\n<issues>\n${issues}\n</issues>`,
+              `Invalid input for tool ${args.name}:\n<issues>\n${issues}\n</issues>`,
           }],
           isError: true,
         };
       }
     }
 
+    const start = Date.now();
+    const sdk = getSDK();
     try {
-      if (def.args) {
-        return await def.tool(getSDK(), validatedInput, ctx);
-      } else {
-        return await def.tool(getSDK(), ctx);
-      }
+      const result = def.args
+        ? await def.tool(sdk, validatedInput, ctx)
+        : await def.tool(sdk, ctx);
+      captureToolCall(analytics, sdk, args.name, "dynamic", start, result);
+      return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      return {
+      const errorResult: CallToolResult = {
         content: [{
           type: "text",
-          text: `Error executing tool ${args.tool_name}: ${message}`,
+          text: `Error executing tool ${args.name}: ${message}`,
         }],
         isError: true,
       };
+      captureToolCall(analytics, sdk, args.name, "dynamic", start, errorResult);
+      return errorResult;
     }
   });
   logger.debug("Registered dynamic meta-tool", { name: "execute_tool" });

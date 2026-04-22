@@ -10,6 +10,7 @@ import { Currency$zodSchema } from "./currency.js";
 import { CustomFieldUnion$zodSchema, } from "./customfieldunion.js";
 import { LinkedAttachment$zodSchema, } from "./linkedattachment.js";
 import { LinkedLedgerAccount$zodSchema, } from "./linkedledgeraccount.js";
+import { LinkedPaymentAllocations$zodSchema, } from "./linkedpaymentallocations.js";
 import { LinkedSupplier$zodSchema } from "./linkedsupplier.js";
 import { LinkedSupplierInput$zodSchema, } from "./linkedsupplierinput.js";
 import { LinkedTrackingCategory$zodSchema, } from "./linkedtrackingcategory.js";
@@ -94,6 +95,8 @@ export const Bill$zodSchema = z.object({
     notes: z.string().nullable().optional(),
     paid_date: z.string().date().nullable().optional().describe("The paid date is the date on which a payment was sent to the supplier - YYYY-MM-DD."),
     pass_through: z.array(PassThroughBody$zodSchema).optional().describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources."),
+    payment_allocations: z.array(LinkedPaymentAllocations$zodSchema.nullable())
+        .nullable().optional().describe("A list of linked payment allocations."),
     payment_method: z.string().nullable().optional().describe("Payment method used for the transaction, such as cash, credit card, bank transfer, or check"),
     po_number: z.string().nullable().optional().describe("A PO Number uniquely identifies a purchase order and is generally defined by the buyer. The buyer will match the PO number in the invoice to the Purchase Order."),
     reference: z.string().nullable().optional().describe("Optional reference identifier for the transaction."),
@@ -144,6 +147,8 @@ export const BillInput$zodSchema = z.object({
     notes: z.string().nullable().optional(),
     paid_date: z.string().date().nullable().optional().describe("The paid date is the date on which a payment was sent to the supplier - YYYY-MM-DD."),
     pass_through: z.array(PassThroughBody$zodSchema).optional().describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources."),
+    payment_allocations: z.array(LinkedPaymentAllocations$zodSchema.nullable())
+        .nullable().optional().describe("A list of linked payment allocations."),
     payment_method: z.string().nullable().optional().describe("Payment method used for the transaction, such as cash, credit card, bank transfer, or check"),
     po_number: z.string().nullable().optional().describe("A PO Number uniquely identifies a purchase order and is generally defined by the buyer. The buyer will match the PO number in the invoice to the Purchase Order."),
     reference: z.string().nullable().optional().describe("Optional reference identifier for the transaction."),

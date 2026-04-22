@@ -193,18 +193,6 @@ DEBUG	discriminated: Renamed to "Connection_value"
 DEBUG	discriminated: Renamed to "Connection_value" 
 	 labels: "original_name:value scope:shared data_type:union refName:Connection property:default property:configuration" 
 	 registrationID: "scope:shared refType:Schemas refName:Connection property:configuration property:defaults originalName:value"
-DEBUG	incremented: Renamed to "SimpleFormFieldOption_value_1" 
-	 labels: "scope:shared data_type:union refName:SimpleFormFieldOption oneOf:value duplicate_count:1" 
-	 registrationID: "scope:shared refType:Schemas refName:SimpleFormFieldOption oneOf:value oneOfPosition:5 originalName:"
-DEBUG	incremented: Renamed to "SimpleFormFieldOption_value_2" 
-	 labels: "original_name:value scope:shared data_type:union refName:SimpleFormFieldOption duplicate_count:2" 
-	 registrationID: "scope:shared refType:Schemas refName:SimpleFormFieldOption originalName:value"
-DEBUG	incremented: Renamed to "Connection_value_1" 
-	 labels: "scope:shared data_type:union refName:Connection oneOf:value property:default property:configuration duplicate_count:1" 
-	 registrationID: "scope:shared refType:Schemas refName:Connection property:configuration property:defaults oneOf:value oneOfPosition:5 originalName:"
-DEBUG	incremented: Renamed to "Connection_value_2" 
-	 labels: "original_name:value scope:shared data_type:union refName:Connection property:default property:configuration duplicate_count:2" 
-	 registrationID: "scope:shared refType:Schemas refName:Connection property:configuration property:defaults originalName:value"
 DEBUG	incremented: Renamed to "CustomField_value_1" 
 	 labels: "scope:shared data_type:union refName:CustomField oneOf:value duplicate_count:1" 
 	 registrationID: "scope:shared refType:Schemas refName:CustomField component:true oneOfPosition:1 oneOf:value oneOfPosition:5 originalName:"
@@ -217,6 +205,18 @@ DEBUG	incremented: Renamed to "CustomField_value_3"
 DEBUG	incremented: Renamed to "CustomField_value_4" 
 	 labels: "original_name:value scope:shared data_type:union refName:CustomField duplicate_count:4" 
 	 registrationID: "scope:shared refType:Schemas refName:CustomField component:true oneOfPosition:2 originalName:value"
+DEBUG	incremented: Renamed to "SimpleFormFieldOption_value_1" 
+	 labels: "scope:shared data_type:union refName:SimpleFormFieldOption oneOf:value duplicate_count:1" 
+	 registrationID: "scope:shared refType:Schemas refName:SimpleFormFieldOption oneOf:value oneOfPosition:5 originalName:"
+DEBUG	incremented: Renamed to "SimpleFormFieldOption_value_2" 
+	 labels: "original_name:value scope:shared data_type:union refName:SimpleFormFieldOption duplicate_count:2" 
+	 registrationID: "scope:shared refType:Schemas refName:SimpleFormFieldOption originalName:value"
+DEBUG	incremented: Renamed to "Connection_value_1" 
+	 labels: "scope:shared data_type:union refName:Connection oneOf:value property:default property:configuration duplicate_count:1" 
+	 registrationID: "scope:shared refType:Schemas refName:Connection property:configuration property:defaults oneOf:value oneOfPosition:5 originalName:"
+DEBUG	incremented: Renamed to "Connection_value_2" 
+	 labels: "original_name:value scope:shared data_type:union refName:Connection property:default property:configuration duplicate_count:2" 
+	 registrationID: "scope:shared refType:Schemas refName:Connection property:configuration property:defaults originalName:value"
 DEBUG	
 
 --- Renaming 3 types with name "CustomField" ---
@@ -1391,6 +1391,7 @@ AccountingBillsAllResponse (Result: union)
      BankAccount (bank_name: string, account_number: string, account_name: string ...)
       BankAccountAccountType (enum: bank_account, credit_card, other)
      BillAmortizationType (enum: manual, receipt, schedule ...)
+      LinkedPaymentAllocations (id: string, allocated_amount: number, date: date-time)
       LinkedAttachment (name: string, mime_type: string, is_compressed: boolean ...)
 AccountingBillsAddRequest (raw: boolean, consumerId: string, appId: string ...)
  BillInput (display_id: string, bill_number: string, supplier: LinkedSupplier_input ...)
@@ -1585,7 +1586,7 @@ AccountingSuppliersDeleteResponse (union)
  DeleteSupplierResponse (status_code: integer, status: string, service: string ...)
 AccountingPayments (SDK empty)
 AccountingPaymentsAllRequest (raw: boolean, consumerId: string, appId: string ...)
- PaymentsFilter (updated_since: date-time, invoice_id: string, supplier_id: string ...)
+ PaymentsFilter (updated_since: date-time, invoice_id: string, bill_id: string ...)
   PaymentsFilterType (enum: accounts_receivable, accounts_payable, accounts_receivable_credit ...)
  PaymentsSort (by: enum, direction: SortDirection)
   PaymentsSortBy (enum: updated_at, created_at)

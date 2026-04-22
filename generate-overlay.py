@@ -34,7 +34,19 @@ ALL_APIS = {
     "webhook": "/webhook/",
 }
 
-DEFAULT_APIS = ["accounting", "fileStorage", "hris", "vault", "proxy"]
+DEFAULT_APIS = [
+    "accounting",
+    "ats",
+    "connector",
+    "crm",
+    "ecommerce",
+    "fileStorage",
+    "hris",
+    "issueTracking",
+    "proxy",
+    "vault",
+    "webhook",
+]
 
 
 def main():
@@ -126,7 +138,7 @@ def main():
     print(f"  APIs included: {', '.join(selected)}")
     print(f"  Paths kept: {keep_count}")
     print(f"  Paths disabled: {len(disable_paths)}")
-    print(f"  Operations: ~{op_count} (Speakeasy free tier: 250)")
+    print(f"  Operations: ~{op_count}")
     print()
     print("Next: speakeasy run")
 

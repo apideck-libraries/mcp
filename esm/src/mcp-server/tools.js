@@ -54,7 +54,25 @@ export async function formatResult(response) {
     }
     return response.ok ? { content } : { content, isError: true };
 }
-export function createRegisterTool(logger, server, getSDK, allowedScopes, allowedTools, dynamic, annotationFilter) {
+function captureToolCall(analytics, sdk, toolName, mode, start, result) {
+    if (!analytics)
+        return;
+    const appId = sdk._options.appId;
+    const consumerId = sdk._options.consumerId;
+    void analytics.capture({
+        distinctId: [appId, consumerId].filter(Boolean).join(":") || "mcp-server",
+        event: "mcp_tool_called",
+        properties: {
+            tool_name: toolName,
+            is_error: result.isError ?? false,
+            duration_ms: Date.now() - start,
+            mode,
+            app_id: appId,
+            consumer_id: consumerId,
+        },
+    });
+}
+export function createRegisterTool(logger, server, getSDK, allowedScopes, allowedTools, dynamic, annotationFilter, analytics) {
     const tools = [];
     const toolMap = new Map();
     const registerTool = (tool) => {
@@ -100,7 +118,11 @@ export function createRegisterTool(logger, server, getSDK, allowedScopes, allowe
                 inputSchema: tool.args,
                 annotations: tool.annotations,
             }, async (args, ctx) => {
-                return tool.tool(getSDK(), args, ctx);
+                const start = Date.now();
+                const sdk = getSDK();
+                const result = await tool.tool(sdk, args, ctx);
+                captureToolCall(analytics, sdk, tool.name, "static", start, result);
+                return result;
             });
         }
         else {
@@ -108,7 +130,11 @@ export function createRegisterTool(logger, server, getSDK, allowedScopes, allowe
                 description: tool.description,
                 annotations: tool.annotations,
             }, async (ctx) => {
-                return tool.tool(getSDK(), ctx);
+                const start = Date.now();
+                const sdk = getSDK();
+                const result = await tool.tool(sdk, ctx);
+                captureToolCall(analytics, sdk, tool.name, "static", start, result);
+                return result;
             });
         }
         logger.debug("Registered tool", { name: tool.name });
@@ -129,7 +155,7 @@ function matchesSearchTerms(terms, name, def) {
         || descLower.includes(term)
         || scopesLower.some((s) => s.includes(term)));
 }
-export function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
+export function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes, analytics) {
     // 1. list_tools
     server.registerTool("list_tools", {
         description: "List available tools. Optionally filter by search terms that match against tool name, description, and scopes.",
@@ -206,7 +232,10 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
                         const desc = val && typeof val === "object" && "description" in val
                             ? val.description
                             : undefined;
-                        fallback[key] = { type: "unknown", description: desc ?? `Parameter: ${key}` };
+                        fallback[key] = {
+                            type: "unknown",
+                            description: desc ?? `Parameter: ${key}`,
+                        };
                     }
                     schemaText += JSON.stringify({
                         type: "object",
@@ -226,13 +255,13 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
         }
         return { content: [{ type: "text", text: parts.join("\n\n") }] };
     });
-    logger.debug("Registered dynamic meta-tool", { name: "describe_tool" });
+    logger.debug("Registered dynamic meta-tool", { name: "describe_tool_input" });
     // 3. execute_tool
     server.registerTool("execute_tool", {
-        description: "Execute a tool by name with the provided input parameters. If executing a given tool for the first time, it is recommended to call describe_tool_input first to understand the expected input schema.",
+        description: "Execute a tool by name with its arguments. If executing a given tool for the first time, it is recommended to call describe_tool_input first to understand the expected `arguments` shape.",
         inputSchema: {
-            tool_name: z.string().describe("The name of the tool to execute"),
-            input: z.record(z.string(), z.unknown()).optional().describe("Input parameters for the tool as a JSON object"),
+            name: z.string().describe("The name of the tool to execute"),
+            arguments: z.looseObject({}).optional().describe("Arguments for the target tool as a JSON object, matching the schema returned by describe_tool_input."),
         },
         annotations: {
             title: "Execute Tool",
@@ -242,16 +271,16 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
             openWorldHint: true,
         },
     }, async (args, ctx) => {
-        const def = toolMap.get(args.tool_name);
+        const def = toolMap.get(args.name);
         if (!def) {
             return {
-                content: [{ type: "text", text: `Unknown tool: ${args.tool_name}` }],
+                content: [{ type: "text", text: `Unknown tool: ${args.name}` }],
                 isError: true,
             };
         }
         let validatedInput = {};
         if (def.args) {
-            const rawInput = args.input ?? {};
+            const rawInput = args.arguments ?? {};
             const vres = z.object(def.args).safeParse(rawInput);
             if (vres.success) {
                 // Use the raw input instead of transformed output. The tool's SDK
@@ -265,29 +294,32 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
                 return {
                     content: [{
                             type: "text",
-                            text: `Invalid input for tool ${args.tool_name}:\n<issues>\n${issues}\n</issues>`,
+                            text: `Invalid input for tool ${args.name}:\n<issues>\n${issues}\n</issues>`,
                         }],
                     isError: true,
                 };
             }
         }
+        const start = Date.now();
+        const sdk = getSDK();
         try {
-            if (def.args) {
-                return await def.tool(getSDK(), validatedInput, ctx);
-            }
-            else {
-                return await def.tool(getSDK(), ctx);
-            }
+            const result = def.args
+                ? await def.tool(sdk, validatedInput, ctx)
+                : await def.tool(sdk, ctx);
+            captureToolCall(analytics, sdk, args.name, "dynamic", start, result);
+            return result;
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            return {
+            const errorResult = {
                 content: [{
                         type: "text",
-                        text: `Error executing tool ${args.tool_name}: ${message}`,
+                        text: `Error executing tool ${args.name}: ${message}`,
                     }],
                 isError: true,
             };
+            captureToolCall(analytics, sdk, args.name, "dynamic", start, errorResult);
+            return errorResult;
         }
     });
     logger.debug("Registered dynamic meta-tool", { name: "execute_tool" });

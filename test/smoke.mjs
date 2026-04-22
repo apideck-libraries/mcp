@@ -97,7 +97,7 @@ try {
     headers: HEADERS,
     body: rpc(4, "tools/call", {
       name: "execute_tool",
-      arguments: { tool_name: tools[0].name, input: {} },
+      arguments: { name: tools[0].name, arguments: {} },
     }),
   });
   const execResult = parseSSE(await execResp.text());
@@ -198,7 +198,7 @@ try {
     headers: HEADERS,
     body: rpc(10, "tools/call", {
       name: "execute_tool",
-      arguments: { tool_name: "nonexistent-tool-xyz", input: {} },
+      arguments: { name: "nonexistent-tool-xyz", arguments: {} },
     }),
   });
   const execUnknown = parseSSE(await execUnknownResp.text());
@@ -216,8 +216,8 @@ try {
     body: rpc(11, "tools/call", {
       name: "execute_tool",
       arguments: {
-        tool_name: tools[0].name,
-        input: { request: { invalid_field: "bad" } },
+        name: tools[0].name,
+        arguments: { request: { invalid_field: "bad" } },
       },
     }),
   });
@@ -237,8 +237,8 @@ try {
     body: rpc(12, "tools/call", {
       name: "execute_tool",
       arguments: {
-        tool_name: "accounting-attachments-upload",
-        input: {
+        name: "accounting-attachments-upload",
+        arguments: {
           request: {
             reference_type: "bill",
             reference_id: "test-123",
@@ -264,7 +264,7 @@ try {
     headers: HEADERS,
     body: rpc(13, "tools/call", {
       name: "execute_tool",
-      arguments: { tool_name: tools[0].name },
+      arguments: { name: tools[0].name },
     }),
   });
   const execNoInput = parseSSE(await execNoInputResp.text());

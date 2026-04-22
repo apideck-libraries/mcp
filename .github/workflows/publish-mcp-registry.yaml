@@ -15,7 +15,7 @@ permissions:
 
 "on":
   workflow_run:
-    workflows: ["Publish to npm"]
+    workflows: ["Publish to npm", "Manual Publish to npm"]
     types: [completed]
     branches: [main]
   workflow_dispatch: {}

@@ -36,8 +36,8 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
       JSON.stringify({
         name: "Apideck MCP Server",
         description:
-          "MCP server for Apideck — Accounting, File Storage, HRIS, Vault, Proxy",
-        tools: 229,
+          "MCP server for Apideck — Accounting, ATS, CRM, Ecommerce, File Storage, HRIS, Issue Tracking, Vault, Webhook, Proxy",
+        tools: 330,
         modes: ["static", "dynamic"],
       })
     );

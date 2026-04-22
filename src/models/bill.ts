@@ -23,6 +23,10 @@ import {
   LinkedLedgerAccount,
   LinkedLedgerAccount$zodSchema,
 } from "./linkedledgeraccount.js";
+import {
+  LinkedPaymentAllocations,
+  LinkedPaymentAllocations$zodSchema,
+} from "./linkedpaymentallocations.js";
 import { LinkedSupplier, LinkedSupplier$zodSchema } from "./linkedsupplier.js";
 import {
   LinkedSupplierInput,
@@ -136,6 +140,10 @@ export type Bill = {
   tax_method?: string | null | undefined;
   document_received?: boolean | null | undefined;
   source_document_url?: string | null | undefined;
+  payment_allocations?:
+    | Array<LinkedPaymentAllocations | null>
+    | null
+    | undefined;
   tracking_categories?: Array<LinkedTrackingCategory | null> | null | undefined;
   updated_by?: string | null | undefined;
   created_by?: string | null | undefined;
@@ -227,6 +235,8 @@ export const Bill$zodSchema: z.ZodType<Bill> = z.object({
   pass_through: z.array(PassThroughBody$zodSchema).optional().describe(
     "The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.",
   ),
+  payment_allocations: z.array(LinkedPaymentAllocations$zodSchema.nullable())
+    .nullable().optional().describe("A list of linked payment allocations."),
   payment_method: z.string().nullable().optional().describe(
     "Payment method used for the transaction, such as cash, credit card, bank transfer, or check",
   ),
@@ -320,6 +330,10 @@ export type BillInput = {
   tax_method?: string | null | undefined;
   document_received?: boolean | null | undefined;
   source_document_url?: string | null | undefined;
+  payment_allocations?:
+    | Array<LinkedPaymentAllocations | null>
+    | null
+    | undefined;
   tracking_categories?: Array<LinkedTrackingCategory | null> | null | undefined;
   row_version?: string | null | undefined;
   custom_fields?: Array<CustomFieldUnion> | undefined;
@@ -393,6 +407,8 @@ export const BillInput$zodSchema: z.ZodType<BillInput> = z.object({
   pass_through: z.array(PassThroughBody$zodSchema).optional().describe(
     "The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.",
   ),
+  payment_allocations: z.array(LinkedPaymentAllocations$zodSchema.nullable())
+    .nullable().optional().describe("A list of linked payment allocations."),
   payment_method: z.string().nullable().optional().describe(
     "Payment method used for the transaction, such as cash, credit card, bank transfer, or check",
   ),

@@ -628,6 +628,294 @@
       "description": "Delete Expense Report\n\nDelete Expense Report"
     },
     {
+      "name": "ats-jobs-list",
+      "description": "List Jobs\n\nList Jobs"
+    },
+    {
+      "name": "ats-jobs-create",
+      "description": "Create Job\n\nCreate Job"
+    },
+    {
+      "name": "ats-jobs-get",
+      "description": "Get Job\n\nGet Job"
+    },
+    {
+      "name": "ats-jobs-update",
+      "description": "Update Job\n\nUpdate Job"
+    },
+    {
+      "name": "ats-jobs-delete",
+      "description": "Delete Job\n\nDelete Job"
+    },
+    {
+      "name": "ats-applicants-list",
+      "description": "List Applicants\n\nList Applicants"
+    },
+    {
+      "name": "ats-applicants-create",
+      "description": "Create Applicant\n\nCreate Applicant"
+    },
+    {
+      "name": "ats-applicants-get",
+      "description": "Get Applicant\n\nGet Applicant"
+    },
+    {
+      "name": "ats-applicants-update",
+      "description": "Update Applicant\n\nUpdate Applicant"
+    },
+    {
+      "name": "ats-applicants-delete",
+      "description": "Delete Applicant\n\nDelete Applicant"
+    },
+    {
+      "name": "ats-applications-list",
+      "description": "List Applications\n\nList Applications"
+    },
+    {
+      "name": "ats-applications-create",
+      "description": "Create Application\n\nCreate Application"
+    },
+    {
+      "name": "ats-applications-get",
+      "description": "Get Application\n\nGet Application"
+    },
+    {
+      "name": "ats-applications-update",
+      "description": "Update Application\n\nUpdate Application"
+    },
+    {
+      "name": "ats-applications-delete",
+      "description": "Delete Application\n\nDelete Application"
+    },
+    {
+      "name": "crm-companies-list",
+      "description": "List companies\n\nList companies"
+    },
+    {
+      "name": "crm-companies-create",
+      "description": "Create company\n\nCreate company"
+    },
+    {
+      "name": "crm-companies-get",
+      "description": "Get company\n\nGet company"
+    },
+    {
+      "name": "crm-companies-update",
+      "description": "Update company\n\nUpdate company"
+    },
+    {
+      "name": "crm-companies-delete",
+      "description": "Delete company\n\nDelete company"
+    },
+    {
+      "name": "crm-contacts-list",
+      "description": "List contacts\n\nList contacts"
+    },
+    {
+      "name": "crm-contacts-create",
+      "description": "Create contact\n\nCreate contact"
+    },
+    {
+      "name": "crm-contacts-get",
+      "description": "Get contact\n\nGet contact"
+    },
+    {
+      "name": "crm-contacts-update",
+      "description": "Update contact\n\nUpdate contact"
+    },
+    {
+      "name": "crm-contacts-delete",
+      "description": "Delete contact\n\nDelete contact"
+    },
+    {
+      "name": "crm-opportunities-list",
+      "description": "List opportunities\n\nList opportunities"
+    },
+    {
+      "name": "crm-opportunities-create",
+      "description": "Create opportunity\n\nCreate opportunity"
+    },
+    {
+      "name": "crm-opportunities-get",
+      "description": "Get opportunity\n\nGet opportunity"
+    },
+    {
+      "name": "crm-opportunities-update",
+      "description": "Update opportunity\n\nUpdate opportunity"
+    },
+    {
+      "name": "crm-opportunities-delete",
+      "description": "Delete opportunity\n\nDelete opportunity"
+    },
+    {
+      "name": "crm-leads-list",
+      "description": "List leads\n\nList leads"
+    },
+    {
+      "name": "crm-leads-create",
+      "description": "Create lead\n\nCreate lead"
+    },
+    {
+      "name": "crm-leads-get",
+      "description": "Get lead\n\nGet lead"
+    },
+    {
+      "name": "crm-leads-update",
+      "description": "Update lead\n\nUpdate lead"
+    },
+    {
+      "name": "crm-leads-delete",
+      "description": "Delete lead\n\nDelete lead"
+    },
+    {
+      "name": "crm-pipelines-list",
+      "description": "List pipelines\n\nList pipelines"
+    },
+    {
+      "name": "crm-pipelines-create",
+      "description": "Create pipeline\n\nCreate pipeline"
+    },
+    {
+      "name": "crm-pipelines-get",
+      "description": "Get pipeline\n\nGet pipeline"
+    },
+    {
+      "name": "crm-pipelines-update",
+      "description": "Update pipeline\n\nUpdate pipeline"
+    },
+    {
+      "name": "crm-pipelines-delete",
+      "description": "Delete pipeline\n\nDelete pipeline"
+    },
+    {
+      "name": "crm-notes-list",
+      "description": "List notes\n\nList notes"
+    },
+    {
+      "name": "crm-notes-create",
+      "description": "Create note\n\nCreate note"
+    },
+    {
+      "name": "crm-notes-get",
+      "description": "Get note\n\nGet note"
+    },
+    {
+      "name": "crm-notes-update",
+      "description": "Update note\n\nUpdate note"
+    },
+    {
+      "name": "crm-notes-delete",
+      "description": "Delete note\n\nDelete note"
+    },
+    {
+      "name": "crm-users-list",
+      "description": "List users\n\nList users"
+    },
+    {
+      "name": "crm-users-create",
+      "description": "Create user\n\nCreate user"
+    },
+    {
+      "name": "crm-users-get",
+      "description": "Get user\n\nGet user"
+    },
+    {
+      "name": "crm-users-update",
+      "description": "Update user\n\nUpdate user"
+    },
+    {
+      "name": "crm-users-delete",
+      "description": "Delete user\n\nDelete user"
+    },
+    {
+      "name": "crm-activities-list",
+      "description": "List activities\n\nList activities"
+    },
+    {
+      "name": "crm-activities-create",
+      "description": "Create activity\n\nCreate activity"
+    },
+    {
+      "name": "crm-activities-get",
+      "description": "Get activity\n\nGet activity"
+    },
+    {
+      "name": "crm-activities-update",
+      "description": "Update activity\n\nUpdate activity"
+    },
+    {
+      "name": "crm-activities-delete",
+      "description": "Delete activity\n\nDelete activity"
+    },
+    {
+      "name": "crm-custom-object-schemas-list",
+      "description": "List custom object schemas\n\nList custom object schemas"
+    },
+    {
+      "name": "crm-custom-object-schemas-create",
+      "description": "Create custom object schema\n\nCreate custom object schema"
+    },
+    {
+      "name": "crm-custom-object-schemas-get",
+      "description": "Get custom object schema\n\nGet custom object schema"
+    },
+    {
+      "name": "crm-custom-object-schemas-update",
+      "description": "Update custom object schema\n\nUpdate custom object schema"
+    },
+    {
+      "name": "crm-custom-object-schemas-delete",
+      "description": "Delete custom object schema\n\nDelete custom object schema"
+    },
+    {
+      "name": "crm-custom-objects-list",
+      "description": "List custom objects\n\nList custom objects"
+    },
+    {
+      "name": "crm-custom-objects-create",
+      "description": "Create custom object\n\nCreate custom object"
+    },
+    {
+      "name": "crm-custom-objects-get",
+      "description": "Get custom object\n\nGet custom object"
+    },
+    {
+      "name": "crm-custom-objects-update",
+      "description": "Update custom object\n\nUpdate custom object"
+    },
+    {
+      "name": "crm-custom-objects-delete",
+      "description": "Delete custom object\n\nDelete custom object"
+    },
+    {
+      "name": "ecommerce-orders-list",
+      "description": "List Orders\n\nList Orders"
+    },
+    {
+      "name": "ecommerce-orders-get",
+      "description": "Get Order\n\nGet Order"
+    },
+    {
+      "name": "ecommerce-products-list",
+      "description": "List Products\n\nList Products"
+    },
+    {
+      "name": "ecommerce-products-get",
+      "description": "Get Product\n\nGet Product"
+    },
+    {
+      "name": "ecommerce-customers-list",
+      "description": "List Customers\n\nList Customers"
+    },
+    {
+      "name": "ecommerce-customers-get",
+      "description": "Get Customer\n\nGet Customer"
+    },
+    {
+      "name": "ecommerce-stores-get",
+      "description": "Get Store\n\nGet Store"
+    },
+    {
       "name": "file-storage-files-list",
       "description": "List Files\n\nList Files"
     },
@@ -856,6 +1144,98 @@
       "description": "Delete Time Off Request\n\nDelete Time Off Request"
     },
     {
+      "name": "issue-tracking-collections-list",
+      "description": "List Collections\n\nList Collections"
+    },
+    {
+      "name": "issue-tracking-collections-get",
+      "description": "Get Collection\n\nGet Collection"
+    },
+    {
+      "name": "issue-tracking-collection-tickets-list",
+      "description": "List Tickets\n\nList Tickets"
+    },
+    {
+      "name": "issue-tracking-collection-tickets-create",
+      "description": "Create Ticket\n\nCreate Ticket"
+    },
+    {
+      "name": "issue-tracking-collection-tickets-get",
+      "description": "Get Ticket\n\nGet Ticket"
+    },
+    {
+      "name": "issue-tracking-collection-tickets-update",
+      "description": "Update Ticket\n\nUpdate Ticket"
+    },
+    {
+      "name": "issue-tracking-collection-tickets-delete",
+      "description": "Delete Ticket\n\nDelete Ticket"
+    },
+    {
+      "name": "issue-tracking-collection-ticket-comments-list",
+      "description": "List Comments\n\nList Comments"
+    },
+    {
+      "name": "issue-tracking-collection-ticket-comments-create",
+      "description": "Create Comment\n\nCreate Comment"
+    },
+    {
+      "name": "issue-tracking-collection-ticket-comments-get",
+      "description": "Get Comment\n\nGet Comment"
+    },
+    {
+      "name": "issue-tracking-collection-ticket-comments-update",
+      "description": "Update Comment\n\nUpdate Comment"
+    },
+    {
+      "name": "issue-tracking-collection-ticket-comments-delete",
+      "description": "Delete Comment\n\nDelete Comment"
+    },
+    {
+      "name": "issue-tracking-collection-users-list",
+      "description": "List Users\n\nList Users"
+    },
+    {
+      "name": "issue-tracking-collection-users-get",
+      "description": "Get user\n\nGet user"
+    },
+    {
+      "name": "issue-tracking-collection-tags-list",
+      "description": "List Tags\n\nList Tags"
+    },
+    {
+      "name": "connector-connectors-list",
+      "description": "List Connectors\n\nList Connectors"
+    },
+    {
+      "name": "connector-connectors-get",
+      "description": "Get Connector\n\nGet Connector"
+    },
+    {
+      "name": "connector-connector-docs-get",
+      "description": "Get Connector Doc content\n\nGet Connector Doc content"
+    },
+    {
+      "name": "connector-connector-resources-get",
+      "description": "Get Connector Resource\n\nGet Connector Resource"
+    },
+    {
+      "name": "connector-apis-list",
+      "description": "List APIs\n\nList APIs"
+    },
+    {
+      "name": "connector-apis-get",
+      "description": "Get API\n\nGet API"
+    },
+    {
+      "name": "connector-api-resources-get",
+      "description": "Get API Resource\n\nGet API Resource"
+    },
+    {
+      "name": "connector-api-resource-coverage-get",
+      "description": "Get API Resource Coverage\n\nGet API Resource Coverage"
+    },
+    {
       "name": "proxy-get",
       "description": "GET\n\nProxies a downstream GET request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
     },
@@ -970,6 +1350,30 @@
     {
       "name": "vault-logs-list",
       "description": "Get all consumer request logs\n\nThis endpoint includes all consumer request logs.\n"
+    },
+    {
+      "name": "webhook-webhooks-list",
+      "description": "List webhook subscriptions\n\nList all webhook subscriptions"
+    },
+    {
+      "name": "webhook-webhooks-create",
+      "description": "Create webhook subscription\n\nCreate a webhook subscription to receive events.\n\n**Delivery URL Validation**: The provided `delivery_url` will be validated synchronously by sending an HTTP POST request with an HMAC signature. If validation fails (network error, timeout, non-2xx response), the webhook will still be created but with `status: \"disabled\"` and `disabled_reason: \"delivery_url_validation_failed\"`.\n\n**Important**: Always check the `status` and `disabled_reason` fields in the response to ensure the webhook is active.\n"
+    },
+    {
+      "name": "webhook-webhooks-get",
+      "description": "Get webhook subscription\n\nGet the webhook subscription details"
+    },
+    {
+      "name": "webhook-webhooks-update",
+      "description": "Update webhook subscription\n\nUpdate a webhook subscription.\n\n**Delivery URL Validation**: When updating the `delivery_url`, it will be validated synchronously by sending an HTTP POST request with an HMAC signature. If validation fails (network error, timeout, non-2xx response), the webhook will still be updated but with `status: \"disabled\"` and `disabled_reason: \"delivery_url_validation_failed\"`. Validation only occurs when the URL is changed.\n\n**Important**: Always check the `status` and `disabled_reason` fields in the response to ensure the webhook is active.\n"
+    },
+    {
+      "name": "webhook-webhooks-delete",
+      "description": "Delete webhook subscription\n\nDelete a webhook subscription"
+    },
+    {
+      "name": "webhook-event-logs-list",
+      "description": "List event logs\n\nList event logs"
     }
   ]
 }
