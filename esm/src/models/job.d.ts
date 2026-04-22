@@ -20,8 +20,8 @@ export declare const Visibility: {
 export type Visibility = OpenEnum<typeof Visibility>;
 export declare const Visibility$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     draft: "draft";
-    public: "public";
     internal: "internal";
+    public: "public";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export declare const EmploymentTerms: {
     readonly FullTime: "full-time";
@@ -39,14 +39,14 @@ export type EmploymentTerms = OpenEnum<typeof EmploymentTerms>;
 export declare const EmploymentTerms$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     other: "other";
     employee: "employee";
+    "full-time": "full-time";
+    "part-time": "part-time";
+    internship: "internship";
     contractor: "contractor";
     freelance: "freelance";
     temp: "temp";
-    internship: "internship";
-    volunteer: "volunteer";
-    "full-time": "full-time";
-    "part-time": "part-time";
     seasonal: "seasonal";
+    volunteer: "volunteer";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**
  * Details of the branch for which the job is created.

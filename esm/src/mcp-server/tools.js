@@ -54,25 +54,7 @@ export async function formatResult(response) {
     }
     return response.ok ? { content } : { content, isError: true };
 }
-function captureToolCall(analytics, sdk, toolName, mode, start, result) {
-    if (!analytics)
-        return;
-    const appId = sdk._options.appId;
-    const consumerId = sdk._options.consumerId;
-    void analytics.capture({
-        distinctId: [appId, consumerId].filter(Boolean).join(":") || "mcp-server",
-        event: "mcp_tool_called",
-        properties: {
-            tool_name: toolName,
-            is_error: result.isError ?? false,
-            duration_ms: Date.now() - start,
-            mode,
-            app_id: appId,
-            consumer_id: consumerId,
-        },
-    });
-}
-export function createRegisterTool(logger, server, getSDK, allowedScopes, allowedTools, dynamic, annotationFilter, analytics) {
+export function createRegisterTool(logger, server, getSDK, allowedScopes, allowedTools, dynamic, annotationFilter) {
     const tools = [];
     const toolMap = new Map();
     const registerTool = (tool) => {
@@ -118,11 +100,7 @@ export function createRegisterTool(logger, server, getSDK, allowedScopes, allowe
                 inputSchema: tool.args,
                 annotations: tool.annotations,
             }, async (args, ctx) => {
-                const start = Date.now();
-                const sdk = getSDK();
-                const result = await tool.tool(sdk, args, ctx);
-                captureToolCall(analytics, sdk, tool.name, "static", start, result);
-                return result;
+                return tool.tool(getSDK(), args, ctx);
             });
         }
         else {
@@ -130,11 +108,7 @@ export function createRegisterTool(logger, server, getSDK, allowedScopes, allowe
                 description: tool.description,
                 annotations: tool.annotations,
             }, async (ctx) => {
-                const start = Date.now();
-                const sdk = getSDK();
-                const result = await tool.tool(sdk, ctx);
-                captureToolCall(analytics, sdk, tool.name, "static", start, result);
-                return result;
+                return tool.tool(getSDK(), ctx);
             });
         }
         logger.debug("Registered tool", { name: tool.name });
@@ -155,7 +129,7 @@ function matchesSearchTerms(terms, name, def) {
         || descLower.includes(term)
         || scopesLower.some((s) => s.includes(term)));
 }
-export function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes, analytics) {
+export function registerDynamicTools(logger, server, getSDK, toolMap, allowedScopes) {
     // 1. list_tools
     server.registerTool("list_tools", {
         description: "List available tools. Optionally filter by search terms that match against tool name, description, and scopes.",
@@ -219,30 +193,10 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
             }
             let schemaText = `<input_schema tool="${toolName}">\n\n`;
             if (def.args) {
-                try {
-                    const jsonSchema = z.toJSONSchema(z.object(def.args), {
-                        target: "draft-2020-12",
-                        unrepresentable: "any",
-                    });
-                    schemaText += JSON.stringify(jsonSchema, null, 2);
-                }
-                catch {
-                    const fallback = {};
-                    for (const [key, val] of Object.entries(def.args)) {
-                        const desc = val && typeof val === "object" && "description" in val
-                            ? val.description
-                            : undefined;
-                        fallback[key] = {
-                            type: "unknown",
-                            description: desc ?? `Parameter: ${key}`,
-                        };
-                    }
-                    schemaText += JSON.stringify({
-                        type: "object",
-                        properties: fallback,
-                        note: "Full schema unavailable due to transforms. Use execute_tool with best-effort parameters.",
-                    }, null, 2);
-                }
+                const jsonSchema = z.toJSONSchema(z.object(def.args), {
+                    target: "draft-2020-12",
+                });
+                schemaText += JSON.stringify(jsonSchema, null, 2);
             }
             else {
                 schemaText += "This tool takes no input parameters.";
@@ -280,14 +234,9 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
         }
         let validatedInput = {};
         if (def.args) {
-            const rawInput = args.arguments ?? {};
-            const vres = z.object(def.args).safeParse(rawInput);
+            const vres = z.object(def.args).safeParse(args.arguments ?? {});
             if (vres.success) {
-                // Use the raw input instead of transformed output. The tool's SDK
-                // function re-parses with the same schema, so passing transformed
-                // data (e.g. Uint8Array from a base64 transform) would fail the
-                // second parse which expects the original input type (string).
-                validatedInput = rawInput;
+                validatedInput = vres.data;
             }
             else {
                 const issues = z.prettifyError(vres.error);
@@ -300,26 +249,23 @@ export function registerDynamicTools(logger, server, getSDK, toolMap, allowedSco
                 };
             }
         }
-        const start = Date.now();
-        const sdk = getSDK();
         try {
-            const result = def.args
-                ? await def.tool(sdk, validatedInput, ctx)
-                : await def.tool(sdk, ctx);
-            captureToolCall(analytics, sdk, args.name, "dynamic", start, result);
-            return result;
+            if (def.args) {
+                return await def.tool(getSDK(), validatedInput, ctx);
+            }
+            else {
+                return await def.tool(getSDK(), ctx);
+            }
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            const errorResult = {
+            return {
                 content: [{
                         type: "text",
                         text: `Error executing tool ${args.name}: ${message}`,
                     }],
                 isError: true,
             };
-            captureToolCall(analytics, sdk, args.name, "dynamic", start, errorResult);
-            return errorResult;
         }
     });
     logger.debug("Registered dynamic meta-tool", { name: "execute_tool" });

@@ -27,9 +27,9 @@ export declare const ConnectionStatus: {
  */
 export type ConnectionStatus = OpenEnum<typeof ConnectionStatus>;
 export declare const ConnectionStatus$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    requested: "requested";
     live: "live";
     upcoming: "upcoming";
+    requested: "requested";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export declare const Target: {
     readonly CustomFields: "custom_fields";

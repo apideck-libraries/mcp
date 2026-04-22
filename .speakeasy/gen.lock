@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 70c348c7-eb03-42a6-8d91-a27d1f288010
 management:
-  docChecksum: 6c445a592fb0c62899f7aaf5124873d7
-  docVersion: 10.24.25
+  docChecksum: 71eaa931424af10599f2c06850436b82
+  docVersion: 10.24.26
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 0.1.12
-  configChecksum: ca1db243dd1ecd5810a93463409e39e5
+  releaseVersion: 0.1.13
+  configChecksum: 62a2d08bdb77eb7e6b88a6a43460799d
   repoURL: https://github.com/apideck-libraries/mcp.git
   installationURL: https://github.com/apideck-libraries/mcp
 persistentEdits:
-  generation_id: 6187dfa5-3b22-4390-8c03-dcc7dbfea1ef
-  pristine_commit_hash: d130cde77fea473fba1e36201eafe08c7886886d
-  pristine_tree_hash: 34419624992854355051d147db89eb8389f76296
+  generation_id: 106e3a8c-708d-4776-bc20-d87529b90ec4
+  pristine_commit_hash: abd5033be1e9c417bd0fcfd62c21123d663222b5
+  pristine_tree_hash: 23708413dffe2dd42bf8e92f9b4884520aafec09
 features:
   mcp-typescript:
     acceptHeaders: 0.1.0
@@ -56,12 +56,12 @@ trackedFiles:
     pristine_git_object: 4f9e60a9462fc4def738d60c3aaadf8232ef185f
   manifest.json:
     id: ca642a226869
-    last_write_checksum: sha1:b518fa59bb5d0ee9318a7a18aa4b4951ed1fcdae
-    pristine_git_object: 0bc5cb0c573846894b7e3bf997637a55b470d7f8
+    last_write_checksum: sha1:8673e14aaaf432bce4cbbdfc789ac600a609daa9
+    pristine_git_object: b5b1f77be78c596f0bc325c611794ce78cf29868
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:07a6fa7f17ba6b43a99fe2d93cbb6168e66da259
-    pristine_git_object: e1b6d2fdb7721442f6df843ff5bc5e8a6455f592
+    last_write_checksum: sha1:ca3f2da8f74e4cdcdb224fa54b245c8624aa8351
+    pristine_git_object: 91eda6873f5c892064d2b596b19cc0c76228c1c6
   src/cloudflare-worker/cloudflare-worker.ts:
     id: b90556be8673
     last_write_checksum: sha1:5f1572ecf7522a27070e1cc98e9f2c5a92d79c97
@@ -1412,24 +1412,24 @@ trackedFiles:
     pristine_git_object: 03fad277156250ac7fd2f30d7900063e87beb65f
   src/hooks/hooks.ts:
     id: a2463fc6f69b
-    last_write_checksum: sha1:141e45a4b047589e6ec69eef5da26fab909f44e9
-    pristine_git_object: a4220b5e2f8fc59c2862870fc6bf2c38bd8efcff
+    last_write_checksum: sha1:327ed0fa581be991d633155a30a13e502caa80ef
+    pristine_git_object: 7709c66d855a856043daf58e863129c4dd437b6f
   src/hooks/types.ts:
     id: 2a02d86ec24f
     last_write_checksum: sha1:27a3444c4839bec58ae89820fd8c2483edafc3f4
     pristine_git_object: 9c36bf01332084f735909a71036c3544cc4c7e3a
   src/landing-page.ts:
     id: ef64a6ee46d7
-    last_write_checksum: sha1:746323640dfe473c52ac3289cb1b310d0915ce99
-    pristine_git_object: 4ca987eccc4c033d4e78eed73e0f4e55aa5e75c3
+    last_write_checksum: sha1:132bec01c204bdcda28781058cb2d185d23bd901
+    pristine_git_object: 2a8cfac9b207b3fb75171c2d6bc03b64227c73c7
   src/lib/base64.ts:
     id: "598522066688"
     last_write_checksum: sha1:e9f04a037018040361043104960982f7c22db52d
     pristine_git_object: d4bd8b341290e7a828a171d840bd0b0fff7c7cd7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:7292c4959ea1e587fe4871e97a9a72eec0d67ad4
-    pristine_git_object: dfda62a3128c52f73fdeaace0d505fd03d6e3c4b
+    last_write_checksum: sha1:daaeeb7858da6508b8c2d6aa3829175c92992ab6
+    pristine_git_object: 91df107ced6211c957bba851efb507946250f8fa
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -1524,8 +1524,8 @@ trackedFiles:
     pristine_git_object: 2244b00d0dde7f2f50365e8172e71bd2cc91f634
   src/mcp-server/mcp-server.ts:
     id: aabbc4ab07c1
-    last_write_checksum: sha1:53a5722d10e793cd1400f27299d74dded93b2eb4
-    pristine_git_object: ed0dcb1572840fb8d5a4c0b0e61d4d674af0a452
+    last_write_checksum: sha1:1af3b60a5782a180c995de88e3367bf18d2a8ea0
+    pristine_git_object: abca51edcbcba69f4739359dd4097173584b7402
   src/mcp-server/prompts.ts:
     id: 26f3d73cbf31
     last_write_checksum: sha1:bd07701302e6eb75245c5d422d3f40eb6c700fa1
@@ -1540,8 +1540,8 @@ trackedFiles:
     pristine_git_object: f1a9fa55d8e55bd97c3c4ee3917fb3a6aeb62648
   src/mcp-server/server.ts:
     id: 2784dd48e82a
-    last_write_checksum: sha1:a818e4ca1ce1357e2cc03529727de852259ed272
-    pristine_git_object: 5591a8ee4058f37b0098020549ca63425abc16f1
+    last_write_checksum: sha1:9dd284e87cb3db3933e092767931922e9d391045
+    pristine_git_object: 0ac4d505e8c122b5f9b4e6c94f348cf959832751
   src/mcp-server/shared.ts:
     id: 074e80d4be1e
     last_write_checksum: sha1:19c9034032819a14f15c430de4350c8aba99d725
@@ -6068,8 +6068,8 @@ trackedFiles:
     pristine_git_object: c2c8fab6a07def982ee8381df3bd02095e223a6e
   src/models/paymentsfilter.ts:
     id: 672e8a59f549
-    last_write_checksum: sha1:f70574d803613628ce25ef5206f22e1031ea0416
-    pristine_git_object: 84016a6f0f9bcffb4a8e9c6329479bec352d656f
+    last_write_checksum: sha1:762bca7a835bf08b23bb53b0748392865f64e9fd
+    pristine_git_object: c0fecf646b285758d2f7cc886cfa4481108edbb4
   src/models/paymentssort.ts:
     id: 321ff90f229a
     last_write_checksum: sha1:29e22de82479804c5b7d1001f42df664bd6fcf80
@@ -7958,7 +7958,7 @@ examples:
         query:
           raw: false
           limit: 20
-          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "bill_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable"}
+          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "bill_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable", "status": "authorised"}
           sort: {"by": "updated_at", "direction": "desc"}
           pass_through: {"search": "San Francisco"}
           fields: "id,updated_at"
@@ -9490,7 +9490,7 @@ examples:
         query:
           raw: false
           limit: 20
-          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "bill_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable"}
+          filter: {"updated_since": "2020-09-30T07:43:32.000Z", "invoice_id": "123", "bill_id": "123", "supplier_id": "123", "customer_id": "123abc", "type": "accounts_receivable", "status": "authorised"}
           sort: {"by": "updated_at", "direction": "desc"}
           pass_through: {"search": "San Francisco"}
           fields: "id,updated_at"
@@ -15891,3 +15891,4 @@ examples:
         default:
           application/json: {"status_code": 400, "error": "Bad Request", "type_name": "RequestHeadersValidationError", "message": "Invalid Params", "detail": "Missing Header: x-apideck-consumer-id", "ref": "https://developers.apideck.com/errors#unauthorizederror"}
 examplesVersion: 1.0.2
+releaseNotes: "## Mcp-typescript SDK Changes:\n* `ApideckMcp.accounting.bills.list()`:  `response.data[].payment_allocations` **Added**\n* `ApideckMcp.accounting.bills.create()`: \n  *  `request.body.payment_allocations` **Added**\n* `ApideckMcp.accounting.bills.get()`:  `response.data.payment_allocations` **Added**\n* `ApideckMcp.accounting.bills.update()`: \n  *  `request.body.payment_allocations` **Added**\n* `ApideckMcp.accounting.payments.list()`: \n  *  `request.filter` **Changed**\n* `ApideckMcp.accounting.billPayments.list()`: \n  *  `request.filter` **Changed**\n"

@@ -53,10 +53,10 @@ export type EmploymentType = OpenEnum<typeof EmploymentType>;
 export declare const EmploymentType$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     other: "other";
     employee: "employee";
+    internship: "internship";
     contractor: "contractor";
     freelance: "freelance";
     temp: "temp";
-    internship: "internship";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**
  * The work schedule of the employee.

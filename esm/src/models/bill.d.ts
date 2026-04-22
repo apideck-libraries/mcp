@@ -32,13 +32,13 @@ export declare const BillStatus: {
 export type BillStatus = OpenEnum<typeof BillStatus>;
 export declare const BillStatus$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     void: "void";
-    draft: "draft";
-    submitted: "submitted";
-    authorised: "authorised";
-    partially_paid: "partially_paid";
-    paid: "paid";
     credit: "credit";
+    draft: "draft";
+    authorised: "authorised";
+    paid: "paid";
     deleted: "deleted";
+    submitted: "submitted";
+    partially_paid: "partially_paid";
     posted: "posted";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**
@@ -56,9 +56,9 @@ export declare const BillAmortizationType: {
 export type BillAmortizationType = OpenEnum<typeof BillAmortizationType>;
 export declare const BillAmortizationType$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     manual: "manual";
+    other: "other";
     receipt: "receipt";
     schedule: "schedule";
-    other: "other";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type Bill = {
     id?: string | undefined;

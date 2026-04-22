@@ -61,9 +61,9 @@ export declare const Unit: {
  */
 export type Unit = OpenEnum<typeof Unit>;
 export declare const Unit$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    hour: "hour";
     second: "second";
     minute: "minute";
+    hour: "hour";
     day: "day";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 /**

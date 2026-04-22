@@ -1,7 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { ApideckMcpCore } from "../core.js";
 import { SDKOptions } from "../lib/config.js";
-import type { Analytics } from "./analytics.js";
 import type { ConsoleLogger } from "./console-logger.js";
 import { MCPScope } from "./scopes.js";
 import { MCPToolAnnotationFilter } from "./tools.js";
@@ -17,7 +16,6 @@ export declare function createMCPServer(deps: {
     consumerId?: SDKOptions["consumerId"] | undefined;
     appId?: SDKOptions["appId"] | undefined;
     serverIdx?: SDKOptions["serverIdx"] | undefined;
-    analytics?: Analytics | undefined;
 }): {
     server: McpServer;
     tools: {

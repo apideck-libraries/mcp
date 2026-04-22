@@ -38,18 +38,18 @@ export declare const UnifiedApiEnum: {
  */
 export type UnifiedApiEnum = OpenEnum<typeof UnifiedApiEnum>;
 export declare const UnifiedApiEnum$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
-    proxy: "proxy";
-    vault: "vault";
-    crm: "crm";
-    lead: "lead";
     accounting: "accounting";
-    hris: "hris";
     ats: "ats";
+    crm: "crm";
     ecommerce: "ecommerce";
-    "issue-tracking": "issue-tracking";
-    pos: "pos";
     "file-storage": "file-storage";
+    hris: "hris";
+    lead: "lead";
+    pos: "pos";
     sms: "sms";
+    "issue-tracking": "issue-tracking";
+    vault: "vault";
+    proxy: "proxy";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type Log = {
     api_style: string;

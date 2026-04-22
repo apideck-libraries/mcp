@@ -31,6 +31,36 @@ export const PaymentsFilterType$zodSchema = z.union([
   z.string().transform(catchUnrecognizedEnum),
 ]);
 
+/**
+ * Filter by payment status
+ */
+export const PaymentsFilterPaymentStatus = {
+  Draft: "draft",
+  Authorised: "authorised",
+  Rejected: "rejected",
+  Paid: "paid",
+  Voided: "voided",
+  Deleted: "deleted",
+} as const;
+/**
+ * Filter by payment status
+ */
+export type PaymentsFilterPaymentStatus = OpenEnum<
+  typeof PaymentsFilterPaymentStatus
+>;
+
+export const PaymentsFilterPaymentStatus$zodSchema = z.union([
+  z.enum([
+    "draft",
+    "authorised",
+    "rejected",
+    "paid",
+    "voided",
+    "deleted",
+  ]),
+  z.string().transform(catchUnrecognizedEnum),
+]).describe("Filter by payment status");
+
 export type PaymentsFilter = {
   updated_since?: string | undefined;
   invoice_id?: string | undefined;
@@ -38,12 +68,16 @@ export type PaymentsFilter = {
   supplier_id?: string | undefined;
   customer_id?: string | undefined;
   type?: PaymentsFilterType | undefined;
+  status?: PaymentsFilterPaymentStatus | undefined;
 };
 
 export const PaymentsFilter$zodSchema: z.ZodType<PaymentsFilter> = z.object({
   bill_id: z.string().optional(),
   customer_id: z.string().optional().describe("Filter by customer id"),
   invoice_id: z.string().optional(),
+  status: PaymentsFilterPaymentStatus$zodSchema.optional().describe(
+    "Filter by payment status",
+  ),
   supplier_id: z.string().optional(),
   type: PaymentsFilterType$zodSchema.optional(),
   updated_since: z.iso.datetime({ offset: true }).optional(),

@@ -14,8 +14,8 @@ export declare const ActivityAttendeeStatus: {
 export type ActivityAttendeeStatus = OpenEnum<typeof ActivityAttendeeStatus>;
 export declare const ActivityAttendeeStatus$zodSchema: z.ZodUnion<readonly [z.ZodEnum<{
     accepted: "accepted";
-    declined: "declined";
     tentative: "tentative";
+    declined: "declined";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type ActivityAttendee = {
     id?: string | null | undefined;

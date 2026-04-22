@@ -20,8 +20,8 @@ export declare const TimeOffRequestsFilterTimeOffRequestStatus$zodSchema: z.ZodU
     other: "other";
     deleted: "deleted";
     approved: "approved";
-    requested: "requested";
     declined: "declined";
+    requested: "requested";
 }>, z.ZodPipe<z.ZodString, z.ZodTransform<import("../types/enums.js").Unrecognized<string>, string>>]>;
 export type TimeOffRequestsFilter = {
     start_date?: string | undefined;

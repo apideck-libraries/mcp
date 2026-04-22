@@ -621,16 +621,19 @@ DEBUG	discriminated: Renamed component to "Supplier_input"
 	 registrationID: "scope:shared refType:Schemas refName:Supplier component:true inputOutput:input originalName:Supplier"
 DEBUG	
 
+--- Renaming 3 types with name "Payment status" ---
+DEBUG	discriminated: Renamed to "PaymentsFilter_Payment status" 
+	 labels: "original_name:Payment status scope:shared data_type:enum refName:PaymentsFilter property:status" 
+	 registrationID: "scope:shared refType:Schemas refName:PaymentsFilter property:status originalName:Payment status"
+DEBUG	discriminated: Renamed to "EcommerceOrder_Payment status" 
+	 labels: "original_name:Payment status scope:shared data_type:enum refName:EcommerceOrder" 
+	 registrationID: "scope:shared refType:Schemas refName:EcommerceOrder property:payment_status originalName:Payment status"
+DEBUG	
+
 --- Renaming 2 types with name "DeprecatedLinkedSupplier" ---
 DEBUG	discriminated: Renamed component to "DeprecatedLinkedSupplier_input" 
 	 labels: "original_name:DeprecatedLinkedSupplier scope:shared inputOutput:input" 
 	 registrationID: "scope:shared refType:Schemas refName:DeprecatedLinkedSupplier component:true inputOutput:input originalName:DeprecatedLinkedSupplier"
-DEBUG	
-
---- Renaming 2 types with name "PaymentStatus" ---
-DEBUG	discriminated: Renamed to "EcommerceOrder_Payment status" 
-	 labels: "original_name:Payment status scope:shared data_type:enum refName:EcommerceOrder" 
-	 registrationID: "scope:shared refType:Schemas refName:EcommerceOrder property:payment_status originalName:Payment status"
 DEBUG	
 
 --- Renaming 2 types with name "PaymentType" ---
@@ -1588,6 +1591,7 @@ AccountingPayments (SDK empty)
 AccountingPaymentsAllRequest (raw: boolean, consumerId: string, appId: string ...)
  PaymentsFilter (updated_since: date-time, invoice_id: string, bill_id: string ...)
   PaymentsFilterType (enum: accounts_receivable, accounts_payable, accounts_receivable_credit ...)
+  PaymentsFilterPaymentStatus (enum: draft, authorised, rejected ...)
  PaymentsSort (by: enum, direction: SortDirection)
   PaymentsSortBy (enum: updated_at, created_at)
 AccountingPaymentsAllResponse (Result: union)

@@ -339,7 +339,7 @@ import { tool$webhookWebhooksUpdate } from "./tools/webhookWebhooksUpdate.js";
 export function createMCPServer(deps) {
     const server = new McpServer({
         name: "ApideckMcp",
-        version: "0.1.10",
+        version: "0.1.13",
     });
     const getClient = deps.getSDK || (() => new ApideckMcpCore({
         security: deps.security,
@@ -357,7 +357,7 @@ export function createMCPServer(deps) {
     }));
     const scopes = new Set(deps.scopes);
     const allowedTools = deps.allowedTools && new Set(deps.allowedTools);
-    const [tool, tools, toolMap] = createRegisterTool(deps.logger, server, getClient, scopes, allowedTools, deps.dynamic, deps.annotationFilter, deps.analytics);
+    const [tool, tools, toolMap] = createRegisterTool(deps.logger, server, getClient, scopes, allowedTools, deps.dynamic, deps.annotationFilter);
     const resource = createRegisterResource(deps.logger, server, getClient, scopes);
     const resourceTemplate = createRegisterResourceTemplate(deps.logger, server, getClient, scopes);
     const prompt = createRegisterPrompt(deps.logger, server, getClient, scopes);
@@ -694,7 +694,7 @@ export function createMCPServer(deps) {
     tool(tool$webhookWebhooksDelete);
     tool(tool$webhookEventLogsList);
     if (deps.dynamic) {
-        registerDynamicTools(deps.logger, server, getClient, toolMap, scopes, deps.analytics);
+        registerDynamicTools(deps.logger, server, getClient, toolMap, scopes);
     }
     return { server, tools };
 }

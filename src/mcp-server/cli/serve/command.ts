@@ -42,7 +42,6 @@ export const serveCommand = buildCommand({
         brief:
           "Server mode (dynamic: expose list_tools, describe_tool_input, and execute_tool instead of individual tools)",
         values: ["dynamic"],
-        default: "dynamic",
         optional: true,
       },
       "tool-annotations": {
