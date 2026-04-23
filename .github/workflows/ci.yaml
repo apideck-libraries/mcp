@@ -23,8 +23,11 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
 
-      - name: Smoke test
+      - name: Smoke test (HTTP)
         run: node test/smoke.mjs
+
+      - name: Smoke test (stdio)
+        run: node test/stdio.test.mjs
 
       - name: Analytics tests
         run: node test/analytics.test.mjs
