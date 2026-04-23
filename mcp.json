@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "apideck": {
+      "type": "http",
+      "url": "https://mcp.apideck.dev/mcp",
+      "headers": {
+        "x-apideck-api-key": "${APIDECK_API_KEY}",
+        "x-apideck-app-id": "${APIDECK_APP_ID}",
+        "x-apideck-consumer-id": "${APIDECK_CONSUMER_ID}"
+      }
+    },
+    "apideck-stdio": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@apideck/mcp"],
+      "env": {
+        "APIDECK_API_KEY": "${APIDECK_API_KEY}",
+        "APIDECK_APP_ID": "${APIDECK_APP_ID}",
+        "APIDECK_CONSUMER_ID": "${APIDECK_CONSUMER_ID}"
+      }
+    }
+  }
+}
