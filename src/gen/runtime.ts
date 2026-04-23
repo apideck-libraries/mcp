@@ -68,7 +68,7 @@ export async function callApideck(
     appId?: string;
     consumerId?: string;
   };
-  const apiKey = extractApiKey(opts.security);
+  const apiKey = await extractApiKey(opts.security);
   if (apiKey) headers.set("Authorization", `Bearer ${apiKey}`);
   if (opts.appId) headers.set("x-apideck-app-id", opts.appId);
   if (opts.consumerId) headers.set("x-apideck-consumer-id", opts.consumerId);
@@ -198,10 +198,22 @@ function serializeScalar(v: unknown): string {
   return typeof v === "string" ? v : JSON.stringify(v);
 }
 
-function extractApiKey(security: unknown): string | undefined {
-  if (!security || typeof security === "function") return undefined;
+async function extractApiKey(security: unknown): Promise<string | undefined> {
+  if (!security) return undefined;
+  // The SDK wraps security as a lazy resolver (sync or async function) so
+  // the API key can be fetched per-request — this matches the shape
+  // api/mcp.ts passes in production.
+  if (typeof security === "function") {
+    const resolved = await (security as () => unknown | Promise<unknown>)();
+    return readApiKey(resolved);
+  }
+  return readApiKey(security);
+}
+
+function readApiKey(security: unknown): string | undefined {
   if (typeof security === "object" && security !== null) {
-    return (security as { apiKey?: string }).apiKey;
+    const key = (security as { apiKey?: string }).apiKey;
+    return typeof key === "string" && key.length > 0 ? key : undefined;
   }
   return undefined;
 }

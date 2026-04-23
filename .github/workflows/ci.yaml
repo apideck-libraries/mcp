@@ -34,6 +34,7 @@ jobs:
           node test/gen.test.mjs
           node test/gen-server.test.mjs
           node test/gen-extras.test.mjs
+          node test/gen-handler-e2e.test.mjs
 
   deploy:
     needs: build-and-test
