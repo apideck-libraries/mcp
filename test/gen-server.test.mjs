@@ -135,8 +135,8 @@ const analyticsBooted = createGeneratedMCPServer({
 const execTool = analyticsBooted.server._registeredTools.execute_tool;
 const execRes = await execTool.handler(
   {
-    tool_name: "accounting-invoices-list",
-    input: { limit: 10, "x-apideck-service-id": "quickbooks" },
+    name: "accounting-invoices-list",
+    arguments: { limit: 10, "x-apideck-service-id": "quickbooks" },
   },
   { signal: new AbortController().signal },
 );
@@ -163,9 +163,9 @@ assert(captures[0].properties.is_error === false, "is_error false");
 console.log("Test: execute_tool input validation");
 const validationRes = await execTool.handler(
   {
-    tool_name: "accounting-invoices-update",
+    name: "accounting-invoices-update",
     // id is required; omit it
-    input: {},
+    arguments: {},
   },
   { signal: new AbortController().signal },
 );

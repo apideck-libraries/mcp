@@ -137,6 +137,27 @@ function methodToAnnotations(m) {
   };
 }
 
+function detectExtras(op) {
+  const rb = op.requestBody ? resolveSchema(op.requestBody) : null;
+  const content = rb?.content ?? {};
+  const wildcard = content["*/*"];
+  const binaryBody = Boolean(
+    wildcard?.schema?.type === "string" && wildcard.schema.format === "binary",
+  );
+
+  const pagination = op["x-speakeasy-pagination"];
+  let paginationHint = "";
+  if (pagination?.type === "cursor") {
+    const outputPath = pagination.outputs?.nextCursor;
+    if (outputPath) {
+      paginationHint =
+        `(Paginated: the response's \`${outputPath}\` is the next-page cursor — pass it back as \`cursor\`.)`;
+    }
+  }
+
+  return { binaryBody, paginationHint };
+}
+
 function shortDesc(op, fallback) {
   const src = (op.summary || op.description || fallback).trim().split("\n")[0];
   return src.length > 240 ? src.slice(0, 237) + "..." : src;
@@ -172,19 +193,24 @@ for (const [apiPath, pathItem] of Object.entries(spec.paths ?? {})) {
       else if (p.in === "header") headerParams.push(p.name);
     }
     const hasBody = Boolean(op.requestBody);
+    const { binaryBody, paginationHint } = detectExtras(op);
 
     const inputJsonSchema = buildInputSchema(op, pathItem);
     const zodSrc = jsonSchemaToZod(inputJsonSchema, { module: "none", noImport: true });
 
+    let description = shortDesc(op, name);
+    if (paginationHint) description += ` ${paginationHint}`;
+
     tools.push({
       name,
-      description: shortDesc(op, name),
+      description,
       method: method.toUpperCase(),
       path: apiPath,
       pathParams,
       queryParams,
       headerParams,
       hasBody,
+      binaryBody,
       scope: methodToScope(method),
       annotations: methodToAnnotations(method),
       zodSrc,
@@ -230,6 +256,9 @@ for (const t of tools) {
   out.push(`        queryParams: ${JSON.stringify(t.queryParams)},`);
   out.push(`        headerParams: ${JSON.stringify(t.headerParams)},`);
   out.push(`        hasBody: ${JSON.stringify(t.hasBody)},`);
+  if (t.binaryBody) {
+    out.push("        binaryBody: true,");
+  }
   out.push("        signal: ctx.signal,");
   out.push("      }, args);");
   out.push("    },");

@@ -37,10 +37,10 @@ const booted = createGeneratedMCPServer({
 
 const execTool = booted.server._registeredTools.execute_tool;
 
-console.log(`Calling ${toolName} with input: ${JSON.stringify(input)}`);
+console.log(`Calling ${toolName} with arguments: ${JSON.stringify(input)}`);
 const start = Date.now();
 const res = await execTool.handler(
-  { tool_name: toolName, input },
+  { name: toolName, arguments: input },
   { signal: AbortSignal.timeout(30_000) },
 );
 const ms = Date.now() - start;

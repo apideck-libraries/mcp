@@ -128,7 +128,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-list",
-    description: "List Attachments",
+    description: "List Attachments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -170,6 +170,7 @@ export const generatedTools: ToolDefinition<any>[] = [
         queryParams: ["raw"],
         headerParams: ["x-apideck-metadata","x-apideck-consumer-id","x-apideck-app-id","x-apideck-service-id","content-type"],
         hasBody: true,
+        binaryBody: true,
         signal: ctx.signal,
       }, args);
     },
@@ -272,7 +273,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bankaccounts-list",
-    description: "List Bank Accounts",
+    description: "List Bank Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -392,7 +393,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bankfeedaccounts-list",
-    description: "List Bank Feed Accounts",
+    description: "List Bank Feed Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -512,7 +513,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bankfeedstatements-list",
-    description: "List Bank Feed Statements",
+    description: "List Bank Feed Statements (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -632,7 +633,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-billpayments-list",
-    description: "List Bill Payments",
+    description: "List Bill Payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -752,7 +753,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-list",
-    description: "List Bills",
+    description: "List Bills (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -824,7 +825,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-categories-list",
-    description: "List Categories",
+    description: "List Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -848,7 +849,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-companies-list",
-    description: "List companies",
+    description: "List companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -968,7 +969,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-creditnotes-list",
-    description: "List Credit Notes",
+    description: "List Credit Notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1088,7 +1089,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-list",
-    description: "List Customers",
+    description: "List Customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1208,7 +1209,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-list",
-    description: "List Departments",
+    description: "List Departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1328,7 +1329,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-list",
-    description: "List Employees",
+    description: "List Employees (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1448,7 +1449,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expensecategories-list",
-    description: "List Expense Categories",
+    description: "List Expense Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1568,7 +1569,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expensereports-list",
-    description: "List Expense Reports",
+    description: "List Expense Reports (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1688,7 +1689,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-list",
-    description: "List Expenses",
+    description: "List Expenses (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1808,7 +1809,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoiceitems-list",
-    description: "List Invoice Items",
+    description: "List Invoice Items (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1928,7 +1929,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-list",
-    description: "List Invoices",
+    description: "List Invoices (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2048,7 +2049,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journalentries-list",
-    description: "List Journal Entries",
+    description: "List Journal Entries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2168,7 +2169,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledgeraccounts-list",
-    description: "List Ledger Accounts",
+    description: "List Ledger Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2288,7 +2289,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-list",
-    description: "List Locations",
+    description: "List Locations (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2408,7 +2409,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-list",
-    description: "List Payments",
+    description: "List Payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2552,7 +2553,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-list",
-    description: "List projects",
+    description: "List projects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2672,7 +2673,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchaseorders-list",
-    description: "List Purchase Orders",
+    description: "List Purchase Orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2792,7 +2793,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-list",
-    description: "List Quotes",
+    description: "List Quotes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2912,7 +2913,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-list",
-    description: "List Refunds",
+    description: "List Refunds (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3032,7 +3033,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-list",
-    description: "List Subsidiaries",
+    description: "List Subsidiaries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3152,7 +3153,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-list",
-    description: "List Suppliers",
+    description: "List Suppliers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3272,7 +3273,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-taxrates-list",
-    description: "List Tax Rates",
+    description: "List Tax Rates (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3392,7 +3393,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-trackingcategories-list",
-    description: "List Tracking Categories",
+    description: "List Tracking Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3512,7 +3513,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-list",
-    description: "List Applicants",
+    description: "List Applicants (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3632,7 +3633,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-list",
-    description: "List Applications",
+    description: "List Applications (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3752,7 +3753,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-list",
-    description: "List Jobs",
+    description: "List Jobs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3872,7 +3873,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-list",
-    description: "List APIs",
+    description: "List APIs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3968,7 +3969,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-list",
-    description: "List Connectors",
+    description: "List Connectors (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4064,7 +4065,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-list",
-    description: "List activities",
+    description: "List activities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4184,7 +4185,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-list",
-    description: "List companies",
+    description: "List companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4304,7 +4305,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-list",
-    description: "List contacts",
+    description: "List contacts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4424,7 +4425,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-customobjects-list",
-    description: "List custom objects",
+    description: "List custom objects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4544,7 +4545,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-customobjectschemas-list",
-    description: "List custom object schemas",
+    description: "List custom object schemas (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4664,7 +4665,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-list",
-    description: "List leads",
+    description: "List leads (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4784,7 +4785,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-list",
-    description: "List notes",
+    description: "List notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4904,7 +4905,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-list",
-    description: "List opportunities",
+    description: "List opportunities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5024,7 +5025,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-list",
-    description: "List pipelines",
+    description: "List pipelines (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5144,7 +5145,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-list",
-    description: "List users",
+    description: "List users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5216,7 +5217,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-customers-list",
-    description: "List Customers",
+    description: "List Customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5264,7 +5265,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-orders-list",
-    description: "List Orders",
+    description: "List Orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5312,7 +5313,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-products-list",
-    description: "List Products",
+    description: "List Products (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5432,7 +5433,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "filestorage-drivegroups-list",
-    description: "List DriveGroups",
+    description: "List DriveGroups (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5552,7 +5553,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "filestorage-drives-list",
-    description: "List Drives",
+    description: "List Drives (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5696,7 +5697,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "filestorage-files-list",
-    description: "List Files",
+    description: "List Files (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5786,6 +5787,7 @@ export const generatedTools: ToolDefinition<any>[] = [
         queryParams: ["raw"],
         headerParams: ["x-apideck-metadata","x-apideck-consumer-id","x-apideck-app-id","x-apideck-service-id"],
         hasBody: true,
+        binaryBody: true,
         signal: ctx.signal,
       }, args);
     },
@@ -5984,7 +5986,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "filestorage-sharedlinks-list",
-    description: "List Shared Links",
+    description: "List Shared Links (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6146,6 +6148,7 @@ export const generatedTools: ToolDefinition<any>[] = [
         queryParams: ["part_number","raw"],
         headerParams: ["x-apideck-consumer-id","x-apideck-app-id","x-apideck-service-id","digest"],
         hasBody: true,
+        binaryBody: true,
         signal: ctx.signal,
       }, args);
     },
@@ -6224,7 +6227,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-list",
-    description: "List Companies",
+    description: "List Companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6344,7 +6347,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-list",
-    description: "List Departments",
+    description: "List Departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6512,7 +6515,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-list",
-    description: "List Employees",
+    description: "List Employees (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6704,7 +6707,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-timeoffrequests-list",
-    description: "List Time Off Requests",
+    description: "List Time Off Requests (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6776,7 +6779,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issuetracking-collections-list",
-    description: "List Collections",
+    description: "List Collections (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6800,7 +6803,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issuetracking-collectiontags-list",
-    description: "List Tags",
+    description: "List Tags (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6872,7 +6875,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issuetracking-collectionticketcomments-get",
-    description: "Get Comment",
+    description: "Get Comment (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6896,7 +6899,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issuetracking-collectionticketcomments-list",
-    description: "List Comments",
+    description: "List Comments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7016,7 +7019,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issuetracking-collectiontickets-list",
-    description: "List Tickets",
+    description: "List Tickets (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7088,7 +7091,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issuetracking-collectionusers-list",
-    description: "List Users",
+    description: "List Users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8328,7 +8331,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-list",
-    description: "Get all consumers",
+    description: "Get all consumers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8448,7 +8451,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-logs-list",
-    description: "Get all consumer request logs",
+    description: "Get all consumer request logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8520,7 +8523,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-eventlogs-list",
-    description: "List event logs",
+    description: "List event logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8616,7 +8619,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-list",
-    description: "List webhook subscriptions",
+    description: "List webhook subscriptions (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",

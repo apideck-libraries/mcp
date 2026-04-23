@@ -6,6 +6,7 @@ import { createAnalytics } from "../src/mcp-server/analytics.js";
 import { createMCPServer } from "../src/mcp-server/server.js";
 import { createConsoleLogger } from "../src/mcp-server/console-logger.js";
 import { ApideckMcpCore } from "../src/core.js";
+import { createGeneratedMCPServer } from "../src/gen/create-server.js";
 
 const logger = createConsoleLogger("info");
 
@@ -75,12 +76,15 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
   const analytics = getAnalytics();
   const transport = new StreamableHTTPServerTransport({});
 
-  const { server: mcpServer } = createMCPServer({
-    logger,
-    analytics,
-    dynamic: true,
-    getSDK,
-  });
+  // Shadow-test the custom generator via `?engine=custom` query param.
+  const url = new URL(req.url ?? "", "http://localhost");
+  const engine = url.searchParams.get("engine");
+  const useCustom = engine === "custom";
+  if (useCustom) logger.info("Using custom generator engine");
+
+  const { server: mcpServer } = useCustom
+    ? createGeneratedMCPServer({ logger, analytics, dynamic: true, getSDK })
+    : createMCPServer({ logger, analytics, dynamic: true, getSDK });
 
   mcpServer.server.onerror = (error: unknown) => {
     logger.error("MCP error", {
