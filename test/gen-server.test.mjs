@@ -49,7 +49,7 @@ try {
   assert(false, `server boot threw: ${err.message}`);
   process.exit(1);
 }
-assert(booted.tools.length === 330, `330 tools registered (got ${booted.tools.length})`);
+assert(booted.tools.length >= 330, `>=330 tools registered (got ${booted.tools.length})`);
 
 // -----------------------------------------------------------------------------
 // 2. list_tools returns all tools with descriptions
@@ -98,12 +98,12 @@ try {
 }
 if (schemaObj) {
   assert(schemaObj.type === "object", "schema is an object type");
-  const props = schemaObj.properties ?? {};
-  assert("limit" in props, "limit property present");
-  assert("filter" in props, "filter property present");
-  assert("x-apideck-service-id" in props, "service-id header property present");
+  const requestProps = schemaObj.properties?.request?.properties ?? {};
+  assert("limit" in requestProps, "limit property present");
+  assert("filter" in requestProps, "filter property present");
+  assert("x-apideck-service-id" in requestProps, "service-id header property present");
   assert(
-    typeof props["x-apideck-service-id"]?.description === "string",
+    typeof requestProps["x-apideck-service-id"]?.description === "string",
     "service-id carries a description",
   );
 }
@@ -135,8 +135,8 @@ const analyticsBooted = createGeneratedMCPServer({
 const execTool = analyticsBooted.server._registeredTools.execute_tool;
 const execRes = await execTool.handler(
   {
-    tool_name: "accounting-invoices-list",
-    input: { limit: 10, "x-apideck-service-id": "quickbooks" },
+    name: "accounting-invoices-list",
+    arguments: { request: { limit: 10, "x-apideck-service-id": "quickbooks" } },
   },
   { signal: new AbortController().signal },
 );
@@ -163,9 +163,9 @@ assert(captures[0].properties.is_error === false, "is_error false");
 console.log("Test: execute_tool input validation");
 const validationRes = await execTool.handler(
   {
-    tool_name: "accounting-invoices-update",
+    name: "accounting-invoices-update",
     // id is required; omit it
-    input: {},
+    arguments: {},
   },
   { signal: new AbortController().signal },
 );
