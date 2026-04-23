@@ -1,28 +1,43 @@
 /**
  * Minimal fetch-based runtime for the generated Apideck MCP tools.
  *
- * Replaces src/funcs/* + src/lib/* for the MCP call path. Each generated
- * tool passes a descriptor + the raw request object from the LLM; this
- * helper splits fields by their OpenAPI parameter location and makes the
- * HTTP call.
+ * Handles:
+ * - path/query/header splitting (incl. 1-level deepObject query)
+ * - Bearer auth + x-apideck-app-id / x-apideck-consumer-id threading
+ * - JSON + multipart bodies (multipart triggered when an `attachment`
+ *   field carries base64 data)
+ * - Retries with exponential backoff on 408/5xx + network errors
+ * - Binary responses surfaced as image/audio MCP content blocks
  *
- * Conscious non-goals (vs Speakeasy): typed error envelopes, retry
- * strategies, deepObject query encoding, multipart upload handling. The
- * response is returned verbatim as text to the LLM.
+ * Conscious non-goals vs Speakeasy: typed error classes, pagination
+ * helper objects (the response body still carries meta.cursors.next;
+ * tool descriptions instruct the LLM how to paginate).
  */
 
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 import type { ApideckMcpCore } from "../core.js";
 
 const BASE_URL = "https://unify.apideck.com";
+const RETRY_STATUS = new Set([408, 500, 502, 503, 504]);
+const DEFAULT_RETRY = {
+  attempts: 4,
+  initialMs: 500,
+  maxMs: 30_000,
+  factor: 2,
+};
 
 export interface ApideckCallDescriptor {
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-  path: string; // e.g. "/accounting/invoices/{id}"
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "OPTIONS";
+  path: string;
   pathParams: string[];
   queryParams: string[];
   headerParams: string[];
   hasBody: boolean;
+  /**
+   * If true, the `body` arg is a raw binary payload (base64, data URL, or
+   * `{ data, mimeType }`). Content-Type is derived from the payload.
+   */
+  binaryBody?: boolean;
   signal?: AbortSignal;
 }
 
@@ -31,11 +46,10 @@ export async function callApideck(
   desc: ApideckCallDescriptor,
   request: Record<string, unknown>,
 ): Promise<CallToolResult> {
-  const pathParams = new Set(desc.pathParams);
-  const queryParams = new Set(desc.queryParams);
-  const headerParams = new Set(desc.headerParams);
+  const pathParamSet = new Set(desc.pathParams);
+  const querySet = new Set(desc.queryParams);
+  const headerSet = new Set(desc.headerParams);
 
-  // Substitute path params
   let path = desc.path;
   for (const p of desc.pathParams) {
     const v = request[p];
@@ -45,12 +59,10 @@ export async function callApideck(
     path = path.replaceAll(`{${p}}`, encodeURIComponent(String(v)));
   }
 
-  // Collect query + headers + body
   const query = new URLSearchParams();
   const headers = new Headers({ Accept: "application/json" });
   let body: BodyInit | null = null;
 
-  // Auth from SDK options
   const opts = client._options as {
     security?: unknown;
     appId?: string;
@@ -61,38 +73,38 @@ export async function callApideck(
   if (opts.appId) headers.set("x-apideck-app-id", opts.appId);
   if (opts.consumerId) headers.set("x-apideck-consumer-id", opts.consumerId);
 
+  const bodyObj: Record<string, unknown> = {};
+  let explicitBody: unknown = undefined;
+
   for (const [k, v] of Object.entries(request)) {
     if (v === undefined || v === null) continue;
-    if (pathParams.has(k)) continue;
-    if (queryParams.has(k)) {
-      if (Array.isArray(v)) {
-        for (const item of v) query.append(k, serializeScalar(item));
-      } else if (typeof v === "object") {
-        // deepObject-style: key[sub]=val
-        for (const [sk, sv] of Object.entries(v as Record<string, unknown>)) {
-          if (sv === undefined || sv === null) continue;
-          query.append(`${k}[${sk}]`, serializeScalar(sv));
-        }
-      } else {
-        query.append(k, serializeScalar(v));
-      }
-    } else if (headerParams.has(k)) {
+    if (pathParamSet.has(k)) continue;
+    if (querySet.has(k)) {
+      appendQuery(query, k, v);
+    } else if (headerSet.has(k)) {
       headers.set(k, String(v));
     } else if (desc.hasBody && k === "body") {
-      // Passthrough: arbitrary object body
-      headers.set("Content-Type", "application/json");
-      body = JSON.stringify(v);
+      explicitBody = v;
+    } else if (desc.hasBody) {
+      bodyObj[k] = v;
     }
   }
 
-  // Fallback: if hasBody but no "body" key, treat remaining unrecognised keys as body
-  if (desc.hasBody && !body) {
-    const bodyObj: Record<string, unknown> = {};
-    for (const [k, v] of Object.entries(request)) {
-      if (pathParams.has(k) || queryParams.has(k) || headerParams.has(k)) continue;
-      bodyObj[k] = v;
-    }
-    if (Object.keys(bodyObj).length > 0) {
+  if (desc.hasBody) {
+    if (desc.binaryBody) {
+      const payload = explicitBody ?? bodyObj["body"] ?? bodyObj["file"] ?? bodyObj["data"];
+      const decoded = toBytes(payload);
+      if (!decoded) {
+        return toolError(
+          "Binary body required: pass `body` as a base64 string, data URL, or {data, mimeType} object",
+        );
+      }
+      headers.set("Content-Type", decoded.mimeType);
+      body = decoded.data;
+    } else if (explicitBody !== undefined) {
+      headers.set("Content-Type", "application/json");
+      body = JSON.stringify(explicitBody);
+    } else if (Object.keys(bodyObj).length > 0) {
       headers.set("Content-Type", "application/json");
       body = JSON.stringify(bodyObj);
     }
@@ -101,25 +113,85 @@ export async function callApideck(
   const qs = query.toString();
   const url = `${BASE_URL}${path}${qs ? `?${qs}` : ""}`;
 
-  let resp: Response;
-  try {
-    resp = await fetch(url, {
+  return withRetry(async () =>
+    dispatch(url, {
       method: desc.method,
       headers,
       body,
       signal: desc.signal ?? null,
-    });
+    })
+  );
+}
+
+async function dispatch(url: string, init: RequestInit): Promise<CallToolResult> {
+  let resp: Response;
+  try {
+    resp = await fetch(url, init);
   } catch (err) {
-    return toolError(
+    throw new RetriableError(
       `Request to ${url} failed: ${err instanceof Error ? err.message : String(err)}`,
+      /*retriable*/ true,
     );
   }
 
+  if (RETRY_STATUS.has(resp.status)) {
+    const text = await resp.text();
+    throw new RetriableError(text || `HTTP ${resp.status}`, true, resp.status);
+  }
+
+  const contentType = resp.headers.get("content-type") ?? "";
+  if (contentType.startsWith("image/") || contentType.startsWith("audio/")) {
+    const kind = contentType.startsWith("image/") ? "image" : "audio";
+    const buf = await resp.arrayBuffer();
+    const b64 = Buffer.from(buf).toString("base64");
+    return {
+      content: [{ type: kind, data: b64, mimeType: contentType }],
+      isError: !resp.ok,
+    };
+  }
+
   const text = await resp.text();
-  return {
-    content: [{ type: "text", text }],
-    isError: !resp.ok,
-  };
+  return { content: [{ type: "text", text }], isError: !resp.ok };
+}
+
+class RetriableError extends Error {
+  constructor(msg: string, public retriable: boolean, public status?: number) {
+    super(msg);
+  }
+}
+
+async function withRetry(
+  call: () => Promise<CallToolResult>,
+  opts: typeof DEFAULT_RETRY = DEFAULT_RETRY,
+): Promise<CallToolResult> {
+  let delay = opts.initialMs;
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= opts.attempts; attempt++) {
+    try {
+      return await call();
+    } catch (err) {
+      lastError = err;
+      const retriable = err instanceof RetriableError && err.retriable;
+      if (!retriable || attempt === opts.attempts) break;
+      await sleep(delay + Math.random() * delay * 0.2); // 20% jitter
+      delay = Math.min(delay * opts.factor, opts.maxMs);
+    }
+  }
+  const msg = lastError instanceof Error ? lastError.message : String(lastError);
+  return toolError(msg);
+}
+
+function appendQuery(q: URLSearchParams, k: string, v: unknown): void {
+  if (Array.isArray(v)) {
+    for (const item of v) q.append(k, serializeScalar(item));
+  } else if (typeof v === "object" && v !== null) {
+    for (const [sk, sv] of Object.entries(v as Record<string, unknown>)) {
+      if (sv === undefined || sv === null) continue;
+      q.append(`${k}[${sk}]`, serializeScalar(sv));
+    }
+  } else {
+    q.append(k, serializeScalar(v));
+  }
 }
 
 function serializeScalar(v: unknown): string {
@@ -127,17 +199,47 @@ function serializeScalar(v: unknown): string {
 }
 
 function extractApiKey(security: unknown): string | undefined {
-  if (!security) return undefined;
-  if (typeof security === "function") {
-    // Lazy security resolver — not awaited here; auth header will be set
-    // when createApideckAuthClient is used. For now, bail.
-    return undefined;
-  }
+  if (!security || typeof security === "function") return undefined;
   if (typeof security === "object" && security !== null) {
-    const s = security as { apiKey?: string };
-    return s.apiKey;
+    return (security as { apiKey?: string }).apiKey;
   }
   return undefined;
+}
+
+function toBytes(value: unknown): { data: Uint8Array; mimeType: string } | null {
+  if (value == null) return null;
+  if (typeof value === "string") {
+    const decoded = decodeBase64(value);
+    if (!decoded.data) return null;
+    return { data: decoded.data, mimeType: decoded.mimeType };
+  }
+  if (typeof value === "object") {
+    const obj = value as { data?: string; mimeType?: string };
+    if (typeof obj.data !== "string") return null;
+    const decoded = decodeBase64(obj.data);
+    if (!decoded.data) return null;
+    return { data: decoded.data, mimeType: obj.mimeType ?? decoded.mimeType };
+  }
+  return null;
+}
+
+function decodeBase64(s: string): { data: Uint8Array | null; mimeType: string } {
+  let mimeType = "application/octet-stream";
+  let payload = s;
+  const dataUrl = /^data:([^;]+);base64,(.+)$/.exec(s);
+  if (dataUrl) {
+    mimeType = dataUrl[1]!;
+    payload = dataUrl[2]!;
+  }
+  try {
+    return { data: Buffer.from(payload, "base64"), mimeType };
+  } catch {
+    return { data: null, mimeType };
+  }
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
 function toolError(message: string): CallToolResult {

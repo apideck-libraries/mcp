@@ -17,7 +17,9 @@ if (!apiKey || !appId || !consumerId) {
 }
 
 const toolName = process.argv[2] ?? "vault-connections-list";
-const input = process.argv[3] ? JSON.parse(process.argv[3]) : {};
+const rawInput = process.argv[3] ? JSON.parse(process.argv[3]) : {};
+// Generator now wraps args under `request`; accept either shape for convenience.
+const input = "request" in rawInput ? rawInput : { request: rawInput };
 
 const logger = {
   level: "info",
@@ -37,10 +39,10 @@ const booted = createGeneratedMCPServer({
 
 const execTool = booted.server._registeredTools.execute_tool;
 
-console.log(`Calling ${toolName} with input: ${JSON.stringify(input)}`);
+console.log(`Calling ${toolName} with arguments: ${JSON.stringify(input)}`);
 const start = Date.now();
 const res = await execTool.handler(
-  { tool_name: toolName, input },
+  { name: toolName, arguments: input },
   { signal: AbortSignal.timeout(30_000) },
 );
 const ms = Date.now() - start;
