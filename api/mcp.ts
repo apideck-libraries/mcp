@@ -76,15 +76,15 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
   const analytics = getAnalytics();
   const transport = new StreamableHTTPServerTransport({});
 
-  // Shadow-test the custom generator via `?engine=custom` query param.
+  // Custom generator is the default. Pass `?engine=legacy` to fall back.
   const url = new URL(req.url ?? "", "http://localhost");
   const engine = url.searchParams.get("engine");
-  const useCustom = engine === "custom";
-  if (useCustom) logger.info("Using custom generator engine");
+  const useLegacy = engine === "legacy";
+  if (useLegacy) logger.info("Using legacy generator engine");
 
-  const { server: mcpServer } = useCustom
-    ? createGeneratedMCPServer({ logger, analytics, dynamic: true, getSDK })
-    : createMCPServer({ logger, analytics, dynamic: true, getSDK });
+  const { server: mcpServer } = useLegacy
+    ? createMCPServer({ logger, analytics, dynamic: true, getSDK })
+    : createGeneratedMCPServer({ logger, analytics, dynamic: true, getSDK });
 
   mcpServer.server.onerror = (error: unknown) => {
     logger.error("MCP error", {

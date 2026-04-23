@@ -17,7 +17,9 @@ if (!apiKey || !appId || !consumerId) {
 }
 
 const toolName = process.argv[2] ?? "vault-connections-list";
-const input = process.argv[3] ? JSON.parse(process.argv[3]) : {};
+const rawInput = process.argv[3] ? JSON.parse(process.argv[3]) : {};
+// Generator now wraps args under `request`; accept either shape for convenience.
+const input = "request" in rawInput ? rawInput : { request: rawInput };
 
 const logger = {
   level: "info",

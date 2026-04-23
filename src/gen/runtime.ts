@@ -27,7 +27,7 @@ const DEFAULT_RETRY = {
 };
 
 export interface ApideckCallDescriptor {
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "OPTIONS";
   path: string;
   pathParams: string[];
   queryParams: string[];

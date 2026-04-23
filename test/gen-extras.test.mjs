@@ -28,8 +28,9 @@ const fakeSDK = {
 // ---------------------------------------------------------------------------
 console.log("Test: binary upload ships raw bytes");
 const upload = byName.get("filestorage-files-upload")
+  ?? byName.get("file-storage-files-upload")
   ?? byName.get("fileStorage-files-upload");
-assert(upload, "filestorage-files-upload present");
+assert(upload, "file-storage-files-upload present");
 
 const captured = [];
 const origFetch = globalThis.fetch;
@@ -46,7 +47,7 @@ globalThis.fetch = async (url, opts) => {
 const png1x1 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 await upload.tool(
   fakeSDK,
-  { body: { data: png1x1, mimeType: "image/png" } },
+  { request: { body: { data: png1x1, mimeType: "image/png" } } },
   { signal: new AbortController().signal },
 );
 globalThis.fetch = origFetch;
@@ -67,7 +68,7 @@ globalThis.fetch = async () => {
   return new Response('{"data":[]}', { status: 200, headers: { "content-type": "application/json" } });
 };
 const start = Date.now();
-const retryRes = await list.tool(fakeSDK, { limit: 1 }, { signal: new AbortController().signal });
+const retryRes = await list.tool(fakeSDK, { request: { limit: 1 } }, { signal: new AbortController().signal });
 const elapsed = Date.now() - start;
 globalThis.fetch = origFetch;
 
@@ -80,6 +81,7 @@ assert(elapsed >= 500, `backoff took >=500ms (got ${elapsed}ms)`);
 // ---------------------------------------------------------------------------
 console.log("Test: image response surfaced as image content block");
 const download = byName.get("filestorage-files-download")
+  ?? byName.get("file-storage-files-download")
   ?? byName.get("fileStorage-files-download");
 assert(download, "file download tool present");
 globalThis.fetch = async () =>
@@ -89,7 +91,7 @@ globalThis.fetch = async () =>
   });
 const imgRes = await download.tool(
   fakeSDK,
-  { id: "file-123" },
+  { request: { id: "file-123" } },
   { signal: new AbortController().signal },
 );
 globalThis.fetch = origFetch;
@@ -128,7 +130,7 @@ globalThis.fetch = async () => {
   persistentCalls++;
   return new Response("server exploded", { status: 502 });
 };
-const giveUpRes = await list.tool(fakeSDK, { limit: 1 }, { signal: new AbortController().signal });
+const giveUpRes = await list.tool(fakeSDK, { request: { limit: 1 } }, { signal: new AbortController().signal });
 globalThis.fetch = origFetch;
 assert(persistentCalls === 4, `fetch called 4× (default attempts) — got ${persistentCalls}`);
 assert(giveUpRes.isError === true, "gives up with isError: true");

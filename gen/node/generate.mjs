@@ -36,7 +36,9 @@ for (const a of overlay.actions ?? []) {
 // ----------------------------------------------------------------------------
 // $ref resolution with cycle detection
 // ----------------------------------------------------------------------------
+// Cache only non-recursive resolutions (safe to reuse across contexts).
 const refCache = new Map();
+const MAX_INLINE_DEPTH = 2; // recursive refs are inlined this many times
 
 function getRef(ref) {
   if (!ref.startsWith("#/")) return null;
@@ -46,21 +48,34 @@ function getRef(ref) {
   return node;
 }
 
-function resolveSchema(schema, visiting = new Set()) {
+/**
+ * Resolve $refs inline, with cycle handling.
+ *
+ * - Non-recursive refs are cached and reused.
+ * - Recursive refs inline up to MAX_INLINE_DEPTH times in the current
+ *   chain, then emit a minimal type-preserving placeholder so Zod still
+ *   validates shape (rather than the previous opaque `{}`).
+ */
+function resolveSchema(schema, visiting = new Map()) {
   if (!schema || typeof schema !== "object") return schema;
 
   if (schema.$ref) {
-    if (visiting.has(schema.$ref)) {
-      // Cycle — stop recursion with a permissive placeholder
-      return { description: "(recursive reference elided)" };
+    const depth = visiting.get(schema.$ref) ?? 0;
+    if (depth >= MAX_INLINE_DEPTH) {
+      // Emit a placeholder that preserves enough info for Zod to stay permissive
+      const target = getRef(schema.$ref) ?? {};
+      return minimalPlaceholder(target, schema.$ref);
     }
-    const cached = refCache.get(schema.$ref);
+    const cached = depth === 0 ? refCache.get(schema.$ref) : null;
     if (cached) return cached;
     const target = getRef(schema.$ref);
     if (!target) return {};
-    const nextVisiting = new Set(visiting).add(schema.$ref);
+    const nextVisiting = new Map(visiting).set(schema.$ref, depth + 1);
     const resolved = resolveSchema(target, nextVisiting);
-    refCache.set(schema.$ref, resolved);
+    // Only cache top-level (depth 0) fully-inlined resolutions.
+    if (depth === 0 && !schemaTouchesCycle(resolved)) {
+      refCache.set(schema.$ref, resolved);
+    }
     return resolved;
   }
 
@@ -74,6 +89,39 @@ function resolveSchema(schema, visiting = new Set()) {
     else out[k] = v;
   }
   return out;
+}
+
+/**
+ * When recursion depth is hit, emit a schema that preserves the top-level
+ * type + description but drops properties/items (which would recurse again).
+ * This keeps Zod schemas useful (e.g., z.object({}).passthrough() instead of
+ * z.any()) while preventing infinite expansion.
+ */
+function minimalPlaceholder(target, refName) {
+  const note = `(recursion depth limit; see ${refName})`;
+  if (target.type === "object" || target.properties) {
+    return { type: "object", description: note, additionalProperties: true };
+  }
+  if (target.type === "array") {
+    return { type: "array", description: note, items: {} };
+  }
+  if (target.type) {
+    return { type: target.type, description: note };
+  }
+  return { description: note };
+}
+
+function schemaTouchesCycle(schema, seen = new Set()) {
+  if (!schema || typeof schema !== "object") return false;
+  if (seen.has(schema)) return false;
+  seen.add(schema);
+  if (typeof schema.description === "string" && schema.description.startsWith("(recursion depth limit")) {
+    return true;
+  }
+  for (const v of Object.values(schema)) {
+    if (v && typeof v === "object" && schemaTouchesCycle(v, seen)) return true;
+  }
+  return false;
 }
 
 // ----------------------------------------------------------------------------
@@ -137,6 +185,14 @@ function methodToAnnotations(m) {
   };
 }
 
+/** Split camelCase → kebab-case. `accountingTaxRates` → `accounting-tax-rates`. */
+function kebab(s) {
+  return s
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+    .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
+    .toLowerCase();
+}
+
 function detectExtras(op) {
   const rb = op.requestBody ? resolveSchema(op.requestBody) : null;
   const content = rb?.content ?? {};
@@ -169,7 +225,7 @@ function shortDesc(op, fallback) {
 const tools = [];
 for (const [apiPath, pathItem] of Object.entries(spec.paths ?? {})) {
   if (disabledPaths.has(apiPath)) continue;
-  for (const method of ["get", "post", "put", "patch", "delete"]) {
+  for (const method of ["get", "post", "put", "patch", "delete", "options"]) {
     const op = pathItem[method];
     if (!op) continue;
     if (op["x-speakeasy-mcp"]?.disabled) continue;
@@ -177,7 +233,7 @@ for (const [apiPath, pathItem] of Object.entries(spec.paths ?? {})) {
     const group = op["x-speakeasy-group"] ?? "";
     const override = op["x-speakeasy-name-override"] ?? "";
     if (!group || !override) continue;
-    const name = `${group.replaceAll(".", "-")}-${override}`.toLowerCase();
+    const name = kebab(`${group.replaceAll(".", "-")}-${override}`);
 
     const pathParams = [];
     const queryParams = [];
@@ -230,6 +286,7 @@ out.push('import * as z from "zod";');
 out.push('import type { ToolDefinition } from "../mcp-server/tools.js";');
 out.push('import { callApideck } from "./runtime.js";');
 out.push("");
+out.push("const opt = z.object({}).optional();");
 out.push("export const generatedTools: ToolDefinition<any>[] = [");
 
 for (const t of tools) {
@@ -247,7 +304,9 @@ for (const t of tools) {
   // `z.object({ ...shape })` → we want the raw shape. json-schema-to-zod
   // always emits `z.object({...})` for object schemas. Pull the shape via
   // a small runtime trick: rewrap as shape.
-  out.push(`    args: (${t.zodSrc}).shape,`);
+  // Match Speakeasy's shape: all inputs wrapped under `request` so callers
+  // that migrate between engines don't have to reshape arguments.
+  out.push(`    args: { request: (${t.zodSrc}).optional() },`);
   out.push("    async tool(client, args, ctx) {");
   out.push("      return callApideck(client, {");
   out.push(`        method: ${JSON.stringify(t.method)},`);
@@ -260,7 +319,7 @@ for (const t of tools) {
     out.push("        binaryBody: true,");
   }
   out.push("        signal: ctx.signal,");
-  out.push("      }, args);");
+  out.push("      }, args.request ?? {});");
   out.push("    },");
   out.push("  },");
 }
