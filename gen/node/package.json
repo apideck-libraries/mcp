@@ -1,0 +1,1 @@
+{"name":"apideck-mcp-gen","type":"module","dependencies":{"json-schema-to-zod":"^2.8.1","js-yaml":"^4.1.0"}}
