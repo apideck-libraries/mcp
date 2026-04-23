@@ -475,6 +475,17 @@ export function registerDynamicTools(
       captureToolCall(analytics, sdk, args.name, "dynamic", start, result);
       return result;
     } catch (error) {
+      // MCP protocol errors (e.g. UrlElicitationRequiredError, used to hand
+      // the user a consent URL for a missing Vault connection) must reach
+      // the client as first-class JSON-RPC errors — wrapping them in a
+      // text tool result would drop the elicitation payload.
+      if (error instanceof Error && error.name === "McpError") {
+        captureToolCall(analytics, sdk, args.name, "dynamic", start, {
+          content: [{ type: "text", text: error.message }],
+          isError: true,
+        });
+        throw error;
+      }
       const message = error instanceof Error ? error.message : String(error);
       const errorResult: CallToolResult = {
         content: [{
