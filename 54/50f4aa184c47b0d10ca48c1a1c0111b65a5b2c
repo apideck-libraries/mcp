@@ -1,0 +1,37 @@
+src/gen/tools.ts
+  1843bf7ab16e94b4 1-8665
+src/gen/create-server.ts
+  1843bf7ab16e94b4 1-53
+gen/node/package.json
+  1843bf7ab16e94b4 1
+test/gen-server.test.mjs
+  1843bf7ab16e94b4 1-215
+test/gen-live.mjs
+  1843bf7ab16e94b4 1-52
+gen/node/generate.mjs
+  1843bf7ab16e94b4 1-243
+src/gen/runtime.ts
+  1843bf7ab16e94b4 1-145
+test/gen.test.mjs
+  1843bf7ab16e94b4 1-113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "5450f4aa184c47b0d10ca48c1a1c0111b65a5b2c",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 65296,
+      "total_deletions": 10506,
+      "accepted_lines": 66521,
+      "overriden_lines": 0
+    }
+  }
+}
