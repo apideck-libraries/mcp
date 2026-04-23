@@ -1,0 +1,28 @@
+mcp.json
+  1843bf7ab16e94b4 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "f78be78817e6fc18eef80cea9c96d3a3ef0c08aa",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 161,
+      "total_deletions": 1,
+      "accepted_lines": 18691,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_f6bcdbbbb4e208": {
+      "author": "GJ"
+    }
+  }
+}
