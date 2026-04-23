@@ -1,0 +1,32 @@
+.github/workflows/ci.yaml
+  1843bf7ab16e94b4 37
+src/gen/runtime.ts
+  1843bf7ab16e94b4 71,201-213,215-216
+test/gen-handler-e2e.test.mjs
+  1843bf7ab16e94b4 1-207
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "192ca23864f7206d7125d5ed8c4f22fe0b473090",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 537,
+      "total_deletions": 169,
+      "accepted_lines": 18892,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_f6bcdbbbb4e208": {
+      "author": "GJ"
+    }
+  }
+}
