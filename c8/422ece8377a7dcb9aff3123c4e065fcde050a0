@@ -1,0 +1,37 @@
+test/gen-sandbox-live.mjs
+  1843bf7ab16e94b4 1-55
+src/gen/code-tools.ts
+  1843bf7ab16e94b4 1-105
+.mcp.json
+  1843bf7ab16e94b4 1-23
+test/gen-sandbox.test.mjs
+  1843bf7ab16e94b4 1-284
+src/gen/sandbox.ts
+  1843bf7ab16e94b4 1-183
+src/gen/create-server.ts
+  1843bf7ab16e94b4 20,27-32,53-60
+api/mcp.ts
+  1843bf7ab16e94b4 79-81,84,86,88,92-98
+.github/workflows/ci.yaml
+  1843bf7ab16e94b4 41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "c8422ece8377a7dcb9aff3123c4e065fcde050a0",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 746,
+      "total_deletions": 39,
+      "accepted_lines": 20090,
+      "overriden_lines": 1
+    }
+  }
+}
