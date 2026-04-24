@@ -3802,7 +3802,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-api-resource-coverage-get",
-    description: "Retrieve coverage details for a specific API resource.\n\nThis operation fetches the coverage information of a particular resource within an API. Use this endpoint when you need to assess how well a resource is covered, such as for testing or monitoring purposes. It reads coverage data associated with the specified resource but does ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resource-coverage-list`.",
+    description: "Retrieve coverage details for a specific API resource.\n\nThis operation fetches the coverage information of a particular resource within an API. Use this endpoint when you need to assess how well a resource is covered, such as for testing or monitoring purposes. It reads coverage data associated with the specified resource but does ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resource-coverage-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3826,7 +3826,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-api-resources-get",
-    description: "Retrieve a specific API resource by its ID.\n\nThis operation fetches the details of a single API resource identified by its resource ID within a given API. Use this endpoint when you need to view or inspect the configuration or metadata of a particular resource rather than listing all resources. It reads the resource data...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resources-list`.",
+    description: "Retrieve a specific API resource by its ID.\n\nThis operation fetches the details of a single API resource identified by its resource ID within a given API. Use this endpoint when you need to view or inspect the configuration or metadata of a particular resource rather than listing all resources. It reads the resource data...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resources-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3850,7 +3850,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-get",
-    description: "Retrieve details of a specific API by its ID.\n\nThis operation fetches detailed information about a single API identified by its ID. Use this endpoint when you need to view or verify the configuration or metadata of a particular API within the connector system. It reads and returns the stored API data without modifying it. ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-apis-list`.",
+    description: "Retrieve details of a specific API by its ID.\n\nThis operation fetches detailed information about a single API identified by its ID. Use this endpoint when you need to view or verify the configuration or metadata of a particular API within the connector system. It reads and returns the stored API data without modifying it. ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-apis-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3874,7 +3874,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-list",
-    description: "Retrieve a list of all available APIs.\n\nThis operation fetches a complete list of all APIs accessible through the connector. Use this to discover which APIs can be integrated or managed within the system. It reads the current API registry without modifying any data. There are no special constraints beyond standard a...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-apis-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all available APIs.\n\nThis operation fetches a complete list of all APIs accessible through the connector. Use this to discover which APIs can be integrated or managed within the system. It reads the current API registry without modifying any data. There are no special constraints beyond standard a...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-apis-get` instead.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3898,7 +3898,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connector-docs-get",
-    description: "Retrieve the content of a specific connector document.\n\nThis operation fetches the content of a specified document associated with a connector. Use this when you need to access detailed information or documentation for a particular connector. It reads the document data without modifying any connector settings. Ensure the connector ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-docs-list`.",
+    description: "Retrieve the content of a specific connector document.\n\nThis operation fetches the content of a specified document associated with a connector. Use this when you need to access detailed information or documentation for a particular connector. It reads the document data without modifying any connector settings. Ensure the connector ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-docs-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3922,7 +3922,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connector-resources-get",
-    description: "Retrieve a specific resource from a connector.\n\nThis operation fetches the details of a single resource identified by its ID within a specified connector. Use this when you need to access information about one particular resource rather than a list of resources. It reads data associated with the resource but does not modify...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-resources-list`.",
+    description: "Retrieve a specific resource from a connector.\n\nThis operation fetches the details of a single resource identified by its ID within a specified connector. Use this when you need to access information about one particular resource rather than a list of resources. It reads data associated with the resource but does not modify...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-resources-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3946,7 +3946,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-get",
-    description: "Retrieve details of a specific connector by its ID.\n\nThis operation fetches detailed information about a single connector identified by its ID. Use this endpoint when you need to view or verify the configuration and status of a particular connector. It reads connector data without modifying any resources. Ensure the connector ID...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connectors-list`.",
+    description: "Retrieve details of a specific connector by its ID.\n\nThis operation fetches detailed information about a single connector identified by its ID. Use this endpoint when you need to view or verify the configuration and status of a particular connector. It reads connector data without modifying any resources. Ensure the connector ID...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connectors-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3970,7 +3970,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-list",
-    description: "Retrieve a list of all connectors.\n\nFetches a complete list of connectors available in the system. Use this operation when you need to view or manage all connectors rather than a specific one. It reads connector metadata without modifying any data. This operation does not require any input parameters and returns...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-connectors-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all connectors.\n\nFetches a complete list of connectors available in the system. Use this operation when you need to view or manage all connectors rather than a specific one. It reads connector metadata without modifying any data. This operation does not require any input parameters and returns...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-connectors-get` instead.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7116,7 +7116,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-delete",
-    description: "Delete a resource by proxying a downstream DELETE request with injected credentials.\n\nThis operation proxies a DELETE request to a downstream service while injecting credentials stored in Vault to ensure secure access. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It forwards all data to th...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.",
+    description: "Delete a resource by proxying a downstream DELETE request with injected credentials.\n\nThis operation proxies a DELETE request to a downstream service while injecting credentials stored in Vault to ensure secure access. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It forwards all data to th...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -7140,7 +7140,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-get",
-    description: "Proxy a downstream GET request with injected credentials for secure access.\n\nThis operation forwards a GET request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need an additional security layer and logging without relying on Unify for normalization. It reads credentials from Vault and includ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `proxy-list`.",
+    description: "Proxy a downstream GET request with injected credentials for secure access.\n\nThis operation forwards a GET request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need an additional security layer and logging without relying on Unify for normalization. It reads credentials from Vault and includ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `proxy-list`.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7164,7 +7164,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-options",
-    description: "Forward OPTIONS requests to a downstream service with injected credentials.\n\nThis operation forwards an OPTIONS HTTP request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need to add a security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream U...",
+    description: "Forward OPTIONS requests to a downstream service with injected credentials.\n\nThis operation forwards an OPTIONS HTTP request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need to add a security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream U...\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7188,7 +7188,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-patch",
-    description: "Proxy a PATCH request to a downstream service with injected credentials.\n\nThis operation forwards a PATCH request to a downstream service while injecting necessary credentials stored in Vault. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream UR...\n\nUpdates fields on an existing record. Only the fields you pass are modified.",
+    description: "Proxy a PATCH request to a downstream service with injected credentials.\n\nThis operation forwards a PATCH request to a downstream service while injecting necessary credentials stored in Vault. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream UR...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7212,7 +7212,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-post",
-    description: "Proxy a downstream POST request with injected credentials for secure forwarding.\n\nThis operation forwards a POST request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need to add an extra security layer and logging without relying on Unify for data normalization. It forwards all data to the downst...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
+    description: "Proxy a downstream POST request with injected credentials for secure forwarding.\n\nThis operation forwards a POST request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need to add an extra security layer and logging without relying on Unify for data normalization. It forwards all data to the downst...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7236,7 +7236,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-put",
-    description: "Proxy a downstream PUT request with injected credentials for secure forwarding.\n\nThis operation forwards a PUT request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need an additional security layer and logging without relying on Unify for request normalization. It securely proxies all data to the downstre...\n\nReplaces the target record. Omitted fields may be cleared depending on the connector.",
+    description: "Proxy a downstream PUT request with injected credentials for secure forwarding.\n\nThis operation forwards a PUT request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need an additional security layer and logging without relying on Unify for request normalization. It securely proxies all data to the downstre...\n\nReplaces the target record. Omitted fields may be cleared depending on the connector.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7260,7 +7260,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-consent-update",
-    description: "Update the consent state of a vault connection.\n\nThis operation updates the consent status for a specified vault connection, indicating whether access is granted or revoked. Use this endpoint when you need to change the user's permission state for a connection managed within the vault. It modifies the consent data associated...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
+    description: "Update the consent state of a vault connection.\n\nThis operation updates the consent status for a specified vault connection, indicating whether access is granted or revoked. Use this endpoint when you need to change the user's permission state for a connection managed within the vault. It modifies the consent data associated...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7316,7 +7316,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-consents-list",
-    description: "Retrieve all consent records for a specific connection.\n\nThis operation fetches all consent records associated with a given connection identified by unified API and service ID. Use this endpoint when you need to review or audit all consents granted for a particular connection. It reads consent data without modifying any records. Ens...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-consents-get` instead.",
+    description: "Retrieve all consent records for a specific connection.\n\nThis operation fetches all consent records associated with a given connection identified by unified API and service ID. Use this endpoint when you need to review or audit all consents granted for a particular connection. It reads consent data without modifying any records. Ens...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-consents-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7340,7 +7340,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-custom-mappings-list",
-    description: "Retrieve all custom mappings for a specific connection.\n\nThis operation fetches the complete list of custom mappings associated with a given connection. Use this endpoint when you need to view or audit the custom mappings configured for a particular unified API, service, and resource combination. It reads the stored mapping configur...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-custom-mappings-get` instead.",
+    description: "Retrieve all custom mappings for a specific connection.\n\nThis operation fetches the complete list of custom mappings associated with a given connection. Use this endpoint when you need to view or audit the custom mappings configured for a particular unified API, service, and resource combination. It reads the stored mapping configur...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-custom-mappings-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7364,7 +7364,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-settings-list",
-    description: "Retrieve custom and default connection settings for a specific resource.\n\nThis operation fetches the custom configuration settings along with their default values required for a connection to a specified resource. Use this endpoint when you need to understand or modify the connection parameters for a particular resource within a service. It reads th...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-settings-get` instead.",
+    description: "Retrieve custom and default connection settings for a specific resource.\n\nThis operation fetches the custom configuration settings along with their default values required for a connection to a specified resource. Use this endpoint when you need to understand or modify the connection parameters for a particular resource within a service. It reads th...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-settings-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7388,7 +7388,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-settings-update",
-    description: "Update default settings for a connection's resource.\n\nThis operation modifies the default configuration values for a specific resource within a connection. Use it when you need to change connection parameters such as authentication type, state, or status without creating a new connection. It updates stored settings that affect ho...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
+    description: "Update default settings for a connection's resource.\n\nThis operation modifies the default configuration values for a specific resource within a connection. Use it when you need to change connection parameters such as authentication type, state, or status without creating a new connection. It updates stored settings that affect ho...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7764,7 +7764,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-delete",
-    description: "Delete a connection from the vault.\n\nThis operation removes a specified connection from the vault. Use this when you need to permanently delete a connection and no longer require access to its stored credentials or configuration. Deleting a connection is irreversible and will remove all associated data for that c...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.",
+    description: "Delete a connection from the vault.\n\nThis operation removes a specified connection from the vault. Use this when you need to permanently delete a connection and no longer require access to its stored credentials or configuration. Deleting a connection is irreversible and will remove all associated data for that c...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -7788,7 +7788,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-get",
-    description: "Retrieve a specific connection by unified API and service ID.\n\nThis operation fetches the details of a single connection identified by the unified API and service ID. Use this endpoint when you need to access information about a particular connection rather than a list of connections. It reads the stored connection data without modifying ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-connections-list`.",
+    description: "Retrieve a specific connection by unified API and service ID.\n\nThis operation fetches the details of a single connection identified by the unified API and service ID. Use this endpoint when you need to access information about a particular connection rather than a list of connections. It reads the stored connection data without modifying ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-connections-list`.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7812,7 +7812,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-imports",
-    description: "Import an authorized connection into the vault.\n\nThis operation imports an authorized connection for a specified service into the vault. Use this when you need to add existing credentials and settings to manage connections centrally. It writes the provided credentials, settings, and metadata into the vault, enabling secure s...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
+    description: "Import an authorized connection into the vault.\n\nThis operation imports an authorized connection for a specified service into the vault. Use this when you need to add existing credentials and settings to manage connections centrally. It writes the provided credentials, settings, and metadata into the vault, enabling secure s...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7836,7 +7836,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-list",
-    description: "Retrieve all configured integration connections.\n\nThis operation fetches all configured integration connections available in the vault. Use this endpoint to obtain the complete list of integrations for building an integrations page where users can install them. OAuth2-supported integrations include authorize and revoke links ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connections-get` instead.",
+    description: "Retrieve all configured integration connections.\n\nThis operation fetches all configured integration connections available in the vault. Use this endpoint to obtain the complete list of integrations for building an integrations page where users can install them. OAuth2-supported integrations include authorize and revoke links ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connections-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7860,7 +7860,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-token",
-    description: "Exchange stored credentials for an access token and save it in Vault.\n\nThis operation exchanges persisted connection credentials for an access token and stores it securely in Vault. Use this when you need to authorize a connection that uses the client_credentials or password OAuth grant type without sending credentials in the request. It does not...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
+    description: "Exchange stored credentials for an access token and save it in Vault.\n\nThis operation exchanges persisted connection credentials for an access token and stores it securely in Vault. Use this when you need to authorize a connection that uses the client_credentials or password OAuth grant type without sending credentials in the request. It does not...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7884,7 +7884,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-update",
-    description: "Update an existing connection's details and configuration.\n\nThis operation modifies the properties of an existing connection, such as its state, authentication type, status, and other metadata. Use this endpoint when you need to change connection settings without creating a new connection. It updates stored connection data and may affe...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
+    description: "Update an existing connection's details and configuration.\n\nThis operation modifies the properties of an existing connection, such as its state, authentication type, status, and other metadata. Use this endpoint when you need to change connection settings without creating a new connection. It updates stored connection data and may affe...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8260,7 +8260,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumer-request-counts-list",
-    description: "Retrieve request counts for a consumer within a datetime range.\n\nThis operation fetches the number of requests made by a specific consumer over a specified datetime range. Use this endpoint when you need aggregated request statistics for monitoring or analysis purposes. It reads historical request data associated with the consumer but does ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumer-request-counts-get` instead.",
+    description: "Retrieve request counts for a consumer within a datetime range.\n\nThis operation fetches the number of requests made by a specific consumer over a specified datetime range. Use this endpoint when you need aggregated request statistics for monitoring or analysis purposes. It reads historical request data associated with the consumer but does ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumer-request-counts-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8284,7 +8284,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-create",
-    description: "Create a new consumer in the vault.\n\nThis operation creates a new consumer entity within the vault system. Use this endpoint when you need to register a consumer with specific metadata for identification or access purposes. It writes the consumer data to the vault, making it available for subsequent operations in...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-consumers-list` first if duplicates are a concern — this tool doesn't dedupe.",
+    description: "Create a new consumer in the vault.\n\nThis operation creates a new consumer entity within the vault system. Use this endpoint when you need to register a consumer with specific metadata for identification or access purposes. It writes the consumer data to the vault, making it available for subsequent operations in...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-consumers-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8308,7 +8308,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-delete",
-    description: "Delete a consumer and all associated connections.\n\nThis operation removes a specified consumer along with all their connections and credentials. Use this when you need to completely revoke a consumer's access and remove their related data from the system. Deleting a consumer is irreversible and will eliminate all credentials t...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.",
+    description: "Delete a consumer and all associated connections.\n\nThis operation removes a specified consumer along with all their connections and credentials. Use this when you need to completely revoke a consumer's access and remove their related data from the system. Deleting a consumer is irreversible and will eliminate all credentials t...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -8332,7 +8332,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-get",
-    description: "Retrieve detailed information about a specific consumer.\n\nThis operation fetches detailed information about a consumer, including aggregated counts related to the connections they have authorized. Use this endpoint when you need to view a consumer's profile and their associated connection statistics. It reads data about the consumer ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-consumers-list`.",
+    description: "Retrieve detailed information about a specific consumer.\n\nThis operation fetches detailed information about a consumer, including aggregated counts related to the connections they have authorized. Use this endpoint when you need to view a consumer's profile and their associated connection statistics. It reads data about the consumer ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-consumers-list`.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8356,7 +8356,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-list",
-    description: "Retrieve all application consumers with their request counts.\n\nFetches a list of all application consumers registered in the vault, including an aggregated count of requests each has made. Use this endpoint when you need a comprehensive overview of consumer activity and usage statistics. It reads existing consumer data and their request m...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumers-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all application consumers with their request counts.\n\nFetches a list of all application consumers registered in the vault, including an aggregated count of requests each has made. Use this endpoint when you need a comprehensive overview of consumer activity and usage statistics. It reads existing consumer data and their request m...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumers-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8380,7 +8380,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-update",
-    description: "Update a consumer's metadata including name and email.\n\nThis operation updates the metadata of an existing consumer, such as their name and email address. Use this endpoint when you need to modify consumer details without affecting other consumer attributes. It writes changes directly to the consumer's stored metadata. Ensure the c...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
+    description: "Update a consumer's metadata including name and email.\n\nThis operation updates the metadata of an existing consumer, such as their name and email address. Use this endpoint when you need to modify consumer details without affecting other consumer attributes. It writes changes directly to the consumer's stored metadata. Ensure the c...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8404,7 +8404,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-create-callback-state",
-    description: "Create a callback state for issuing requests to a callback endpoint.\n\nThis operation creates a callback state that enables secure interactions with a callback endpoint. Use this endpoint when you need to establish a state token to manage callback requests within the vault connections. It writes a new callback state associated with the specified ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
+    description: "Create a callback state for issuing requests to a callback endpoint.\n\nThis operation creates a callback state that enables secure interactions with a callback endpoint. Use this endpoint when you need to establish a state token to manage callback requests within the vault connections. It writes a new callback state associated with the specified ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8428,7 +8428,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-custom-fields-list",
-    description: "Retrieve custom fields for a connection resource.\n\nThis operation fetches all custom fields associated with a specified connection resource. Use this endpoint when you need to view or manage metadata fields that are uniquely defined for a resource within a vault connection. It reads the current custom field configurations with...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-fields-get` instead.",
+    description: "Retrieve custom fields for a connection resource.\n\nThis operation fetches all custom fields associated with a specified connection resource. Use this endpoint when you need to view or manage metadata fields that are uniquely defined for a resource within a vault connection. It reads the current custom field configurations with...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-fields-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8452,7 +8452,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-custom-mappings-list",
-    description: "Retrieve all custom mappings for a specified unified API and service.\n\nThis operation fetches a list of all custom mappings associated with a given unified API and service identifier. Use this endpoint when you need to view or manage the custom mappings configured for a particular service within the vault. It reads the stored mapping data without...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-mappings-get` instead.",
+    description: "Retrieve all custom mappings for a specified unified API and service.\n\nThis operation fetches a list of all custom mappings associated with a given unified API and service identifier. Use this endpoint when you need to view or manage the custom mappings configured for a particular service within the vault. It reads the stored mapping data without...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-mappings-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8476,7 +8476,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-logs-list",
-    description: "Retrieve all consumer request logs from the vault.\n\nThis operation fetches all consumer request logs stored in the vault. Use this endpoint when you need a comprehensive view of all logged consumer requests, unlike more specific log retrieval endpoints that filter by criteria. It reads all available log entries without modifyin...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-logs-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all consumer request logs from the vault.\n\nThis operation fetches all consumer request logs stored in the vault. Use this endpoint when you need a comprehensive view of all logged consumer requests, unlike more specific log retrieval endpoints that filter by criteria. It reads all available log entries without modifyin...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-logs-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8500,7 +8500,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-sessions-create",
-    description: "Create a temporary Hosted Vault session for managing integrations and settings.\n\nThis operation initiates a Hosted Vault session by generating a short-lived token and a URL for access. Use this endpoint when you need to grant a consumer temporary access to manage their integrations and settings through the Vault interface. The session token expires after o...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-sessions-list` first if duplicates are a concern — this tool doesn't dedupe.",
+    description: "Create a temporary Hosted Vault session for managing integrations and settings.\n\nThis operation initiates a Hosted Vault session by generating a short-lived token and a URL for access. Use this endpoint when you need to grant a consumer temporary access to manage their integrations and settings through the Vault interface. The session token expires after o...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-sessions-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8524,7 +8524,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-validate-connection-state",
-    description: "Validate the current state of a connection and refresh tokens if needed.\n\nThis operation checks the validity of a specified connection by performing different validations depending on its authentication type. Use this to verify that required fields exist for basic and API key authentications, or to trigger an OAuth2 access token refresh regardless o...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
+    description: "Validate the current state of a connection and refresh tokens if needed.\n\nThis operation checks the validity of a specified connection by performing different validations depending on its authentication type. Use this to verify that required fields exist for basic and API key authentications, or to trigger an OAuth2 access token refresh regardless o...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
