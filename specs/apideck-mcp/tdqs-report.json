@@ -1,0 +1,316 @@
+{
+  "model": "gpt-4.1-mini",
+  "scored": 30,
+  "failed": 0,
+  "avg": {
+    "purposeClarity": 4.966666666666667,
+    "usageGuidelines": 4.4,
+    "behaviouralTransparency": 4.833333333333333,
+    "conciseness": 3.966666666666667,
+    "contextualCompleteness": 4.766666666666667
+  },
+  "overall": 4.445333333333335,
+  "grade": "B",
+  "tools": [
+    {
+      "name": "accounting-aged-creditors-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly defines the tool's purpose, usage context, and side effects with good conciseness and thorough contextual details, though usage guidance could be slightly more explicit."
+    },
+    {
+      "name": "accounting-bank-accounts-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.56,
+      "comment": "The description clearly states what the tool does, when to use it versus a sibling, its read-only nature, and necessary context for successful calls, though it is slightly verbose."
+    },
+    {
+      "name": "accounting-bank-feed-statements-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.26,
+      "comment": "The description clearly states the tool's purpose and usage, explains partial updates and idempotency, and provides detailed context on authentication and multi-tenant usage, though usage guidance could be slightly more explicit about when not to use it."
+    },
+    {
+      "name": "accounting-categories-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.6,
+      "comment": "The description clearly states the tool's specific purpose, when to use it versus related endpoints, its read-only nature, and important context about authentication and multi-tenant usage, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-customers-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.7,
+      "comment": "The description clearly defines the tool's purpose, when to use it versus related endpoints, its read-only behavior, and necessary connection context, though it could be slightly tighter in prose."
+    },
+    {
+      "name": "accounting-employees-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.6,
+      "comment": "The description clearly states the tool's purpose, usage scenarios, side effects, and necessary context, though it is slightly verbose in places."
+    },
+    {
+      "name": "accounting-expense-reports-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.24,
+      "comment": "The description clearly states the tool's purpose and usage, explains partial updates and idempotency, and provides detailed context on authentication and multi-tenant usage, though usage guidance could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-invoices-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly defines the tool's purpose, usage context, side effects, and necessary connection details, though usage guidance could be slightly more explicit."
+    },
+    {
+      "name": "accounting-ledger-accounts-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly defines the tool's destructive purpose, usage conditions, and necessary context, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-payments-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.6,
+      "comment": "The description clearly states what the tool does, when to use it versus related tools, its read-only nature, and important context about authentication and multi-tenant usage, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-purchase-orders-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.7,
+      "comment": "The description clearly states the tool's purpose, when to use it versus related tools, its read-only behavior, and necessary connection context, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-refunds-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.6,
+      "comment": "The description clearly states the tool's purpose, when to use it versus a sibling, its read-only nature, and necessary context for multi-tenant usage, though it is slightly verbose."
+    },
+    {
+      "name": "accounting-suppliers-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.24,
+      "comment": "The description clearly states the tool's purpose and usage context, explains side effects and partial updates, and provides detailed connection and multi-tenant guidance, though usage guidance could be slightly more explicit about alternatives."
+    },
+    {
+      "name": "ats-applicants-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly states the tool's function, usage context, side effects, and connection requirements, though usage guidance could be slightly more explicit."
+    },
+    {
+      "name": "ats-jobs-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly states the tool's purpose, destructive nature, and usage context with good detail, though usage guidelines could be slightly more explicit about alternatives."
+    },
+    {
+      "name": "connector-connectors-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 4,
+      "overall": 4.48,
+      "comment": "The description clearly states what the tool does, when to use it versus a sibling, and its read-only nature, though it could be slightly tighter and include more on auth or multi-tenant context."
+    },
+    {
+      "name": "crm-contacts-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly defines the tool's purpose, usage context, side effects, and necessary connection details, though usage guidance could be slightly more explicit about when not to use it."
+    },
+    {
+      "name": "crm-custom-objects-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly states the tool's purpose, destructive nature, and usage conditions, including connection and multi-service context, though usage guidance could be slightly more explicit about alternatives."
+    },
+    {
+      "name": "crm-notes-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.7,
+      "comment": "The description clearly states what the tool does, when to use it versus related tools, its read-only nature, and important context about authentication and multi-tenant usage, though the prose could be slightly tighter."
+    },
+    {
+      "name": "crm-pipelines-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly states the tool's purpose, usage scenarios, and side effects, with good contextual details, though pagination mention is slightly contradictory and usage guidance could be more explicit."
+    },
+    {
+      "name": "ecommerce-products-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.7,
+      "comment": "The description clearly states the tool's specific purpose, when to use it versus related endpoints, its read-only nature, and important context about authentication and multi-service targeting, though the prose could be slightly tighter."
+    },
+    {
+      "name": "file-storage-drives-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.6,
+      "comment": "The description clearly states what the tool does, when to use it versus a sibling, its read-only nature, and important context like connection requirements and pagination, though it could be slightly tighter in prose."
+    },
+    {
+      "name": "file-storage-folders-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly defines the tool's purpose, usage context, side effects, and necessary connection details, though usage guidelines could be slightly more explicit about when not to use it."
+    },
+    {
+      "name": "file-storage-upload-sessions-finish",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The description clearly defines the tool's purpose, side effects, and contextual requirements, though usage guidance could be more explicit about when not to use it."
+    },
+    {
+      "name": "hris-departments-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.56,
+      "comment": "The description clearly states what the tool does, when to use it versus related endpoints, its read-only nature, and important context like authentication and pagination, though it could be slightly tighter in prose."
+    },
+    {
+      "name": "hris-payrolls-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.7,
+      "comment": "The description clearly defines the tool's function, when to use it versus related tools, its read-only nature, and necessary connection context, though it is slightly verbose."
+    },
+    {
+      "name": "issue-tracking-collection-ticket-comments-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "The description clearly defines the tool's function and context, provides good usage guidance and side effect details, and includes important multi-tenant and auth information, though usage guidance could be slightly more explicit about alternatives."
+    },
+    {
+      "name": "proxy-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 4,
+      "overall": 4.26,
+      "comment": "The description clearly states the tool's purpose, usage context, and side effects, though it could improve by fully detailing the Vault credential injection and any auth requirements."
+    },
+    {
+      "name": "vault-connections-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 3,
+      "overall": 4.24,
+      "comment": "The description clearly states the tool's purpose, when to use it versus related tools, and its read-only behavior, but lacks details on authentication or multi-tenant context."
+    },
+    {
+      "name": "vault-create-callback-state",
+      "purposeClarity": 4,
+      "usageGuidelines": 2,
+      "behaviouralTransparency": 4,
+      "conciseness": 3,
+      "contextualCompleteness": 2,
+      "overall": 3.04,
+      "comment": "The description clearly states the tool's purpose and side effects but lacks explicit usage guidance and detailed context for successful calls."
+    }
+  ]
+}
