@@ -1,0 +1,55 @@
+name: Post-deploy smoke
+
+# Hits the deployed MCP endpoint after every successful Vercel
+# deployment and asserts that the dynamic meta-tools still respond.
+# Catches deploy-time regressions (config drift, env vars, handler
+# crashes) before users do.
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      mcp_url:
+        description: MCP endpoint URL to probe
+        type: string
+        default: https://mcp.apideck.dev/mcp
+
+permissions:
+  contents: read
+  deployments: read
+
+jobs:
+  smoke:
+    # deployment_status fires for every state (pending/in_progress/success/
+    # failure/error). Only run on success. The environment check filters out
+    # preview deploys; flip to include them if you want PR-branch coverage.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Resolve MCP URL
+        id: url
+        env:
+          DISPATCH_URL: ${{ github.event.inputs.mcp_url }}
+          DEPLOY_URL: ${{ github.event.deployment_status.target_url }}
+        run: |
+          if [ -n "$DISPATCH_URL" ]; then
+            echo "mcp_url=$DISPATCH_URL" >> "$GITHUB_OUTPUT"
+          else
+            # Vercel's deployment_status.target_url is the app URL; append /mcp
+            echo "mcp_url=${DEPLOY_URL%/}/mcp" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Smoke test
+        env:
+          MCP_URL: ${{ steps.url.outputs.mcp_url }}
+        run: node test/post-deploy.mjs
