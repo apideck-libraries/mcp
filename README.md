@@ -247,6 +247,17 @@ npx tsx test/mcp-server.test.ts
 MCP_URL=https://mcp.apideck.dev/mcp npx tsx test/mcp-server.test.ts
 ```
 
+## Contributing
+
+The repo ships a `.mcp.json` with two project-scope MCP servers that Claude Code / Cursor / Windsurf pick up automatically:
+
+| Server | Purpose |
+|---|---|
+| `aikido` | Scans AI-generated code for vulnerabilities + hardcoded secrets. Needs `AIKIDO_API_KEY` in your shell — [get one](https://app.aikido.dev). |
+| `apideck-local` | Runs *this* server from the local build (`bin/mcp-server.js start`) so you can exercise your own changes through an agent. Uses the standard `APIDECK_*` env vars. |
+
+No credentials are committed — each entry reads its token from the environment.
+
 ## License
 
 MIT
