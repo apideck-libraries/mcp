@@ -219,6 +219,84 @@ function shortDesc(op, fallback) {
   return src.length > 240 ? src.slice(0, 237) + "..." : src;
 }
 
+/**
+ * Build a multi-section description that covers the TDQS dimensions:
+ *   - Purpose Clarity (what)
+ *   - Behavioural Transparency (side effects)
+ *   - Usage Guidelines (when to use / when not to)
+ *   - Contextual Completeness (connection scoping, service_id)
+ *   - Pagination hint (if applicable)
+ * See https://glama.ai/blog/2026-04-03-tool-definition-quality-score-tdqs
+ */
+function richDescription(op, toolName, method, paginationHint) {
+  const sections = [];
+  const summary = (op.summary || "").trim().split("\n")[0];
+  const detail = (op.description || "").trim().split("\n").slice(0, 2).join(" ").trim();
+
+  // 1. Purpose
+  if (summary) sections.push(summary.endsWith(".") ? summary : summary + ".");
+  if (detail && detail !== summary && !summary.includes(detail)) {
+    sections.push(detail.length > 280 ? detail.slice(0, 277) + "..." : detail);
+  }
+
+  // 2. Side effects — from HTTP method + tool-name suffix
+  const suffix = toolName.split("-").at(-1);
+  const se = (() => {
+    if (method === "get" || method === "head") return "Read-only; safe to call repeatedly.";
+    if (method === "delete") return "**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.";
+    if (suffix === "create" || method === "post") return "Creates a new record on the connected service. Not idempotent — retrying may create duplicates.";
+    if (suffix === "update" || method === "patch") return "Updates fields on an existing record. Only the fields you pass are modified.";
+    if (method === "put") return "Replaces the target record. Omitted fields may be cleared depending on the connector.";
+    return null;
+  })();
+  if (se) sections.push(se);
+
+  // 3. Usage guidance — steer the model toward the right sibling
+  const usage = usageHint(toolName, suffix);
+  if (usage) sections.push(usage);
+
+  // 4. Connection context — only for unified-API tools, not vault/connector/proxy meta
+  const parts = toolName.split("-");
+  const unifiedApi = parts[0];
+  const isMeta = unifiedApi === "vault" || unifiedApi === "connector" || unifiedApi === "proxy";
+  if (!isMeta) {
+    sections.push(
+      `Requires an active \`${unifiedApi}\` connection on the consumer. ` +
+      `If the consumer has multiple \`${unifiedApi}\` services connected, pass \`x-apideck-service-id\` (e.g. "xero", "quickbooks") to target one. ` +
+      `Consumer auth is resolved server-side — don't pass API keys in arguments.`,
+    );
+  }
+
+  // 5. Pagination
+  if (paginationHint) sections.push(paginationHint);
+
+  return sections.join("\n\n");
+}
+
+function usageHint(toolName, suffix) {
+  const base = toolName.split("-").slice(0, -1).join("-");
+  switch (suffix) {
+    case "list":
+      return `Use when you need multiple records or don't yet know the target id. For a single known record, call \`${base}-get\` instead.`;
+    case "get":
+      return `Use when you already have the record id. To browse or search, call \`${base}-list\`.`;
+    case "create":
+      return `Use to add a new record. Check \`${base}-list\` first if duplicates are a concern — this tool doesn't dedupe.`;
+    case "update":
+      return `Use to modify an existing record. Requires the record id. Pass only the fields you want changed.`;
+    case "delete":
+      return `Use only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.`;
+    case "search":
+      return `Use for keyword / filtered lookups when \`${base}-list\` is too broad.`;
+    case "download":
+      return `Returns binary content as an MCP image/audio block. For metadata only, call \`${base}-get\`.`;
+    case "upload":
+      return `Pass binary content as a base64 string, data URL, or \`{ data, mimeType }\` in \`body\`.`;
+    default:
+      return null;
+  }
+}
+
 // ----------------------------------------------------------------------------
 // Emit
 // ----------------------------------------------------------------------------
@@ -254,8 +332,8 @@ for (const [apiPath, pathItem] of Object.entries(spec.paths ?? {})) {
     const inputJsonSchema = buildInputSchema(op, pathItem);
     const zodSrc = jsonSchemaToZod(inputJsonSchema, { module: "none", noImport: true });
 
-    let description = shortDesc(op, name);
-    if (paginationHint) description += ` ${paginationHint}`;
+    let description = richDescription(op, name, method, paginationHint);
+    if (!description) description = shortDesc(op, name);
 
     tools.push({
       name,
