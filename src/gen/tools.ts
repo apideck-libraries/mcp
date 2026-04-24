@@ -9,7 +9,7 @@ const opt = z.object({}).optional();
 export const generatedTools: ToolDefinition<any>[] = [
   {
     name: "accounting-aged-creditors-get",
-    description: "Get Aged Creditors",
+    description: "Retrieve aged creditors data",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -33,7 +33,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-aged-debtors-get",
-    description: "Get Aged Debtors",
+    description: "Retrieve aged debtors report",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -57,7 +57,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-delete",
-    description: "Delete Attachment",
+    description: "Delete an attachment from a specified accounting reference",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -81,7 +81,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-download",
-    description: "Download Attachment",
+    description: "Download an attachment by reference type, reference ID, and attachment ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -105,7 +105,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-get",
-    description: "Get Attachment",
+    description: "Retrieve a specific attachment by reference type, reference ID, and attachment ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -129,7 +129,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-list",
-    description: "List Attachments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all attachments for a specified reference type and ID (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -153,7 +153,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-upload",
-    description: "Upload attachment",
+    description: "Upload an attachment to a specified accounting reference",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -178,7 +178,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-balance-sheet-get",
-    description: "Get BalanceSheet",
+    description: "Retrieve the current balance sheet for the accounting period",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -202,7 +202,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-create",
-    description: "Create Bank Account",
+    description: "Add a new bank account to the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -226,7 +226,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-delete",
-    description: "Delete Bank Account",
+    description: "Delete a bank account by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -250,7 +250,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-get",
-    description: "Get Bank Account",
+    description: "Retrieve details of a specific bank account",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -274,7 +274,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-list",
-    description: "List Bank Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all bank accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -298,7 +298,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-update",
-    description: "Update Bank Account",
+    description: "Update details of an existing bank account",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -322,7 +322,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-create",
-    description: "Create Bank Feed Account",
+    description: "Add a new bank feed account to the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -346,7 +346,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-delete",
-    description: "Delete Bank Feed Account",
+    description: "Delete a bank feed account by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -370,7 +370,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-get",
-    description: "Get Bank Feed Account",
+    description: "Retrieve details of a specific bank feed account",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -394,7 +394,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-list",
-    description: "List Bank Feed Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all bank feed accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -418,7 +418,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-update",
-    description: "Update Bank Feed Account",
+    description: "Update details of an existing bank feed account",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -442,7 +442,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-create",
-    description: "Create Bank Feed Statement",
+    description: "Create a new bank feed statement for an accounting bank feed account",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -466,7 +466,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-delete",
-    description: "Delete Bank Feed Statement",
+    description: "Delete a bank feed statement by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -490,7 +490,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-get",
-    description: "Get Bank Feed Statement",
+    description: "Retrieve a specific bank feed statement by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -514,7 +514,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-list",
-    description: "List Bank Feed Statements (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of bank feed statements (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -538,7 +538,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-update",
-    description: "Update Bank Feed Statement",
+    description: "Update an existing bank feed statement with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -562,7 +562,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-create",
-    description: "Create Bill Payment",
+    description: "Create a new bill payment to record a supplier payment",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -586,7 +586,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-delete",
-    description: "Delete Bill Payment",
+    description: "Delete a bill payment by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -610,7 +610,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-get",
-    description: "Get Bill Payment",
+    description: "Retrieve a specific bill payment by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -634,7 +634,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-list",
-    description: "List Bill Payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all bill payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -643,7 +643,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: true,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional(), "invoice_id": z.string().optional(), "bill_id": z.string().optional(), "supplier_id": z.string().optional(), "customer_id": z.string().describe("Filter by customer id").optional(), "type": z.enum(["accounts_receivable","accounts_payable","accounts_receivable_credit","accounts_payable_credit","accounts_receivable_overpayment","accounts_payable_overpayment","accounts_receivable_prepayment","accounts_payable_prepayment"]).optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["updated_at","created_at"]).describe("The field on which to sort the Payments").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional(), "invoice_id": z.string().optional(), "bill_id": z.string().optional(), "supplier_id": z.string().optional(), "customer_id": z.string().describe("Filter by customer id").optional(), "type": z.enum(["accounts_receivable","accounts_payable","accounts_receivable_credit","accounts_payable_credit","accounts_receivable_overpayment","accounts_payable_overpayment","accounts_receivable_prepayment","accounts_payable_prepayment"]).optional(), "status": z.enum(["draft","authorised","rejected","paid","voided","deleted"]).describe("Filter by payment status").optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["updated_at","created_at"]).describe("The field on which to sort the Payments").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "GET",
@@ -658,7 +658,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-update",
-    description: "Update Bill Payment",
+    description: "Update an existing bill payment with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -682,7 +682,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-create",
-    description: "Create Bill",
+    description: "Create a new bill in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -691,7 +691,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: false,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "bill_number": z.string().nullable().describe("Reference to supplier bill number").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "bill_date": z.string().date().nullable().describe("Date bill was issued - YYYY-MM-DD.").optional(), "due_date": z.string().date().nullable().describe("The due date is the date on which a payment is scheduled to be received - YYYY-MM-DD.").optional(), "paid_date": z.string().date().nullable().describe("The paid date is the date on which a payment was sent to the supplier - YYYY-MM-DD.").optional(), "po_number": z.string().nullable().describe("A PO Number uniquely identifies a purchase order and is generally defined by the buyer. The buyer will match the PO number in the invoice to the Purchase Order.").optional(), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "row_id": z.string().describe("Row ID").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "description": z.string().nullable().describe("User defined description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "total_amount": z.number().nullable().describe("Total amount of the line item").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "unit_of_measure": z.string().nullable().describe("Description of the unit type the item is sold as, ie: kg, hour.").optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to the line item when supported downstream.").optional(), "discount_amount": z.number().nullable().describe("Discount amount applied to the line item when supported downstream.").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "subsidiary_id": z.string().nullable().describe("The ID of the subsidiary").optional(), "category_id": z.string().nullable().describe("ID of the category of the line item").optional(), "shipping_id": z.string().nullable().describe("ID of the shipping of the line item").optional(), "memo": z.string().nullable().describe("Memo").optional(), "prepaid": z.boolean().nullable().describe("Whether the line item is prepaid").optional(), "tax_applicable_on": z.string().nullable().describe("Tax applicable on").optional(), "tax_recoverability": z.string().nullable().describe("Tax recoverability").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "retention_amount": z.number().nullable().describe("Retention amount").optional(), "payment_amount": z.number().nullable().describe("Payment amount").optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "purchase_order": z.object({ "id": z.string().describe("The unique identifier for the purchase order.").optional(), "line_id": z.string().nullable().describe("The unique identifier for the purchase order line.").optional(), "line_number": z.string().nullable().describe("The line number of the purchase order line.").optional() }).nullable().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "worktags": z.array(z.object({ "id": z.string().describe("The unique identifier for the worktag.").optional(), "value": z.string().nullable().describe("The value of the worktag.").optional() }).nullable()).describe("A list of linked worktags. This is only supported for Workday.").optional() }).strict()).optional(), "terms": z.string().nullable().describe("Terms of payment.").optional(), "terms_id": z.string().nullable().describe("The ID of the payment terms").optional(), "balance": z.number().nullable().describe("Balance of bill due.").optional(), "deposit": z.number().nullable().describe("Amount of deposit made to this bill.").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total": z.number().nullable().describe("Total amount of bill, including tax.").optional(), "tax_code": z.string().nullable().describe("Applicable tax id/code override if tax is not supplied on a line item basis.").optional(), "notes": z.string().nullable().optional(), "status": z.enum(["draft","submitted","authorised","partially_paid","paid","void","credit","deleted","posted"]).nullable().describe("Invoice status").optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "payment_method": z.string().nullable().describe("Payment method used for the transaction, such as cash, credit card, bank transfer, or check").optional(), "channel": z.string().nullable().describe("The channel through which the transaction is processed.").optional(), "language": z.string().nullable().describe("language code according to ISO 639-1. For the United States - EN").optional(), "accounting_by_row": z.boolean().nullable().describe("Indicates if accounting by row is used (true) or not (false). Accounting by row means that a separate ledger transaction is created for each row.").optional(), "bank_account": z.object({ "bank_name": z.string().nullable().describe("The name of the bank or financial institution").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "account_name": z.string().nullable().describe("The name of the bank account").optional(), "account_type": z.enum(["bank_account","credit_card","other"]).nullable().describe("The type of bank account.").optional(), "iban": z.string().nullable().describe("International Bank Account Number").optional(), "bic": z.string().nullable().describe("Bank Identifier Code / SWIFT Code").optional(), "routing_number": z.string().nullable().describe("Bank routing number (US)").optional(), "bsb_number": z.string().nullable().describe("Bank State Branch number (Australia/New Zealand)").optional(), "branch_identifier": z.string().nullable().describe("Bank branch identifier").optional(), "bank_code": z.string().nullable().describe("Bank code assigned by central bank").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "country": z.string().min(2).max(2).nullable().describe("Country code according to ISO 3166-1 alpha-2.").optional() }).strict().optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to this transaction.").optional(), "template_id": z.string().nullable().describe("Optional bill template").optional(), "approved_by": z.string().nullable().describe("The user who approved the bill").optional(), "amortization_type": z.enum(["manual","receipt","schedule","other"]).nullable().describe("Type of amortization").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "document_received": z.boolean().nullable().describe("Whether the document has been received").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "payment_allocations": z.array(z.object({ "id": z.string().describe("ID of the payment").optional(), "allocated_amount": z.number().nullable().describe("Amount of the payment allocated to the bill").optional(), "date": z.string().datetime({ offset: true }).nullable().describe("Date of the payment").optional() }).nullable()).nullable().describe("A list of linked payment allocations.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional(), "accounting_period": z.string().nullable().describe("Accounting period").optional(), "attachments": z.array(z.object({ "name": z.string().nullable().describe("The name of the file").optional(), "mime_type": z.string().nullable().describe("The MIME type of the file.").optional(), "is_compressed": z.boolean().nullable().describe("Whether the file is c ompressed.").optional(), "encoding": z.string().nullable().describe("The encoding of the file.").optional(), "content": z.string().nullable().describe("The content of the file.").optional(), "notes": z.string().nullable().describe("The notes of the file.").optional() }).nullable()).optional() }).strict() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "bill_number": z.string().nullable().describe("Reference to supplier bill number").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "bill_date": z.string().date().nullable().describe("Date bill was issued - YYYY-MM-DD.").optional(), "due_date": z.string().date().nullable().describe("The due date is the date on which a payment is scheduled to be received - YYYY-MM-DD.").optional(), "paid_date": z.string().date().nullable().describe("The paid date is the date on which a payment was sent to the supplier - YYYY-MM-DD.").optional(), "po_number": z.string().nullable().describe("A PO Number uniquely identifies a purchase order and is generally defined by the buyer. The buyer will match the PO number in the invoice to the Purchase Order.").optional(), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "row_id": z.string().describe("Row ID").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "description": z.string().nullable().describe("User defined description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "total_amount": z.number().nullable().describe("Total amount of the line item").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "unit_of_measure": z.string().nullable().describe("Description of the unit type the item is sold as, ie: kg, hour.").optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to the line item when supported downstream.").optional(), "discount_amount": z.number().nullable().describe("Discount amount applied to the line item when supported downstream.").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "subsidiary_id": z.string().nullable().describe("The ID of the subsidiary").optional(), "category_id": z.string().nullable().describe("ID of the category of the line item").optional(), "shipping_id": z.string().nullable().describe("ID of the shipping of the line item").optional(), "memo": z.string().nullable().describe("Memo").optional(), "prepaid": z.boolean().nullable().describe("Whether the line item is prepaid").optional(), "tax_applicable_on": z.string().nullable().describe("Tax applicable on").optional(), "tax_recoverability": z.string().nullable().describe("Tax recoverability").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "retention_amount": z.number().nullable().describe("Retention amount").optional(), "payment_amount": z.number().nullable().describe("Payment amount").optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "purchase_order": z.object({ "id": z.string().describe("The unique identifier for the purchase order.").optional(), "line_id": z.string().nullable().describe("The unique identifier for the purchase order line.").optional(), "line_number": z.string().nullable().describe("The line number of the purchase order line.").optional() }).nullable().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided","other"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "worktags": z.array(z.object({ "id": z.string().describe("The unique identifier for the worktag.").optional(), "value": z.string().nullable().describe("The value of the worktag.").optional() }).nullable()).describe("A list of linked worktags. This is only supported for Workday.").optional() }).strict()).optional(), "terms": z.string().nullable().describe("Terms of payment.").optional(), "terms_id": z.string().nullable().describe("The ID of the payment terms").optional(), "balance": z.number().nullable().describe("Balance of bill due.").optional(), "deposit": z.number().nullable().describe("Amount of deposit made to this bill.").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total": z.number().nullable().describe("Total amount of bill, including tax.").optional(), "tax_code": z.string().nullable().describe("Applicable tax id/code override if tax is not supplied on a line item basis.").optional(), "notes": z.string().nullable().optional(), "status": z.enum(["draft","submitted","authorised","partially_paid","paid","void","credit","deleted","posted"]).nullable().describe("Invoice status").optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "payment_method": z.string().nullable().describe("Payment method used for the transaction, such as cash, credit card, bank transfer, or check").optional(), "channel": z.string().nullable().describe("The channel through which the transaction is processed.").optional(), "language": z.string().nullable().describe("language code according to ISO 639-1. For the United States - EN").optional(), "accounting_by_row": z.boolean().nullable().describe("Indicates if accounting by row is used (true) or not (false). Accounting by row means that a separate ledger transaction is created for each row.").optional(), "bank_account": z.object({ "bank_name": z.string().nullable().describe("The name of the bank or financial institution").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "account_name": z.string().nullable().describe("The name of the bank account").optional(), "account_type": z.enum(["bank_account","credit_card","other"]).nullable().describe("The type of bank account.").optional(), "iban": z.string().nullable().describe("International Bank Account Number").optional(), "bic": z.string().nullable().describe("Bank Identifier Code / SWIFT Code").optional(), "routing_number": z.string().nullable().describe("Bank routing number (US)").optional(), "bsb_number": z.string().nullable().describe("Bank State Branch number (Australia/New Zealand)").optional(), "branch_identifier": z.string().nullable().describe("Bank branch identifier").optional(), "bank_code": z.string().nullable().describe("Bank code assigned by central bank").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "country": z.string().min(2).max(2).nullable().describe("Country code according to ISO 3166-1 alpha-2.").optional() }).strict().optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to this transaction.").optional(), "template_id": z.string().nullable().describe("Optional bill template").optional(), "approved_by": z.string().nullable().describe("The user who approved the bill").optional(), "amortization_type": z.enum(["manual","receipt","schedule","other"]).nullable().describe("Type of amortization").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "document_received": z.boolean().nullable().describe("Whether the document has been received").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "payment_allocations": z.array(z.object({ "id": z.string().describe("ID of the payment").optional(), "allocated_amount": z.number().nullable().describe("Amount of the payment allocated to the bill").optional(), "date": z.string().datetime({ offset: true }).nullable().describe("Date of the payment").optional() }).nullable()).nullable().describe("A list of linked payment allocations.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional(), "accounting_period": z.string().nullable().describe("Accounting period").optional(), "attachments": z.array(z.object({ "name": z.string().nullable().describe("The name of the file").optional(), "mime_type": z.string().nullable().describe("The MIME type of the file.").optional(), "is_compressed": z.boolean().nullable().describe("Whether the file is c ompressed.").optional(), "encoding": z.string().nullable().describe("The encoding of the file.").optional(), "content": z.string().nullable().describe("The content of the file.").optional(), "notes": z.string().nullable().describe("The notes of the file.").optional() }).nullable()).optional() }).strict() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "POST",
@@ -706,7 +706,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-delete",
-    description: "Delete Bill",
+    description: "Delete a bill by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -730,7 +730,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-get",
-    description: "Get Bill",
+    description: "Retrieve a specific bill by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -754,7 +754,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-list",
-    description: "List Bills (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all bills in the accounting system (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -763,7 +763,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: true,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional(), "status": z.enum(["paid","unpaid","partially_paid"]).describe("Filter by bill status").optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["updated_at","created_at"]).describe("The field on which to sort the Bills").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "id_since": z.string().describe("Return records with a row ID greater than or equal to the given value").optional(), "updated_since": z.string().datetime({ offset: true }).optional(), "status": z.enum(["paid","unpaid","partially_paid"]).describe("Filter by bill status").optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["updated_at","created_at","id"]).describe("The field on which to sort the Bills").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "GET",
@@ -778,7 +778,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-update",
-    description: "Update Bill",
+    description: "Update an existing bill with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -787,7 +787,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: false,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "id": z.string().describe("ID of the record you are acting upon."), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "bill_number": z.string().nullable().describe("Reference to supplier bill number").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "bill_date": z.string().date().nullable().describe("Date bill was issued - YYYY-MM-DD.").optional(), "due_date": z.string().date().nullable().describe("The due date is the date on which a payment is scheduled to be received - YYYY-MM-DD.").optional(), "paid_date": z.string().date().nullable().describe("The paid date is the date on which a payment was sent to the supplier - YYYY-MM-DD.").optional(), "po_number": z.string().nullable().describe("A PO Number uniquely identifies a purchase order and is generally defined by the buyer. The buyer will match the PO number in the invoice to the Purchase Order.").optional(), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "row_id": z.string().describe("Row ID").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "description": z.string().nullable().describe("User defined description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "total_amount": z.number().nullable().describe("Total amount of the line item").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "unit_of_measure": z.string().nullable().describe("Description of the unit type the item is sold as, ie: kg, hour.").optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to the line item when supported downstream.").optional(), "discount_amount": z.number().nullable().describe("Discount amount applied to the line item when supported downstream.").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "subsidiary_id": z.string().nullable().describe("The ID of the subsidiary").optional(), "category_id": z.string().nullable().describe("ID of the category of the line item").optional(), "shipping_id": z.string().nullable().describe("ID of the shipping of the line item").optional(), "memo": z.string().nullable().describe("Memo").optional(), "prepaid": z.boolean().nullable().describe("Whether the line item is prepaid").optional(), "tax_applicable_on": z.string().nullable().describe("Tax applicable on").optional(), "tax_recoverability": z.string().nullable().describe("Tax recoverability").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "retention_amount": z.number().nullable().describe("Retention amount").optional(), "payment_amount": z.number().nullable().describe("Payment amount").optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "purchase_order": z.object({ "id": z.string().describe("The unique identifier for the purchase order.").optional(), "line_id": z.string().nullable().describe("The unique identifier for the purchase order line.").optional(), "line_number": z.string().nullable().describe("The line number of the purchase order line.").optional() }).nullable().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "worktags": z.array(z.object({ "id": z.string().describe("The unique identifier for the worktag.").optional(), "value": z.string().nullable().describe("The value of the worktag.").optional() }).nullable()).describe("A list of linked worktags. This is only supported for Workday.").optional() }).strict()).optional(), "terms": z.string().nullable().describe("Terms of payment.").optional(), "terms_id": z.string().nullable().describe("The ID of the payment terms").optional(), "balance": z.number().nullable().describe("Balance of bill due.").optional(), "deposit": z.number().nullable().describe("Amount of deposit made to this bill.").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total": z.number().nullable().describe("Total amount of bill, including tax.").optional(), "tax_code": z.string().nullable().describe("Applicable tax id/code override if tax is not supplied on a line item basis.").optional(), "notes": z.string().nullable().optional(), "status": z.enum(["draft","submitted","authorised","partially_paid","paid","void","credit","deleted","posted"]).nullable().describe("Invoice status").optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "payment_method": z.string().nullable().describe("Payment method used for the transaction, such as cash, credit card, bank transfer, or check").optional(), "channel": z.string().nullable().describe("The channel through which the transaction is processed.").optional(), "language": z.string().nullable().describe("language code according to ISO 639-1. For the United States - EN").optional(), "accounting_by_row": z.boolean().nullable().describe("Indicates if accounting by row is used (true) or not (false). Accounting by row means that a separate ledger transaction is created for each row.").optional(), "bank_account": z.object({ "bank_name": z.string().nullable().describe("The name of the bank or financial institution").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "account_name": z.string().nullable().describe("The name of the bank account").optional(), "account_type": z.enum(["bank_account","credit_card","other"]).nullable().describe("The type of bank account.").optional(), "iban": z.string().nullable().describe("International Bank Account Number").optional(), "bic": z.string().nullable().describe("Bank Identifier Code / SWIFT Code").optional(), "routing_number": z.string().nullable().describe("Bank routing number (US)").optional(), "bsb_number": z.string().nullable().describe("Bank State Branch number (Australia/New Zealand)").optional(), "branch_identifier": z.string().nullable().describe("Bank branch identifier").optional(), "bank_code": z.string().nullable().describe("Bank code assigned by central bank").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "country": z.string().min(2).max(2).nullable().describe("Country code according to ISO 3166-1 alpha-2.").optional() }).strict().optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to this transaction.").optional(), "template_id": z.string().nullable().describe("Optional bill template").optional(), "approved_by": z.string().nullable().describe("The user who approved the bill").optional(), "amortization_type": z.enum(["manual","receipt","schedule","other"]).nullable().describe("Type of amortization").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "document_received": z.boolean().nullable().describe("Whether the document has been received").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "payment_allocations": z.array(z.object({ "id": z.string().describe("ID of the payment").optional(), "allocated_amount": z.number().nullable().describe("Amount of the payment allocated to the bill").optional(), "date": z.string().datetime({ offset: true }).nullable().describe("Date of the payment").optional() }).nullable()).nullable().describe("A list of linked payment allocations.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional(), "accounting_period": z.string().nullable().describe("Accounting period").optional(), "attachments": z.array(z.object({ "name": z.string().nullable().describe("The name of the file").optional(), "mime_type": z.string().nullable().describe("The MIME type of the file.").optional(), "is_compressed": z.boolean().nullable().describe("Whether the file is c ompressed.").optional(), "encoding": z.string().nullable().describe("The encoding of the file.").optional(), "content": z.string().nullable().describe("The content of the file.").optional(), "notes": z.string().nullable().describe("The notes of the file.").optional() }).nullable()).optional() }).strict() }).strict()).optional() },
+    args: { request: (z.object({ "id": z.string().describe("ID of the record you are acting upon."), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "bill_number": z.string().nullable().describe("Reference to supplier bill number").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "bill_date": z.string().date().nullable().describe("Date bill was issued - YYYY-MM-DD.").optional(), "due_date": z.string().date().nullable().describe("The due date is the date on which a payment is scheduled to be received - YYYY-MM-DD.").optional(), "paid_date": z.string().date().nullable().describe("The paid date is the date on which a payment was sent to the supplier - YYYY-MM-DD.").optional(), "po_number": z.string().nullable().describe("A PO Number uniquely identifies a purchase order and is generally defined by the buyer. The buyer will match the PO number in the invoice to the Purchase Order.").optional(), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "row_id": z.string().describe("Row ID").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "description": z.string().nullable().describe("User defined description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "total_amount": z.number().nullable().describe("Total amount of the line item").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "unit_of_measure": z.string().nullable().describe("Description of the unit type the item is sold as, ie: kg, hour.").optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to the line item when supported downstream.").optional(), "discount_amount": z.number().nullable().describe("Discount amount applied to the line item when supported downstream.").optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "subsidiary_id": z.string().nullable().describe("The ID of the subsidiary").optional(), "category_id": z.string().nullable().describe("ID of the category of the line item").optional(), "shipping_id": z.string().nullable().describe("ID of the shipping of the line item").optional(), "memo": z.string().nullable().describe("Memo").optional(), "prepaid": z.boolean().nullable().describe("Whether the line item is prepaid").optional(), "tax_applicable_on": z.string().nullable().describe("Tax applicable on").optional(), "tax_recoverability": z.string().nullable().describe("Tax recoverability").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "retention_amount": z.number().nullable().describe("Retention amount").optional(), "payment_amount": z.number().nullable().describe("Payment amount").optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "purchase_order": z.object({ "id": z.string().describe("The unique identifier for the purchase order.").optional(), "line_id": z.string().nullable().describe("The unique identifier for the purchase order line.").optional(), "line_number": z.string().nullable().describe("The line number of the purchase order line.").optional() }).nullable().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided","other"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "worktags": z.array(z.object({ "id": z.string().describe("The unique identifier for the worktag.").optional(), "value": z.string().nullable().describe("The value of the worktag.").optional() }).nullable()).describe("A list of linked worktags. This is only supported for Workday.").optional() }).strict()).optional(), "terms": z.string().nullable().describe("Terms of payment.").optional(), "terms_id": z.string().nullable().describe("The ID of the payment terms").optional(), "balance": z.number().nullable().describe("Balance of bill due.").optional(), "deposit": z.number().nullable().describe("Amount of deposit made to this bill.").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total": z.number().nullable().describe("Total amount of bill, including tax.").optional(), "tax_code": z.string().nullable().describe("Applicable tax id/code override if tax is not supplied on a line item basis.").optional(), "notes": z.string().nullable().optional(), "status": z.enum(["draft","submitted","authorised","partially_paid","paid","void","credit","deleted","posted"]).nullable().describe("Invoice status").optional(), "ledger_account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "payment_method": z.string().nullable().describe("Payment method used for the transaction, such as cash, credit card, bank transfer, or check").optional(), "channel": z.string().nullable().describe("The channel through which the transaction is processed.").optional(), "language": z.string().nullable().describe("language code according to ISO 639-1. For the United States - EN").optional(), "accounting_by_row": z.boolean().nullable().describe("Indicates if accounting by row is used (true) or not (false). Accounting by row means that a separate ledger transaction is created for each row.").optional(), "bank_account": z.object({ "bank_name": z.string().nullable().describe("The name of the bank or financial institution").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "account_name": z.string().nullable().describe("The name of the bank account").optional(), "account_type": z.enum(["bank_account","credit_card","other"]).nullable().describe("The type of bank account.").optional(), "iban": z.string().nullable().describe("International Bank Account Number").optional(), "bic": z.string().nullable().describe("Bank Identifier Code / SWIFT Code").optional(), "routing_number": z.string().nullable().describe("Bank routing number (US)").optional(), "bsb_number": z.string().nullable().describe("Bank State Branch number (Australia/New Zealand)").optional(), "branch_identifier": z.string().nullable().describe("Bank branch identifier").optional(), "bank_code": z.string().nullable().describe("Bank code assigned by central bank").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "country": z.string().min(2).max(2).nullable().describe("Country code according to ISO 3166-1 alpha-2.").optional() }).strict().optional(), "discount_percentage": z.number().nullable().describe("Discount percentage applied to this transaction.").optional(), "template_id": z.string().nullable().describe("Optional bill template").optional(), "approved_by": z.string().nullable().describe("The user who approved the bill").optional(), "amortization_type": z.enum(["manual","receipt","schedule","other"]).nullable().describe("Type of amortization").optional(), "tax_method": z.string().nullable().describe("Method of tax calculation").optional(), "document_received": z.boolean().nullable().describe("Whether the document has been received").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "payment_allocations": z.array(z.object({ "id": z.string().describe("ID of the payment").optional(), "allocated_amount": z.number().nullable().describe("Amount of the payment allocated to the bill").optional(), "date": z.string().datetime({ offset: true }).nullable().describe("Date of the payment").optional() }).nullable()).nullable().describe("A list of linked payment allocations.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional(), "accounting_period": z.string().nullable().describe("Accounting period").optional(), "attachments": z.array(z.object({ "name": z.string().nullable().describe("The name of the file").optional(), "mime_type": z.string().nullable().describe("The MIME type of the file.").optional(), "is_compressed": z.boolean().nullable().describe("Whether the file is c ompressed.").optional(), "encoding": z.string().nullable().describe("The encoding of the file.").optional(), "content": z.string().nullable().describe("The content of the file.").optional(), "notes": z.string().nullable().describe("The notes of the file.").optional() }).nullable()).optional() }).strict() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "PATCH",
@@ -802,7 +802,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-categories-get",
-    description: "Get Category",
+    description: "Retrieve a specific accounting category by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -826,7 +826,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-categories-list",
-    description: "List Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all accounting categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -850,7 +850,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-companies-list",
-    description: "List companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all companies accessible through the current connection (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -874,7 +874,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-company-info-get",
-    description: "Get company info",
+    description: "Retrieve detailed company information",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -898,7 +898,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-create",
-    description: "Create Credit Note",
+    description: "Create a new credit note for a customer in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -922,7 +922,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-delete",
-    description: "Delete Credit Note",
+    description: "Delete a credit note by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -946,7 +946,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-get",
-    description: "Get Credit Note",
+    description: "Retrieve a specific credit note by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -970,7 +970,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-list",
-    description: "List Credit Notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all credit notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -979,7 +979,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: true,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["created_at","updated_at"]).describe("The field on which to sort the Customers").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "id_since": z.string().describe("Return records with a row ID greater than or equal to the given value").optional(), "updated_since": z.string().datetime({ offset: true }).optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["created_at","updated_at","id"]).describe("The field on which to sort the Customers").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "GET",
@@ -994,7 +994,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-update",
-    description: "Update Credit Note",
+    description: "Update an existing credit note with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1018,7 +1018,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-create",
-    description: "Create Customer",
+    description: "Create a new customer record in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1042,7 +1042,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-delete",
-    description: "Delete Customer",
+    description: "Delete a customer by ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1066,7 +1066,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-get",
-    description: "Get Customer",
+    description: "Retrieve details of a specific customer by ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1090,7 +1090,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-list",
-    description: "List Customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1114,7 +1114,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-update",
-    description: "Update Customer",
+    description: "Update an existing customer's details in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1138,7 +1138,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-create",
-    description: "Create Department",
+    description: "Create a new department in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1162,7 +1162,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-delete",
-    description: "Delete Department",
+    description: "Delete a department by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1186,7 +1186,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-get",
-    description: "Get Department",
+    description: "Retrieve details of a specific department by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1210,7 +1210,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-list",
-    description: "List Departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all accounting departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1234,7 +1234,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-update",
-    description: "Update Department",
+    description: "Update an existing department's details in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1258,7 +1258,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-create",
-    description: "Create Employee",
+    description: "Create a new employee record in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1282,7 +1282,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-delete",
-    description: "Delete Employee",
+    description: "Delete an employee by ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1306,7 +1306,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-get",
-    description: "Get Employee",
+    description: "Retrieve detailed information about a specific employee",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1330,7 +1330,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-list",
-    description: "List Employees (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all employees in the accounting system (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1354,7 +1354,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-update",
-    description: "Update Employee",
+    description: "Update an existing employee's details in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1378,7 +1378,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-create",
-    description: "Create Expense Category",
+    description: "Create a new expense category in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1402,7 +1402,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-delete",
-    description: "Delete Expense Category",
+    description: "Delete an expense category by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1426,7 +1426,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-get",
-    description: "Get Expense Category",
+    description: "Retrieve a specific expense category by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1450,7 +1450,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-list",
-    description: "List Expense Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all expense categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1474,7 +1474,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-update",
-    description: "Update Expense Category",
+    description: "Update an existing expense category with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1498,7 +1498,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-create",
-    description: "Create Expense Report",
+    description: "Create a new expense report with specified details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1522,7 +1522,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-delete",
-    description: "Delete Expense Report",
+    description: "Delete an expense report by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1546,7 +1546,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-get",
-    description: "Get Expense Report",
+    description: "Retrieve a specific expense report by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1570,7 +1570,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-list",
-    description: "List Expense Reports (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all expense reports (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1594,7 +1594,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-update",
-    description: "Update Expense Report",
+    description: "Update an existing expense report with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1618,7 +1618,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-create",
-    description: "Create Expense",
+    description: "Create a new expense record in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1627,7 +1627,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: false,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "number": z.string().nullable().describe("Number.").optional(), "transaction_date": z.string().datetime({ offset: true }).nullable().describe("The date of the transaction - YYYY:MM::DDThh:mm:ss.sTZD"), "account_id": z.string().describe("The unique identifier for the ledger account that this expense should be credited to. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account. This can be a ledger account ID or bank account ID depending on the `type` field.").optional(), "type": z.enum(["ledger_account","bank_account","employee"]).nullable().describe("The type of account being referenced. Use `ledger_account` for GL accounts from the chart of accounts, or `bank_account` for bank account entities. When not specified, the connector will use its default behavior.").optional(), "code": z.string().describe("The account code of the account").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "name": z.string().describe("The name of the account.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).strict().nullable().describe("A flexible account reference that can represent a ledger account (GL account), a bank account, or an employee payable account, depending on the connector's requirements.").optional(), "supplier_id": z.string().describe("The ID of the supplier this entity is linked to. Deprecated, use supplier instead.").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "payment_type": z.enum(["cash","check","credit_card","other"]).nullable().describe("The type of payment for the expense.").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "type": z.enum(["expense","refund"]).nullable().describe("The type of expense.").optional(), "memo": z.string().nullable().describe("The memo of the expense.").optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "account_id": z.string().describe("The unique identifier for the ledger account. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "customer_id": z.string().describe("The ID of the customer this expense item is linked to. Deprecated in favor of `customer`.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "description": z.string().nullable().describe("The expense line item description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item."), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional() }).strict()).min(1).describe("Expense line items linked to this expense."), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "status": z.enum(["draft","posted","voided"]).nullable().describe("Expense status").optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional() }).strict() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "number": z.string().nullable().describe("Number.").optional(), "transaction_date": z.string().datetime({ offset: true }).nullable().describe("The date of the transaction - YYYY:MM::DDThh:mm:ss.sTZD"), "account_id": z.string().describe("The unique identifier for the ledger account that this expense should be credited to. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account. This can be a ledger account ID or bank account ID depending on the `type` field.").optional(), "type": z.enum(["ledger_account","bank_account","employee"]).nullable().describe("The type of account being referenced. Use `ledger_account` for GL accounts from the chart of accounts, or `bank_account` for bank account entities. When not specified, the connector will use its default behavior.").optional(), "code": z.string().describe("The account code of the account").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "name": z.string().describe("The name of the account.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).strict().nullable().describe("A flexible account reference that can represent a ledger account (GL account), a bank account, or an employee payable account, depending on the connector's requirements.").optional(), "supplier_id": z.string().describe("The ID of the supplier this entity is linked to. Deprecated, use supplier instead.").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "payment_type": z.enum(["cash","check","credit_card","other"]).nullable().describe("The type of payment for the expense.").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "type": z.enum(["expense","refund"]).nullable().describe("The type of expense.").optional(), "memo": z.string().nullable().describe("The memo of the expense.").optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "account_id": z.string().describe("The unique identifier for the ledger account. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "customer_id": z.string().describe("The ID of the customer this expense item is linked to. Deprecated in favor of `customer`.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "description": z.string().nullable().describe("The expense line item description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item."), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided","other"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional() }).strict()).min(1).describe("Expense line items linked to this expense."), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "status": z.enum(["draft","posted","voided"]).nullable().describe("Expense status").optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional() }).strict() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "POST",
@@ -1642,7 +1642,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-delete",
-    description: "Delete Expense",
+    description: "Delete an expense by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1666,7 +1666,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-get",
-    description: "Get Expense",
+    description: "Retrieve a specific expense by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1690,7 +1690,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-list",
-    description: "List Expenses (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all expenses (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1714,7 +1714,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-update",
-    description: "Update Expense",
+    description: "Update an existing expense record with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1723,7 +1723,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: false,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "id": z.string().describe("ID of the record you are acting upon."), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "number": z.string().nullable().describe("Number.").optional(), "transaction_date": z.string().datetime({ offset: true }).nullable().describe("The date of the transaction - YYYY:MM::DDThh:mm:ss.sTZD"), "account_id": z.string().describe("The unique identifier for the ledger account that this expense should be credited to. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account. This can be a ledger account ID or bank account ID depending on the `type` field.").optional(), "type": z.enum(["ledger_account","bank_account","employee"]).nullable().describe("The type of account being referenced. Use `ledger_account` for GL accounts from the chart of accounts, or `bank_account` for bank account entities. When not specified, the connector will use its default behavior.").optional(), "code": z.string().describe("The account code of the account").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "name": z.string().describe("The name of the account.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).strict().nullable().describe("A flexible account reference that can represent a ledger account (GL account), a bank account, or an employee payable account, depending on the connector's requirements.").optional(), "supplier_id": z.string().describe("The ID of the supplier this entity is linked to. Deprecated, use supplier instead.").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "payment_type": z.enum(["cash","check","credit_card","other"]).nullable().describe("The type of payment for the expense.").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "type": z.enum(["expense","refund"]).nullable().describe("The type of expense.").optional(), "memo": z.string().nullable().describe("The memo of the expense.").optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "account_id": z.string().describe("The unique identifier for the ledger account. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "customer_id": z.string().describe("The ID of the customer this expense item is linked to. Deprecated in favor of `customer`.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "description": z.string().nullable().describe("The expense line item description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item."), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional() }).strict()).min(1).describe("Expense line items linked to this expense."), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "status": z.enum(["draft","posted","voided"]).nullable().describe("Expense status").optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional() }).strict() }).strict()).optional() },
+    args: { request: (z.object({ "id": z.string().describe("ID of the record you are acting upon."), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "body": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "number": z.string().nullable().describe("Number.").optional(), "transaction_date": z.string().datetime({ offset: true }).nullable().describe("The date of the transaction - YYYY:MM::DDThh:mm:ss.sTZD"), "account_id": z.string().describe("The unique identifier for the ledger account that this expense should be credited to. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account. This can be a ledger account ID or bank account ID depending on the `type` field.").optional(), "type": z.enum(["ledger_account","bank_account","employee"]).nullable().describe("The type of account being referenced. Use `ledger_account` for GL accounts from the chart of accounts, or `bank_account` for bank account entities. When not specified, the connector will use its default behavior.").optional(), "code": z.string().describe("The account code of the account").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "account_number": z.string().nullable().describe("The bank account number").optional(), "name": z.string().describe("The name of the account.").readonly().optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).strict().nullable().describe("A flexible account reference that can represent a ledger account (GL account), a bank account, or an employee payable account, depending on the connector's requirements.").optional(), "supplier_id": z.string().describe("The ID of the supplier this entity is linked to. Deprecated, use supplier instead.").optional(), "supplier": z.object({ "id": z.string().describe("The ID of the supplier this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the supplier.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the supplier.").optional(), "company_name": z.string().nullable().describe("The company name of the supplier.").readonly().optional(), "address": z.object({ "id": z.string().nullable().describe("Unique identifier for the address.").optional(), "type": z.enum(["primary","secondary","home","office","shipping","billing","work","other"]).nullable().describe("The type of address.").optional(), "string": z.string().nullable().describe("The address string. Some APIs don't provide structured address data.").optional(), "name": z.string().nullable().describe("The name of the address.").optional(), "line1": z.string().nullable().describe("Line 1 of the address e.g. number, street, suite, apt #, etc.").optional(), "line2": z.string().nullable().describe("Line 2 of the address").optional(), "line3": z.string().nullable().describe("Line 3 of the address").optional(), "line4": z.string().nullable().describe("Line 4 of the address").optional(), "line5": z.string().nullable().describe("Line 5 of the address").optional(), "street_number": z.string().nullable().describe("Street number").optional(), "city": z.string().nullable().describe("Name of city.").optional(), "state": z.string().nullable().describe("Name of state").optional(), "postal_code": z.string().nullable().describe("Zip code or equivalent.").optional(), "country": z.string().nullable().describe("country code according to ISO 3166-1 alpha-2.").optional(), "latitude": z.string().nullable().describe("Latitude of the address").optional(), "longitude": z.string().nullable().describe("Longitude of the address").optional(), "county": z.string().nullable().describe("Address field that holds a sublocality, such as a county").optional(), "contact_name": z.string().nullable().describe("Name of the contact person at the address").optional(), "salutation": z.string().nullable().describe("Salutation of the contact person at the address").optional(), "phone_number": z.string().nullable().describe("Phone number of the address").optional(), "fax": z.string().nullable().describe("Fax number of the address").optional(), "email": z.string().nullable().describe("Email address of the address").optional(), "website": z.string().nullable().describe("Website of the address").optional(), "notes": z.string().nullable().describe("Additional notes").optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional() }).strict().optional() }).nullable().describe("The supplier this entity is linked to.").optional(), "company_id": z.string().nullable().describe("The company ID the transaction belongs to").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "payment_type": z.enum(["cash","check","credit_card","other"]).nullable().describe("The type of payment for the expense.").optional(), "currency": z.enum(["UNKNOWN_CURRENCY","AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV","BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF","CHW","CLF","CLP","CNY","COP","COU","CRC","CUC","CUP","CVE","CZK","DJF","DKK","DOP","DZD","EGP","ERN","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR","ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW","KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL","LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO","NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN","PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG","SEK","SGD","SHP","SLL","SOS","SRD","SSP","STD","SVC","SYP","SZL","THB","TJS","TMT","TND","TOP","TRC","TRY","TTD","TWD","TZS","UAH","UGX","USD","USN","USS","UYI","UYU","UZS","VEF","VND","VUV","WST","XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZMW","BTC","ETH"]).nullable().describe("Indicates the associated currency for an amount of money. Values correspond to [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217).").optional(), "currency_rate": z.number().nullable().describe("Currency Exchange Rate at the time entity was recorded/generated.").optional(), "type": z.enum(["expense","refund"]).nullable().describe("The type of expense.").optional(), "memo": z.string().nullable().describe("The memo of the expense.").optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "tax_inclusive": z.boolean().nullable().describe("Amounts are including tax").optional(), "sub_total": z.number().nullable().describe("Subtotal amount, normally before tax.").optional(), "total_tax": z.number().nullable().describe("Total tax amount applied to this transaction.").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item.").optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "line_items": z.array(z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "tracking_categories": z.array(z.object({ "id": z.string().describe("The unique identifier for the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "name": z.string().nullable().describe("The name of the tracking category.").optional(), "parent_id": z.string().describe("The unique identifier for the parent tracking category.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional() }).nullable()).nullable().describe("A list of linked tracking categories.").optional(), "account_id": z.string().describe("The unique identifier for the ledger account. Deprecated, use account instead.").optional(), "account": z.object({ "id": z.string().describe("The unique identifier for the account.").optional(), "name": z.string().nullable().describe("The name of the account.").optional(), "nominal_code": z.string().nullable().describe("The nominal code of the account.").optional(), "code": z.string().nullable().describe("The code assigned to the account.").optional(), "parent_id": z.string().nullable().describe("The parent ID of the account.").optional(), "display_id": z.string().nullable().describe("The display ID of the account.").optional() }).strict().nullable().optional(), "customer_id": z.string().describe("The ID of the customer this expense item is linked to. Deprecated in favor of `customer`.").optional(), "customer": z.object({ "id": z.string().describe("The ID of the customer this entity is linked to.").optional(), "display_id": z.string().nullable().describe("The display ID of the customer.").readonly().optional(), "display_name": z.string().nullable().describe("The display name of the customer.").optional(), "name": z.string().describe("The name of the customer. Deprecated, use display_name instead.").optional(), "company_name": z.string().nullable().describe("The company name of the customer.").readonly().optional(), "email": z.string().describe("The email address of the customer.").optional() }).nullable().describe("The customer this entity is linked to.").optional(), "department_id": z.string().nullable().describe("The ID of the department").optional(), "department": z.object({ "id": z.string().describe("A unique identifier for an object.").readonly().optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the resource.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "location_id": z.string().nullable().describe("The ID of the location").optional(), "location": z.object({ "id": z.string().describe("The unique identifier for the location.").optional(), "display_id": z.string().nullable().describe("Id to be displayed.").optional(), "name": z.string().nullable().describe("The name of the location.").optional(), "downstream_id": z.string().nullable().describe("The third-party API ID of original entity").readonly().optional() }).nullable().optional(), "tax_rate": z.object({ "id": z.string().nullable().describe("The ID of the object.").optional(), "code": z.string().nullable().describe("Tax rate code").optional(), "name": z.string().nullable().describe("Name of the tax rate").readonly().optional(), "rate": z.number().nullable().describe("Rate of the tax rate").optional() }).strict().optional(), "description": z.string().nullable().describe("The expense line item description").optional(), "type": z.enum(["expense_item","expense_account","other"]).nullable().describe("Line Item type").optional(), "total_amount": z.number().nullable().describe("The total amount of the expense line item."), "tax_amount": z.number().nullable().describe("Tax amount").optional(), "quantity": z.number().nullable().optional(), "unit_price": z.number().nullable().optional(), "item": z.object({ "id": z.string().nullable().describe("ID of the linked item. A reference to the [invoice item](https://developers.apideck.com/apis/accounting/reference#tag/Invoice-Items) that was used to create this line item").optional(), "code": z.string().nullable().describe("User defined item code").optional(), "name": z.string().nullable().describe("User defined item name").optional() }).optional(), "line_number": z.number().int().nullable().describe("Line number of the resource").optional(), "rebilling": z.object({ "rebillable": z.boolean().describe("Whether this line item is eligible for rebilling.").optional(), "rebill_status": z.enum(["pending","billed","voided","other"]).nullable().describe("Status of the rebilling process for this line item.").optional(), "linked_transaction_id": z.string().nullable().describe("The ID of the transaction this line item was rebilled to.").optional(), "linked_transaction_line_id": z.string().nullable().describe("The ID of the line item in the rebilled transaction.").optional() }).nullable().describe("Rebilling metadata for this line item.").optional() }).strict()).min(1).describe("Expense line items linked to this expense."), "reference": z.string().nullable().describe("Optional reference identifier for the transaction.").optional(), "source_document_url": z.string().nullable().describe("URL link to a source document - shown as 'Go to [appName]' in the downstream app. Currently only supported for Xero.").optional(), "custom_fields": z.array(z.object({ "id": z.string().nullable().describe("Unique identifier for the custom field.").optional(), "name": z.string().nullable().describe("Name of the custom field.").optional(), "description": z.string().nullable().describe("More information about the custom field").optional(), "value": z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable(), z.array(z.union([z.string().nullable(), z.number().nullable(), z.boolean().nullable(), z.record(z.string(), z.any()).nullable()]))]).optional() }).strict().and(z.union([z.any(), z.any()]))).optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "status": z.enum(["draft","posted","voided"]).nullable().describe("Expense status").optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional() }).strict() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "PATCH",
@@ -1738,7 +1738,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-create",
-    description: "Create Invoice Item",
+    description: "Create a new invoice item in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1762,7 +1762,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-delete",
-    description: "Delete Invoice Item",
+    description: "Delete an invoice item by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1786,7 +1786,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-get",
-    description: "Get Invoice Item",
+    description: "Retrieve a specific invoice item by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1810,7 +1810,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-list",
-    description: "List Invoice Items (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all invoice items (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1834,7 +1834,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-update",
-    description: "Update Invoice Item",
+    description: "Update an existing invoice item by modifying its details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1858,7 +1858,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-create",
-    description: "Create Invoice",
+    description: "Create a new invoice in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1882,7 +1882,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-delete",
-    description: "Delete Invoice",
+    description: "Delete an invoice by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1906,7 +1906,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-get",
-    description: "Get Invoice",
+    description: "Retrieve a specific invoice by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1930,7 +1930,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-list",
-    description: "List Invoices (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all invoices (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1939,7 +1939,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: true,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional(), "created_since": z.string().datetime({ offset: true }).optional(), "number": z.string().describe("Invoice number to search for").optional(), "supplier_id": z.string().describe("Supplier ID to filter invoices by").optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["created_at","updated_at"]).describe("The field on which to sort the Invoices").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "id_since": z.string().describe("Return records with a row ID greater than or equal to the given value").optional(), "updated_since": z.string().datetime({ offset: true }).optional(), "created_since": z.string().datetime({ offset: true }).optional(), "number": z.string().describe("Invoice number to search for").optional(), "supplier_id": z.string().describe("Supplier ID to filter invoices by").optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["created_at","updated_at","id"]).describe("The field on which to sort the Invoices").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "GET",
@@ -1954,7 +1954,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-update",
-    description: "Update Invoice",
+    description: "Update an existing invoice with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1978,7 +1978,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-create",
-    description: "Create Journal Entry",
+    description: "Create a new journal entry in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2002,7 +2002,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-delete",
-    description: "Delete Journal Entry",
+    description: "Delete a journal entry by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2026,7 +2026,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-get",
-    description: "Get Journal Entry",
+    description: "Retrieve a specific journal entry by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2050,7 +2050,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-list",
-    description: "List Journal Entries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all journal entries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2074,7 +2074,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-update",
-    description: "Update Journal Entry",
+    description: "Update an existing journal entry with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2098,7 +2098,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-create",
-    description: "Create Ledger Account",
+    description: "Create a new ledger account in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2122,7 +2122,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-delete",
-    description: "Delete Ledger Account",
+    description: "Delete a ledger account by its identifier",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2146,7 +2146,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-get",
-    description: "Get Ledger Account",
+    description: "Retrieve a specific ledger account by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2170,7 +2170,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-list",
-    description: "List Ledger Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all ledger accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2194,7 +2194,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-update",
-    description: "Update Ledger Account",
+    description: "Update an existing ledger account with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2218,7 +2218,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-create",
-    description: "Create Location",
+    description: "Create a new location in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2242,7 +2242,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-delete",
-    description: "Delete Location",
+    description: "Delete a location by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2266,7 +2266,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-get",
-    description: "Get Location",
+    description: "Retrieve details of a specific location by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2290,7 +2290,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-list",
-    description: "List Locations (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all accounting locations (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2314,7 +2314,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-update",
-    description: "Update Location",
+    description: "Update an existing accounting location with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2338,7 +2338,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-create",
-    description: "Create Payment",
+    description: "Create a new payment record in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2362,7 +2362,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-delete",
-    description: "Delete Payment",
+    description: "Delete a payment by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2386,7 +2386,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-get",
-    description: "Get Payment",
+    description: "Retrieve a payment by its unique identifier",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2410,7 +2410,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-list",
-    description: "List Payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2419,7 +2419,7 @@ export const generatedTools: ToolDefinition<any>[] = [
       idempotentHint: true,
       openWorldHint: false,
     },
-    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional(), "invoice_id": z.string().optional(), "bill_id": z.string().optional(), "supplier_id": z.string().optional(), "customer_id": z.string().describe("Filter by customer id").optional(), "type": z.enum(["accounts_receivable","accounts_payable","accounts_receivable_credit","accounts_payable_credit","accounts_receivable_overpayment","accounts_payable_overpayment","accounts_receivable_prepayment","accounts_payable_prepayment"]).optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["updated_at","created_at"]).describe("The field on which to sort the Payments").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
+    args: { request: (z.object({ "raw": z.boolean().describe("Include raw response. Mostly used for debugging purposes").default(false), "x-apideck-consumer-id": z.string().describe("ID of the consumer which you want to get or push data from").optional(), "x-apideck-app-id": z.string().min(1).describe("The ID of your Unify application").optional(), "x-apideck-service-id": z.string().describe("Provide the service id you want to call (e.g., pipedrive). Only needed when a consumer has activated multiple integrations for a Unified API.").optional(), "x-apideck-company-id": z.string().describe("The ID of the company to scope requests to. For connectors that support multi-company, this overrides the default company configured in connection settings.").optional(), "cursor": z.string().nullable().describe("Cursor to start from. You can find cursors for next/previous pages in the meta.cursors property of the response.").optional(), "limit": z.number().int().gte(1).lte(200).describe("Number of results to return. Minimum 1, Maximum 200, Default 20").default(20), "filter": z.object({ "updated_since": z.string().datetime({ offset: true }).optional(), "invoice_id": z.string().optional(), "bill_id": z.string().optional(), "supplier_id": z.string().optional(), "customer_id": z.string().describe("Filter by customer id").optional(), "type": z.enum(["accounts_receivable","accounts_payable","accounts_receivable_credit","accounts_payable_credit","accounts_receivable_overpayment","accounts_payable_overpayment","accounts_receivable_prepayment","accounts_payable_prepayment"]).optional(), "status": z.enum(["draft","authorised","rejected","paid","voided","deleted"]).describe("Filter by payment status").optional() }).strict().describe("Apply filters").optional(), "sort": z.object({ "by": z.enum(["updated_at","created_at"]).describe("The field on which to sort the Payments").optional(), "direction": z.enum(["asc","desc"]).describe("The direction in which to sort the results").default("asc") }).strict().describe("Apply sorting").optional(), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).describe("Optional unmapped key/values that will be passed through to downstream as query parameters. Ie: ?pass_through[search]=leads becomes ?search=leads").optional(), "fields": z.string().nullable().describe("The 'fields' parameter allows API users to specify the fields they want to include in the API response. If this parameter is not present, the API will return all available fields. If this parameter is present, only the fields specified in the comma-separated string will be included in the response. Nested properties can also be requested by using a dot notation. <br /><br />Example: `fields=name,email,addresses.city`<br /><br />In the example above, the response will only include the fields \"name\", \"email\" and \"addresses.city\". If any other fields are available, they will be excluded.").optional() }).strict()).optional() },
     async tool(client, args, ctx) {
       return callApideck(client, {
         method: "GET",
@@ -2434,7 +2434,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-update",
-    description: "Update Payment",
+    description: "Update an existing payment with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2458,7 +2458,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-profit-and-loss-get",
-    description: "Get Profit and Loss",
+    description: "Retrieve the Profit and Loss statement for the specified period",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2482,7 +2482,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-create",
-    description: "Create project",
+    description: "Create a new project in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2506,7 +2506,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-delete",
-    description: "Delete project",
+    description: "Delete a project by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2530,7 +2530,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-get",
-    description: "Get project",
+    description: "Retrieve detailed information about a specific project",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2554,7 +2554,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-list",
-    description: "List projects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all projects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2578,7 +2578,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-update",
-    description: "Update project",
+    description: "Update an existing project with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2602,7 +2602,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-create",
-    description: "Create Purchase Order",
+    description: "Create a new purchase order in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2626,7 +2626,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-delete",
-    description: "Delete Purchase Order",
+    description: "Delete a purchase order by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2650,7 +2650,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-get",
-    description: "Get Purchase Order",
+    description: "Retrieve a purchase order by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2674,7 +2674,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-list",
-    description: "List Purchase Orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all purchase orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2698,7 +2698,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-update",
-    description: "Update Purchase Order",
+    description: "Update an existing purchase order with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2722,7 +2722,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-create",
-    description: "Create Quote",
+    description: "Create a new quote in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2746,7 +2746,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-delete",
-    description: "Delete Quote",
+    description: "Delete a quote by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2770,7 +2770,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-get",
-    description: "Get Quote",
+    description: "Retrieve a specific quote by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2794,7 +2794,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-list",
-    description: "List Quotes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all quotes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2818,7 +2818,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-update",
-    description: "Update Quote",
+    description: "Update an existing quote with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2842,7 +2842,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-create",
-    description: "Create Refund",
+    description: "Create a new refund record in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2866,7 +2866,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-delete",
-    description: "Delete Refund",
+    description: "Delete a refund by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2890,7 +2890,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-get",
-    description: "Get Refund",
+    description: "Retrieve a refund by its unique identifier",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2914,7 +2914,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-list",
-    description: "List Refunds (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all refunds (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2938,7 +2938,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-update",
-    description: "Update Refund",
+    description: "Update an existing refund record with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2962,7 +2962,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-create",
-    description: "Create Subsidiary",
+    description: "Create a new subsidiary in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2986,7 +2986,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-delete",
-    description: "Delete Subsidiary",
+    description: "Delete a subsidiary by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3010,7 +3010,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-get",
-    description: "Get Subsidiary",
+    description: "Retrieve details of a specific subsidiary by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3034,7 +3034,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-list",
-    description: "List Subsidiaries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all subsidiaries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3058,7 +3058,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-update",
-    description: "Update Subsidiary",
+    description: "Update an existing subsidiary's details in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3082,7 +3082,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-create",
-    description: "Create Supplier",
+    description: "Add a new supplier to the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3106,7 +3106,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-delete",
-    description: "Delete Supplier",
+    description: "Delete a supplier by its unique identifier",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3130,7 +3130,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-get",
-    description: "Get Supplier",
+    description: "Retrieve detailed information about a specific supplier",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3154,7 +3154,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-list",
-    description: "List Suppliers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all suppliers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3178,7 +3178,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-update",
-    description: "Update Supplier",
+    description: "Update an existing supplier's details in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3202,7 +3202,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-create",
-    description: "Create Tax Rate",
+    description: "Create a new tax rate in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3226,7 +3226,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-delete",
-    description: "Delete Tax Rate",
+    description: "Delete a tax rate by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3250,7 +3250,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-get",
-    description: "Get Tax Rate",
+    description: "Retrieve a specific tax rate by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3274,7 +3274,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-list",
-    description: "List Tax Rates (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all tax rates available in the accounting system (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3298,7 +3298,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-update",
-    description: "Update Tax Rate",
+    description: "Update an existing tax rate with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3322,7 +3322,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-create",
-    description: "Create Tracking Category",
+    description: "Create a new tracking category in the accounting system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3346,7 +3346,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-delete",
-    description: "Delete Tracking Category",
+    description: "Delete a tracking category by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3370,7 +3370,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-get",
-    description: "Get Tracking Category",
+    description: "Retrieve a tracking category by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3394,7 +3394,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-list",
-    description: "List Tracking Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all tracking categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3418,7 +3418,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-update",
-    description: "Update Tracking Category",
+    description: "Update an existing tracking category with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3442,7 +3442,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-create",
-    description: "Create Applicant",
+    description: "Create a new applicant in the ATS system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3466,7 +3466,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-delete",
-    description: "Delete Applicant",
+    description: "Delete an applicant by ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3490,7 +3490,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-get",
-    description: "Get Applicant",
+    description: "Retrieve detailed information about a specific applicant",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3514,7 +3514,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-list",
-    description: "List Applicants (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all applicants (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3538,7 +3538,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-update",
-    description: "Update Applicant",
+    description: "Update an applicant's details in the applicant tracking system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3562,7 +3562,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-create",
-    description: "Create Application",
+    description: "Create a new application record in the applicant tracking system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3586,7 +3586,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-delete",
-    description: "Delete Application",
+    description: "Delete an application by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3610,7 +3610,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-get",
-    description: "Get Application",
+    description: "Retrieve a specific application by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3634,7 +3634,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-list",
-    description: "List Applications (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all applications (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3658,7 +3658,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-update",
-    description: "Update Application",
+    description: "Update an existing application with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3682,7 +3682,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-create",
-    description: "Create Job",
+    description: "Create a new job listing in the applicant tracking system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3706,7 +3706,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-delete",
-    description: "Delete Job",
+    description: "Delete a job by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3730,7 +3730,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-get",
-    description: "Get Job",
+    description: "Retrieve a job by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3754,7 +3754,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-list",
-    description: "List Jobs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all jobs in the ATS (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3778,7 +3778,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-update",
-    description: "Update Job",
+    description: "Update an existing job with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3802,7 +3802,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-api-resource-coverage-get",
-    description: "Get API Resource Coverage",
+    description: "Retrieve coverage details for a specific API resource",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3826,7 +3826,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-api-resources-get",
-    description: "Get API Resource",
+    description: "Retrieve a specific API resource by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3850,7 +3850,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-get",
-    description: "Get API",
+    description: "Retrieve details of a specific API by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3874,7 +3874,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-list",
-    description: "List APIs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all available APIs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3898,7 +3898,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connector-docs-get",
-    description: "Get Connector Doc content",
+    description: "Retrieve the content of a specific connector document",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3922,7 +3922,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connector-resources-get",
-    description: "Get Connector Resource",
+    description: "Retrieve a specific resource from a connector",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3946,7 +3946,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-get",
-    description: "Get Connector",
+    description: "Retrieve details of a specific connector by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3970,7 +3970,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-list",
-    description: "List Connectors (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all connectors (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3994,7 +3994,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-create",
-    description: "Create activity",
+    description: "Create a new CRM activity record",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4018,7 +4018,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-delete",
-    description: "Delete activity",
+    description: "Delete an activity by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4042,7 +4042,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-get",
-    description: "Get activity",
+    description: "Retrieve a specific CRM activity by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4066,7 +4066,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-list",
-    description: "List activities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of CRM activities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4090,7 +4090,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-update",
-    description: "Update activity",
+    description: "Update an existing CRM activity by modifying its details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4114,7 +4114,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-create",
-    description: "Create company",
+    description: "Create a new company in the CRM system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4138,7 +4138,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-delete",
-    description: "Delete company",
+    description: "Delete a company by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4162,7 +4162,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-get",
-    description: "Get company",
+    description: "Retrieve a company by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4186,7 +4186,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-list",
-    description: "List companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4210,7 +4210,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-update",
-    description: "Update company",
+    description: "Update an existing company's details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4234,7 +4234,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-create",
-    description: "Create contact",
+    description: "Create a new contact in the CRM system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4258,7 +4258,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-delete",
-    description: "Delete contact",
+    description: "Delete a contact by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4282,7 +4282,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-get",
-    description: "Get contact",
+    description: "Retrieve a contact by its unique identifier",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4306,7 +4306,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-list",
-    description: "List contacts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all contacts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4330,7 +4330,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-update",
-    description: "Update contact",
+    description: "Update an existing contact's details in the CRM",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4354,7 +4354,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-create",
-    description: "Create custom object schema",
+    description: "Create a new custom object schema",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4378,7 +4378,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-delete",
-    description: "Delete custom object schema",
+    description: "Delete a custom object schema by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4402,7 +4402,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-get",
-    description: "Get custom object schema",
+    description: "Retrieve a custom object schema by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4426,7 +4426,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-list",
-    description: "List custom object schemas (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all custom object schemas (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4450,7 +4450,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-update",
-    description: "Update custom object schema",
+    description: "Update a custom object schema by modifying its properties",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4474,7 +4474,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-create",
-    description: "Create custom object",
+    description: "Create a new custom object in the CRM system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4498,7 +4498,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-delete",
-    description: "Delete custom object",
+    description: "Delete a specific custom object by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4522,7 +4522,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-get",
-    description: "Get custom object",
+    description: "Retrieve a specific custom object by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4546,7 +4546,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-list",
-    description: "List custom objects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of custom objects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4570,7 +4570,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-update",
-    description: "Update custom object",
+    description: "Update a custom object by modifying its properties",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4594,7 +4594,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-create",
-    description: "Create lead",
+    description: "Create a new lead in the CRM system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4618,7 +4618,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-delete",
-    description: "Delete lead",
+    description: "Delete a lead by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4642,7 +4642,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-get",
-    description: "Get lead",
+    description: "Retrieve a lead by its unique identifier",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4666,7 +4666,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-list",
-    description: "List leads (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of leads (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4690,7 +4690,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-update",
-    description: "Update lead",
+    description: "Update an existing lead with new information",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4714,7 +4714,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-create",
-    description: "Create note",
+    description: "Create a new note linked to CRM entities",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4738,7 +4738,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-delete",
-    description: "Delete note",
+    description: "Delete a note by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4762,7 +4762,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-get",
-    description: "Get note",
+    description: "Retrieve a specific CRM note by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4786,7 +4786,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-list",
-    description: "List notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all CRM notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4810,7 +4810,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-update",
-    description: "Update note",
+    description: "Update an existing CRM note by modifying its details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4834,7 +4834,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-create",
-    description: "Create opportunity",
+    description: "Create a new sales opportunity in the CRM",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4858,7 +4858,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-delete",
-    description: "Delete opportunity",
+    description: "Delete an opportunity by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4882,7 +4882,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-get",
-    description: "Get opportunity",
+    description: "Retrieve a specific opportunity by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4906,7 +4906,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-list",
-    description: "List opportunities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all opportunities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4930,7 +4930,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-update",
-    description: "Update opportunity",
+    description: "Update an existing opportunity with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4954,7 +4954,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-create",
-    description: "Create pipeline",
+    description: "Create a new CRM pipeline with specified details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4978,7 +4978,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-delete",
-    description: "Delete pipeline",
+    description: "Delete a CRM pipeline by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5002,7 +5002,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-get",
-    description: "Get pipeline",
+    description: "Retrieve a specific CRM pipeline by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5026,7 +5026,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-list",
-    description: "List pipelines (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all CRM pipelines (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5050,7 +5050,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-update",
-    description: "Update pipeline",
+    description: "Update an existing CRM pipeline with new details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5074,7 +5074,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-create",
-    description: "Create user",
+    description: "Create a new CRM user with specified details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5098,7 +5098,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-delete",
-    description: "Delete user",
+    description: "Delete a user by their ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5122,7 +5122,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-get",
-    description: "Get user",
+    description: "Retrieve a user by ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5146,7 +5146,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-list",
-    description: "List users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all CRM users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5170,7 +5170,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-update",
-    description: "Update user",
+    description: "Update an existing CRM user with new information",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5194,7 +5194,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-customers-get",
-    description: "Get Customer",
+    description: "Retrieve a customer's details by their ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5218,7 +5218,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-customers-list",
-    description: "List Customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5242,7 +5242,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-orders-get",
-    description: "Get Order",
+    description: "Retrieve details of a specific order by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5266,7 +5266,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-orders-list",
-    description: "List Orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all ecommerce orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5290,7 +5290,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-products-get",
-    description: "Get Product",
+    description: "Retrieve detailed information about a specific product by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5314,7 +5314,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-products-list",
-    description: "List Products (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all products (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5338,7 +5338,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-stores-get",
-    description: "Get Store",
+    description: "Retrieve details of a specific ecommerce store",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5362,7 +5362,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-create",
-    description: "Create DriveGroup",
+    description: "Create a new DriveGroup with specified attributes",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5386,7 +5386,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-delete",
-    description: "Delete DriveGroup",
+    description: "Delete a DriveGroup by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5410,7 +5410,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-get",
-    description: "Get DriveGroup",
+    description: "Retrieve a DriveGroup by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5434,7 +5434,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-list",
-    description: "List DriveGroups (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all DriveGroups (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5458,7 +5458,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-update",
-    description: "Update DriveGroup",
+    description: "Update properties of an existing DriveGroup",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5482,7 +5482,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-create",
-    description: "Create Drive",
+    description: "Create a new file storage drive with specified properties",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5506,7 +5506,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-delete",
-    description: "Delete Drive",
+    description: "Delete a drive by its identifier",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5530,7 +5530,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-get",
-    description: "Get Drive",
+    description: "Retrieve detailed information about a specific drive",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5554,7 +5554,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-list",
-    description: "List Drives (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all file storage drives (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5578,7 +5578,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-update",
-    description: "Update Drive",
+    description: "Update properties of a file storage drive by its identifier",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5602,7 +5602,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-delete",
-    description: "Delete File",
+    description: "Delete a file by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5626,7 +5626,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-download",
-    description: "Download File",
+    description: "Download a file by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5650,7 +5650,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-export",
-    description: "Export File",
+    description: "Export a file by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5674,7 +5674,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-get",
-    description: "Get File",
+    description: "Retrieve a file by its unique identifier",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5698,7 +5698,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-list",
-    description: "List Files (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all files in storage (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5722,7 +5722,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-search",
-    description: "Search Files",
+    description: "Search for files matching a query within a specified drive",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5746,7 +5746,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-update",
-    description: "Rename or move File",
+    description: "Update a file's name, description, or location",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5770,7 +5770,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-upload",
-    description: "Upload file",
+    description: "Upload a file up to 100MB to file storage",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5795,7 +5795,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-copy",
-    description: "Copy Folder",
+    description: "Copy a folder to a specified location with an optional new name",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5819,7 +5819,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-create",
-    description: "Create Folder",
+    description: "Create a new folder in the file storage system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5843,7 +5843,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-delete",
-    description: "Delete Folder",
+    description: "Delete a folder from file storage",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5867,7 +5867,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-get",
-    description: "Get Folder",
+    description: "Retrieve a folder by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5891,7 +5891,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-update",
-    description: "Rename or move Folder",
+    description: "Update folder name, description, or parent folder",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5915,7 +5915,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-create",
-    description: "Create Shared Link",
+    description: "Create a shared link for a file or folder",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5939,7 +5939,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-delete",
-    description: "Delete Shared Link",
+    description: "Delete a shared link by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5963,7 +5963,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-get",
-    description: "Get Shared Link",
+    description: "Retrieve a shared link by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5987,7 +5987,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-list",
-    description: "List Shared Links (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all shared links (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6011,7 +6011,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-update",
-    description: "Update Shared Link",
+    description: "Update a shared link's settings and access controls",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6035,7 +6035,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-create",
-    description: "Start Upload Session",
+    description: "Start a new upload session for large file transfers",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6059,7 +6059,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-delete",
-    description: "Abort Upload Session",
+    description: "Abort an active file upload session",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6083,7 +6083,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-finish",
-    description: "Finish Upload Session",
+    description: "Complete an upload session after all file parts are uploaded",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6107,7 +6107,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-get",
-    description: "Get Upload Session",
+    description: "Retrieve details of a specific upload session",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6131,7 +6131,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-upload",
-    description: "Upload part of File to Upload Session",
+    description: "Upload a file part to an existing upload session",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6156,7 +6156,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-create",
-    description: "Create Company",
+    description: "Create a new company record in the HRIS system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6180,7 +6180,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-delete",
-    description: "Delete Company",
+    description: "Delete a company by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6204,7 +6204,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-get",
-    description: "Get Company",
+    description: "Retrieve detailed information about a specific company",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6228,7 +6228,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-list",
-    description: "List Companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all companies in the HRIS system (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6252,7 +6252,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-update",
-    description: "Update Company",
+    description: "Update an existing company's details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6276,7 +6276,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-create",
-    description: "Create Department",
+    description: "Create a new department in the HRIS system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6300,7 +6300,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-delete",
-    description: "Delete Department",
+    description: "Delete a department by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6324,7 +6324,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-get",
-    description: "Get Department",
+    description: "Retrieve a specific department by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6348,7 +6348,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-list",
-    description: "List Departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all departments in the HRIS system (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6372,7 +6372,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-update",
-    description: "Update Department",
+    description: "Update an existing department's details",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6396,7 +6396,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employee-payrolls-get",
-    description: "Get Employee Payroll",
+    description: "Retrieve a specific payroll record for an employee",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6420,7 +6420,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employee-payrolls-list",
-    description: "List Employee Payrolls",
+    description: "Retrieve all payroll records for a specific employee",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6444,7 +6444,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employee-schedules-list",
-    description: "List Employee Schedules",
+    description: "Retrieve all work schedules for a specific employee",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6468,7 +6468,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-create",
-    description: "Create Employee",
+    description: "Add a new employee record to the HR system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6492,7 +6492,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-delete",
-    description: "Delete Employee",
+    description: "Delete an employee by their ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6516,7 +6516,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-get",
-    description: "Get Employee",
+    description: "Retrieve detailed information about a specific employee",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6540,7 +6540,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-list",
-    description: "List Employees (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of employees from the HRIS system (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6564,7 +6564,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-update",
-    description: "Update Employee",
+    description: "Update an existing employee's details in the HRIS system",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6588,7 +6588,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-payrolls-get",
-    description: "Get Payroll",
+    description: "Retrieve detailed information about a specific payroll",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6612,7 +6612,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-payrolls-list",
-    description: "List Payroll",
+    description: "Retrieve a list of all payroll records",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6636,7 +6636,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-create",
-    description: "Create Time Off Request",
+    description: "Create a new time off request for an employee",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6660,7 +6660,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-delete",
-    description: "Delete Time Off Request",
+    description: "Delete a specific time off request for an employee",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6684,7 +6684,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-get",
-    description: "Get Time Off Request",
+    description: "Retrieve a specific time off request for an employee",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6708,7 +6708,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-list",
-    description: "List Time Off Requests (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all time off requests (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6732,7 +6732,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-update",
-    description: "Update Time Off Request",
+    description: "Update an existing employee time off request",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6756,7 +6756,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tags-list",
-    description: "List Tags (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all tags for a specific issue tracking collection (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6780,7 +6780,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-create",
-    description: "Create Comment",
+    description: "Add a comment to a specific ticket in an issue tracking collection",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6804,7 +6804,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-delete",
-    description: "Delete Comment",
+    description: "Delete a specific comment from a ticket in an issue tracking collection",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6828,7 +6828,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-get",
-    description: "Get Comment (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a specific comment from a ticket in an issue tracking collection (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6852,7 +6852,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-list",
-    description: "List Comments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all comments for a specific ticket in a collection (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6876,7 +6876,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-update",
-    description: "Update Comment",
+    description: "Update a comment on a ticket within a collection",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6900,7 +6900,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-create",
-    description: "Create Ticket",
+    description: "Create a new ticket in a specified issue tracking collection",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6924,7 +6924,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-delete",
-    description: "Delete Ticket",
+    description: "Delete a specific ticket from an issue tracking collection",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6948,7 +6948,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-get",
-    description: "Get Ticket",
+    description: "Retrieve a specific ticket from a collection",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6972,7 +6972,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-list",
-    description: "List Tickets (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all tickets for a specific collection (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6996,7 +6996,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-update",
-    description: "Update Ticket",
+    description: "Update a ticket's details within a collection",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7020,7 +7020,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-users-get",
-    description: "Get user",
+    description: "Retrieve a specific user from an issue tracking collection",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7044,7 +7044,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-users-list",
-    description: "List Users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all users associated with a specific issue tracking collection (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7068,7 +7068,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collections-get",
-    description: "Get Collection",
+    description: "Retrieve a specific issue tracking collection by its ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7092,7 +7092,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collections-list",
-    description: "List Collections (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all issue tracking collections (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7116,7 +7116,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-delete",
-    description: "DELETE",
+    description: "Delete a resource by proxying a downstream DELETE request with injected credentials",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -7140,7 +7140,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-get",
-    description: "GET",
+    description: "Proxy a downstream GET request with injected credentials for secure access",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7164,7 +7164,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-options",
-    description: "OPTIONS",
+    description: "Forward OPTIONS requests to a downstream service with injected credentials",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7188,7 +7188,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-patch",
-    description: "PATCH",
+    description: "Proxy a PATCH request to a downstream service with injected credentials",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7212,7 +7212,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-post",
-    description: "POST",
+    description: "Proxy a downstream POST request with injected credentials for secure forwarding",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7236,7 +7236,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-put",
-    description: "PUT",
+    description: "Proxy a downstream PUT request with injected credentials for secure forwarding",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7260,7 +7260,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-consent-update",
-    description: "Update consent state",
+    description: "Update the consent state of a vault connection",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7316,7 +7316,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-consents-list",
-    description: "Get consent records",
+    description: "Retrieve all consent records for a specific connection",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7340,7 +7340,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-custom-mappings-list",
-    description: "List connection custom mappings",
+    description: "Retrieve all custom mappings for a specific connection",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7364,7 +7364,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-settings-list",
-    description: "Get resource settings",
+    description: "Retrieve custom and default connection settings for a specific resource",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7388,7 +7388,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-settings-update",
-    description: "Update settings",
+    description: "Update default settings for a connection's resource",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7764,7 +7764,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-delete",
-    description: "Deletes a connection",
+    description: "Delete a connection from the vault",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -7788,7 +7788,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-get",
-    description: "Get connection",
+    description: "Retrieve a specific connection by unified API and service ID",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7812,7 +7812,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-imports",
-    description: "Import connection",
+    description: "Import an authorized connection into the vault",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7836,7 +7836,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-list",
-    description: "Get all connections",
+    description: "Retrieve all configured integration connections",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7860,7 +7860,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-token",
-    description: "Authorize Access Token",
+    description: "Exchange stored credentials for an access token and save it in Vault",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7884,7 +7884,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-update",
-    description: "Update connection",
+    description: "Update an existing connection's details and configuration",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8260,7 +8260,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumer-request-counts-list",
-    description: "Consumer request counts",
+    description: "Retrieve request counts for a consumer within a datetime range",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8284,7 +8284,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-create",
-    description: "Create consumer",
+    description: "Create a new consumer in the vault",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8308,7 +8308,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-delete",
-    description: "Delete consumer",
+    description: "Delete a consumer and all associated connections",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -8332,7 +8332,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-get",
-    description: "Get consumer",
+    description: "Retrieve detailed information about a specific consumer",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8356,7 +8356,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-list",
-    description: "Get all consumers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all application consumers with their request counts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8380,7 +8380,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-update",
-    description: "Update consumer",
+    description: "Update a consumer's metadata including name and email",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8404,7 +8404,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-create-callback-state",
-    description: "Create Callback State",
+    description: "Create a callback state for issuing requests to a callback endpoint",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8428,7 +8428,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-custom-fields-list",
-    description: "Get resource custom fields",
+    description: "Retrieve custom fields for a connection resource",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8452,7 +8452,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-custom-mappings-list",
-    description: "List custom mappings",
+    description: "Retrieve all custom mappings for a specified unified API and service",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8476,7 +8476,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-logs-list",
-    description: "Get all consumer request logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve all consumer request logs from the vault (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8500,7 +8500,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-sessions-create",
-    description: "Create Session",
+    description: "Create a temporary Hosted Vault session for managing integrations and settings",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8524,7 +8524,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-validate-connection-state",
-    description: "Validate Connection State",
+    description: "Validate the current state of a connection and refresh tokens if needed",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8548,7 +8548,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-event-logs-list",
-    description: "List event logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all webhook event logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8572,7 +8572,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-create",
-    description: "Create webhook subscription",
+    description: "Create a webhook subscription to receive specified events",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8596,7 +8596,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-delete",
-    description: "Delete webhook subscription",
+    description: "Delete a webhook subscription by its ID",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -8620,7 +8620,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-get",
-    description: "Get webhook subscription",
+    description: "Retrieve details of a specific webhook subscription",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8644,7 +8644,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-list",
-    description: "List webhook subscriptions (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Retrieve a list of all webhook subscriptions (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8668,7 +8668,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-update",
-    description: "Update webhook subscription",
+    description: "Update a webhook subscription and validate its delivery URL if changed",
     scopes: ["write"],
     annotations: {
       title: "",

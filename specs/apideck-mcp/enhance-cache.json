@@ -1,0 +1,1346 @@
+{
+  "c3d46ad8d3e0607c": {
+    "summary": "Retrieve a list of all bills in the accounting system",
+    "description": "Fetches a comprehensive list of bills recorded in the accounting system. Use this operation when you need to view or process multiple bills at once, unlike operations that handle single bill details. It reads the stored bill data without modifying any records. This operation may return large datasets, so consider filtering or pagination if supported."
+  },
+  "a89f8d1b9157941b": {
+    "summary": "Delete a tax rate by its ID",
+    "description": "Deletes the specified tax rate from the accounting system. Use this operation when you need to remove an obsolete or incorrect tax rate. This action permanently removes the tax rate and cannot be undone. Ensure the tax rate is not in use before deletion to avoid data inconsistencies."
+  },
+  "1cc7f1984fc049f5": {
+    "summary": "Update an existing bill with new details",
+    "description": "This operation modifies the details of an existing bill in the accounting system. Use this endpoint when you need to change information such as supplier, amounts, dates, or related company data for a specific bill. It updates the stored bill record and may affect financial reports or downstream processes that rely on bill data. Ensure the bill ID is correct and that changes comply with your accounting policies to avoid inconsistencies."
+  },
+  "a9135d6194086c57": {
+    "summary": "Retrieve a specific bill by its ID",
+    "description": "Fetches detailed information about a single bill using its unique identifier. Use this operation when you need to view or verify the details of an existing bill rather than listing multiple bills or creating new ones. It reads the bill data without modifying it. Ensure the provided ID corresponds to an existing bill to avoid errors."
+  },
+  "f4bc41d87ae089ea": {
+    "summary": "Retrieve a list of all tax rates available in the accounting system",
+    "description": "This operation fetches all tax rates configured in the accounting system. Use this endpoint when you need to obtain tax rate information for reporting or calculation purposes. Note that some connectors, such as QuickBooks, may not provide the actual tax percentage and instead return only the tax code or reference. This endpoint reads tax rate data without modifying any records."
+  },
+  "7534c596cfd16dd0": {
+    "summary": "Delete a bill by its ID",
+    "description": "Deletes the specified bill from the accounting system. Use this operation when you need to remove a bill permanently, such as when it was created in error or is no longer needed. This action cannot be undone and will remove all associated data for the bill. Ensure the bill ID is correct to avoid accidental data loss."
+  },
+  "67b4b84338e2abbe": {
+    "summary": "Update an existing tax rate with new details",
+    "description": "Modify the properties of an existing tax rate to reflect changes such as name, code, rates, or accounts. Use this operation when you need to correct or adjust tax rate information rather than creating a new one. It updates the stored tax rate data and affects calculations that rely on this tax rate. Ensure the tax rate ID exists and that updates comply with applicable tax regulations."
+  },
+  "15f3303aa057f5bf": {
+    "summary": "Retrieve a specific tax rate by its ID",
+    "description": "This operation fetches details of a tax rate using its unique identifier. Use this endpoint when you need to obtain tax rate information for accounting purposes. Note that some connectors, such as Quickbooks, may only return the tax code or reference instead of the actual rate or percentage. Future updates will enhance this by performing additional background calls to provide the complete tax rate details."
+  },
+  "7311e33ff6ae3b5d": {
+    "summary": "Create a new bill in the accounting system",
+    "description": "This operation creates a new bill record associated with a company, supplier, and relevant accounting details. Use this endpoint when you need to add a bill to track expenses or liabilities within your accounting workflow. It writes data such as bill number, supplier information, currency, tax details, and related organizational units. Ensure that required fields like company ID and supplier are correctly provided to avoid errors."
+  },
+  "40605394e78c8686": {
+    "summary": "Retrieve a specific ledger account by its ID",
+    "description": "Fetches detailed information about a single ledger account using its unique identifier. Use this operation when you need to view or verify the details of an existing ledger account. It reads data without modifying any records. Ensure the provided ID corresponds to an existing ledger account to avoid errors."
+  },
+  "05f20ff4b88ce720": {
+    "summary": "Retrieve a list of all ledger accounts",
+    "description": "Fetches all ledger accounts available in the accounting system. Use this operation when you need a comprehensive view of all ledger accounts rather than a specific one. It reads the current ledger account data without modifying any records. This operation does not support filtering or pagination, so it returns the full set of ledger accounts."
+  },
+  "efa935b6ec6773d5": {
+    "summary": "Retrieve a list of all invoices",
+    "description": "Fetches a complete list of invoices from the accounting system. Use this operation when you need to view or process multiple invoices at once, unlike operations that handle single invoice details. This call reads invoice data without modifying it and may return large datasets depending on the number of invoices stored."
+  },
+  "516e4b0559cc4611": {
+    "summary": "Delete a ledger account by its identifier",
+    "description": "This operation removes a ledger account from the accounting system. Use this when you need to permanently eliminate an account that is no longer needed or was created in error. Deleting a ledger account may affect financial reports and transaction histories that reference it. Ensure the account is not linked to active transactions before deletion to avoid data inconsistencies."
+  },
+  "efc472296f641087": {
+    "summary": "Create a new tax rate in the accounting system",
+    "description": "This operation creates a new tax rate record with specified details such as name, code, rates, and associated accounts. Use this endpoint when you need to add a tax rate that your accounting processes will apply to transactions. It writes the tax rate data into the system, making it available for future tax calculations and reporting. Ensure that the tax rate details are accurate and complete, as incorrect rates can affect financial records and compliance."
+  },
+  "65740ce5014c17db": {
+    "summary": "Update an existing invoice with new details",
+    "description": "Modify the details of an existing invoice to reflect changes such as customer information, dates, terms, or invoice type. Use this operation when you need to correct or update invoice data after creation, rather than creating a new invoice. It updates the stored invoice record and may affect downstream accounting processes that rely on invoice data. Ensure the invoice ID is correct to avoid unintended modifications."
+  },
+  "67572befcf78f98f": {
+    "summary": "Update an existing ledger account with new details",
+    "description": "This operation modifies the properties of an existing ledger account in the accounting system. Use this endpoint when you need to change account information such as classification, type, name, or balances. It updates the stored data for the specified ledger account and does not create a new account. Ensure the account ID exists before attempting to update, as this operation requires a valid identifier."
+  },
+  "c0f7ad7d3fda7f22": {
+    "summary": "Retrieve a specific invoice by its ID",
+    "description": "This operation fetches the details of a single invoice identified by its unique ID. Use this endpoint when you need to view or process information about a particular invoice rather than a list of invoices. It reads invoice data without modifying it, ensuring you get the current state of the invoice. The invoice ID must be valid and correspond to an existing invoice in the system."
+  },
+  "ff0cedecefe6cd09": {
+    "summary": "Delete an invoice by its ID",
+    "description": "This operation removes an existing invoice from the accounting system. Use this endpoint when you need to permanently delete an invoice record, such as when it was created in error or is no longer needed. Deleting an invoice will remove all associated data and cannot be undone, so ensure the invoice is not linked to active transactions before proceeding. This operation does not return a response body."
+  },
+  "d5b234e1e121df1a": {
+    "summary": "Retrieve a list of all credit notes",
+    "description": "Fetches all credit notes recorded in the accounting system. Use this operation when you need to review or process multiple credit notes at once, rather than accessing individual credit notes. This operation reads stored credit note data without modifying it. It may return a large dataset depending on the number of credit notes present."
+  },
+  "1d1ee1de58c7b438": {
+    "summary": "Retrieve a specific credit note by its ID",
+    "description": "Fetches the details of a single credit note using its unique identifier. Use this operation when you need to view or verify information about a particular credit note rather than listing multiple notes. It reads the credit note data without modifying it. Ensure the provided ID corresponds to an existing credit note to avoid errors."
+  },
+  "e1143c3cf7dca819": {
+    "summary": "Create a new ledger account in the accounting system",
+    "description": "This operation creates a new ledger account with specified attributes such as classification, type, and balances. Use this endpoint when you need to add a new account to track financial transactions, rather than updating existing accounts or retrieving account data. It writes the account details to the ledger and initializes balances if provided. Ensure that classification and type values conform to allowed enums to avoid errors."
+  },
+  "50d4c6d23b6f56b6": {
+    "summary": "Retrieve a list of all invoice items",
+    "description": "Fetches all invoice items available in the accounting system. Use this operation when you need to view or process multiple invoice items at once, rather than accessing individual items. It reads the stored invoice item data without modifying it. This operation does not support filtering or pagination by default, so expect the full set of invoice items in the response."
+  },
+  "ffecc6ac9c02b035": {
+    "summary": "Delete a credit note by its ID",
+    "description": "Deletes a specified credit note from the accounting records. Use this operation when you need to remove an existing credit note that is no longer valid or was created in error. This action permanently removes the credit note and cannot be undone, so ensure the correct ID is provided. It does not affect other related accounting entries automatically."
+  },
+  "e78ad2934af687b9": {
+    "summary": "Retrieve a specific invoice item by its ID",
+    "description": "This operation fetches the details of a single invoice item using its unique identifier. Use this when you need to view or verify information about a particular invoice item rather than a list of items. It reads data related to the invoice item without modifying any records. Ensure the provided ID corresponds to an existing invoice item to avoid errors."
+  },
+  "c32e3d106a5a991a": {
+    "summary": "Create a new invoice in the accounting system",
+    "description": "This operation creates a new invoice record with specified details such as type, customer, dates, and related company information. Use this endpoint when you need to add an invoice rather than update or retrieve existing ones. It writes invoice data to the accounting database and may trigger downstream processes related to billing and reporting. Ensure required fields are provided and valid to avoid creation errors."
+  },
+  "c284e541212c70bf": {
+    "summary": "Update an existing invoice item by modifying its details",
+    "description": "This operation updates the properties of an existing invoice item, such as its name, description, type, and taxability. Use this endpoint when you need to change specific attributes of an invoice item without creating a new one. It modifies stored data related to the invoice item and may affect how the item appears on invoices and accounting reports. Ensure the item ID exists and that updates comply with inventory and sales tracking rules."
+  },
+  "1c7e421964c1b031": {
+    "summary": "Update an existing credit note with new details",
+    "description": "This operation modifies the details of an existing credit note in the accounting system. Use this endpoint when you need to correct or change information on a credit note, such as customer data, amounts, or tax details. It updates the stored credit note record and affects financial reporting and balances accordingly. Ensure the credit note ID exists and that updates comply with your accounting policies to avoid inconsistencies."
+  },
+  "30c3ffd004d3c1bb": {
+    "summary": "Retrieve a list of all suppliers",
+    "description": "Fetches a complete list of suppliers from the accounting system. Use this operation when you need to view or process all supplier records rather than a specific supplier. It reads supplier data without modifying any records. This operation does not support filtering or pagination, so it returns all suppliers available."
+  },
+  "5a0c79a353707052": {
+    "summary": "Retrieve detailed information about a specific supplier",
+    "description": "This operation fetches detailed information for a single supplier identified by its unique ID. Use this endpoint when you need to view or verify supplier details rather than listing multiple suppliers or creating new ones. It reads supplier data from the accounting system and returns it without modifying any records. Ensure the supplier ID exists to avoid errors."
+  },
+  "752305c39f75d43e": {
+    "summary": "Delete an invoice item by its ID",
+    "description": "This operation removes a specific invoice item from the accounting system using its unique identifier. Use this endpoint when you need to permanently delete an invoice item rather than just updating or archiving it. Deleting an invoice item will remove all associated data for that item and cannot be undone. Ensure the item is not linked to finalized invoices to avoid inconsistencies."
+  },
+  "89765b9b76dd5a86": {
+    "summary": "Retrieve a list of all customers",
+    "description": "Fetches a complete list of customers from the accounting system. Use this operation when you need to view or process all customer records at once, unlike operations that handle individual customers. This call reads customer data without modifying it and may return large datasets depending on the number of customers stored."
+  },
+  "ae4910d168784f8a": {
+    "summary": "Create a new credit note for a customer in the accounting system",
+    "description": "This operation creates a credit note to record a reduction in the amount owed by a customer. Use this endpoint when you need to issue a credit for returned goods, billing adjustments, or other reasons that decrease the customer's balance. It writes financial data including amounts, taxes, currency details, and associations with company, location, and department. Ensure that all required financial and customer information is accurate, as this affects accounting records and reporting."
+  },
+  "c88d7ee5f46e3071": {
+    "summary": "Retrieve details of a specific customer by ID",
+    "description": "This operation fetches detailed information about a single customer using their unique identifier. Use this endpoint when you need to view or verify customer data rather than listing multiple customers. It reads customer records without modifying any data. Ensure the customer ID provided exists to avoid errors."
+  },
+  "f9771910b3fed1fd": {
+    "summary": "Create a new invoice item in the accounting system",
+    "description": "This operation creates a new invoice item with specified details such as name, description, type, and tax status. Use this endpoint when you need to add items that can be sold or purchased, including inventory and service types, to your accounting records. It writes the new item data to the system, enabling it to be referenced in invoices and other transactions. Ensure that the item type and related flags are set correctly to reflect its usage and tracking requirements."
+  },
+  "1d0d237511723ff6": {
+    "summary": "Delete a supplier by its unique identifier",
+    "description": "This operation removes a supplier from the accounting system permanently. Use this when you need to eliminate a supplier record that is no longer needed or relevant. Deleting a supplier may affect related transactions or reports that reference this supplier. Ensure the supplier is not linked to active financial records before deletion to avoid data inconsistencies."
+  },
+  "b4e3eabf2ca7d240": {
+    "summary": "Update an existing customer's details in the accounting system",
+    "description": "This operation modifies the information of a specified customer within the accounting system. Use this endpoint when you need to change customer attributes such as name, company, or category, rather than creating a new customer or retrieving customer data. It updates the stored customer record with the provided fields, overwriting existing values where specified. Ensure the customer ID is correct to avoid unintended data changes, as this operation does not create new records or return the updated data."
+  },
+  "c41a79a45bed3ad6": {
+    "summary": "Update an existing supplier's details in the accounting system",
+    "description": "This operation modifies the information of an existing supplier, allowing you to change fields such as company name, contact details, and category. Use this endpoint when you need to correct or update supplier data rather than creating a new supplier or deleting one. It writes changes directly to the supplier record identified by the given ID. Ensure that the supplier ID exists and that updates comply with any validation rules enforced by the system."
+  },
+  "b7984f014a404791": {
+    "summary": "Delete a customer by ID",
+    "description": "Deletes a customer record from the accounting system using the specified ID. Use this operation when you need to remove a customer permanently, unlike operations that update or retrieve customer data. This action irreversibly removes the customer's information and may affect related accounting records. Ensure the customer is not linked to active transactions before deletion to avoid data inconsistencies."
+  },
+  "4c49002dd4bc28aa": {
+    "summary": "Retrieve a list of all refunds",
+    "description": "Fetches a comprehensive list of all refund records in the accounting system. Use this operation when you need to review or process multiple refunds at once, rather than accessing individual refund details. It reads refund data but does not modify any records. This operation returns all refunds without filters, so use other endpoints if you need specific subsets or detailed refund information."
+  },
+  "ea61af656dd7e3ce": {
+    "summary": "Retrieve a refund by its unique identifier",
+    "description": "This operation fetches the details of a specific refund using its ID. Use this endpoint when you need to view information about a particular refund rather than a list of refunds. It reads refund data from the accounting system and returns the current state of that refund. Ensure the refund ID exists to avoid errors."
+  },
+  "90e63f53409ccd7c": {
+    "summary": "Retrieve a list of all payments",
+    "description": "Fetches a comprehensive list of payments recorded in the accounting system. Use this operation when you need to view or analyze all payment transactions rather than individual payment details. It reads payment records without modifying any data. This endpoint does not support filtering or pagination by default, so it returns all available payments."
+  },
+  "4ab9dda75e75858e": {
+    "summary": "Add a new supplier to the accounting system",
+    "description": "This operation creates a new supplier record within the accounting system. Use this endpoint when you need to register a new supplier with details such as company name, contact names, and category. It writes supplier data to the system, enabling tracking and management of supplier-related transactions. Ensure that required fields are provided to avoid incomplete records."
+  },
+  "54e63ca57311f2cf": {
+    "summary": "Retrieve a payment by its unique identifier",
+    "description": "Fetch detailed information about a specific payment using its unique ID. Use this operation when you need to view or verify the details of an individual payment rather than a list of payments. It reads payment data without modifying any records. Ensure the payment ID exists to avoid errors."
+  },
+  "b2a5553d23611352": {
+    "summary": "Update an existing payment with new details",
+    "description": "This operation modifies the details of an existing payment record. Use it when you need to correct or change payment information such as amount, currency, payment method, or associated accounts. It updates the stored payment data without creating a new payment entry. Ensure the payment ID exists and that changes comply with accounting rules to maintain data integrity."
+  },
+  "db48d5c814dce636": {
+    "summary": "Create a new customer record in the accounting system",
+    "description": "This operation creates a new customer record with detailed information such as company name, contact names, and customer category. Use this endpoint when you need to add a new customer to your accounting database rather than updating existing records. It writes customer data to the system and does not return a response body. Ensure that required fields are provided to successfully create the customer."
+  },
+  "9381d6c06fcb5c04": {
+    "summary": "Delete a refund by its ID",
+    "description": "This operation deletes a refund record identified by its ID. Use this endpoint when you need to remove a refund from the accounting system, such as correcting errors or reversing transactions. Deleting a refund permanently removes it and may affect related financial records. Ensure the refund ID exists and that deletion complies with your accounting policies before proceeding."
+  },
+  "49e8ed314cf8c8a7": {
+    "summary": "Update an existing refund record with new details",
+    "description": "This operation modifies the details of an existing refund in the accounting system. Use this endpoint when you need to correct or change information about a refund, such as amounts, dates, or status. It updates the stored refund data, affecting financial records related to the refund. Ensure the refund ID exists and that changes comply with accounting rules to maintain data integrity."
+  },
+  "d25ad5ecbee7c095": {
+    "summary": "Create a new journal entry in the accounting system",
+    "description": "This operation creates a new journal entry with specified details such as line items, currency, status, and posting date. Use this endpoint when you need to record financial transactions or adjustments in the accounting records. It writes the journal entry data to the system, affecting financial reporting and audit trails. Ensure that the entry complies with accounting rules and that required fields like company ID and currency are correctly provided."
+  },
+  "96f88e8f896b6648": {
+    "summary": "Retrieve detailed company information",
+    "description": "Fetch detailed information about the company from the accounting system. Use this operation when you need to access current company details for reporting or verification purposes. It reads the stored company data without modifying it. This operation does not require any input parameters and returns the latest company information available."
+  },
+  "74f1d7c00161d65d": {
+    "summary": "Update an existing journal entry with new details",
+    "description": "This operation modifies the details of an existing journal entry in the accounting system. Use this endpoint when you need to change attributes such as status, line items, currency, or memo of a journal entry. It updates the stored data for the specified entry and may affect financial reporting depending on the status changes. Ensure the entry ID is correct and note that certain status transitions may have accounting implications or restrictions."
+  },
+  "c038814726d8e927": {
+    "summary": "Retrieve a list of all purchase orders",
+    "description": "Fetches all purchase orders available in the accounting system. Use this operation when you need to view or process multiple purchase orders at once, unlike operations that handle individual purchase orders. This operation reads purchase order data without modifying it and may return large datasets depending on the number of orders stored."
+  },
+  "8110d3dcc9657d64": {
+    "summary": "Retrieve the current balance sheet for the accounting period",
+    "description": "Fetches the balance sheet data representing the financial position of the entity at a specific point in time. Use this operation when you need a snapshot of assets, liabilities, and equity for reporting or analysis purposes. It reads the latest accounting records to compile the balance sheet and does not modify any data. This operation is distinct from other financial reports as it focuses solely on the balance sheet rather than income statements or cash flow."
+  },
+  "793947e4a47fe7dc": {
+    "summary": "Create a new refund record in the accounting system",
+    "description": "This operation creates a refund entry associated with a customer and company, recording amounts, taxes, currency details, and status. Use this endpoint when you need to document a refund transaction distinct from other financial operations like invoices or payments. It writes refund data including totals, tax information, and currency rates, ensuring accurate financial tracking. Ensure that required fields such as company ID and refund date are provided to avoid incomplete records."
+  },
+  "51d23c2a428c7271": {
+    "summary": "Create a new payment record in the accounting system",
+    "description": "This operation creates a new payment entry to record funds received or applied within the accounting system. Use this endpoint when you need to register a payment against invoices or accounts receivable, as opposed to other endpoints that manage invoices or refunds. It writes payment details including amounts, currency, payment method, and references to linked accounts. Ensure that the provided payment method and account information are valid to avoid inconsistencies in financial records."
+  },
+  "35c6e8f1f6a695a5": {
+    "summary": "Delete a journal entry by its ID",
+    "description": "This operation deletes a specific journal entry from the accounting records. Use this when you need to remove an incorrect or obsolete journal entry. Deleting a journal entry permanently removes it and may affect financial reports and balances. Ensure the entry is no longer needed before deletion, as this action cannot be undone."
+  },
+  "6466b22a861f3c4a": {
+    "summary": "Retrieve the Profit and Loss statement for the specified period",
+    "description": "This operation fetches the Profit and Loss statement, summarizing revenues, expenses, and net income for a given timeframe. Use this endpoint when you need a financial overview to assess business performance, rather than detailed transaction data. It reads accounting records to compile the statement and does not modify any data. Ensure the requested period is valid and supported by the accounting system to receive accurate results."
+  },
+  "61d78c5cfba67c2a": {
+    "summary": "Create a new purchase order in the accounting system",
+    "description": "This operation creates a new purchase order record within the accounting system. Use this endpoint when you need to initiate a purchase order for tracking supplier orders and related financial commitments. It writes purchase order details such as supplier, status, dates, and associated company information. Ensure that required fields like supplier and company IDs are correctly provided to avoid incomplete records."
+  },
+  "93b3ea0f9b6cab33": {
+    "summary": "Update an existing subsidiary's details in the accounting system",
+    "description": "This operation modifies the attributes of a specified subsidiary, such as its name, status, address, and related identifiers. Use this endpoint when you need to change subsidiary information rather than creating a new one or retrieving existing data. It updates the subsidiary record in place and requires providing the current row version to prevent conflicting changes. Ensure that the subsidiary ID is correct and that you supply valid data to avoid errors."
+  },
+  "74da442cf3c7cd98": {
+    "summary": "Create a new subsidiary in the accounting system",
+    "description": "This operation creates a new subsidiary entity within the accounting system. Use this endpoint when you need to add a subsidiary under a parent company or as a standalone entity, unlike updating or deleting existing subsidiaries. It writes subsidiary details such as name, status, address, currencies, and custom mappings to the database. Ensure that required fields are provided and that the subsidiary ID is unique to avoid conflicts."
+  },
+  "db930334620a095d": {
+    "summary": "Retrieve a list of all accounting locations",
+    "description": "This operation fetches all accounting locations available in the system. Use this endpoint when you need to view or manage the full set of locations related to accounting processes. It reads location data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "3b7fb6b3e9831967": {
+    "summary": "Delete a payment by its ID",
+    "description": "This operation deletes a payment record identified by its ID. Use this endpoint when you need to remove a payment from the accounting system, such as correcting errors or reversing transactions. Deleting a payment permanently removes it and may affect related financial records or reports. Ensure the payment ID exists and that deletion complies with your accounting policies before proceeding."
+  },
+  "1e2132f1a732fdd3": {
+    "summary": "Delete a subsidiary by its ID",
+    "description": "Deletes a subsidiary record from the accounting system using its unique identifier. Use this operation when you need to remove a subsidiary that is no longer relevant or active. This action permanently removes the subsidiary data and cannot be undone. Ensure that the subsidiary is not linked to active transactions before deletion to avoid data inconsistencies."
+  },
+  "312cda7e0d41d347": {
+    "summary": "Update an existing purchase order with new details",
+    "description": "This operation modifies an existing purchase order by applying the provided updates to its fields. Use this endpoint when you need to change information such as supplier details, status, or dates on a purchase order that already exists. It writes changes directly to the purchase order record, affecting how it is tracked and processed in the accounting system. Ensure the purchase order ID is correct and that updates comply with allowed status transitions and data constraints."
+  },
+  "856062df94e17c9b": {
+    "summary": "Retrieve a specific journal entry by its ID",
+    "description": "Fetches the details of a single journal entry identified by its unique ID. Use this operation when you need to view or verify the contents of an individual journal entry rather than a list of entries. It reads the stored journal entry data without modifying it. Ensure the provided ID corresponds to an existing journal entry to avoid errors."
+  },
+  "7e4895f9c0b21162": {
+    "summary": "Retrieve all companies accessible through the current connection",
+    "description": "This operation fetches a list of all companies available via the current connection. Use this when you need to identify or select from multiple companies supported by connectors with multi-company access. The response provides company IDs that you must include in the x-apideck-company-id header to scope future requests to a specific company. Only connectors that support multi-company access will return multiple companies; otherwise, the list may be limited or empty."
+  },
+  "04768a17546c5654": {
+    "summary": "Delete a purchase order by its ID",
+    "description": "This operation deletes a specified purchase order from the accounting system. Use this endpoint when you need to remove a purchase order that is no longer needed or was created in error. Deleting a purchase order permanently removes its data and cannot be undone. Ensure the purchase order is not linked to active transactions before deletion to avoid inconsistencies."
+  },
+  "451736f2eec10e92": {
+    "summary": "Create a new department in the accounting system",
+    "description": "This operation creates a new department within the accounting module. Use it when you need to add organizational units for financial tracking and reporting. It writes department details such as name, status, hierarchy, and custom mappings. Ensure that identifiers and versioning fields are correctly managed to avoid conflicts or data integrity issues."
+  },
+  "509d2368292f58f7": {
+    "summary": "Create a new location in the accounting system",
+    "description": "This operation creates a new location record within the accounting system. Use this endpoint when you need to add a new physical or organizational location associated with your company, such as a branch or subsidiary. It writes data including identifiers, company and display names, status, addresses, and custom mappings. Ensure that required fields are provided and note that creating a location may affect downstream integrations or reporting that rely on location data."
+  },
+  "6c59e83d5e654781": {
+    "summary": "Retrieve a list of all journal entries",
+    "description": "Fetches all journal entries recorded in the accounting system. Use this operation when you need to review or analyze the complete set of journal entries rather than individual entries. It reads existing journal entry data without modifying any records. This operation may return a large dataset depending on the volume of entries stored."
+  },
+  "4989b687ab5da6a6": {
+    "summary": "Update an existing department's details in the accounting system",
+    "description": "This operation modifies the attributes of an existing department, such as its name, status, code, and hierarchical relationships. Use this endpoint when you need to change department information without creating a new entry, unlike creation endpoints. It updates stored data and respects version control to prevent conflicting changes. Ensure the provided identifiers and version information are accurate to avoid update failures."
+  },
+  "75113d002b622fef": {
+    "summary": "Retrieve all attachments for a specified reference type and ID",
+    "description": "Fetches all attachments linked to a given reference type and reference ID within the accounting system. Use this operation when you need to view or manage all files associated with a particular accounting record. It reads attachment metadata and content but does not modify any data. Ensure the reference type and ID correspond to existing records to receive accurate results."
+  },
+  "969afe392f3b17f7": {
+    "summary": "Delete a department by its ID",
+    "description": "Deletes the specified department from the accounting system. Use this operation when you need to remove a department that is no longer active or relevant. This action permanently removes the department data and cannot be undone. Ensure that the department is not linked to active transactions before deletion to avoid data inconsistencies."
+  },
+  "4eb15b6ac4dde0fe": {
+    "summary": "Retrieve details of a specific subsidiary by its ID",
+    "description": "This operation fetches detailed information about a single subsidiary within the accounting system. Use this endpoint when you need to view or verify data for a particular subsidiary rather than listing all subsidiaries. It reads subsidiary data without modifying any records. Ensure the subsidiary ID provided is valid to successfully retrieve the corresponding information."
+  },
+  "81d7aaa01ba964ed": {
+    "summary": "Retrieve a purchase order by its ID",
+    "description": "Fetch the details of a specific purchase order using its unique identifier. Use this operation when you need to view or verify the information of an existing purchase order. This action reads the purchase order data without modifying it. Ensure the ID provided corresponds to a valid purchase order to avoid errors."
+  },
+  "77ba395887dbeb07": {
+    "summary": "Update an existing accounting location with new details",
+    "description": "This operation modifies the attributes of an existing accounting location, such as its name, status, addresses, and hierarchical relationships. Use this endpoint when you need to change location information rather than creating a new location or retrieving existing data. It updates stored data and requires providing the current row version to handle concurrency. Ensure that the location ID is specified and that updates comply with any hierarchical or status constraints."
+  },
+  "ffd1348c7d8f1c25": {
+    "summary": "Delete a location by its ID",
+    "description": "This operation removes a location from the accounting system permanently. Use this when you need to eliminate a location that is no longer active or relevant. Deleting a location may affect any records or transactions associated with it, so ensure it is safe to remove. The operation does not return a response body."
+  },
+  "381c6476b944ee0c": {
+    "summary": "Upload an attachment to a specified accounting reference",
+    "description": "Uploads a file as an attachment linked to a specific accounting entity identified by reference type and ID. Use this operation when you need to add supporting documents or files to accounting records. It writes the attachment data to the system associated with the given reference. Ensure the reference type and ID are valid to avoid errors during upload."
+  },
+  "c04ccbf61a29b685": {
+    "summary": "Retrieve a list of all subsidiaries",
+    "description": "Fetches a complete list of subsidiaries within the accounting system. Use this operation when you need to view or manage all subsidiaries collectively, rather than accessing individual subsidiary details. It reads subsidiary data without modifying any records. This operation does not require any input parameters and returns all subsidiaries available to the user."
+  },
+  "75110b12ca52b38b": {
+    "summary": "Add a new bank account to the accounting system",
+    "description": "This operation creates a new bank account record within the accounting system. Use this endpoint when you need to register a bank account for tracking financial transactions and balances. It writes details such as account type, bank name, currency, and balances to the system. Ensure that the account information is accurate and complete, as it will be used for financial reporting and reconciliation."
+  },
+  "9ddf91c6e2478f42": {
+    "summary": "Retrieve all tracking categories",
+    "description": "Fetches a complete list of tracking categories used in accounting. Use this operation when you need to view or manage all available tracking categories rather than a specific one. It reads the current tracking category data without modifying it. There are no special constraints beyond standard access permissions."
+  },
+  "4eb4fe563abe6ab3": {
+    "summary": "Update details of an existing bank account",
+    "description": "This operation modifies the attributes of a specified bank account, such as its name, account number, type, balances, and linked ledger account. Use this endpoint when you need to correct or change bank account information already stored, rather than creating a new account. It updates the stored data directly without returning a response body. Ensure the account ID is correct to avoid unintended changes, and note that partial updates are supported via PATCH semantics."
+  },
+  "47759a02aa8efeb7": {
+    "summary": "Retrieve details of a specific location by its ID",
+    "description": "This operation fetches detailed information about a single location identified by its unique ID. Use this when you need to view or verify data for a particular location within the accounting system. It reads location data without modifying any records. Ensure the location ID provided exists to avoid errors."
+  },
+  "6c53ef64a97c1c35": {
+    "summary": "Retrieve details of a specific department by its ID",
+    "description": "This operation fetches detailed information about a single department identified by its unique ID. Use this endpoint when you need to view or verify the attributes of a particular department within the accounting system. It reads department data without modifying it and returns the current state as stored. Ensure the provided ID corresponds to an existing department to avoid errors."
+  },
+  "450ce8934b2c5959": {
+    "summary": "Delete a bank account by its ID",
+    "description": "This operation deletes a bank account identified by its ID. Use this endpoint when you need to remove a bank account from the system permanently. Deleting a bank account will remove all associated data and cannot be undone. Ensure the bank account is not linked to active transactions before deletion to avoid data inconsistencies."
+  },
+  "e184c02697b27168": {
+    "summary": "Delete an attachment from a specified accounting reference",
+    "description": "This operation deletes a specific attachment linked to an accounting reference such as an invoice or bill. Use this endpoint when you need to remove an attachment permanently from the system. It directly modifies the stored data by removing the attachment and cannot be undone through this call. Ensure the reference type and IDs are correct to avoid deleting unintended attachments."
+  },
+  "77d8022d7d4ff19d": {
+    "summary": "Download an attachment by reference type, reference ID, and attachment ID",
+    "description": "This operation retrieves the binary content of a specific attachment associated with a given reference type and ID. Use this endpoint when you need to access or save the actual file linked to an accounting record. It reads the stored attachment data without modifying it. Ensure the reference identifiers and attachment ID are valid to successfully download the file."
+  },
+  "2180dd039856029f": {
+    "summary": "Retrieve a list of all accounting departments",
+    "description": "This operation fetches a complete list of accounting departments within the system. Use this endpoint when you need to view or process all departments rather than a specific one. It reads department data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "834540be8755c138": {
+    "summary": "Create a new tracking category in the accounting system",
+    "description": "This operation creates a new tracking category used to classify and organize financial transactions. Use this endpoint when you need to add a new category for tracking purposes, rather than modifying or deleting existing ones. It writes the category details including name, code, status, and optional parent relationships. Ensure that the provided data respects any versioning or status constraints to avoid conflicts or inactive entries."
+  },
+  "e8db28abcd7baf87": {
+    "summary": "Retrieve a list of all expenses",
+    "description": "Fetches a complete list of expenses recorded in the accounting system. Use this operation when you need to review or analyze all expense entries rather than individual or filtered expense records. It reads the stored expense data without modifying it. This operation does not support filtering or pagination, so it returns all expenses available."
+  },
+  "efd44102e580a4fc": {
+    "summary": "Retrieve a specific attachment by reference type, reference ID, and attachment ID",
+    "description": "This operation fetches a single attachment associated with a specified reference type and reference ID. Use this endpoint when you need to access the details or content of a particular attachment linked to an accounting record. It reads the attachment data without modifying it. Ensure the reference type, reference ID, and attachment ID are valid to successfully retrieve the attachment."
+  },
+  "94904ff10037d2ae": {
+    "summary": "Create a new bill payment to record a supplier payment",
+    "description": "This operation creates a new bill payment record to document payments made to suppliers. Use this endpoint when you need to record a payment against one or more bills, specifying details such as payment method, amount, and transaction date. It writes payment data linked to supplier accounts and ledger accounts, affecting your accounting records. Ensure that the payment details correspond to existing bills and suppliers to maintain accurate financial tracking."
+  },
+  "59e0461a83830a40": {
+    "summary": "Delete a bill payment by its ID",
+    "description": "This operation deletes a specific bill payment from the accounting system. Use this when you need to remove an existing bill payment record permanently. Deleting a bill payment affects the associated financial records and cannot be undone. Ensure the bill payment ID is correct before performing this action to avoid unintended data loss."
+  },
+  "5258689add3ac48c": {
+    "summary": "Update an existing bill payment with new details",
+    "description": "This operation modifies the details of an existing bill payment record. Use it when you need to correct or change information such as payment method, amount, currency, or associated supplier after the initial creation. It updates the stored data for the specified bill payment without creating a new record. Ensure the payment ID is valid and that changes comply with accounting rules to maintain data integrity."
+  },
+  "55bfb9d8fb5d6c46": {
+    "summary": "Delete a tracking category by its ID",
+    "description": "This operation removes a tracking category from the accounting system. Use this when you need to permanently delete a tracking category that is no longer needed. Deleting a tracking category may affect reports or transactions that reference it, so ensure it is not in active use before deletion. This operation does not return a response body."
+  },
+  "9024f305964d29aa": {
+    "summary": "Retrieve details of a specific bank account",
+    "description": "This operation fetches detailed information about a single bank account identified by its ID. Use this endpoint when you need to view or verify the data of a particular bank account rather than listing multiple accounts. It reads the bank account data without modifying it. Ensure the provided ID corresponds to an existing bank account to avoid errors."
+  },
+  "5a9ad0a8621e6c36": {
+    "summary": "Retrieve a tracking category by its ID",
+    "description": "Fetch a specific tracking category using its unique identifier. Use this operation when you need detailed information about one tracking category rather than a list of all categories. It reads the tracking category data without modifying it. Ensure the provided ID corresponds to an existing tracking category to avoid errors."
+  },
+  "1d2b0bdefc05fb5e": {
+    "summary": "Retrieve aged debtors report",
+    "description": "Retrieve a report of aged debtors to review outstanding customer balances categorized by age. Use this operation when you need to analyze overdue invoices and manage accounts receivable effectively. It reads current accounting data to generate the report but does not modify any records. This operation provides a snapshot of debtor status without filtering options beyond the default aging categories."
+  },
+  "c2de724ea13cfd59": {
+    "summary": "Retrieve a specific bill payment by its ID",
+    "description": "This operation fetches the details of a single bill payment using its unique identifier. Use this endpoint when you need to view or verify information about a particular bill payment rather than listing multiple payments. It reads data related to the specified bill payment and returns its current state. Ensure the provided ID corresponds to an existing bill payment to avoid errors."
+  },
+  "7a5838523af29715": {
+    "summary": "Retrieve a list of all bank accounts",
+    "description": "Fetches all bank accounts associated with the accounting system. Use this operation when you need an overview of all bank accounts rather than details of a single account. It reads the current state of bank accounts without modifying any data. This operation does not support filtering or pagination."
+  },
+  "8f14f216174c7af3": {
+    "summary": "Add a new bank feed account to the accounting system",
+    "description": "This operation creates a new bank feed account, linking external bank or credit card accounts to your accounting records. Use this endpoint when you need to integrate a new financial account for automatic transaction feeds, as opposed to updating or deleting existing accounts. It writes account details such as account type, currency, and feed status, enabling transaction synchronization. Ensure that required fields like account type and currency are correctly specified to avoid feed errors."
+  },
+  "de6820a0eb165114": {
+    "summary": "Retrieve details of a specific bank feed account",
+    "description": "This operation fetches detailed information about a single bank feed account identified by its ID. Use this endpoint when you need to view or verify the data of a particular bank feed account rather than listing multiple accounts. It reads the current state of the specified bank feed account without modifying any data. Ensure the provided ID corresponds to an existing bank feed account to avoid errors."
+  },
+  "68df5eb6b3af3a59": {
+    "summary": "Update details of an existing bank feed account",
+    "description": "This operation modifies the properties of a specified bank feed account, such as account type, linked source or target accounts, currency, and feed status. Use this endpoint when you need to correct or change information for an existing bank feed account rather than creating a new one. It updates the stored data for the account and may affect how transactions are imported or matched. Ensure the account ID is valid and that updates comply with any constraints on fields like currency and country."
+  },
+  "6bf99e56a710e091": {
+    "summary": "Delete an expense by its ID",
+    "description": "This operation removes a specific expense from the accounting records using its unique identifier. Use this tool when you need to permanently delete an expense entry rather than updating or retrieving it. Deleting an expense will remove all associated data for that entry and cannot be undone. Ensure the expense ID is valid and that deletion complies with your accounting policies."
+  },
+  "5d57197ac5cc9d5a": {
+    "summary": "Delete a bank feed statement by its ID",
+    "description": "Deletes a specific bank feed statement identified by its ID. Use this operation when you need to remove an existing bank feed statement from the system. This action permanently removes the statement and any associated data, so ensure the statement is no longer needed before deletion. There are no request or response bodies involved in this operation."
+  },
+  "5820e79e7b4705eb": {
+    "summary": "Retrieve a specific expense by its ID",
+    "description": "This operation fetches the details of a single expense using its unique identifier. Use this endpoint when you need to view or verify information about a particular expense rather than listing multiple expenses. It reads the expense data stored in the accounting system and returns it without modifying any records. Ensure the provided ID corresponds to an existing expense to avoid errors."
+  },
+  "1a87ed89a82b5d2e": {
+    "summary": "Retrieve a list of all quotes",
+    "description": "Fetches all quotes available in the accounting system. Use this operation when you need to view or process multiple quotes at once, rather than a single quote. It reads the stored quote data without modifying it. This operation does not support filtering or pagination by default."
+  },
+  "0882ad60dabf80f9": {
+    "summary": "Retrieve a list of all bank feed accounts",
+    "description": "This operation fetches all bank feed accounts associated with the organization. Use this endpoint when you need to view or manage the bank accounts linked for automatic transaction feeds. It reads the current bank feed account data without modifying any records. This endpoint does not support filtering or pagination, so it returns the complete list of accounts available."
+  },
+  "19321a2b46be19aa": {
+    "summary": "Retrieve a list of all bill payments",
+    "description": "Fetches a comprehensive list of all bill payments recorded in the accounting system. Use this operation when you need to review or analyze payment transactions made against bills. It reads payment data without modifying any records. This operation is ideal for obtaining an overview of bill payment activity and should be used instead of single payment retrieval endpoints when multiple records are needed."
+  },
+  "9d4628dd92c7e6e3": {
+    "summary": "Create a new quote in the accounting system",
+    "description": "This operation creates a new quote record within the accounting system. Use this endpoint when you need to generate a quote for a customer before converting it into an invoice or sales order. It writes data such as customer details, quote number, dates, terms, and related company or project information. Ensure that required fields like company and customer IDs are provided to avoid incomplete records."
+  },
+  "32bb136ed1f5a079": {
+    "summary": "Retrieve a specific bank feed statement by its ID",
+    "description": "This operation fetches the details of a single bank feed statement using its unique identifier. Use this when you need to view or process information from a particular bank feed statement rather than a list of statements. It reads data related to the bank feed statement without modifying any records. Ensure the provided ID corresponds to an existing statement to avoid errors."
+  },
+  "65572dd950bd71ae": {
+    "summary": "Update an existing tracking category with new details",
+    "description": "This operation modifies the properties of an existing tracking category in the accounting system. Use this endpoint when you need to change attributes such as the category's name, code, status, or custom mappings. It updates the stored data for the specified tracking category and requires the current row version to prevent conflicting changes. This operation does not return a response body and should be used when precise control over tracking categories is needed to maintain accurate financial reporting."
+  },
+  "cdd95ab6bd123e93": {
+    "summary": "Retrieve detailed information about a specific project",
+    "description": "This operation fetches detailed information for a single project identified by its ID. Use this endpoint when you need to view or verify the current data of a particular project within the accounting system. It reads project details without modifying any data. Ensure the project ID exists to avoid errors."
+  },
+  "538eb247e617113a": {
+    "summary": "Retrieve a list of bank feed statements",
+    "description": "Fetches all bank feed statements available in the accounting system. Use this operation when you need to view or process multiple bank feed statements at once, rather than accessing individual statements. It reads the stored bank feed statement data without modifying it. There are no special constraints beyond standard access permissions."
+  },
+  "f8acb5ad3fbe4396": {
+    "summary": "Retrieve a list of all employees in the accounting system",
+    "description": "This operation fetches a complete list of employees managed within the accounting system. Use this endpoint when you need to view or process employee data collectively rather than individually. It reads employee records without modifying any data. There are no special constraints beyond standard access permissions for employee information."
+  },
+  "0dc00e8fea951b98": {
+    "summary": "Retrieve a list of all accounting categories",
+    "description": "This operation fetches all accounting categories available in the system. Use it when you need to view or select from existing categories for accounting purposes. It reads category data without modifying any records. This endpoint does not support filtering or pagination, so it returns the full list of categories."
+  },
+  "47c9557bfe12af8d": {
+    "summary": "Retrieve a list of all projects",
+    "description": "Fetches a comprehensive list of projects within the accounting system. Use this operation when you need to view or manage multiple projects at once, rather than accessing individual project details. It reads project data without modifying any records. This operation does not support filtering or pagination, so it returns all projects available."
+  },
+  "b017cf72f36a5310": {
+    "summary": "Retrieve aged creditors data",
+    "description": "Fetches the aged creditors report showing outstanding amounts owed to suppliers categorized by age. Use this operation to analyze creditor payment status and manage accounts payable effectively. It reads current accounting data to generate the report and does not modify any records. This operation is ideal when you need a snapshot of creditor aging without altering financial data."
+  },
+  "8c4d0021a27cd8c1": {
+    "summary": "Create a new employee record in the accounting system",
+    "description": "This operation creates a new employee record with details such as name, job title, status, and department. Use this endpoint when adding new employees to the accounting system, rather than updating existing ones or managing payroll. It writes employee data to the system and may affect downstream integrations if identifiers are provided. Ensure required fields are included and note that the status must be one of active, inactive, or terminated."
+  },
+  "d8fbbed427185c9c": {
+    "summary": "Retrieve a specific expense category by its ID",
+    "description": "This operation fetches the details of a single expense category using its unique identifier. Use this endpoint when you need to view or verify information about a particular expense category rather than listing all categories. It reads data from the accounting system and returns the category's attributes. Ensure the provided ID corresponds to an existing expense category to avoid errors."
+  },
+  "1412612ad230f106": {
+    "summary": "Update an existing quote with new details",
+    "description": "This operation modifies the details of an existing quote in the accounting system. Use this endpoint when you need to change information such as customer data, dates, terms, or linked documents on a quote. It updates the stored quote record and may affect related financial documents or workflows. Ensure the quote ID is correct, as this operation requires an existing quote to update and does not create new quotes."
+  },
+  "f05596da3d573a8c": {
+    "summary": "Update an existing expense record with new details",
+    "description": "This operation modifies an existing expense by applying partial updates to its fields. Use this endpoint when you need to change specific attributes of an expense without replacing the entire record. It updates data such as transaction date, account, supplier, location, and department information. The operation does not return a response body and requires the expense ID to identify the record to update."
+  },
+  "135c7f78a8b553b7": {
+    "summary": "Retrieve a specific accounting category by its ID",
+    "description": "This operation fetches the details of a single accounting category identified by its unique ID. Use this endpoint when you need to view or verify information about a particular category rather than listing multiple categories. It reads category data without modifying any records. Ensure the provided ID corresponds to an existing category to avoid errors."
+  },
+  "c3d8e6916c6b9af4": {
+    "summary": "Retrieve a list of all expense reports",
+    "description": "Fetches all expense reports available in the accounting system. Use this operation when you need to view or process multiple expense reports at once, rather than accessing individual reports. It reads the stored expense report data without modifying it. This operation does not support filtering or pagination by default, so it may return a large dataset depending on the number of reports."
+  },
+  "026e1573e65fc7e0": {
+    "summary": "Update an existing project with new details",
+    "description": "This operation modifies the attributes of an existing project in the accounting system. Use this endpoint when you need to change project information such as status, priority, or completion percentage, rather than creating a new project or retrieving project data. It updates the stored project record with the provided fields, affecting how the project is tracked and reported. Ensure the project ID exists and that updates comply with any business rules related to project status and progress."
+  },
+  "ab34f981e11dc425": {
+    "summary": "Retrieve a job by its ID",
+    "description": "Fetch detailed information about a specific job using its unique identifier. Use this operation when you need to view or verify the details of a single job record. This endpoint reads job data without modifying it and does not support bulk retrieval. Ensure the job ID exists to avoid errors."
+  },
+  "a0c5560273ed0b01": {
+    "summary": "Update an existing bank feed statement with new details",
+    "description": "This operation modifies the details of a specified bank feed statement, such as status, balances, dates, and transactions. Use this endpoint when you need to correct or amend information in a bank feed statement rather than creating a new one or retrieving existing data. It updates the stored statement data, which may affect reconciliations or reporting that depend on accurate bank feed information. Ensure the statement ID is correct and that updates comply with the allowed status values and data formats to avoid errors."
+  },
+  "1b096e1f6e0cae8c": {
+    "summary": "Retrieve all expense categories",
+    "description": "Fetches a complete list of expense categories used in accounting. Use this operation when you need to view or select from all available expense categories, as opposed to creating or updating them. It reads the current set of categories without modifying any data. This operation does not support filtering or pagination."
+  },
+  "7457cfac5c50d05b": {
+    "summary": "Create a new expense report with specified details",
+    "description": "This operation creates a new expense report in the accounting system. Use it when you need to record expenses incurred by employees or projects, capturing details like dates, amounts, currency, and status. It writes a new expense report record and does not return a response body. Ensure that required fields such as employee information and transaction dates are provided to avoid errors."
+  },
+  "c563a5e10b20e1d4": {
+    "summary": "Update an existing employee's details in the accounting system",
+    "description": "This operation modifies the information of an existing employee, such as name, job title, status, and contact details. Use this endpoint when you need to change employee data rather than creating a new record or retrieving employee information. It updates the stored employee record and may affect downstream processes that rely on employee status or department. Ensure the employee ID is correct, as this operation targets a specific employee and partial updates are supported."
+  },
+  "37ebccaf9aad4734": {
+    "summary": "Retrieve a list of all applicants",
+    "description": "This operation fetches a complete list of applicants from the applicant tracking system. Use this endpoint when you need to view or process all applicants rather than querying specific ones. It reads applicant data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "2c9df74d041669c0": {
+    "summary": "Delete a project by its ID",
+    "description": "This operation removes a project from the accounting system permanently. Use this endpoint when you need to eliminate a project that is no longer needed or was created in error. Deleting a project will remove all associated data and cannot be undone, so ensure the project is not linked to active records before proceeding. This operation does not return a response body."
+  },
+  "d4b47e7e47b4e00d": {
+    "summary": "Update an existing expense category with new details",
+    "description": "Modify the properties of an existing expense category to reflect changes such as name, code, status, linked accounts, tax rates, and custom mappings. Use this operation when you need to correct or update expense category information rather than creating a new one. It writes updated data to the accounting system, affecting how expenses are categorized and reported. Ensure the category ID exists and that updates comply with any linked ledger account or tax rate constraints."
+  },
+  "ebd69db5b245cb2f": {
+    "summary": "Create a new bank feed statement for an accounting bank feed account",
+    "description": "This operation creates a bank feed statement associated with a specified bank feed account. Use this endpoint when you need to add a new statement reflecting a period's transactions and balances imported from a bank feed. It records details such as start and end dates, balances with credit or debit indicators, and the list of transactions within the statement. Ensure that the statement data is accurate and consistent, as it affects financial reporting and reconciliation processes."
+  },
+  "f5f01d9af5b59e3f": {
+    "summary": "Retrieve a list of all jobs in the ATS",
+    "description": "Fetches a complete list of jobs available in the applicant tracking system. Use this operation when you need to view or process all job entries rather than a specific job or filtered subset. It reads job data without modifying any records. This endpoint does not support filtering or pagination, so it returns all jobs at once."
+  },
+  "cb5c416bf1d62bb5": {
+    "summary": "Create a new project in the accounting system",
+    "description": "This operation creates a new project with specified details such as name, status, type, and priority. Use this endpoint when you need to add a project record for tracking accounting-related activities. It writes project data including identifiers, descriptions, and progress metrics to the system. Ensure that required fields are provided and that status and project type values conform to the allowed enums."
+  },
+  "e82cc4cc00847163": {
+    "summary": "Update an existing expense report with new details",
+    "description": "This operation modifies the fields of an existing expense report, such as status, dates, currency, and employee information. Use this endpoint when you need to correct or change information on a previously created expense report rather than creating a new one. It updates the stored data for the specified report ID and may affect financial tracking and approval workflows. Ensure the report ID exists and the updated status values conform to allowed states to avoid errors."
+  },
+  "3569def5cda3708b": {
+    "summary": "Delete an expense category by its ID",
+    "description": "This operation removes an existing expense category from the accounting system. Use this when you need to permanently delete a category that is no longer needed, rather than just disabling or editing it. Deleting an expense category will remove it from all future transactions and reports, but may affect historical data referencing this category. Ensure that the category is not in active use before deletion to avoid data inconsistencies."
+  },
+  "3c8dac24271d3b85": {
+    "summary": "Retrieve a list of companies",
+    "description": "Fetch a list of companies stored in the CRM system. Use this operation when you need to view or process multiple company records at once. It reads company data without modifying it and supports filtering and pagination through query parameters. This operation is ideal for overview or bulk processing tasks, unlike single company retrieval endpoints."
+  },
+  "b4e583c696ca98bc": {
+    "summary": "Create a new applicant in the ATS system",
+    "description": "This operation creates a new applicant record within the applicant tracking system. Use this endpoint when you need to add a new candidate's personal and professional details to the database. It writes applicant information such as name, birthday, gender, and social security number, among others. Ensure that the provided data complies with any required formats or constraints to avoid errors."
+  },
+  "6b33ca4fb842ead6": {
+    "summary": "Update an existing job with new details",
+    "description": "Modify the attributes of a specific job to reflect changes such as title, status, visibility, or employment terms. Use this operation when you need to revise job information without creating a new job entry. It updates the stored job data and affects how the job is presented or managed in the system. Ensure the job ID is correct, as this operation targets an existing job and partial updates are supported."
+  },
+  "4e148cb8d9bfa1d2": {
+    "summary": "Delete a quote by its ID",
+    "description": "This operation removes a quote from the accounting system using its unique identifier. Use this tool when you need to permanently delete a quote rather than update or archive it. Deleting a quote will remove all associated data and cannot be undone. Ensure the quote is no longer needed before performing this action."
+  },
+  "332a9e25b9c64a52": {
+    "summary": "Create a new expense record in the accounting system",
+    "description": "This operation creates a new expense entry within the accounting system. Use this endpoint when you need to record a financial expense associated with a company, supplier, account, or department. It writes detailed expense data including transaction date, amounts, and linked entities. Ensure that required fields like company and account identifiers are provided to avoid incomplete records."
+  },
+  "781f93bb953505e5": {
+    "summary": "Create a new expense category in the accounting system",
+    "description": "This operation creates a new expense category to organize and track expenses within the accounting system. Use this endpoint when you need to add a category that defines how expenses are classified, including associated ledger accounts and tax rates. It writes the new category data, including optional details like codes, descriptions, status, and default rates. Ensure that required fields like name and linked accounts are provided to avoid incomplete records."
+  },
+  "1c54378925116bf8": {
+    "summary": "Retrieve a list of all applications",
+    "description": "Fetches a complete list of applications from the ATS system. Use this operation when you need to view or process all applications at once, rather than querying individual records. This operation reads application data without modifying it. It does not support filtering or pagination, so expect the full dataset in the response."
+  },
+  "d9effce72c0f3a51": {
+    "summary": "Retrieve a specific application by its ID",
+    "description": "This operation fetches the details of a single application identified by its unique ID. Use this endpoint when you need to view or process information about one particular application rather than a list of applications. It reads application data without modifying it. Ensure the application ID exists to avoid errors."
+  },
+  "afe585f969967b78": {
+    "summary": "Delete a job by its ID",
+    "description": "This operation removes a job from the system permanently. Use this when you need to completely eliminate a job record rather than just updating or archiving it. Deleting a job will remove all associated data and cannot be undone. Ensure the job ID is correct to avoid unintended data loss."
+  },
+  "c271effd15820822": {
+    "summary": "Retrieve a list of all opportunities",
+    "description": "Fetches a comprehensive list of all opportunities within the CRM system. Use this operation when you need to view or analyze existing opportunities rather than creating or updating them. It reads the current state of opportunities without modifying any data. This operation does not support filtering or pagination by default, so it may return a large dataset depending on the number of opportunities stored."
+  },
+  "d7670f7eccebbf20": {
+    "summary": "Update an applicant's details in the applicant tracking system",
+    "description": "This operation modifies the information of an existing applicant in the applicant tracking system. Use this endpoint when you need to change any applicant attributes such as name, birthday, gender, or cover letter. It updates the stored applicant data without creating a new record. Ensure the applicant ID exists, as this operation targets a specific applicant by their identifier."
+  },
+  "5c8c04b0bcd82e57": {
+    "summary": "Update an existing application with new details",
+    "description": "Modify the details of an existing application in the ATS system. Use this operation when you need to change application attributes such as status, stage, or custom mappings. This updates the stored application data and records who made the update and when. Ensure the application ID is correct to avoid unintended changes."
+  },
+  "1ea2241b1c6a3894": {
+    "summary": "Create a new company in the CRM system",
+    "description": "Create a new company record in the CRM to store its details and attributes. Use this operation when adding a new company that does not yet exist in the system. It writes company data such as name, owner, financial info, and contact details. Ensure the company ID is unique if provided, and note that this operation does not return a response body."
+  },
+  "d76306b6fde4e10b": {
+    "summary": "Delete an employee by ID",
+    "description": "This operation removes an employee record from the accounting system using the employee's unique identifier. Use this endpoint when you need to permanently delete an employee's data rather than just updating or deactivating it. Deleting an employee may affect related accounting records or reports that reference this employee. Ensure that the employee ID exists and that deletion complies with your data retention policies."
+  },
+  "d3cce701e1c82062": {
+    "summary": "Delete a bank feed account by its ID",
+    "description": "This operation removes a specified bank feed account from the system. Use this endpoint when you need to permanently delete a bank feed account that is no longer required. Deleting the account will remove all associated data and cannot be undone. Ensure the account is not linked to active transactions before deletion to avoid data inconsistencies."
+  },
+  "98cded8f59da0563": {
+    "summary": "Retrieve a list of all contacts",
+    "description": "Fetches a complete list of contacts stored in the CRM system. Use this operation when you need to view or process multiple contacts at once, unlike single contact retrieval endpoints. It reads contact data without modifying it and may return large datasets depending on the number of contacts available. Ensure appropriate filtering or pagination if supported to manage response size effectively."
+  },
+  "6d8b1e5b30dadab3": {
+    "summary": "Retrieve all CRM pipelines",
+    "description": "Fetches a list of all pipelines within the CRM system. Use this operation when you need an overview of all available pipelines for managing sales or project workflows. It reads pipeline data without modifying any records. This operation does not support filtering or pagination, so it returns the complete set of pipelines."
+  },
+  "f6bf6084ad561970": {
+    "summary": "Delete an application by its ID",
+    "description": "This operation removes an application from the system permanently. Use this when you need to completely erase an application and its associated data. Deleting an application cannot be undone and will remove all related records. Ensure the application ID is correct before performing this action to avoid unintended data loss."
+  },
+  "7741656fa678c479": {
+    "summary": "Create a new job listing in the applicant tracking system",
+    "description": "This operation creates a new job listing with specified details such as title, status, visibility, and employment terms. Use this endpoint when you need to add a job opening to the system rather than updating or retrieving existing jobs. It writes job data including location, experience requirements, and remote status, making the job available according to its visibility setting. Ensure that required fields are provided and that the job ID is unique if specified."
+  },
+  "4410246b70a0d7c2": {
+    "summary": "Retrieve a contact by its unique identifier",
+    "description": "This operation fetches the details of a specific contact using its unique ID. Use this when you need to view or process information about a single contact rather than multiple contacts. It reads the contact data stored in the system without modifying it. Ensure the contact ID exists to avoid errors."
+  },
+  "a5ecf1683030bcb2": {
+    "summary": "Update an existing company's details",
+    "description": "Modify the information of an existing company in the CRM system. Use this operation when you need to change company attributes such as name, owner, status, or financial details. This updates the stored company record and overwrites the specified fields. Ensure the company ID exists, as this operation targets a specific company by its identifier."
+  },
+  "98636e71810d172e": {
+    "summary": "Retrieve a list of leads",
+    "description": "Fetches a collection of leads from the CRM system. Use this operation when you need to view or process multiple leads at once. It reads lead data without modifying any records. This operation does not support filtering or pagination parameters in the current specification."
+  },
+  "ad54ea2bc0638933": {
+    "summary": "Retrieve a list of all CRM users",
+    "description": "Fetches a complete list of users within the CRM system. Use this operation when you need to view or manage all users rather than a specific user. It reads user data without modifying it and does not support filtering or pagination. This is ideal for obtaining an overview of all CRM users currently registered."
+  },
+  "b4e576734df2aab4": {
+    "summary": "Retrieve a specific quote by its ID",
+    "description": "This operation fetches the details of a single quote identified by its unique ID. Use this endpoint when you need to view or process information about a particular quote rather than a list of quotes. It reads the stored quote data without modifying it. Ensure the provided ID corresponds to an existing quote to avoid errors."
+  },
+  "8fb9b3c7f2b21eb2": {
+    "summary": "Delete a contact by its ID",
+    "description": "This operation removes a contact from the CRM system using its unique identifier. Use this to permanently delete contacts that are no longer needed or relevant. Deleting a contact will remove all associated data and cannot be undone. Ensure that the contact ID exists before attempting deletion to avoid errors."
+  },
+  "55371d03ec3b28cc": {
+    "summary": "Create a new sales opportunity in the CRM",
+    "description": "Create a new sales opportunity record in the CRM system to track potential deals. Use this operation when you need to add a fresh opportunity with details like title, contact, monetary amount, and expected close date. This action writes a new opportunity entry and may affect sales forecasting and pipeline reports. Ensure required fields are provided, and note that this does not update existing opportunities."
+  },
+  "fdcd0be113886e4a": {
+    "summary": "Retrieve a lead by its unique identifier",
+    "description": "Fetch detailed information about a specific lead using its unique ID. Use this operation when you need to view or process data for a single lead rather than multiple leads. It reads the lead's stored data without modifying it. Ensure the lead ID exists to avoid errors."
+  },
+  "f07f3998812473fb": {
+    "summary": "Update an existing opportunity with new details",
+    "description": "Update an existing opportunity to modify its attributes such as title, contact, monetary amount, probability, and close date. Use this operation when you need to change specific fields of an opportunity without creating a new record. It writes updated data to the opportunity resource and may affect related calculations like expected revenue. Ensure the opportunity ID exists and provide only the fields you want to update to avoid unintended changes."
+  },
+  "fd420447b8ecfc86": {
+    "summary": "Delete an expense report by its ID",
+    "description": "This operation deletes a specified expense report from the accounting system. Use this when you need to remove an expense report that is no longer needed or was created in error. Deleting an expense report permanently removes its data and cannot be undone. Ensure the report is not linked to any active financial processes before deletion."
+  },
+  "9fd7f0015fee80b9": {
+    "summary": "Create a new application record in the applicant tracking system",
+    "description": "This operation creates a new application entry linking an applicant to a job within the applicant tracking system. Use this endpoint when you need to add a fresh application with details such as status, stage, and custom mappings. It writes the application data including metadata about creation and updates, ensuring the application lifecycle is tracked. Note that the operation requires valid identifiers and respects the defined status and stage constraints."
+  },
+  "aa7d3dcc12da033e": {
+    "summary": "Retrieve detailed information about a specific employee",
+    "description": "This operation fetches detailed information for a single employee identified by their ID. Use this endpoint when you need to view or verify employee data within the accounting system. It reads employee records without modifying any data. Ensure the employee ID exists to avoid errors."
+  },
+  "931dc7a89ecbf332": {
+    "summary": "Delete a lead by its ID",
+    "description": "Deletes a lead from the CRM system using its unique identifier. Use this operation when you need to permanently remove a lead and no longer require its data. This action cannot be undone and will remove all associated information for the lead. Ensure the lead ID is correct to avoid accidental data loss."
+  },
+  "758840248b9c3fbf": {
+    "summary": "Retrieve a list of all CRM notes",
+    "description": "Fetches all notes stored within the CRM system. Use this operation when you need to view or process multiple notes at once, unlike single note retrieval or creation endpoints. It reads existing note data without modifying it. There are no special constraints beyond standard access permissions."
+  },
+  "8544ac81ceccd091": {
+    "summary": "Retrieve a list of all custom object schemas",
+    "description": "Fetches all custom object schemas defined in the CRM system. Use this operation when you need to view or manage the structure of custom objects rather than individual records. It reads the schema definitions without modifying any data. This operation does not support filtering or pagination, so it returns all schemas at once."
+  },
+  "57632df397da2aaa": {
+    "summary": "Create a new CRM pipeline with specified details",
+    "description": "This operation creates a new pipeline in the CRM system, allowing you to define its stages, currency, and other attributes. Use this when you need to add a new sales or process pipeline rather than modifying existing ones. It writes the pipeline data including stages and configuration to the system, enabling tracking and management of deals or tasks within that pipeline. Ensure that the provided pipeline ID is unique and that required fields like name and stages are properly set to avoid errors."
+  },
+  "666ac0cb09fd8373": {
+    "summary": "Retrieve a specific CRM note by its ID",
+    "description": "This operation fetches the details of a single CRM note identified by its unique ID. Use this when you need to view or process the content of a particular note within the CRM system. It reads the stored note data without modifying it. Ensure the note ID exists to avoid errors."
+  },
+  "62f7506ee5eba8e5": {
+    "summary": "Retrieve a specific expense report by its ID",
+    "description": "This operation fetches the details of a single expense report using its unique identifier. Use this endpoint when you need to view or review the information of an existing expense report. It reads the stored data for the specified report without modifying it. Ensure the provided ID corresponds to an existing expense report to avoid errors."
+  },
+  "f0881c98dd317cf2": {
+    "summary": "Update an existing contact's details in the CRM",
+    "description": "This operation modifies the information of a specified contact within the CRM system. Use this endpoint when you need to change any contact attributes such as name, type, ownership, or associated company details. It updates the stored data for the contact identified by the given ID, overwriting existing values with the provided ones. Ensure the contact ID is valid, as this operation requires an existing contact to update."
+  },
+  "e7eff66148b5e00c": {
+    "summary": "Update an existing CRM pipeline with new details",
+    "description": "Modify the properties of an existing CRM pipeline, such as its name, currency, stages, and status flags. Use this operation when you need to change pipeline configuration or update its metadata, rather than creating a new pipeline or deleting one. It writes updated pipeline data and can affect how deals flow through stages. Ensure the pipeline ID is correct and note that some fields like timestamps may be managed automatically."
+  },
+  "3817f6621ac1e935": {
+    "summary": "Delete an applicant by ID",
+    "description": "This operation removes an applicant from the system permanently. Use this when you need to erase an applicant's record, such as when they withdraw or are no longer considered. Deleting an applicant will remove all associated data and cannot be undone. Ensure the applicant ID is valid before performing this action to avoid errors."
+  },
+  "18802387b0acbd94": {
+    "summary": "Create a new contact in the CRM system",
+    "description": "This operation creates a new contact record within the CRM, allowing you to specify details such as name, ownership, type, and associated company or lead. Use this endpoint when adding a new individual or entity to your contact database, rather than updating existing contacts or managing other CRM objects. It writes the provided contact information to the system, establishing a new entry that can be referenced in future operations. Ensure that required fields are correctly provided to avoid incomplete contact creation."
+  },
+  "76ca0569a49aa9d6": {
+    "summary": "Retrieve a list of all ecommerce orders",
+    "description": "This operation fetches a complete list of ecommerce orders. Use it when you need to view or process multiple orders at once, unlike operations that handle single orders. It reads order data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "16532e30dd8504fc": {
+    "summary": "Retrieve a list of CRM activities",
+    "description": "Fetch a comprehensive list of activities recorded in the CRM system. Use this operation when you need to view or analyze all activities rather than a specific subset or single activity. It reads activity data without modifying any records. This operation does not support filtering or pagination by default, so it may return a large dataset depending on the CRM contents."
+  },
+  "261c7528dd32c6f7": {
+    "summary": "Delete a note by its ID",
+    "description": "This operation deletes a specific note identified by its ID. Use this when you need to permanently remove a note from the CRM system. Deleting a note cannot be undone and will remove all associated data for that note. Ensure the note ID exists before attempting deletion to avoid errors."
+  },
+  "e37ff6e74c4da8e4": {
+    "summary": "Retrieve a specific CRM activity by its ID",
+    "description": "This operation fetches the details of a single CRM activity using its unique identifier. Use this endpoint when you need to view or process information about a particular activity rather than a list of activities. It reads the stored activity data without modifying it. Ensure the provided ID corresponds to an existing activity to avoid errors."
+  },
+  "789f704e2d2b0a21": {
+    "summary": "Delete a company by its ID",
+    "description": "This operation removes a company from the CRM system permanently. Use this endpoint when you need to completely erase a company's record rather than updating or archiving it. Deleting a company will remove all associated data and cannot be undone. Ensure the company ID is valid before calling this operation to avoid errors."
+  },
+  "a22253083899c746": {
+    "summary": "Create a new lead in the CRM system",
+    "description": "This operation creates a new lead record in the CRM, allowing you to capture potential customer information. Use this endpoint when you need to add fresh lead data rather than updating existing leads. It writes lead details such as contact info, company association, and source into the system. Ensure that required fields are provided to successfully create the lead without errors."
+  },
+  "e40f8499ebff3ba6": {
+    "summary": "Retrieve detailed information about a specific applicant",
+    "description": "This operation fetches detailed information for a single applicant identified by their unique ID. Use this endpoint when you need to view or process data for one applicant rather than multiple applicants. It reads applicant data without modifying it and requires a valid applicant ID to return the corresponding record. Ensure the ID exists to avoid errors or empty responses."
+  },
+  "4135163ee7fb4bc9": {
+    "summary": "Update an existing CRM user with new information",
+    "description": "This operation updates the details of an existing user in the CRM system. Use this endpoint when you need to modify user attributes such as name, title, department, or other profile information. It overwrites the specified fields with the provided data while preserving unspecified fields. Ensure the user ID exists, as this operation targets a specific user record identified by its ID."
+  },
+  "621403c29fe82abc": {
+    "summary": "Retrieve a list of custom objects",
+    "description": "Fetches all custom objects associated with the specified object ID. Use this operation when you need to view or manage the collection of custom objects rather than individual entries. It reads the current state of custom objects without modifying any data. Ensure the object ID provided is valid to avoid errors."
+  },
+  "6b8068a02c38e7fe": {
+    "summary": "Update an existing lead with new information",
+    "description": "This operation modifies the details of an existing lead in the CRM system. Use it when you need to change lead attributes such as name, company, owner, or description. It updates the stored lead data directly and does not create new leads. Ensure the lead ID exists before attempting to update to avoid errors."
+  },
+  "f27db8af2a9dbc83": {
+    "summary": "Delete an activity by its ID",
+    "description": "Deletes a specific activity identified by its ID from the CRM system. Use this operation when you need to permanently remove an activity record. This action cannot be undone and will remove all data associated with the activity. Ensure the activity ID exists before attempting deletion to avoid errors."
+  },
+  "779d06bff413987d": {
+    "summary": "Retrieve a file by its unique identifier",
+    "description": "This operation fetches the file associated with the specified identifier from the file storage system. Use this endpoint when you need to access the contents or metadata of a single file. It reads the stored file data without modifying it. Ensure the file ID exists to avoid errors, as the operation requires a valid identifier to return the corresponding file."
+  },
+  "269591fde63e8784": {
+    "summary": "Create a new CRM user with specified details",
+    "description": "This operation creates a new user in the CRM system with the provided information such as name, title, department, and company details. Use this endpoint when you need to add a user record rather than update or delete one. It writes user data to the CRM database and may affect user-related workflows or permissions. Ensure that required fields are correctly provided to avoid creation errors."
+  },
+  "a09ae080c2525e0a": {
+    "summary": "Delete an opportunity by its ID",
+    "description": "This operation removes an opportunity from the CRM system permanently. Use this when you need to eliminate an opportunity that is no longer relevant or was created in error. Deleting an opportunity will remove all associated data and cannot be undone. Ensure that the opportunity ID is valid before invoking this operation to avoid errors."
+  },
+  "4398a4254878df55": {
+    "summary": "Retrieve a customer's details by their ID",
+    "description": "This operation fetches detailed information about a specific customer using their unique identifier. Use this endpoint when you need to view or verify customer data individually rather than in bulk. It reads customer records without modifying any data. Ensure the provided ID corresponds to an existing customer to receive a valid response."
+  },
+  "934d5111952f4482": {
+    "summary": "Retrieve a specific custom object by its ID",
+    "description": "Fetches the details of a single custom object identified by its unique ID within a specified object type. Use this operation when you need to access the data of one particular custom object rather than multiple objects or object metadata. It reads the stored data for that object and returns its current state. Ensure the object ID and record ID are valid to avoid errors."
+  },
+  "d55b8dcf2d072d54": {
+    "summary": "Update a custom object schema by modifying its properties",
+    "description": "This operation updates an existing custom object schema, allowing you to change its name, description, fields, visibility, and activation status. Use this endpoint when you need to modify the structure or metadata of a custom object schema rather than creating a new one. It writes changes to the schema definition, which affects how related custom objects are validated and managed. Ensure that updates maintain schema consistency and comply with any validation rules to avoid errors."
+  },
+  "b78c4736d14e61aa": {
+    "summary": "Retrieve a company by its ID",
+    "description": "Fetch detailed information about a specific company using its unique identifier. Use this operation when you need to view or process data for a single company rather than multiple companies. This request reads company data without modifying it. Ensure the provided ID corresponds to an existing company to avoid errors."
+  },
+  "327565e5d1523709": {
+    "summary": "Create a new note linked to CRM entities",
+    "description": "Create a new note within the CRM system to record information related to contacts, companies, opportunities, activities, or leads. Use this operation when you need to add detailed notes that are associated with one or more CRM records. The note can include a title, content, ownership, and custom mappings to extend its data. This operation writes a new note entry and requires specifying the relevant entity associations to ensure proper linkage."
+  },
+  "8f046b9087b539ce": {
+    "summary": "Delete a specific custom object by its ID",
+    "description": "Deletes a custom object identified by its unique ID within the specified object type. Use this operation when you need to permanently remove a single custom object from the CRM system. This action cannot be undone and will remove all data associated with that object. Ensure the object ID exists and that you have appropriate permissions before performing the deletion."
+  },
+  "f83ee19611281990": {
+    "summary": "Update an existing CRM note by modifying its details",
+    "description": "This operation updates the details of an existing note within the CRM system. Use this endpoint when you need to change the content, associations, or status of a note rather than creating a new one. It modifies stored note data such as title, content, ownership, and linked entities like contacts or companies. Ensure the note ID exists and provide updated fields; partial updates are supported without affecting unspecified fields."
+  },
+  "bf007e5b708cb9c4": {
+    "summary": "Retrieve a list of all shared links",
+    "description": "This operation fetches all shared links available in the file storage system. Use this to view or manage existing shared links rather than creating or deleting them. It reads the current shared link records without modifying any data. There are no special constraints beyond standard access permissions."
+  },
+  "6c8c7f65f1c2d967": {
+    "summary": "Create a new custom object schema",
+    "description": "Creates a new custom object schema to define a structured data model for CRM custom objects. Use this operation when you need to add a new schema rather than modifying existing ones. It writes the schema definition including fields, visibility, and status, enabling custom data organization. Ensure that the schema ID is unique and that required fields are properly defined to avoid conflicts."
+  },
+  "b4b435aa0b2290f6": {
+    "summary": "Delete a CRM pipeline by its ID",
+    "description": "This operation removes a specified CRM pipeline from the system. Use this tool when you need to permanently delete a pipeline that is no longer needed or relevant. Deleting a pipeline will remove all associated data and cannot be undone. Ensure that the pipeline is not in active use before deletion to avoid disrupting ongoing processes."
+  },
+  "508bedc8726a9c1a": {
+    "summary": "Retrieve a list of all files in storage",
+    "description": "This operation fetches a complete list of files stored in the file storage system. Use this endpoint when you need to view or manage all available files rather than accessing individual files. It reads metadata about each file but does not modify any data. There are no special constraints beyond standard access permissions."
+  },
+  "dc7ef070caff1d85": {
+    "summary": "Create a new folder in the file storage system",
+    "description": "This operation creates a new folder within the file storage system. Use it when you need to organize files by grouping them into folders, optionally specifying a parent folder to nest it. It writes folder metadata such as name, description, and drive association. Ensure the parent folder and drive IDs are valid to avoid errors."
+  },
+  "e577a2df59a6da89": {
+    "summary": "Retrieve a specific opportunity by its ID",
+    "description": "Fetch the details of a single opportunity using its unique identifier. Use this operation when you need to view or process information about one particular opportunity rather than a list. It reads the opportunity data without modifying it. Ensure the provided ID corresponds to an existing opportunity to avoid errors."
+  },
+  "d707822b394b60f1": {
+    "summary": "Search for files matching a query within a specified drive",
+    "description": "This operation searches for files based on a query string within a given drive. Use this tool when you need to locate files by name or content criteria in a particular file storage drive. It reads the file metadata and indexes to return matching results. Ensure the drive identifier is correct to limit the search scope appropriately."
+  },
+  "779d7a705dd27def": {
+    "summary": "Create a new CRM activity record",
+    "description": "Create a new activity record in the CRM system to log interactions or events related to users, accounts, contacts, companies, opportunities, leads, owners, or campaigns. Use this operation when you need to add detailed activity data such as timestamps, durations, and associations to various CRM entities. This operation writes new activity data but does not modify existing records. Ensure that the provided identifiers correspond to valid CRM entities to maintain data integrity."
+  },
+  "2c727041284cfff6": {
+    "summary": "Retrieve a list of all file storage drives",
+    "description": "This operation fetches a complete list of all available file storage drives. Use this endpoint when you need to view or manage the drives accessible in the file storage system. It reads the current state of drives without modifying any data. There are no special constraints beyond standard access permissions."
+  },
+  "81f7aa6f7f78de35": {
+    "summary": "Retrieve detailed information about a specific product by its ID",
+    "description": "This operation fetches detailed information for a single product identified by its unique ID. Use this endpoint when you need to display or process data for one specific product rather than a list or search results. It reads product details such as name, description, price, and availability from the database. Ensure the product ID exists to avoid errors, as invalid IDs will result in a not found response."
+  },
+  "105f9a90364dab97": {
+    "summary": "Delete a user by their ID",
+    "description": "This operation removes a user from the CRM system permanently. Use this when you need to revoke access or remove user data that is no longer needed. Deleting a user will erase their associated information and cannot be undone. Ensure that deleting the user does not violate any data retention policies or dependencies within the system."
+  },
+  "6e922fea758ec678": {
+    "summary": "Retrieve details of a specific order by its ID",
+    "description": "This operation fetches the complete information of a single order identified by its unique ID. Use this endpoint when you need to view or verify the details of an existing order. It reads order data without modifying it and returns all relevant order attributes. Ensure the order ID exists to avoid errors."
+  },
+  "701c37a7424d2fd2": {
+    "summary": "Update an existing CRM activity by modifying its details",
+    "description": "This operation updates the details of an existing CRM activity, such as its date, duration, associated users, and related entities. Use this endpoint when you need to change information about a specific activity rather than creating a new one or retrieving activity data. It modifies the stored activity record and may affect linked records like contacts or opportunities. Ensure the activity ID exists and provide only the fields you want to update to avoid unintended changes."
+  },
+  "7205a4f7f18b29cd": {
+    "summary": "Retrieve a specific CRM pipeline by its ID",
+    "description": "This operation fetches the details of a single CRM pipeline identified by its unique ID. Use this endpoint when you need to view or manage the configuration of a particular pipeline rather than listing all pipelines. It reads pipeline data without modifying it and requires a valid pipeline ID to return the corresponding information. Ensure the ID corresponds to an existing pipeline to avoid errors."
+  },
+  "e3bbbe4def030ae7": {
+    "summary": "Update folder name, description, or parent folder",
+    "description": "Modify a folder's name, description, or move it to a different parent folder within the file storage system. Use this operation when you need to rename a folder or reorganize its location in the folder hierarchy. This action updates the folder metadata and may affect folder structure and access paths. Ensure the new parent folder exists and that you have permission to modify the folder."
+  },
+  "9e719f0f76dc1320": {
+    "summary": "Start a new upload session for large file transfers",
+    "description": "This operation initiates an upload session to facilitate uploading large files that exceed 100MB. Use this endpoint instead of the standard file upload endpoint, which is intended for smaller files. The session allows chunked or segmented uploads to the specified drive and folder, ensuring reliable transfer of large data. Note that this endpoint uses a different base URL and requires managing session state for successful completion."
+  },
+  "7b793be1fb116638": {
+    "summary": "Create a new custom object in the CRM system",
+    "description": "This operation creates a new custom object within the CRM, allowing you to define unique data structures tailored to your business needs. Use this endpoint when you need to add a custom object rather than modifying existing ones or using standard CRM objects. It writes the custom object definition including fields and metadata such as ownership and timestamps. Ensure that the object ID is unique and that required fields are properly specified to avoid conflicts or errors."
+  },
+  "11e3d12b122c6c3a": {
+    "summary": "Retrieve a list of employees from the HRIS system",
+    "description": "This operation fetches a partial list of employee records from the HRIS system, providing a subset of employee data due to typical API limitations. Use this endpoint to obtain an overview of employees rather than full details. For complete employee information, use the employee detail endpoint instead. The response may not include all employee attributes, reflecting the stateless nature of the Unified API."
+  },
+  "9a1f8fbe8380752b": {
+    "summary": "Download a file by its ID",
+    "description": "This operation retrieves the contents of a file identified by its unique ID. Use this endpoint when you need to obtain the actual file data for local use or processing. It reads the file data stored in the system and returns it as a downloadable response. Ensure the file ID is valid and accessible; otherwise, the download will fail."
+  },
+  "5252cb09f025bc58": {
+    "summary": "Retrieve a user by ID",
+    "description": "Fetch detailed information about a specific user using their unique identifier. Use this operation when you need to view or verify user details individually rather than listing multiple users. This request reads user data without modifying it. Ensure the user ID exists to avoid errors."
+  },
+  "e2fd21ea4be7c9b8": {
+    "summary": "Delete a custom object schema by its ID",
+    "description": "This operation deletes a specified custom object schema from the CRM system. Use this when you need to permanently remove a custom object schema that is no longer needed. Deleting the schema will remove its definition and may affect any data or integrations relying on it. Ensure that the schema is not in use before deletion to avoid unintended data loss or system errors."
+  },
+  "40366882a7bc557b": {
+    "summary": "Update a file's name, description, or location",
+    "description": "Modify the name, description, or parent folder of an existing file to rename or move it within the file storage system. Use this operation when you need to reorganize files or update their metadata without creating new files. This action updates the file's attributes and may affect its location in the folder hierarchy. Ensure the target parent folder exists and you have permission to modify the file."
+  },
+  "c26d7e4d91f7f3f1": {
+    "summary": "Update a custom object by modifying its properties",
+    "description": "This operation updates an existing custom object with new values for its properties. Use this endpoint when you need to change details of a specific custom object rather than creating a new one or retrieving data. It modifies the stored data for the object, including fields and metadata such as owner and timestamps. Ensure the object ID and record ID are correct to avoid updating the wrong entry."
+  },
+  "e9dadfb2cd1ad128": {
+    "summary": "Retrieve a list of all departments in the HRIS system",
+    "description": "This operation fetches a complete list of departments within the HRIS system. Use this endpoint when you need to view or process all department records rather than a specific one. It reads department data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "e0314d824fecd6b2": {
+    "summary": "Copy a folder to a specified location with an optional new name",
+    "description": "This operation copies an existing folder to a new location within the file storage system, optionally assigning it a new name. Use this when you need to duplicate folder contents without affecting the original. It creates a separate copy under the specified parent folder, preserving the original folder and its contents. Ensure the target location allows folder creation and that the new name does not conflict with existing folders."
+  },
+  "c96c826fdf4017ca": {
+    "summary": "Retrieve details of a specific ecommerce store",
+    "description": "This operation fetches detailed information about a single ecommerce store. Use it when you need to view or verify store data, such as name, address, or settings. It reads store data without modifying it and does not have side effects. Ensure the store identifier is correctly specified to retrieve the intended store."
+  },
+  "e35f37eb2b21b5a5": {
+    "summary": "Upload a file part to an existing upload session",
+    "description": "This operation uploads a segment of a file to a specified upload session, with each part limited to a maximum size of 100MB. Use this endpoint when you need to upload large files in parts, ensuring each part (except the last) matches the expected part size obtained from the upload session details. It writes the file data to the session and requires the base URL upload.apideck.com. Ensure the Content-Length header matches the part size for all parts except the final one to avoid errors."
+  },
+  "9d36da82e5a20c65": {
+    "summary": "Retrieve a list of all customers",
+    "description": "This operation fetches a complete list of customers in the ecommerce system. Use this endpoint when you need to view or process all customer records rather than individual customer details. It reads customer data but does not modify any records. There are no special constraints beyond standard access permissions."
+  },
+  "8bc566bcfdd5678e": {
+    "summary": "Retrieve a list of all DriveGroups",
+    "description": "This operation fetches all DriveGroups available in the file storage system. Use this endpoint when you need to view or manage the collection of DriveGroups rather than individual drives or files. It reads the current state of DriveGroups without modifying any data. There are no special constraints beyond standard access permissions."
+  },
+  "8c06238c9597c8b3": {
+    "summary": "Retrieve a custom object schema by its ID",
+    "description": "This operation fetches the details of a specific custom object schema using its unique identifier. Use this endpoint when you need to view the structure and metadata of a particular custom object schema in your CRM. It reads the schema data without modifying it. Ensure the provided ID corresponds to an existing custom object schema to avoid errors."
+  },
+  "6eb1b6ef7bd9f270": {
+    "summary": "Update a shared link's settings and access controls",
+    "description": "This operation modifies the properties of an existing shared link, such as its URL, access scope, password protection, and expiration. Use this endpoint when you need to change how a shared link is configured without creating a new one. It updates the link's metadata and access restrictions, affecting who can view or download the linked content. Ensure that any password or expiration changes comply with your organization's sharing policies."
+  },
+  "2df42bbebf6c21db": {
+    "summary": "Upload a file up to 100MB to file storage",
+    "description": "This operation uploads a single file with a maximum size of 100MB to the file storage system. Use this endpoint for smaller files; for files larger than 100MB, use the Upload Sessions API instead. The upload writes the file data to storage and makes it available for subsequent access. Files exceeding the size limit will be rejected, so ensure your file meets the size constraint before uploading."
+  },
+  "baabc89d62a1bf37": {
+    "summary": "Retrieve a folder by its ID",
+    "description": "This operation fetches the details of a specific folder using its unique identifier. Use this endpoint when you need to access metadata or information about a single folder within the file storage system. It reads folder data without modifying any content. Ensure the folder ID exists to avoid errors."
+  },
+  "f79e224e8569706a": {
+    "summary": "Retrieve a DriveGroup by its ID",
+    "description": "This operation fetches the details of a specific DriveGroup using its unique identifier. Use this endpoint when you need to view or verify the properties of an existing DriveGroup. It reads and returns the current state of the DriveGroup without modifying any data. Ensure the provided ID corresponds to an existing DriveGroup to avoid errors."
+  },
+  "4e16395cfcb05a67": {
+    "summary": "Retrieve a list of all companies in the HRIS system",
+    "description": "Fetches a complete list of companies managed within the HRIS platform. Use this operation when you need to view or process all company records rather than individual entries. It reads company data without modifying any records. This operation does not support filtering or pagination, so it returns all companies available at the time of the request."
+  },
+  "9050bc2c5d5d5fe7": {
+    "summary": "Create a shared link for a file or folder",
+    "description": "This operation creates a shared link that provides access to a specified file or folder within the file storage system. Use this endpoint when you want to generate a public or company-restricted link to share content securely, optionally protecting it with a password or setting an expiration date. The operation writes the shared link details, including access scope and security settings, to the system. Note that the link can target a specific item by ID or detailed target information, and password protection requires providing the password in the request."
+  },
+  "609063f6bd6889d4": {
+    "summary": "Complete an upload session after all file parts are uploaded",
+    "description": "This operation finalizes an upload session once all parts of a file have been successfully uploaded using the corresponding upload parts endpoint. Use this endpoint to signal that the file upload is complete and ready for processing or storage. It writes the final state of the upload session and consolidates the uploaded parts into a single file. Note that this endpoint uses a different base URL (upload.apideck.com) than other API calls and should only be called after all parts are uploaded."
+  },
+  "3936d774930de9a0": {
+    "summary": "Retrieve a list of all products",
+    "description": "This operation fetches a complete list of products available in the ecommerce system. Use this endpoint when you need to display or process all products rather than a specific subset. It reads product data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "535522964911926e": {
+    "summary": "Retrieve a list of all time off requests",
+    "description": "Fetches all time off requests recorded in the system. Use this operation to view or manage employee leave data comprehensively. It reads existing time off request records without modifying any data. This endpoint is ideal when you need a full overview rather than details of a single request."
+  },
+  "eebbaeeee1db8282": {
+    "summary": "Export a file by its ID",
+    "description": "This operation exports the contents of a specified file from the file storage system. Use this endpoint when you need to retrieve a file's data for download or transfer. It reads the file data associated with the given ID and returns it in the response. Ensure the file ID exists and you have appropriate access rights to avoid errors."
+  },
+  "118d998c66c61a5e": {
+    "summary": "Delete a folder from file storage",
+    "description": "This operation deletes a specified folder from the file storage system. Use this when you need to permanently remove a folder and its contents. Deleting a folder may affect any files or subfolders contained within it, so ensure no important data is lost. This action is irreversible and does not return a response body."
+  },
+  "4cbb6ea73c98c996": {
+    "summary": "Retrieve detailed information about a specific company",
+    "description": "This operation fetches detailed information about a single company identified by its ID. Use this endpoint when you need to view or verify company details within the HRIS system. It reads company data without modifying it and returns the current state of the company's information. Ensure the company ID exists to avoid errors."
+  },
+  "670a3f69103ae6e0": {
+    "summary": "Update properties of a file storage drive by its identifier",
+    "description": "This operation modifies the attributes of an existing file storage drive, such as its name, description, or custom mappings. Use this endpoint when you need to change drive metadata or configuration details without creating a new drive. It updates the stored data for the specified drive and may affect how the drive is accessed or displayed. Ensure that the drive identifier is correct and that you provide only the fields you intend to update, as unspecified fields may remain unchanged."
+  },
+  "d322fb5d16e4353e": {
+    "summary": "Retrieve details of a specific upload session",
+    "description": "This operation fetches the details of an existing upload session, including the recommended part size for splitting files. Use this endpoint to obtain session information before uploading file parts via the upload part endpoint. It is intended for managing multipart file uploads and helps coordinate the upload process. Note that the upload service uses a different base URL than other API endpoints."
+  },
+  "89a50888455d7e8a": {
+    "summary": "Retrieve a list of all payroll records",
+    "description": "Fetches all payroll records available in the system. Use this operation to obtain a comprehensive overview of payroll data rather than individual payroll details or updates. It reads payroll information without modifying any data. This operation does not support filtering or pagination, so it returns the full set of payroll records."
+  },
+  "d576db31d372f7e3": {
+    "summary": "Delete a file by its ID",
+    "description": "This operation deletes a file identified by its ID from the file storage system. Use this when you need to permanently remove a file and free up storage space. It does not return any content upon success. Ensure the file ID exists, as deleting a non-existent file may result in an error."
+  },
+  "bd73133c47a5cb9b": {
+    "summary": "Create a new file storage drive with specified properties",
+    "description": "This operation creates a new drive in the file storage system using the provided details such as name, description, and custom mappings. Use this endpoint when you need to add a new storage drive rather than modifying existing ones or retrieving drive information. It writes new drive data to the system and may include metadata like creation and update timestamps and user information. Ensure that the drive ID and other identifiers are unique to avoid conflicts."
+  },
+  "ebec07666c76c662": {
+    "summary": "Delete a shared link by its ID",
+    "description": "This operation removes a shared link from the file storage system. Use this when you want to revoke access previously granted via a shared link. Deleting the link immediately invalidates it, preventing further access to the associated file or resource. This action is irreversible and does not delete the underlying file itself."
+  },
+  "45fa9f19e4cef417": {
+    "summary": "Delete a DriveGroup by its ID",
+    "description": "Deletes the specified DriveGroup from the file storage system. Use this operation when you need to permanently remove a DriveGroup and its associations. This action cannot be undone and will remove all references to the DriveGroup. Ensure that the DriveGroup is no longer needed before deletion to avoid data loss."
+  },
+  "a3d5c7ccfba19cd7": {
+    "summary": "Retrieve a list of all issue tracking collections",
+    "description": "Fetches all existing issue tracking collections available in the system. Use this operation when you need an overview of all collections rather than details of a specific one. It reads the current state of collections without modifying any data. There are no special constraints beyond standard access permissions."
+  },
+  "deff49d9a2eef7ec": {
+    "summary": "Abort an active file upload session",
+    "description": "This operation aborts an ongoing file upload session, terminating the upload process immediately. Use this when you need to cancel an upload in progress, such as when the upload is no longer needed or an error occurs. It stops any further data transfer and releases associated resources. Note that this endpoint uses a different base URL (upload.apideck.com) than other API calls."
+  },
+  "33fe52435bda2eb2": {
+    "summary": "Retrieve a list of all SMS messages",
+    "description": "Fetches a complete list of SMS messages available in the system. Use this operation when you need to view or process all messages rather than a specific message or subset. It reads stored message data without modifying any records. This operation may return large datasets depending on message volume, so consider filtering or pagination if supported elsewhere."
+  },
+  "1c8bb0b60fc48f59": {
+    "summary": "Retrieve all payroll records for a specific employee",
+    "description": "Fetches the complete list of payroll entries associated with a given employee. Use this operation when you need to review or analyze all payroll data for an individual employee. It reads payroll information without modifying any data. Ensure the employee identifier is valid to receive accurate results."
+  },
+  "0dc155be2a9fcefc": {
+    "summary": "Update an existing employee's details in the HRIS system",
+    "description": "This operation modifies the information of a specific employee in the HRIS database. Use this endpoint when you need to change employee attributes such as name, title, or marital status, rather than creating a new employee record. It updates the stored data for the employee identified by the given ID and may affect downstream systems if integrated. Ensure that the employee ID exists, as this operation only updates existing records and does not create new ones."
+  },
+  "046265ebf3b3602d": {
+    "summary": "Create a new DriveGroup with specified attributes",
+    "description": "This operation creates a new DriveGroup resource with the provided details such as name, display name, description, and custom mappings. Use this endpoint when you need to add a new DriveGroup to organize or manage file storage drives. It writes the DriveGroup data to the system and may include metadata about creation and updates. Ensure that the provided identifiers and mappings conform to expected formats to avoid errors."
+  },
+  "11af22677e84b287": {
+    "summary": "Add a new employee record to the HR system",
+    "description": "This operation creates a new employee record with the provided personal and employment details. Use this endpoint when you need to register a new employee in the HR system rather than updating existing records. It writes employee data such as names, titles, and identifiers to the database. Ensure all required fields are included, as missing data may prevent successful creation."
+  },
+  "65c801ead4a27983": {
+    "summary": "Delete a company by its ID",
+    "description": "This operation deletes a company record from the system using its unique identifier. Use this endpoint when you need to permanently remove a company and its associated data. Deleting a company is irreversible and may affect related records or integrations that depend on this company. Ensure that the company ID is valid and that you have appropriate permissions before performing this action."
+  },
+  "19529689f92eebce": {
+    "summary": "Retrieve a shared link by its ID",
+    "description": "This operation fetches the details of a specific shared link using its unique identifier. Use this endpoint when you need to access or verify the properties of an existing shared link rather than creating or modifying one. It reads the shared link data without altering it. Ensure the provided ID corresponds to an existing shared link to avoid errors."
+  },
+  "2a44883ea0e7af74": {
+    "summary": "Delete a drive by its identifier",
+    "description": "This operation deletes a specified drive from the file storage system. Use this when you need to permanently remove a drive and its associated data. Deleting a drive is irreversible and will remove all stored files within that drive. Ensure the drive is no longer needed before performing this action to avoid data loss."
+  },
+  "a2ea626eda72154f": {
+    "summary": "Update a comment on a ticket within a collection",
+    "description": "This operation updates the content or metadata of an existing comment on a specific ticket in an issue tracking collection. Use this endpoint when you need to modify comment details such as the body text or custom mappings, rather than creating a new comment or deleting one. It reads and writes comment data including timestamps and author information, ensuring the comment remains associated with the correct ticket and collection. Note that partial updates are supported, and the comment ID must correspond to an existing comment within the specified ticket and collection."
+  },
+  "862972d5a18e4b5e": {
+    "summary": "Update properties of an existing DriveGroup",
+    "description": "Modify the attributes of a specified DriveGroup, such as its name, display name, description, and custom mappings. Use this operation when you need to change metadata or configuration details of a DriveGroup without creating a new one. It updates the stored data for the DriveGroup identified by the given ID and may affect access or organization of associated drives. Ensure that the provided data respects any constraints on field formats and that the DriveGroup ID exists before attempting the update."
+  },
+  "26f713c0dda989d7": {
+    "summary": "Retrieve a specific SMS message by its ID",
+    "description": "This operation fetches the details of a single SMS message using its unique identifier. Use this endpoint when you need to view the content or status of a particular message rather than a list of messages. It reads message data without modifying it and requires a valid message ID. This call does not support filtering or pagination since it targets one message only."
+  },
+  "4133dc7a5197f4ad": {
+    "summary": "Update an existing department's details",
+    "description": "This operation modifies the attributes of an existing department within the HRIS system. Use this endpoint when you need to change department information such as its name, code, description, or hierarchical parent. It updates the stored data for the specified department and may affect organizational structure or reporting. Ensure that the department ID is valid and that changes comply with any organizational constraints on department relationships."
+  },
+  "e6e8737f416e6a2f": {
+    "summary": "Create a new company record in the HRIS system",
+    "description": "This operation creates a new company entry within the HRIS platform. Use this endpoint when you need to add a company with details such as legal name, display name, status, and contact information. It writes the provided company data to the system, establishing a new company profile. Ensure that required fields like company ID and currency are correctly specified to avoid creation errors."
+  },
+  "aef7d2a8ebf4d6b2": {
+    "summary": "Create a new department in the HRIS system",
+    "description": "This operation creates a new department within the HRIS system, allowing you to define its name, code, description, and hierarchical parent if applicable. Use this endpoint when adding organizational units to reflect company structure. It writes department data including custom mappings and audit fields such as created_by and updated_by. Ensure that unique identifiers and required fields are correctly provided to avoid conflicts or incomplete records."
+  },
+  "609f733096b59be5": {
+    "summary": "Retrieve all work schedules for a specific employee",
+    "description": "This operation fetches all defined work schedules associated with a given employee, representing their planned work patterns rather than actual hours worked. Use this endpoint when you need to view or manage an employee's scheduled work patterns, distinct from time tracking or attendance records. It reads the employee's schedule data and does not modify any records. Ensure the employee identifier is valid to receive accurate schedule information."
+  },
+  "b3767c9afde52919": {
+    "summary": "Update a ticket's details within a collection",
+    "description": "Modify the attributes of an existing ticket in a specified collection, such as its subject, description, status, priority, and assignees. Use this operation when you need to change ticket information without creating a new ticket or deleting the existing one. It updates the stored ticket data and may affect workflow or notification systems depending on the changes. Ensure the ticket and collection IDs are valid, and note that partial updates are supported via this PATCH method."
+  },
+  "43973b33d9d2e723": {
+    "summary": "Delete an employee by their ID",
+    "description": "This operation removes an employee record from the system permanently. Use this endpoint when you need to completely erase an employee's data rather than just deactivate or archive it. Deleting an employee will remove all associated information and cannot be undone, so ensure this action is intentional. This operation does not return a response body."
+  },
+  "a3ac3f7bf5c71d6a": {
+    "summary": "Retrieve detailed information about a specific drive",
+    "description": "This operation fetches detailed information about a single drive identified by its ID. Use this endpoint when you need to access metadata or status of a particular drive rather than listing multiple drives. It reads the current state of the drive without modifying any data. Ensure the drive ID provided is valid to avoid errors."
+  },
+  "b661fc6c55518fb2": {
+    "summary": "Update an existing company's details",
+    "description": "Modify the information of an existing company in the system using this operation. Use this endpoint when you need to change company attributes such as name, status, contact details, or currency. It updates the stored company record with the provided data, affecting how the company is represented in the HRIS. Ensure the company ID is correct, as this operation targets a specific company and partial updates are supported."
+  },
+  "284cb563bbc7f18f": {
+    "summary": "Retrieve details of a specific API by its ID",
+    "description": "This operation fetches detailed information about a single API identified by its ID. Use this endpoint when you need to view or verify the configuration or metadata of a particular API within the connector system. It reads and returns the stored API data without modifying it. Ensure the specified ID corresponds to an existing API to avoid errors."
+  },
+  "9634cef7fe3714c4": {
+    "summary": "Update an existing employee time off request",
+    "description": "Modify details of a specific time off request for an employee, such as dates, status, or type. Use this operation when you need to change an existing request rather than creating a new one or retrieving information. It updates the stored data for the request, affecting how the time off is tracked and approved. Ensure the request ID and employee ID are correct to avoid unintended changes."
+  },
+  "96f14a534b3ae1d9": {
+    "summary": "Retrieve a list of all connectors",
+    "description": "Fetches a complete list of connectors available in the system. Use this operation when you need to view or manage all connectors rather than a specific one. It reads connector metadata without modifying any data. This operation does not require any input parameters and returns all connectors currently registered."
+  },
+  "9773a435832992c9": {
+    "summary": "Retrieve detailed information about a specific payroll",
+    "description": "This operation fetches detailed information for a single payroll identified by its ID. Use this endpoint when you need to view or verify payroll details for a particular payroll instance. It reads payroll data without modifying it and is useful for auditing or reporting purposes. Ensure the payroll ID provided exists to avoid errors."
+  },
+  "4c3d34c7b095dcb9": {
+    "summary": "Delete a department by its ID",
+    "description": "This operation removes a department from the HRIS system using its unique identifier. Use this endpoint when you need to permanently delete a department record, unlike updating or retrieving department details. Deleting a department may affect related employee or organizational data, so ensure dependencies are handled beforehand. The operation does not return a response body upon success."
+  },
+  "d34c74b20c00aa75": {
+    "summary": "Delete an SMS message by its ID",
+    "description": "This operation deletes a specific SMS message identified by its ID. Use this to remove messages that are no longer needed or to manage message storage. Deleting a message permanently removes it and cannot be undone. This operation does not affect other messages or related data."
+  },
+  "0c701f6522e5ce40": {
+    "summary": "Retrieve a specific payroll record for an employee",
+    "description": "This operation fetches the payroll details for a given employee identified by their employee ID and payroll ID. Use this endpoint when you need to view or verify a particular payroll entry rather than a list of payrolls. It reads payroll data associated with the specified employee and payroll identifiers. Ensure the IDs are valid to avoid errors, as the operation requires both employee and payroll IDs to locate the record."
+  },
+  "fee4937b628c88ce": {
+    "summary": "Retrieve detailed information about a specific employee",
+    "description": "This operation fetches comprehensive data for a single employee identified by their unique ID. Use this endpoint when you need to view or verify individual employee details rather than bulk employee data. It reads employee records from the HRIS database without modifying any data. Ensure the employee ID provided exists to avoid errors."
+  },
+  "08dd044b7363b06c": {
+    "summary": "Create a new consumer in the vault",
+    "description": "This operation creates a new consumer entity within the vault system. Use this endpoint when you need to register a consumer with specific metadata for identification or access purposes. It writes the consumer data to the vault, making it available for subsequent operations involving that consumer. Ensure the consumer ID is unique to avoid conflicts."
+  },
+  "ed8aeff1031379c9": {
+    "summary": "Retrieve all comments for a specific ticket in a collection",
+    "description": "Fetches the complete list of comments associated with a given ticket within a specified collection. Use this operation when you need to view the discussion or notes related to a particular ticket. It reads all existing comments but does not modify any data. Ensure the collection and ticket identifiers are valid to successfully retrieve the comments."
+  },
+  "5c1954bbeafeb7bf": {
+    "summary": "Create a new time off request for an employee",
+    "description": "This operation creates a time off request record for an specified employee under a given policy. Use this endpoint when you need to submit a new request for vacation, sick leave, personal time, or other types of absence. It writes the request details including dates, type, status, and amount of time off. Ensure the request data complies with your organization's policies and that status values reflect the current state of the request."
+  },
+  "0ade98b57f1f0cff": {
+    "summary": "Proxy a downstream PUT request with injected credentials for secure forwarding",
+    "description": "This operation forwards a PUT request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need an additional security layer and logging without relying on Unify for request normalization. It securely proxies all data to the downstream URL and includes the original method and verb in the headers. Note that the request data is passed through Vault without modification, ensuring credential injection and auditability."
+  },
+  "048fde587db249b9": {
+    "summary": "Create a new ticket in a specified issue tracking collection",
+    "description": "This operation creates a new ticket within a given issue tracking collection. Use this endpoint when you need to add a ticket to organize and track issues related to a specific collection. It writes ticket details such as subject, description, status, priority, and assignees to the collection. Ensure the collection ID is valid, as the ticket will be associated with that collection and cannot exist independently."
+  },
+  "063e6e35a3391270": {
+    "summary": "Send a new SMS or MMS message",
+    "description": "This operation sends a new SMS or MMS message by creating it with specified details such as sender, recipient, content, and type. Use this endpoint when you need to initiate outbound messages programmatically, unlike endpoints that retrieve or manage existing messages. It records message metadata including status, direction, scheduling, and timestamps, affecting message delivery and tracking. Ensure message type and content comply with allowed formats and that scheduling times are valid if used."
+  },
+  "6d7bc7ad8c04066c": {
+    "summary": "Delete a specific time off request for an employee",
+    "description": "This operation deletes a particular time off request associated with an employee. Use this endpoint when you need to remove an existing time off request from the system. Deleting the request permanently removes its record and cannot be undone. Ensure the request ID corresponds to the correct employee to avoid unintended data loss."
+  },
+  "964515789aabeb18": {
+    "summary": "Retrieve a specific department by its ID",
+    "description": "This operation fetches detailed information about a single department using its unique identifier. Use this endpoint when you need to view or verify data for one department rather than a list of departments. It reads department data without modifying it and requires a valid department ID. Ensure the ID corresponds to an existing department to avoid errors."
+  },
+  "eb213e18913d0c0a": {
+    "summary": "Retrieve the content of a specific connector document",
+    "description": "This operation fetches the content of a specified document associated with a connector. Use this when you need to access detailed information or documentation for a particular connector. It reads the document data without modifying any connector settings. Ensure the connector and document IDs are valid to successfully retrieve the content."
+  },
+  "d00550054a813471": {
+    "summary": "Retrieve a specific comment from a ticket in an issue tracking collection",
+    "description": "This operation fetches the details of a single comment identified by its ID within a specified ticket and collection. Use this when you need to view or process the content of an individual comment rather than a list of comments. It reads the comment data without modifying it and requires valid collection, ticket, and comment identifiers. Ensure the specified comment exists within the given ticket and collection to avoid errors."
+  },
+  "5b85861265579594": {
+    "summary": "Exchange stored credentials for an access token and save it in Vault",
+    "description": "This operation exchanges persisted connection credentials for an access token and stores it securely in Vault. Use this when you need to authorize a connection that uses the client_credentials or password OAuth grant type without sending credentials in the request. It does not return the access token but confirms success with a 200 response, indicating the token is stored for future API requests. This operation does not persist any changes beyond storing the access token and should not include credentials in the request body."
+  },
+  "05aff6d1faa2fd52": {
+    "summary": "Retrieve all configured integration connections",
+    "description": "This operation fetches all configured integration connections available in the vault. Use this endpoint to obtain the complete list of integrations for building an integrations page where users can install them. OAuth2-supported integrations include authorize and revoke links to manage authentication flows. This endpoint reads the current integration configurations but does not modify any data."
+  },
+  "67746ed0291a07c5": {
+    "summary": "Retrieve a specific issue tracking collection by its ID",
+    "description": "This operation fetches the details of a single issue tracking collection identified by its unique ID. Use this endpoint when you need to view or manage the contents of a particular collection rather than listing all collections. It reads the collection data without modifying it. Ensure the collection ID provided is valid to avoid errors."
+  },
+  "191d7ef86f86e36d": {
+    "summary": "Retrieve a specific user from an issue tracking collection",
+    "description": "This operation fetches the details of a single user within a specified issue tracking collection. Use this endpoint when you need to access information about a particular user rather than a list of users. It reads user data associated with the given collection and user identifiers. Ensure the collection and user IDs are valid to avoid errors."
+  },
+  "3d82fcf6f4c0dec8": {
+    "summary": "Update an existing SMS or MMS message's details",
+    "description": "Modify the properties of a specific SMS or MMS message, such as its sender, recipient, content, type, status, and scheduling information. Use this operation when you need to correct or change message attributes after creation, unlike sending a new message or retrieving message details. This action updates stored message data and may affect message delivery if status or scheduling fields are changed. Ensure that the message ID exists and that updates comply with allowed status transitions and field constraints."
+  },
+  "0a28e5519d44b9fd": {
+    "summary": "Retrieve a specific ticket from a collection",
+    "description": "This operation fetches the details of a single ticket within a specified collection. Use this endpoint when you need to view or process information about one particular ticket rather than multiple tickets. It reads the ticket data without modifying it and requires valid collection and ticket identifiers. Ensure the ticket exists within the given collection to avoid errors."
+  },
+  "9375b1bfb2592dd1": {
+    "summary": "Delete a specific ticket from an issue tracking collection",
+    "description": "This operation removes a ticket identified by its ID from a specified issue tracking collection. Use this endpoint when you need to permanently delete a ticket rather than updating or closing it. Deleting a ticket will remove all associated data and cannot be undone. Ensure the ticket exists in the collection before attempting deletion to avoid errors."
+  },
+  "dcb342052f4bd79c": {
+    "summary": "Retrieve a list of all available APIs",
+    "description": "This operation fetches a complete list of all APIs accessible through the connector. Use this to discover which APIs can be integrated or managed within the system. It reads the current API registry without modifying any data. There are no special constraints beyond standard access permissions."
+  },
+  "0e7ce36aa6e5795f": {
+    "summary": "Delete a specific comment from a ticket in an issue tracking collection",
+    "description": "This operation removes a single comment identified by its ID from a specified ticket within an issue tracking collection. Use this endpoint when you need to permanently delete a comment rather than editing or hiding it. Deleting a comment is irreversible and will remove it from all views and records associated with the ticket. Ensure the comment ID and ticket belong to the correct collection to avoid unintended data removal."
+  },
+  "8f0dc78149e320a1": {
+    "summary": "Add a comment to a specific ticket in an issue tracking collection",
+    "description": "This operation creates a new comment on a specified ticket within an issue tracking collection. Use this endpoint when you want to append additional information or discussion to an existing ticket. It writes the comment data, including content and metadata, to the ticket's comment thread. Ensure the ticket and collection IDs are valid, as the comment is linked directly to these entities."
+  },
+  "6b1779b1e0728ecd": {
+    "summary": "Retrieve custom and default connection settings for a specific resource",
+    "description": "This operation fetches the custom configuration settings along with their default values required for a connection to a specified resource. Use this endpoint when you need to understand or modify the connection parameters for a particular resource within a service. It reads the current settings without making changes, ensuring you have the necessary details to manage connections effectively. The response includes both user-defined and default settings, helping to distinguish between customized and standard configurations."
+  },
+  "dc8189d77cc6350a": {
+    "summary": "Retrieve a specific time off request for an employee",
+    "description": "Fetch detailed information about a single time off request associated with a particular employee. Use this operation when you need to view or verify the details of an individual time off request rather than a list of requests. It reads the stored data for the specified request and employee, ensuring accurate retrieval of the request's status and details. Ensure the employee and request identifiers are valid to avoid errors."
+  },
+  "10b92e19b58afd8b": {
+    "summary": "Retrieve details of a specific connector by its ID",
+    "description": "This operation fetches detailed information about a single connector identified by its ID. Use this endpoint when you need to view or verify the configuration and status of a particular connector. It reads connector data without modifying any resources. Ensure the connector ID exists to avoid errors."
+  },
+  "84551ebdc53eb09c": {
+    "summary": "Retrieve all tags for a specific issue tracking collection",
+    "description": "Fetches the complete list of tags associated with a given issue tracking collection. Use this operation when you need to view or manage tags within a particular collection, as opposed to tags across multiple collections. This operation reads tag data without modifying it. Ensure the collection identifier is valid to receive the corresponding tags."
+  },
+  "f62f79e017879883": {
+    "summary": "Proxy a downstream GET request with injected credentials for secure access",
+    "description": "This operation forwards a GET request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need an additional security layer and logging without relying on Unify for normalization. It reads credentials from Vault and includes method and URL details in the headers. The proxy forwards all data transparently to the downstream service, ensuring secure and logged access without modifying the request payload."
+  },
+  "10528a37931d50ef": {
+    "summary": "Retrieve all application consumers with their request counts",
+    "description": "Fetches a list of all application consumers registered in the vault, including an aggregated count of requests each has made. Use this endpoint when you need a comprehensive overview of consumer activity and usage statistics. It reads existing consumer data and their request metrics without modifying any records. This operation provides a consolidated view but does not support filtering or pagination."
+  },
+  "e604a9d69b48d182": {
+    "summary": "Create a temporary Hosted Vault session for managing integrations and settings",
+    "description": "This operation initiates a Hosted Vault session by generating a short-lived token and a URL for access. Use this endpoint when you need to grant a consumer temporary access to manage their integrations and settings through the Vault interface. The session token expires after one hour, so the consumer must use the provided URL promptly. This endpoint writes session data and returns a redirect URL but does not persist long-term credentials."
+  },
+  "79973525e1e24bda": {
+    "summary": "Retrieve a specific API resource by its ID",
+    "description": "This operation fetches the details of a single API resource identified by its resource ID within a given API. Use this endpoint when you need to view or inspect the configuration or metadata of a particular resource rather than listing all resources. It reads the resource data without modifying it and requires valid identifiers to locate the resource. If the resource does not exist, the operation will return an error indicating it was not found."
+  },
+  "a094daf4da29e33b": {
+    "summary": "Delete a resource by proxying a downstream DELETE request with injected credentials",
+    "description": "This operation proxies a DELETE request to a downstream service while injecting credentials stored in Vault to ensure secure access. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It forwards all data to the downstream URL and includes the method and verb in the headers. This method does not return a response body and requires proper credential setup in Vault to function correctly."
+  },
+  "53b29a8b928c7eac": {
+    "summary": "Retrieve all tickets for a specific collection",
+    "description": "Fetches a list of all tickets associated with the specified collection. Use this operation when you need to view or manage all tickets within a particular collection. It reads ticket data linked to the collection but does not modify any information. Ensure the collection ID is valid to receive the corresponding tickets."
+  },
+  "f1dd975cf2aa0624": {
+    "summary": "Retrieve a specific resource from a connector",
+    "description": "This operation fetches the details of a single resource identified by its ID within a specified connector. Use this when you need to access information about one particular resource rather than a list of resources. It reads data associated with the resource but does not modify any connector or resource state. Ensure the connector and resource IDs are valid to avoid errors."
+  },
+  "d8de048ff9ad421b": {
+    "summary": "Proxy a PATCH request to a downstream service with injected credentials",
+    "description": "This operation forwards a PATCH request to a downstream service while injecting necessary credentials stored in Vault. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream URL and includes the method and verb in the headers. Note that the request data is passed through as-is, and Vault handles credential injection transparently."
+  },
+  "9013ed5b890201c4": {
+    "summary": "Import an authorized connection into the vault",
+    "description": "This operation imports an authorized connection for a specified service into the vault. Use this when you need to add existing credentials and settings to manage connections centrally. It writes the provided credentials, settings, and metadata into the vault, enabling secure storage and future access. Ensure the connection is authorized before importing to avoid errors."
+  },
+  "3acd3e177ac0bbfb": {
+    "summary": "Update a webhook subscription and validate its delivery URL if changed",
+    "description": "This operation updates an existing webhook subscription, allowing changes to its delivery URL, description, status, and subscribed events. Use this endpoint when you need to modify webhook settings, especially to update the delivery URL, which triggers a synchronous validation via an HTTP POST with an HMAC signature. If the delivery URL validation fails due to network issues, timeouts, or non-2xx responses, the webhook is updated but automatically disabled with a specific disabled reason. Always verify the webhook's status and disabled reason after updating to confirm it remains active."
+  },
+  "04162f3fbbff9e6a": {
+    "summary": "Proxy a downstream POST request with injected credentials for secure forwarding",
+    "description": "This operation forwards a POST request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need to add an extra security layer and logging without relying on Unify for data normalization. It forwards all data to the downstream URL and includes the original method and verb in the headers. The operation does not modify the request body beyond credential injection and requires that the downstream service accepts the proxied request format."
+  },
+  "033271766e4dead2": {
+    "summary": "Delete a consumer and all associated connections",
+    "description": "This operation removes a specified consumer along with all their connections and credentials. Use this when you need to completely revoke a consumer's access and remove their related data from the system. Deleting a consumer is irreversible and will eliminate all credentials tied to that consumer. Ensure that this action is appropriate as it affects all linked connections and access rights."
+  },
+  "7b58b9f1e6978fc6": {
+    "summary": "Retrieve detailed information about a specific consumer",
+    "description": "This operation fetches detailed information about a consumer, including aggregated counts related to the connections they have authorized. Use this endpoint when you need to view a consumer's profile and their associated connection statistics. It reads data about the consumer and their authorized connections but does not modify any data. Ensure the consumer ID provided is valid to retrieve accurate information."
+  },
+  "fe4744d631048821": {
+    "summary": "Retrieve all users associated with a specific issue tracking collection",
+    "description": "This operation fetches the complete list of users linked to a given issue tracking collection. Use this endpoint when you need to view or manage users within a particular collection, rather than users across all collections. It reads user data related to the specified collection and does not modify any information. Ensure the collection identifier is valid to receive accurate user listings."
+  },
+  "330ce8e49b3af19c": {
+    "summary": "Forward OPTIONS requests to a downstream service with injected credentials",
+    "description": "This operation forwards an OPTIONS HTTP request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need to add a security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream URL and includes the method and verb in the headers. This ensures secure and traceable communication with the downstream service during OPTIONS requests."
+  },
+  "5d6d1eb065bb2a04": {
+    "summary": "Update an existing connection's details and configuration",
+    "description": "This operation modifies the properties of an existing connection, such as its state, authentication type, status, and other metadata. Use this endpoint when you need to change connection settings without creating a new connection. It updates stored connection data and may affect how the connection interacts with integrated services. Ensure the connection identifiers are correct, as this operation targets a specific connection by unified API and service ID."
+  },
+  "c4da779dc70f8748": {
+    "summary": "Retrieve a specific connection by unified API and service ID",
+    "description": "This operation fetches the details of a single connection identified by the unified API and service ID. Use this endpoint when you need to access information about a particular connection rather than a list of connections. It reads the stored connection data without modifying it. Ensure the provided identifiers are valid to successfully retrieve the connection."
+  },
+  "60972f0284d59e84": {
+    "summary": "Retrieve all custom mappings for a specified unified API and service",
+    "description": "This operation fetches a list of all custom mappings associated with a given unified API and service identifier. Use this endpoint when you need to view or manage the custom mappings configured for a particular service within the vault. It reads the stored mapping data without modifying it. Ensure the unified API and service ID are valid to receive the corresponding mappings."
+  },
+  "3b1896563abac300": {
+    "summary": "Retrieve request counts for a consumer within a datetime range",
+    "description": "This operation fetches the number of requests made by a specific consumer over a specified datetime range. Use this endpoint when you need aggregated request statistics for monitoring or analysis purposes. It reads historical request data associated with the consumer but does not modify any stored information. Ensure the datetime range is valid to receive accurate counts."
+  },
+  "98cb60fd2b8a6f8e": {
+    "summary": "Update the consent state of a vault connection",
+    "description": "This operation updates the consent status for a specified vault connection, indicating whether access is granted or revoked. Use this endpoint when you need to change the user's permission state for a connection managed within the vault. It modifies the consent data associated with the connection, affecting access to linked resources. Ensure the connection identifiers are correct, as the update applies only to the specified service and unified API combination."
+  },
+  "bd8cd2d23f4d2ab0": {
+    "summary": "Delete a connection from the vault",
+    "description": "This operation removes a specified connection from the vault. Use this when you need to permanently delete a connection and no longer require access to its stored credentials or configuration. Deleting a connection is irreversible and will remove all associated data for that connection. Ensure the connection is not in use before deletion to avoid disrupting dependent services."
+  },
+  "ae1bcca1772377d8": {
+    "summary": "Retrieve custom fields for a connection resource",
+    "description": "This operation fetches all custom fields associated with a specified connection resource. Use this endpoint when you need to view or manage metadata fields that are uniquely defined for a resource within a vault connection. It reads the current custom field configurations without modifying any data. Ensure the resource and connection identifiers are valid to obtain accurate custom field information."
+  },
+  "a189e452ad734d70": {
+    "summary": "Validate the current state of a connection and refresh tokens if needed",
+    "description": "This operation checks the validity of a specified connection by performing different validations depending on its authentication type. Use this to verify that required fields exist for basic and API key authentications, or to trigger an OAuth2 access token refresh regardless of expiry. It does not accept credentials in the request body and does not persist any changes, only validating the connection state. If a token refresh occurs successfully, the updated access token will be used for future API calls."
+  },
+  "5c97d175793fbf81": {
+    "summary": "Retrieve coverage details for a specific API resource",
+    "description": "This operation fetches the coverage information of a particular resource within an API. Use this endpoint when you need to assess how well a resource is covered, such as for testing or monitoring purposes. It reads coverage data associated with the specified resource but does not modify any data. Ensure the resource and API identifiers are valid to receive accurate coverage details."
+  },
+  "10eb7b75c3a4c862": {
+    "summary": "Update default settings for a connection's resource",
+    "description": "This operation modifies the default configuration values for a specific resource within a connection. Use it when you need to change connection parameters such as authentication type, state, or status without creating a new connection. It updates stored settings that affect how the connection interacts with the resource, ensuring future requests use the new configuration. Note that this operation only changes default values and does not affect existing active sessions or data."
+  },
+  "8629154915d1cbe5": {
+    "summary": "Create a callback state for issuing requests to a callback endpoint",
+    "description": "This operation creates a callback state that enables secure interactions with a callback endpoint. Use this endpoint when you need to establish a state token to manage callback requests within the vault connections. It writes a new callback state associated with the specified service and unified API, facilitating controlled callback communications. Ensure the redirect URI is valid as it is part of the callback state creation process."
+  },
+  "22e7b31fe02668b9": {
+    "summary": "Create a webhook subscription to receive specified events",
+    "description": "This operation creates a webhook subscription that delivers specified events to a given URL. Use this to set up event notifications via HTTP POST requests to your endpoint. The delivery URL is validated synchronously by sending a signed POST request; if validation fails, the webhook is created but disabled with a reason indicating validation failure. Always verify the webhook's status and disabled reason in the response to confirm it is active and receiving events."
+  },
+  "5852a140b8719501": {
+    "summary": "Retrieve a list of all webhook event logs",
+    "description": "This operation fetches all recorded webhook event logs. Use it to review the history of webhook events for monitoring or debugging purposes. It reads stored event data without modifying any records. There are no special constraints beyond standard access permissions."
+  },
+  "6bb36f164425f4fc": {
+    "summary": "Retrieve all custom mappings for a specific connection",
+    "description": "This operation fetches the complete list of custom mappings associated with a given connection. Use this endpoint when you need to view or audit the custom mappings configured for a particular unified API, service, and resource combination. It reads the stored mapping configurations without modifying any data. Ensure the specified connection identifiers are valid to receive the correct mappings."
+  },
+  "f0b8f545bd1670b7": {
+    "summary": "Retrieve all consumer request logs from the vault",
+    "description": "This operation fetches all consumer request logs stored in the vault. Use this endpoint when you need a comprehensive view of all logged consumer requests, unlike more specific log retrieval endpoints that filter by criteria. It reads all available log entries without modifying any data. There are no special constraints beyond standard access permissions."
+  },
+  "030ec17a394b6c95": {
+    "summary": "Delete a webhook subscription by its ID",
+    "description": "This operation removes an existing webhook subscription identified by its ID. Use this to stop receiving events or notifications from the webhook source. Deleting a webhook subscription permanently disables its event delivery and cannot be undone. Ensure the ID corresponds to an active subscription to avoid errors."
+  },
+  "6046a4df94c461c7": {
+    "summary": "Update a consumer's metadata including name and email",
+    "description": "This operation updates the metadata of an existing consumer, such as their name and email address. Use this endpoint when you need to modify consumer details without affecting other consumer attributes. It writes changes directly to the consumer's stored metadata. Ensure the consumer exists before attempting to update, as this operation does not create new consumers."
+  },
+  "f589ea691bd1fec5": {
+    "summary": "Retrieve all consent records for a specific connection",
+    "description": "This operation fetches all consent records associated with a given connection identified by unified API and service ID. Use this endpoint when you need to review or audit all consents granted for a particular connection. It reads consent data without modifying any records. Ensure the connection identifiers are valid to retrieve the correct consent information."
+  },
+  "efb615e90e3fe9a8": {
+    "summary": "Retrieve details of a specific webhook subscription",
+    "description": "This operation fetches the details of a webhook subscription identified by its ID. Use this endpoint when you need to view the configuration or status of an existing webhook subscription. It reads the stored subscription data without modifying it. Ensure the specified ID corresponds to an existing webhook subscription to avoid errors."
+  },
+  "bef58d0d99bdcbe9": {
+    "summary": "Retrieve a list of all webhook subscriptions",
+    "description": "This operation fetches all existing webhook subscriptions configured in the system. Use it when you need to view or manage the current webhooks rather than creating or deleting them. It reads the stored webhook subscription data without modifying it. There are no special constraints beyond standard access permissions."
+  }
+}

@@ -7,15 +7,19 @@ permissions:
   statuses: write
 
 on:
+  # Scheduled runs disabled: our production path is now the custom
+  # generator (gen/node/generate.mjs → src/gen/tools.ts). Speakeasy's
+  # nightly regen conflicts with our analytics additions in
+  # src/mcp-server/tools.ts and opens failing PRs that clutter the
+  # queue. Trigger manually (workflow_dispatch) when we want to
+  # refresh the legacy Speakeasy-generated layer; delete the workflow
+  # entirely once we've fully cut the dependency.
   workflow_dispatch:
     inputs:
       force:
         description: Force regeneration even if spec hasn't changed
         type: boolean
         default: false
-  schedule:
-    # Check for spec changes daily at 6am UTC
-    - cron: "0 6 * * *"
 
 jobs:
   generate:
