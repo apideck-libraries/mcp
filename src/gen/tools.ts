@@ -9,7 +9,7 @@ const opt = z.object({}).optional();
 export const generatedTools: ToolDefinition<any>[] = [
   {
     name: "accounting-aged-creditors-get",
-    description: "Get Aged Creditors",
+    description: "Get Aged Creditors.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-aged-creditors-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -33,7 +33,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-aged-debtors-get",
-    description: "Get Aged Debtors",
+    description: "Get Aged Debtors.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-aged-debtors-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -57,7 +57,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-delete",
-    description: "Delete Attachment",
+    description: "Delete Attachment.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -81,7 +81,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-download",
-    description: "Download Attachment",
+    description: "Download Attachment.\n\nRead-only; safe to call repeatedly.\n\nReturns binary content as an MCP image/audio block. For metadata only, call `accounting-attachments-get`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -105,7 +105,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-get",
-    description: "Get Attachment",
+    description: "Get Attachment.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-attachments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -129,7 +129,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-list",
-    description: "List Attachments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Attachments.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-attachments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -153,7 +153,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-attachments-upload",
-    description: "Upload attachment",
+    description: "Upload attachment.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nPass binary content as a base64 string, data URL, or `{ data, mimeType }` in `body`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -178,7 +178,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-balance-sheet-get",
-    description: "Get BalanceSheet",
+    description: "Get BalanceSheet.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-balance-sheet-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -202,7 +202,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-create",
-    description: "Create Bank Account",
+    description: "Create Bank Account.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bank-accounts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -226,7 +226,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-delete",
-    description: "Delete Bank Account",
+    description: "Delete Bank Account.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -250,7 +250,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-get",
-    description: "Get Bank Account",
+    description: "Get Bank Account.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bank-accounts-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -274,7 +274,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-list",
-    description: "List Bank Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Bank Accounts.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bank-accounts-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -298,7 +298,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-accounts-update",
-    description: "Update Bank Account",
+    description: "Update Bank Account.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -322,7 +322,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-create",
-    description: "Create Bank Feed Account",
+    description: "Create Bank Feed Account.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bank-feed-accounts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -346,7 +346,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-delete",
-    description: "Delete Bank Feed Account",
+    description: "Delete Bank Feed Account.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -370,7 +370,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-get",
-    description: "Get Bank Feed Account",
+    description: "Get Bank Feed Account.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bank-feed-accounts-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -394,7 +394,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-list",
-    description: "List Bank Feed Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Bank Feed Accounts.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bank-feed-accounts-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -418,7 +418,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-accounts-update",
-    description: "Update Bank Feed Account",
+    description: "Update Bank Feed Account.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -442,7 +442,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-create",
-    description: "Create Bank Feed Statement",
+    description: "Create Bank Feed Statement.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bank-feed-statements-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -466,7 +466,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-delete",
-    description: "Delete Bank Feed Statement",
+    description: "Delete Bank Feed Statement.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -490,7 +490,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-get",
-    description: "Get Bank Feed Statement",
+    description: "Get Bank Feed Statement.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bank-feed-statements-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -514,7 +514,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-list",
-    description: "List Bank Feed Statements (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Bank Feed Statements.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bank-feed-statements-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -538,7 +538,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bank-feed-statements-update",
-    description: "Update Bank Feed Statement",
+    description: "Update Bank Feed Statement.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -562,7 +562,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-create",
-    description: "Create Bill Payment",
+    description: "Create Bill Payment.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bill-payments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -586,7 +586,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-delete",
-    description: "Delete Bill Payment",
+    description: "Delete Bill Payment.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -610,7 +610,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-get",
-    description: "Get Bill Payment",
+    description: "Get Bill Payment.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bill-payments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -634,7 +634,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-list",
-    description: "List Bill Payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Bill Payments.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bill-payments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -658,7 +658,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bill-payments-update",
-    description: "Update Bill Payment",
+    description: "Update Bill Payment.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -682,7 +682,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-create",
-    description: "Create Bill",
+    description: "Create Bill.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bills-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -706,7 +706,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-delete",
-    description: "Delete Bill",
+    description: "Delete Bill.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -730,7 +730,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-get",
-    description: "Get Bill",
+    description: "Get Bill.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bills-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -754,7 +754,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-list",
-    description: "List Bills (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Bills.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bills-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -778,7 +778,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-bills-update",
-    description: "Update Bill",
+    description: "Update Bill.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -802,7 +802,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-categories-get",
-    description: "Get Category",
+    description: "Get Category.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-categories-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -826,7 +826,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-categories-list",
-    description: "List Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Categories.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-categories-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -850,7 +850,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-companies-list",
-    description: "List companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List companies.\n\nList all companies accessible through the current connection. Only connectors that support multi-company access (x-apideck-supports-multi-company) will return a list of companies. Use the returned company ID in the x-apideck-company-id header to scope subsequent requests to a ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-companies-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -874,7 +874,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-company-info-get",
-    description: "Get company info",
+    description: "Get company info.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-company-info-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -898,7 +898,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-create",
-    description: "Create Credit Note",
+    description: "Create Credit Note.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-credit-notes-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -922,7 +922,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-delete",
-    description: "Delete Credit Note",
+    description: "Delete Credit Note.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -946,7 +946,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-get",
-    description: "Get Credit Note",
+    description: "Get Credit Note.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-credit-notes-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -970,7 +970,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-list",
-    description: "List Credit Notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Credit Notes.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-credit-notes-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -994,7 +994,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-credit-notes-update",
-    description: "Update Credit Note",
+    description: "Update Credit Note.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1018,7 +1018,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-create",
-    description: "Create Customer",
+    description: "Create Customer.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-customers-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1042,7 +1042,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-delete",
-    description: "Delete Customer",
+    description: "Delete Customer.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1066,7 +1066,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-get",
-    description: "Get Customer",
+    description: "Get Customer.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-customers-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1090,7 +1090,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-list",
-    description: "List Customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Customers.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-customers-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1114,7 +1114,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-customers-update",
-    description: "Update Customer",
+    description: "Update Customer.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1138,7 +1138,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-create",
-    description: "Create Department",
+    description: "Create Department.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-departments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1162,7 +1162,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-delete",
-    description: "Delete Department",
+    description: "Delete Department.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1186,7 +1186,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-get",
-    description: "Get Department",
+    description: "Get Department.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-departments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1210,7 +1210,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-list",
-    description: "List Departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Departments.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-departments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1234,7 +1234,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-departments-update",
-    description: "Update Department",
+    description: "Update Department.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1258,7 +1258,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-create",
-    description: "Create Employee",
+    description: "Create Employee.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-employees-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1282,7 +1282,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-delete",
-    description: "Delete Employee",
+    description: "Delete Employee.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1306,7 +1306,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-get",
-    description: "Get Employee",
+    description: "Get Employee.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-employees-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1330,7 +1330,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-list",
-    description: "List Employees (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Employees.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-employees-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1354,7 +1354,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-employees-update",
-    description: "Update Employee",
+    description: "Update Employee.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1378,7 +1378,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-create",
-    description: "Create Expense Category",
+    description: "Create Expense Category.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-expense-categories-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1402,7 +1402,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-delete",
-    description: "Delete Expense Category",
+    description: "Delete Expense Category.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1426,7 +1426,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-get",
-    description: "Get Expense Category",
+    description: "Get Expense Category.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-expense-categories-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1450,7 +1450,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-list",
-    description: "List Expense Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Expense Categories.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-expense-categories-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1474,7 +1474,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-categories-update",
-    description: "Update Expense Category",
+    description: "Update Expense Category.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1498,7 +1498,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-create",
-    description: "Create Expense Report",
+    description: "Create Expense Report.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-expense-reports-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1522,7 +1522,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-delete",
-    description: "Delete Expense Report",
+    description: "Delete Expense Report.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1546,7 +1546,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-get",
-    description: "Get Expense Report",
+    description: "Get Expense Report.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-expense-reports-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1570,7 +1570,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-list",
-    description: "List Expense Reports (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Expense Reports.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-expense-reports-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1594,7 +1594,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expense-reports-update",
-    description: "Update Expense Report",
+    description: "Update Expense Report.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1618,7 +1618,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-create",
-    description: "Create Expense",
+    description: "Create Expense.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-expenses-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1642,7 +1642,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-delete",
-    description: "Delete Expense",
+    description: "Delete Expense.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1666,7 +1666,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-get",
-    description: "Get Expense",
+    description: "Get Expense.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-expenses-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1690,7 +1690,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-list",
-    description: "List Expenses (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Expenses.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-expenses-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1714,7 +1714,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-expenses-update",
-    description: "Update Expense",
+    description: "Update Expense.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1738,7 +1738,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-create",
-    description: "Create Invoice Item",
+    description: "Create Invoice Item.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-invoice-items-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1762,7 +1762,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-delete",
-    description: "Delete Invoice Item",
+    description: "Delete Invoice Item.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1786,7 +1786,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-get",
-    description: "Get Invoice Item",
+    description: "Get Invoice Item.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-invoice-items-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1810,7 +1810,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-list",
-    description: "List Invoice Items (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Invoice Items.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-invoice-items-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1834,7 +1834,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoice-items-update",
-    description: "Update Invoice Item",
+    description: "Update Invoice Item.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1858,7 +1858,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-create",
-    description: "Create Invoice",
+    description: "Create Invoice.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-invoices-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1882,7 +1882,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-delete",
-    description: "Delete Invoice",
+    description: "Delete Invoice.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -1906,7 +1906,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-get",
-    description: "Get Invoice",
+    description: "Get Invoice.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-invoices-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1930,7 +1930,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-list",
-    description: "List Invoices (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Invoices.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-invoices-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -1954,7 +1954,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-invoices-update",
-    description: "Update Invoice",
+    description: "Update Invoice.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -1978,7 +1978,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-create",
-    description: "Create Journal Entry",
+    description: "Create Journal Entry.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-journal-entries-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2002,7 +2002,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-delete",
-    description: "Delete Journal Entry",
+    description: "Delete Journal Entry.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2026,7 +2026,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-get",
-    description: "Get Journal Entry",
+    description: "Get Journal Entry.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-journal-entries-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2050,7 +2050,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-list",
-    description: "List Journal Entries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Journal Entries.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-journal-entries-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2074,7 +2074,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-journal-entries-update",
-    description: "Update Journal Entry",
+    description: "Update Journal Entry.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2098,7 +2098,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-create",
-    description: "Create Ledger Account",
+    description: "Create Ledger Account.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-ledger-accounts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2122,7 +2122,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-delete",
-    description: "Delete Ledger Account",
+    description: "Delete Ledger Account.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2146,7 +2146,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-get",
-    description: "Get Ledger Account",
+    description: "Get Ledger Account.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-ledger-accounts-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2170,7 +2170,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-list",
-    description: "List Ledger Accounts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Ledger Accounts.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-ledger-accounts-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2194,7 +2194,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-ledger-accounts-update",
-    description: "Update Ledger Account",
+    description: "Update Ledger Account.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2218,7 +2218,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-create",
-    description: "Create Location",
+    description: "Create Location.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-locations-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2242,7 +2242,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-delete",
-    description: "Delete Location",
+    description: "Delete Location.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2266,7 +2266,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-get",
-    description: "Get Location",
+    description: "Get Location.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-locations-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2290,7 +2290,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-list",
-    description: "List Locations (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Locations.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-locations-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2314,7 +2314,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-locations-update",
-    description: "Update Location",
+    description: "Update Location.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2338,7 +2338,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-create",
-    description: "Create Payment",
+    description: "Create Payment.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-payments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2362,7 +2362,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-delete",
-    description: "Delete Payment",
+    description: "Delete Payment.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2386,7 +2386,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-get",
-    description: "Get Payment",
+    description: "Get Payment.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-payments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2410,7 +2410,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-list",
-    description: "List Payments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Payments.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-payments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2434,7 +2434,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-payments-update",
-    description: "Update Payment",
+    description: "Update Payment.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2458,7 +2458,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-profit-and-loss-get",
-    description: "Get Profit and Loss",
+    description: "Get Profit and Loss.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-profit-and-loss-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2482,7 +2482,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-create",
-    description: "Create project",
+    description: "Create project.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-projects-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2506,7 +2506,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-delete",
-    description: "Delete project",
+    description: "Delete project.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2530,7 +2530,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-get",
-    description: "Get project",
+    description: "Get project.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-projects-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2554,7 +2554,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-list",
-    description: "List projects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List projects.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-projects-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2578,7 +2578,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-projects-update",
-    description: "Update project",
+    description: "Update project.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2602,7 +2602,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-create",
-    description: "Create Purchase Order",
+    description: "Create Purchase Order.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-purchase-orders-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2626,7 +2626,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-delete",
-    description: "Delete Purchase Order",
+    description: "Delete Purchase Order.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2650,7 +2650,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-get",
-    description: "Get Purchase Order",
+    description: "Get Purchase Order.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-purchase-orders-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2674,7 +2674,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-list",
-    description: "List Purchase Orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Purchase Orders.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-purchase-orders-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2698,7 +2698,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-purchase-orders-update",
-    description: "Update Purchase Order",
+    description: "Update Purchase Order.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2722,7 +2722,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-create",
-    description: "Create Quote",
+    description: "Create Quote.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-quotes-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2746,7 +2746,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-delete",
-    description: "Delete Quote",
+    description: "Delete Quote.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2770,7 +2770,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-get",
-    description: "Get Quote",
+    description: "Get Quote.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-quotes-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2794,7 +2794,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-list",
-    description: "List Quotes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Quotes.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-quotes-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2818,7 +2818,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-quotes-update",
-    description: "Update Quote",
+    description: "Update Quote.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2842,7 +2842,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-create",
-    description: "Create Refund",
+    description: "Create Refund.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-refunds-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2866,7 +2866,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-delete",
-    description: "Delete Refund",
+    description: "Delete Refund.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -2890,7 +2890,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-get",
-    description: "Get Refund",
+    description: "Get Refund.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-refunds-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2914,7 +2914,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-list",
-    description: "List Refunds (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Refunds.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-refunds-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -2938,7 +2938,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-refunds-update",
-    description: "Update Refund",
+    description: "Update Refund.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2962,7 +2962,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-create",
-    description: "Create Subsidiary",
+    description: "Create Subsidiary.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-subsidiaries-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -2986,7 +2986,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-delete",
-    description: "Delete Subsidiary",
+    description: "Delete Subsidiary.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3010,7 +3010,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-get",
-    description: "Get Subsidiary",
+    description: "Get Subsidiary.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-subsidiaries-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3034,7 +3034,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-list",
-    description: "List Subsidiaries (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Subsidiaries.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-subsidiaries-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3058,7 +3058,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-subsidiaries-update",
-    description: "Update Subsidiary",
+    description: "Update Subsidiary.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3082,7 +3082,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-create",
-    description: "Create Supplier",
+    description: "Create Supplier.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-suppliers-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3106,7 +3106,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-delete",
-    description: "Delete Supplier",
+    description: "Delete Supplier.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3130,7 +3130,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-get",
-    description: "Get Supplier",
+    description: "Get Supplier.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-suppliers-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3154,7 +3154,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-list",
-    description: "List Suppliers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Suppliers.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-suppliers-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3178,7 +3178,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-suppliers-update",
-    description: "Update Supplier",
+    description: "Update Supplier.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3202,7 +3202,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-create",
-    description: "Create Tax Rate",
+    description: "Create Tax Rate.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-tax-rates-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3226,7 +3226,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-delete",
-    description: "Delete Tax Rate",
+    description: "Delete Tax Rate.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3250,7 +3250,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-get",
-    description: "Get Tax Rate",
+    description: "Get Tax Rate.\n\nGet Tax Rate. Note: Not all connectors return the actual rate/percentage value. In this case, only the tax code or reference is returned. Support will soon be added to return the actual rate/percentage by doing additional calls in the background to provide the full view of a g...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-tax-rates-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3274,7 +3274,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-list",
-    description: "List Tax Rates (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Tax Rates.\n\nList Tax Rates. Note: Not all connectors return the actual rate/percentage value. In this case, only the tax code or reference is returned. Connectors Affected: Quickbooks\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-tax-rates-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3298,7 +3298,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tax-rates-update",
-    description: "Update Tax Rate",
+    description: "Update Tax Rate.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3322,7 +3322,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-create",
-    description: "Create Tracking Category",
+    description: "Create Tracking Category.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-tracking-categories-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3346,7 +3346,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-delete",
-    description: "Delete Tracking Category",
+    description: "Delete Tracking Category.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3370,7 +3370,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-get",
-    description: "Get Tracking Category",
+    description: "Get Tracking Category.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-tracking-categories-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3394,7 +3394,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-list",
-    description: "List Tracking Categories (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Tracking Categories.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-tracking-categories-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3418,7 +3418,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "accounting-tracking-categories-update",
-    description: "Update Tracking Category",
+    description: "Update Tracking Category.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3442,7 +3442,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-create",
-    description: "Create Applicant",
+    description: "Create Applicant.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `ats-applicants-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3466,7 +3466,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-delete",
-    description: "Delete Applicant",
+    description: "Delete Applicant.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3490,7 +3490,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-get",
-    description: "Get Applicant",
+    description: "Get Applicant.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ats-applicants-list`.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3514,7 +3514,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-list",
-    description: "List Applicants (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Applicants.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ats-applicants-get` instead.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3538,7 +3538,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applicants-update",
-    description: "Update Applicant",
+    description: "Update Applicant.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3562,7 +3562,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-create",
-    description: "Create Application",
+    description: "Create Application.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `ats-applications-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3586,7 +3586,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-delete",
-    description: "Delete Application",
+    description: "Delete Application.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3610,7 +3610,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-get",
-    description: "Get Application",
+    description: "Get Application.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ats-applications-list`.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3634,7 +3634,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-list",
-    description: "List Applications (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Applications.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ats-applications-get` instead.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3658,7 +3658,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-applications-update",
-    description: "Update Application",
+    description: "Update Application.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3682,7 +3682,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-create",
-    description: "Create Job",
+    description: "Create Job.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `ats-jobs-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3706,7 +3706,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-delete",
-    description: "Delete Job",
+    description: "Delete Job.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -3730,7 +3730,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-get",
-    description: "Get Job",
+    description: "Get Job.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ats-jobs-list`.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3754,7 +3754,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-list",
-    description: "List Jobs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Jobs.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ats-jobs-get` instead.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3778,7 +3778,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ats-jobs-update",
-    description: "Update Job",
+    description: "Update Job.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -3802,7 +3802,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-api-resource-coverage-get",
-    description: "Get API Resource Coverage",
+    description: "Get API Resource Coverage.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resource-coverage-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3826,7 +3826,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-api-resources-get",
-    description: "Get API Resource",
+    description: "Get API Resource.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resources-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3850,7 +3850,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-get",
-    description: "Get API",
+    description: "Get API.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-apis-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3874,7 +3874,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-apis-list",
-    description: "List APIs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List APIs.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-apis-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3898,7 +3898,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connector-docs-get",
-    description: "Get Connector Doc content",
+    description: "Get Connector Doc content.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-docs-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3922,7 +3922,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connector-resources-get",
-    description: "Get Connector Resource",
+    description: "Get Connector Resource.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-resources-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3946,7 +3946,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-get",
-    description: "Get Connector",
+    description: "Get Connector.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connectors-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3970,7 +3970,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "connector-connectors-list",
-    description: "List Connectors (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Connectors.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-connectors-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -3994,7 +3994,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-create",
-    description: "Create activity",
+    description: "Create activity.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-activities-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4018,7 +4018,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-delete",
-    description: "Delete activity",
+    description: "Delete activity.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4042,7 +4042,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-get",
-    description: "Get activity",
+    description: "Get activity.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-activities-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4066,7 +4066,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-list",
-    description: "List activities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List activities.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-activities-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4090,7 +4090,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-activities-update",
-    description: "Update activity",
+    description: "Update activity.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4114,7 +4114,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-create",
-    description: "Create company",
+    description: "Create company.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-companies-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4138,7 +4138,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-delete",
-    description: "Delete company",
+    description: "Delete company.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4162,7 +4162,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-get",
-    description: "Get company",
+    description: "Get company.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-companies-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4186,7 +4186,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-list",
-    description: "List companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List companies.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-companies-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4210,7 +4210,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-companies-update",
-    description: "Update company",
+    description: "Update company.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4234,7 +4234,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-create",
-    description: "Create contact",
+    description: "Create contact.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-contacts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4258,7 +4258,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-delete",
-    description: "Delete contact",
+    description: "Delete contact.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4282,7 +4282,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-get",
-    description: "Get contact",
+    description: "Get contact.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-contacts-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4306,7 +4306,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-list",
-    description: "List contacts (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List contacts.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-contacts-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4330,7 +4330,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-contacts-update",
-    description: "Update contact",
+    description: "Update contact.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4354,7 +4354,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-create",
-    description: "Create custom object schema",
+    description: "Create custom object schema.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-custom-object-schemas-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4378,7 +4378,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-delete",
-    description: "Delete custom object schema",
+    description: "Delete custom object schema.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4402,7 +4402,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-get",
-    description: "Get custom object schema",
+    description: "Get custom object schema.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-custom-object-schemas-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4426,7 +4426,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-list",
-    description: "List custom object schemas (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List custom object schemas.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-custom-object-schemas-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4450,7 +4450,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-object-schemas-update",
-    description: "Update custom object schema",
+    description: "Update custom object schema.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4474,7 +4474,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-create",
-    description: "Create custom object",
+    description: "Create custom object.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-custom-objects-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4498,7 +4498,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-delete",
-    description: "Delete custom object",
+    description: "Delete custom object.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4522,7 +4522,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-get",
-    description: "Get custom object",
+    description: "Get custom object.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-custom-objects-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4546,7 +4546,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-list",
-    description: "List custom objects (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List custom objects.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-custom-objects-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4570,7 +4570,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-custom-objects-update",
-    description: "Update custom object",
+    description: "Update custom object.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4594,7 +4594,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-create",
-    description: "Create lead",
+    description: "Create lead.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-leads-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4618,7 +4618,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-delete",
-    description: "Delete lead",
+    description: "Delete lead.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4642,7 +4642,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-get",
-    description: "Get lead",
+    description: "Get lead.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-leads-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4666,7 +4666,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-list",
-    description: "List leads (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List leads.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-leads-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4690,7 +4690,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-leads-update",
-    description: "Update lead",
+    description: "Update lead.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4714,7 +4714,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-create",
-    description: "Create note",
+    description: "Create note.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-notes-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4738,7 +4738,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-delete",
-    description: "Delete note",
+    description: "Delete note.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4762,7 +4762,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-get",
-    description: "Get note",
+    description: "Get note.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-notes-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4786,7 +4786,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-list",
-    description: "List notes (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List notes.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-notes-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4810,7 +4810,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-notes-update",
-    description: "Update note",
+    description: "Update note.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4834,7 +4834,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-create",
-    description: "Create opportunity",
+    description: "Create opportunity.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-opportunities-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4858,7 +4858,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-delete",
-    description: "Delete opportunity",
+    description: "Delete opportunity.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -4882,7 +4882,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-get",
-    description: "Get opportunity",
+    description: "Get opportunity.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-opportunities-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4906,7 +4906,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-list",
-    description: "List opportunities (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List opportunities.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-opportunities-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -4930,7 +4930,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-opportunities-update",
-    description: "Update opportunity",
+    description: "Update opportunity.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4954,7 +4954,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-create",
-    description: "Create pipeline",
+    description: "Create pipeline.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-pipelines-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -4978,7 +4978,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-delete",
-    description: "Delete pipeline",
+    description: "Delete pipeline.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5002,7 +5002,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-get",
-    description: "Get pipeline",
+    description: "Get pipeline.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-pipelines-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5026,7 +5026,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-list",
-    description: "List pipelines (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List pipelines.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-pipelines-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5050,7 +5050,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-pipelines-update",
-    description: "Update pipeline",
+    description: "Update pipeline.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5074,7 +5074,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-create",
-    description: "Create user",
+    description: "Create user.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-users-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5098,7 +5098,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-delete",
-    description: "Delete user",
+    description: "Delete user.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5122,7 +5122,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-get",
-    description: "Get user",
+    description: "Get user.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-users-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5146,7 +5146,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-list",
-    description: "List users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List users.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-users-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5170,7 +5170,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "crm-users-update",
-    description: "Update user",
+    description: "Update user.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5194,7 +5194,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-customers-get",
-    description: "Get Customer",
+    description: "Get Customer.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-customers-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5218,7 +5218,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-customers-list",
-    description: "List Customers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Customers.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ecommerce-customers-get` instead.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5242,7 +5242,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-orders-get",
-    description: "Get Order",
+    description: "Get Order.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-orders-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5266,7 +5266,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-orders-list",
-    description: "List Orders (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Orders.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ecommerce-orders-get` instead.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5290,7 +5290,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-products-get",
-    description: "Get Product",
+    description: "Get Product.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-products-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5314,7 +5314,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-products-list",
-    description: "List Products (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Products.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ecommerce-products-get` instead.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5338,7 +5338,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "ecommerce-stores-get",
-    description: "Get Store",
+    description: "Get Store.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-stores-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5362,7 +5362,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-create",
-    description: "Create DriveGroup",
+    description: "Create DriveGroup.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-drive-groups-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5386,7 +5386,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-delete",
-    description: "Delete DriveGroup",
+    description: "Delete DriveGroup.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5410,7 +5410,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-get",
-    description: "Get DriveGroup",
+    description: "Get DriveGroup.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-drive-groups-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5434,7 +5434,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-list",
-    description: "List DriveGroups (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List DriveGroups.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-drive-groups-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5458,7 +5458,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drive-groups-update",
-    description: "Update DriveGroup",
+    description: "Update DriveGroup.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5482,7 +5482,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-create",
-    description: "Create Drive",
+    description: "Create Drive.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-drives-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5506,7 +5506,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-delete",
-    description: "Delete Drive",
+    description: "Delete Drive.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5530,7 +5530,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-get",
-    description: "Get Drive",
+    description: "Get Drive.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-drives-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5554,7 +5554,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-list",
-    description: "List Drives (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Drives.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-drives-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5578,7 +5578,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-drives-update",
-    description: "Update Drive",
+    description: "Update Drive.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5602,7 +5602,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-delete",
-    description: "Delete File",
+    description: "Delete File.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5626,7 +5626,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-download",
-    description: "Download File",
+    description: "Download File.\n\nRead-only; safe to call repeatedly.\n\nReturns binary content as an MCP image/audio block. For metadata only, call `file-storage-files-get`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5650,7 +5650,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-export",
-    description: "Export File",
+    description: "Export File.\n\nRead-only; safe to call repeatedly.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5674,7 +5674,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-get",
-    description: "Get File",
+    description: "Get File.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-files-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5698,7 +5698,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-list",
-    description: "List Files (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Files.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-files-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5722,7 +5722,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-search",
-    description: "Search Files",
+    description: "Search Files.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse for keyword / filtered lookups when `file-storage-files-list` is too broad.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5746,7 +5746,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-update",
-    description: "Rename or move File",
+    description: "Rename or move File.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5770,7 +5770,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-files-upload",
-    description: "Upload file",
+    description: "Upload file.\n\nUpload file (max 100MB). Please use the [Upload Sessions API](#operation/uploadSessionsStart) to upload bigger files. For more information on uploads, refer to the [file upload guide](/guides/file-upload).\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nPass binary content as a base64 string, data URL, or `{ data, mimeType }` in `body`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5795,7 +5795,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-copy",
-    description: "Copy Folder",
+    description: "Copy Folder.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5819,7 +5819,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-create",
-    description: "Create Folder",
+    description: "Create Folder.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-folders-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5843,7 +5843,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-delete",
-    description: "Delete Folder",
+    description: "Delete Folder.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5867,7 +5867,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-get",
-    description: "Get Folder",
+    description: "Get Folder.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-folders-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5891,7 +5891,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-folders-update",
-    description: "Rename or move Folder",
+    description: "Rename or move Folder.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5915,7 +5915,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-create",
-    description: "Create Shared Link",
+    description: "Create Shared Link.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-shared-links-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -5939,7 +5939,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-delete",
-    description: "Delete Shared Link",
+    description: "Delete Shared Link.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -5963,7 +5963,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-get",
-    description: "Get Shared Link",
+    description: "Get Shared Link.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-shared-links-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -5987,7 +5987,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-list",
-    description: "List Shared Links (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Shared Links.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-shared-links-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6011,7 +6011,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-shared-links-update",
-    description: "Update Shared Link",
+    description: "Update Shared Link.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6035,7 +6035,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-create",
-    description: "Start Upload Session",
+    description: "Start Upload Session.\n\nStart an Upload Session. Upload sessions are used to upload large files, use the [Upload File](#operation/filesUpload) endpoint to upload smaller files (up to 100MB). Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, re...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-upload-sessions-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6059,7 +6059,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-delete",
-    description: "Abort Upload Session",
+    description: "Abort Upload Session.\n\nAbort Upload Session. Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file upload guide](/guides/file-upload).\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6083,7 +6083,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-finish",
-    description: "Finish Upload Session",
+    description: "Finish Upload Session.\n\nFinish Upload Session. Only call this endpoint after all File parts have been uploaded to [Upload part of File](#operation/uploadSessionsUpload). Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file uplo...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6107,7 +6107,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-get",
-    description: "Get Upload Session",
+    description: "Get Upload Session.\n\nGet Upload Session. Use the `part_size` to split your file into parts. Upload the parts to the [Upload part of File](#operation/uploadSessionsUpload) endpoint. Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-upload-sessions-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6131,7 +6131,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "file-storage-upload-sessions-upload",
-    description: "Upload part of File to Upload Session",
+    description: "Upload part of File to Upload Session.\n\nUpload part of File to Upload Session (max 100MB). Get `part_size` from [Get Upload Session](#operation/uploadSessionsOne) first. Every File part (except the last one) uploaded to this endpoint should have Content-Length equal to `part_size`. Note that the base URL is upload.a...\n\nReplaces the target record. Omitted fields may be cleared depending on the connector.\n\nPass binary content as a base64 string, data URL, or `{ data, mimeType }` in `body`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6156,7 +6156,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-create",
-    description: "Create Company",
+    description: "Create Company.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-companies-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6180,7 +6180,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-delete",
-    description: "Delete Company",
+    description: "Delete Company.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6204,7 +6204,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-get",
-    description: "Get Company",
+    description: "Get Company.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-companies-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6228,7 +6228,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-list",
-    description: "List Companies (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Companies.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-companies-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6252,7 +6252,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-companies-update",
-    description: "Update Company",
+    description: "Update Company.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6276,7 +6276,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-create",
-    description: "Create Department",
+    description: "Create Department.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-departments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6300,7 +6300,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-delete",
-    description: "Delete Department",
+    description: "Delete Department.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6324,7 +6324,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-get",
-    description: "Get Department",
+    description: "Get Department.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-departments-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6348,7 +6348,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-list",
-    description: "List Departments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Departments.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-departments-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6372,7 +6372,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-departments-update",
-    description: "Update Department",
+    description: "Update Department.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6396,7 +6396,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employee-payrolls-get",
-    description: "Get Employee Payroll",
+    description: "Get Employee Payroll.\n\nGet payroll for employee\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-employee-payrolls-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6420,7 +6420,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employee-payrolls-list",
-    description: "List Employee Payrolls",
+    description: "List Employee Payrolls.\n\nList payrolls for employee\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-employee-payrolls-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6444,7 +6444,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employee-schedules-list",
-    description: "List Employee Schedules",
+    description: "List Employee Schedules.\n\nList schedules for employee, a schedule is a work pattern, not the actual worked hours, for an employee.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-employee-schedules-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6468,7 +6468,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-create",
-    description: "Create Employee",
+    description: "Create Employee.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-employees-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6492,7 +6492,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-delete",
-    description: "Delete Employee",
+    description: "Delete Employee.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6516,7 +6516,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-get",
-    description: "Get Employee",
+    description: "Get Employee.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-employees-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6540,7 +6540,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-list",
-    description: "List Employees (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Employees.\n\nApideck operates as a stateless Unified API, which means that the list endpoint only provides a portion of the employee model. This is due to the fact that most HRIS systems do not readily provide all data in every call. However, you can access the complete employee model thro...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-employees-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6564,7 +6564,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-employees-update",
-    description: "Update Employee",
+    description: "Update Employee.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6588,7 +6588,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-payrolls-get",
-    description: "Get Payroll",
+    description: "Get Payroll.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-payrolls-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6612,7 +6612,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-payrolls-list",
-    description: "List Payroll",
+    description: "List Payroll.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-payrolls-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6636,7 +6636,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-create",
-    description: "Create Time Off Request",
+    description: "Create Time Off Request.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-time-off-requests-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6660,7 +6660,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-delete",
-    description: "Delete Time Off Request",
+    description: "Delete Time Off Request.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6684,7 +6684,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-get",
-    description: "Get Time Off Request",
+    description: "Get Time Off Request.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-time-off-requests-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6708,7 +6708,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-list",
-    description: "List Time Off Requests (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Time Off Requests.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-time-off-requests-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6732,7 +6732,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "hris-time-off-requests-update",
-    description: "Update Time Off Request",
+    description: "Update Time Off Request.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6756,7 +6756,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tags-list",
-    description: "List Tags (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Tags.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-tags-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6780,7 +6780,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-create",
-    description: "Create Comment",
+    description: "Create Comment.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `issue-tracking-collection-ticket-comments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6804,7 +6804,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-delete",
-    description: "Delete Comment",
+    description: "Delete Comment.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6828,7 +6828,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-get",
-    description: "Get Comment (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Get Comment.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collection-ticket-comments-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6852,7 +6852,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-list",
-    description: "List Comments (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Comments.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-ticket-comments-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6876,7 +6876,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-ticket-comments-update",
-    description: "Update Comment",
+    description: "Update Comment.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6900,7 +6900,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-create",
-    description: "Create Ticket",
+    description: "Create Ticket.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `issue-tracking-collection-tickets-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -6924,7 +6924,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-delete",
-    description: "Delete Ticket",
+    description: "Delete Ticket.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -6948,7 +6948,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-get",
-    description: "Get Ticket",
+    description: "Get Ticket.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collection-tickets-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6972,7 +6972,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-list",
-    description: "List Tickets (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Tickets.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-tickets-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -6996,7 +6996,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-tickets-update",
-    description: "Update Ticket",
+    description: "Update Ticket.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7020,7 +7020,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-users-get",
-    description: "Get user",
+    description: "Get user.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collection-users-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7044,7 +7044,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collection-users-list",
-    description: "List Users (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Users.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-users-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7068,7 +7068,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collections-get",
-    description: "Get Collection",
+    description: "Get Collection.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collections-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7092,7 +7092,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "issue-tracking-collections-list",
-    description: "List Collections (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List Collections.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collections-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7116,7 +7116,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-delete",
-    description: "DELETE",
+    description: "DELETE.\n\nProxies a downstream DELETE request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization. **Note**: Vault will proxy all data to th...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -7140,7 +7140,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-get",
-    description: "GET",
+    description: "GET.\n\nProxies a downstream GET request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization. **Note**: Vault will proxy all data to the d...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `proxy-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7164,7 +7164,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-options",
-    description: "OPTIONS",
+    description: "OPTIONS.\n\nProxies a downstream OPTION request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization. **Note**: Vault will proxy all data to th...",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7188,7 +7188,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-patch",
-    description: "PATCH",
+    description: "PATCH.\n\nProxies a downstream PATCH request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization. **Note**: Vault will proxy all data to the...\n\nUpdates fields on an existing record. Only the fields you pass are modified.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7212,7 +7212,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-post",
-    description: "POST",
+    description: "POST.\n\nProxies a downstream POST request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization. **Note**: Vault will proxy all data to the ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7236,7 +7236,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "proxy-put",
-    description: "PUT",
+    description: "PUT.\n\nProxies a downstream PUT request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization. **Note**: Vault will proxy all data to the d...\n\nReplaces the target record. Omitted fields may be cleared depending on the connector.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7260,7 +7260,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-consent-update",
-    description: "Update consent state",
+    description: "Update consent state.\n\nUpdate the consent state of a connection\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7316,7 +7316,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-consents-list",
-    description: "Get consent records",
+    description: "Get consent records.\n\nGet all consent records for a connection\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-consents-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7340,7 +7340,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-custom-mappings-list",
-    description: "List connection custom mappings",
+    description: "List connection custom mappings.\n\nThis endpoint returns a list of custom mappings for a connection.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-custom-mappings-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7364,7 +7364,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-settings-list",
-    description: "Get resource settings",
+    description: "Get resource settings.\n\nThis endpoint returns custom settings and their defaults required by connection for a given resource.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-settings-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7388,7 +7388,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connection-settings-update",
-    description: "Update settings",
+    description: "Update settings.\n\nUpdate default values for a connection's resource settings\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7764,7 +7764,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-delete",
-    description: "Deletes a connection",
+    description: "Deletes a connection.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -7788,7 +7788,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-get",
-    description: "Get connection",
+    description: "Get connection.\n\nGet a connection\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-connections-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7812,7 +7812,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-imports",
-    description: "Import connection",
+    description: "Import connection.\n\nImport an authorized connection.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7836,7 +7836,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-list",
-    description: "Get all connections",
+    description: "Get all connections.\n\nThis endpoint includes all the configured integrations and contains the required assets to build an integrations page where your users can install integrations.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connections-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -7860,7 +7860,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-token",
-    description: "Authorize Access Token",
+    description: "Authorize Access Token.\n\nTriggers exchanging persisted connection credentials for an access token and store it in Vault. Currently supported for connections with the `client_credentials` or `password` OAuth grant type.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -7884,7 +7884,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-connections-update",
-    description: "Update connection",
+    description: "Update connection.\n\nUpdate a connection\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8260,7 +8260,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumer-request-counts-list",
-    description: "Consumer request counts",
+    description: "Consumer request counts.\n\nGet consumer request counts within a given datetime range.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumer-request-counts-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8284,7 +8284,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-create",
-    description: "Create consumer",
+    description: "Create consumer.\n\nCreate a consumer\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-consumers-list` first if duplicates are a concern — this tool doesn't dedupe.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8308,7 +8308,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-delete",
-    description: "Delete consumer",
+    description: "Delete consumer.\n\nDelete consumer and all their connections, including credentials.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -8332,7 +8332,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-get",
-    description: "Get consumer",
+    description: "Get consumer.\n\nConsumer detail including their aggregated counts with the connections they have authorized.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-consumers-list`.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8356,7 +8356,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-list",
-    description: "Get all consumers (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Get all consumers.\n\nThis endpoint includes all application consumers, along with an aggregated count of requests made.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumers-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8380,7 +8380,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-consumers-update",
-    description: "Update consumer",
+    description: "Update consumer.\n\nUpdate consumer metadata such as name and email.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8404,7 +8404,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-create-callback-state",
-    description: "Create Callback State",
+    description: "Create Callback State.\n\nThis endpoint creates a callback state that can be used to issue requests to the callback endpoint.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8428,7 +8428,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-custom-fields-list",
-    description: "Get resource custom fields",
+    description: "Get resource custom fields.\n\nThis endpoint returns an custom fields on a connection resource.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-fields-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8452,7 +8452,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-custom-mappings-list",
-    description: "List custom mappings",
+    description: "List custom mappings.\n\nThis endpoint returns a list of custom mappings.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-mappings-get` instead.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8476,7 +8476,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-logs-list",
-    description: "Get all consumer request logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "Get all consumer request logs.\n\nThis endpoint includes all consumer request logs.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-logs-get` instead.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8500,7 +8500,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-sessions-create",
-    description: "Create Session",
+    description: "Create Session.\n\nMaking a POST request to this endpoint will initiate a Hosted Vault session. Redirect the consumer to the returned URL to allow temporary access to manage their integrations and settings.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-sessions-list` first if duplicates are a concern — this tool doesn't dedupe.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8524,7 +8524,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "vault-validate-connection-state",
-    description: "Validate Connection State",
+    description: "Validate Connection State.\n\nThis endpoint validates the current state of a given connection. This will perform different checks based on the connection auth type. For basic and apiKey auth types, the presence of required fields is checked. For connectors that implement OAuth2, this operation forces the r...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8548,7 +8548,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-event-logs-list",
-    description: "List event logs (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List event logs.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `webhook-event-logs-get` instead.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8572,7 +8572,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-create",
-    description: "Create webhook subscription",
+    description: "Create webhook subscription.\n\nCreate a webhook subscription to receive events.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `webhook-webhooks-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
@@ -8596,7 +8596,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-delete",
-    description: "Delete webhook subscription",
+    description: "Delete webhook subscription.\n\nDelete a webhook subscription\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["destructive"],
     annotations: {
       title: "",
@@ -8620,7 +8620,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-get",
-    description: "Get webhook subscription",
+    description: "Get webhook subscription.\n\nGet the webhook subscription details\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `webhook-webhooks-list`.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8644,7 +8644,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-list",
-    description: "List webhook subscriptions (Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
+    description: "List webhook subscriptions.\n\nList all webhook subscriptions\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `webhook-webhooks-get` instead.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)",
     scopes: ["read"],
     annotations: {
       title: "",
@@ -8668,7 +8668,7 @@ export const generatedTools: ToolDefinition<any>[] = [
   },
   {
     name: "webhook-webhooks-update",
-    description: "Update webhook subscription",
+    description: "Update webhook subscription.\n\nUpdate a webhook subscription.\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
     scopes: ["write"],
     annotations: {
       title: "",
