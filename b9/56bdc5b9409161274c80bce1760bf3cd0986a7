@@ -1,0 +1,32 @@
+src/gen/tools.ts
+  1843bf7ab16e94b4 3805,3829,3853,3877,3901,3925,3949,3973,7119,7143,7167,7191,7215,7239,7263,7319,7343,7367,7391,7767,7791,7815,7839,7863,7887,8263,8287,8311,8335,8359,8383,8407,8431,8455,8479,8503,8527
+gen/node/generate.mjs
+  1843bf7ab16e94b4 283-286,289,291-311
+specs/apideck-mcp/tdqs-report.json
+  1843bf7ab16e94b4 7-10,12-13,23,32,39,42-43,52,62-63,72-73,83,93,103,112-113,122-123,132-133,139,142-143,153,171-173,182-183,193,203,213,222,233,243,248-249,252-253,262-263,272-273,283,288,291-293,301-303,308-313
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "b956bdc5b9409161274c80bce1760bf3cd0986a7",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 174,
+      "total_deletions": 143,
+      "accepted_lines": 19562,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_f6bcdbbbb4e208": {
+      "author": "GJ"
+    }
+  }
+}
