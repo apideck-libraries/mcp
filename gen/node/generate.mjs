@@ -15,12 +15,37 @@ import yaml from "js-yaml";
 import { jsonSchemaToZod } from "json-schema-to-zod";
 
 const REPO = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "..");
-const SPEC_FILE = path.join(REPO, "speakeasy-spec.yml");
 const OVERLAY_FILE = path.join(REPO, "mcp-overlay.yaml");
 const OUT_DIR = path.join(REPO, "src", "gen");
 
-const spec = yaml.load(fs.readFileSync(SPEC_FILE, "utf8"));
+/**
+ * Prefer Claro's enhanced OpenAPI spec when present. Claro
+ * (github.com/apideck-io/claro) runs LLMs over the raw spec to produce
+ * richer operation summaries / parameter descriptions, then emits the
+ * enhanced spec as a YAML or JSON file. Our generator reads those
+ * descriptions verbatim and layers the MCP-specific scaffolding
+ * (side-effects, usage hints, connection context) on top.
+ *
+ * Fallback to the raw Speakeasy spec keeps the generator runnable
+ * before Claro has been run at least once.
+ */
+const SPEC_CANDIDATES = [
+  path.join(REPO, "specs", "apideck-mcp", "enhanced-openapi.yml"),
+  path.join(REPO, "specs", "apideck-mcp", "enhanced-openapi.yaml"),
+  path.join(REPO, "specs", "apideck-mcp", "enhanced-openapi.json"),
+  path.join(REPO, "speakeasy-spec.yml"),
+];
+const SPEC_FILE = SPEC_CANDIDATES.find((p) => fs.existsSync(p));
+if (!SPEC_FILE) {
+  throw new Error(
+    `No OpenAPI spec found. Expected one of:\n  ${SPEC_CANDIDATES.join("\n  ")}`,
+  );
+}
+const specSource = SPEC_FILE.endsWith(".json") ? "json" : "yaml";
+const specText = fs.readFileSync(SPEC_FILE, "utf8");
+const spec = specSource === "json" ? JSON.parse(specText) : yaml.load(specText);
 const overlay = yaml.load(fs.readFileSync(OVERLAY_FILE, "utf8"));
+console.error(`[generate] spec: ${path.relative(REPO, SPEC_FILE)}`);
 
 // ----------------------------------------------------------------------------
 // Overlay: disabled paths

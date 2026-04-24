@@ -24,3 +24,9 @@ docs/superpowers/
 *.pem
 # Local-only drafts (blog posts, notes)
 /drafts/
+# Claro runtime artefacts — specs/<id>/enhanced-openapi.yml is tracked,
+# the rest of the working directory is not.
+/specs/*/tmp/
+/specs/*/cached-responses.json
+/specs/*/overlays/
+/specs/*/registry.json
