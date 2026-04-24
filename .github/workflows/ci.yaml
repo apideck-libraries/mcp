@@ -40,6 +40,7 @@ jobs:
           node test/gen-handler-e2e.test.mjs
           node test/gen-sandbox.test.mjs
           node test/gen-elicitation.test.mjs
+          node test/gen-workflows.test.mjs
 
   deploy:
     needs: build-and-test

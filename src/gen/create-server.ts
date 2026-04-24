@@ -19,6 +19,7 @@ import {
 } from "../mcp-server/tools.js";
 import { apideckRun, apideckSearch } from "./code-tools.js";
 import { generatedTools } from "./tools.js";
+import { workflowTools } from "./workflows/index.js";
 
 export function createGeneratedMCPServer(deps: {
   logger: ConsoleLogger;
@@ -55,6 +56,10 @@ export function createGeneratedMCPServer(deps: {
     tool(apideckRun);
   } else {
     for (const t of generatedTools) tool(t);
+    // Workflow tools live alongside the 330 endpoint wrappers. Register
+    // after them so list_tools in dynamic mode surfaces them at the
+    // front of the list (ordering is insertion-order on Map).
+    for (const t of workflowTools) tool(t);
     if (deps.dynamic) {
       registerDynamicTools(deps.logger, server, deps.getSDK, toolMap, scopes, deps.analytics);
     }
