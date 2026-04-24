@@ -86,6 +86,15 @@ const annotations = {
   assert(ev.distinct_id === "app:consumer", "distinct_id preserved");
   assert(ev.properties.tool_name === "foo", "custom property preserved");
   assert(ev.properties.$lib === "apideck-mcp", "$lib stamped");
+  assert(
+    typeof ev.properties.$lib_version === "string"
+      && /^\d+\.\d+\.\d+/.test(ev.properties.$lib_version),
+    `$lib_version stamped (${ev.properties.$lib_version})`,
+  );
+  assert(
+    ev.properties.mcp_version === ev.properties.$lib_version,
+    "mcp_version matches $lib_version",
+  );
   assert(typeof ev.timestamp === "string", "timestamp stamped");
 }
 
