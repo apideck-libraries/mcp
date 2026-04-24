@@ -15,7 +15,14 @@
  */
 
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
+import { UrlElicitationRequiredError } from "@modelcontextprotocol/sdk/types.js";
 import type { ApideckMcpCore } from "../core.js";
+import {
+  buildConnectionElicitation,
+  connectionIssueFallback,
+  detectConnectionIssue,
+  mintVaultSessionUrl,
+} from "./elicitation.js";
 
 const BASE_URL = "https://unify.apideck.com";
 const RETRY_STATUS = new Set([408, 500, 502, 503, 504]);
@@ -113,17 +120,37 @@ export async function callApideck(
   const qs = query.toString();
   const url = `${BASE_URL}${path}${qs ? `?${qs}` : ""}`;
 
+  // Non-throwing context carrier so dispatch can mint a Vault session URL
+  // when it sees a connection-level failure in the response body.
+  const elicitCtx = {
+    apiKey,
+    appId: opts.appId,
+    consumerId: opts.consumerId,
+    signal: desc.signal,
+  };
+
   return withRetry(async () =>
     dispatch(url, {
       method: desc.method,
       headers,
       body,
       signal: desc.signal ?? null,
-    })
+    }, elicitCtx)
   );
 }
 
-async function dispatch(url: string, init: RequestInit): Promise<CallToolResult> {
+interface ElicitCtx {
+  apiKey: string | undefined;
+  appId: string | undefined;
+  consumerId: string | undefined;
+  signal: AbortSignal | undefined;
+}
+
+async function dispatch(
+  url: string,
+  init: RequestInit,
+  elicitCtx: ElicitCtx,
+): Promise<CallToolResult> {
   let resp: Response;
   try {
     resp = await fetch(url, init);
@@ -151,6 +178,27 @@ async function dispatch(url: string, init: RequestInit): Promise<CallToolResult>
   }
 
   const text = await resp.text();
+
+  // Detect Vault connection issues and hand the user a consent URL via
+  // MCP URL elicitation. Non-connection errors fall through as plain text.
+  if (!resp.ok) {
+    const issue = detectConnectionIssue(resp.status, text);
+    if (issue) {
+      const sessionUrl = elicitCtx.apiKey
+        ? await mintVaultSessionUrl({
+          apiKey: elicitCtx.apiKey,
+          appId: elicitCtx.appId,
+          consumerId: elicitCtx.consumerId,
+          signal: elicitCtx.signal,
+        })
+        : null;
+      if (sessionUrl) {
+        throw buildConnectionElicitation(issue, sessionUrl);
+      }
+      return connectionIssueFallback(issue, sessionUrl);
+    }
+  }
+
   return { content: [{ type: "text", text }], isError: !resp.ok };
 }
 
@@ -177,6 +225,10 @@ async function withRetry(
       delay = Math.min(delay * opts.factor, opts.maxMs);
     }
   }
+  // URL elicitations must reach the MCP client as a JSON-RPC error with
+  // the URL_ELICITATION_REQUIRED code — toolError would flatten them to
+  // a plain-text tool result and drop the URL.
+  if (lastError instanceof UrlElicitationRequiredError) throw lastError;
   const msg = lastError instanceof Error ? lastError.message : String(lastError);
   return toolError(msg);
 }
