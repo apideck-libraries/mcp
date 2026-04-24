@@ -1,0 +1,32 @@
+gen/node/score-tdqs.mjs
+  1843bf7ab16e94b4 1-167
+gen/node/score-stacked.mjs
+  1843bf7ab16e94b4 1-157
+specs/apideck-mcp/tdqs-report.json
+  1843bf7ab16e94b4 1-316
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "a6f0dcf1af05a621547e40dc9d653be6cbab10c0",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 621,
+      "total_deletions": 563,
+      "accepted_lines": 20076,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_f6bcdbbbb4e208": {
+      "author": "GJ"
+    }
+  }
+}
