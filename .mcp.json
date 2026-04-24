@@ -1,0 +1,23 @@
+{
+  "$comment": "Project-scope MCP servers for contributors using Claude Code / Cursor / Windsurf. Separate from the user-facing `mcp.json` (Open Plugins manifest).",
+  "mcpServers": {
+    "aikido": {
+      "$comment": "Security scanner for AI-generated code. Set AIKIDO_API_KEY in your shell; get a key at https://app.aikido.dev. Docs: https://help.aikido.dev/ai-and-dev-tools/aikido-mcp",
+      "command": "npx",
+      "args": ["-y", "@aikidosec/mcp"],
+      "env": {
+        "AIKIDO_API_KEY": "${AIKIDO_API_KEY}"
+      }
+    },
+    "apideck-local": {
+      "$comment": "The MCP server this repo ships. Handy for exercising your own changes from inside an agent session.",
+      "command": "node",
+      "args": ["bin/mcp-server.js", "start", "--transport", "stdio"],
+      "env": {
+        "APIDECK_API_KEY": "${APIDECK_API_KEY}",
+        "APIDECK_APP_ID": "${APIDECK_APP_ID}",
+        "APIDECK_CONSUMER_ID": "${APIDECK_CONSUMER_ID}"
+      }
+    }
+  }
+}
