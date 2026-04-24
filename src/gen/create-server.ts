@@ -17,12 +17,19 @@ import {
   MCPToolAnnotationFilter,
   registerDynamicTools,
 } from "../mcp-server/tools.js";
+import { apideckRun, apideckSearch } from "./code-tools.js";
 import { generatedTools } from "./tools.js";
 
 export function createGeneratedMCPServer(deps: {
   logger: ConsoleLogger;
   allowedTools?: string[] | undefined;
   dynamic?: boolean | undefined;
+  /**
+   * When true, register only `apideck_search` + `apideck_run` instead of
+   * the 330 individual tools. The agent drives Apideck by writing code
+   * against a bound `apideck.*` SDK — see src/gen/sandbox.ts.
+   */
+  codeMode?: boolean | undefined;
   scopes?: MCPScope[] | undefined;
   annotationFilter?: MCPToolAnnotationFilter | undefined;
   getSDK: () => ApideckMcpCore;
@@ -43,10 +50,14 @@ export function createGeneratedMCPServer(deps: {
     deps.analytics,
   );
 
-  for (const t of generatedTools) tool(t);
-
-  if (deps.dynamic) {
-    registerDynamicTools(deps.logger, server, deps.getSDK, toolMap, scopes, deps.analytics);
+  if (deps.codeMode) {
+    tool(apideckSearch);
+    tool(apideckRun);
+  } else {
+    for (const t of generatedTools) tool(t);
+    if (deps.dynamic) {
+      registerDynamicTools(deps.logger, server, deps.getSDK, toolMap, scopes, deps.analytics);
+    }
   }
 
   return { server, tools };
