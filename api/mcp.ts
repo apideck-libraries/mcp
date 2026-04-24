@@ -76,15 +76,26 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
   const analytics = getAnalytics();
   const transport = new StreamableHTTPServerTransport({});
 
-  // Custom generator is the default. Pass `?engine=legacy` to fall back.
+  // Custom generator is the default. Query knobs:
+  //   ?engine=legacy  → fall back to the legacy (Speakeasy) MCP server
+  //   ?mode=code      → serve only apideck_search + apideck_run (see src/gen/code-tools.ts)
   const url = new URL(req.url ?? "", "http://localhost");
   const engine = url.searchParams.get("engine");
+  const mode = url.searchParams.get("mode");
   const useLegacy = engine === "legacy";
+  const codeMode = mode === "code";
   if (useLegacy) logger.info("Using legacy generator engine");
+  if (codeMode) logger.info("Using code-sandbox mode");
 
   const { server: mcpServer } = useLegacy
     ? createMCPServer({ logger, analytics, dynamic: true, getSDK })
-    : createGeneratedMCPServer({ logger, analytics, dynamic: true, getSDK });
+    : createGeneratedMCPServer({
+      logger,
+      analytics,
+      dynamic: !codeMode,
+      codeMode,
+      getSDK,
+    });
 
   mcpServer.server.onerror = (error: unknown) => {
     logger.error("MCP error", {
