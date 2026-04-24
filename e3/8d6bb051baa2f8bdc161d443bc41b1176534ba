@@ -1,0 +1,30 @@
+src/mcp-server/analytics.ts
+  1843bf7ab16e94b4 1-4,7-30,65-69,71-72
+test/analytics.test.mjs
+  1843bf7ab16e94b4 89-97
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "e38d6bb051baa2f8bdc161d443bc41b1176534ba",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 453,
+      "total_deletions": 487,
+      "accepted_lines": 19500,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_f6bcdbbbb4e208": {
+      "author": "GJ"
+    }
+  }
+}
