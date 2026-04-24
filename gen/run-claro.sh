@@ -33,11 +33,65 @@ fi
 cd "$CLARO_DIR"
 echo "[claro] pnpm install"
 pnpm install --frozen-lockfile || pnpm install
+echo "[claro] pnpm run build"
+pnpm run build
 
-echo "[claro] enhance --specId $SPEC_ID --format yaml --cacheResponses"
+# Pick the provider based on which key the caller has exported. Defaults
+# point at the latest-generation models available as of April 2026;
+# override the MODEL env vars if you want to pin something older or try
+# a smaller/cheaper variant.
+if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+  PROVIDER="${PROVIDER:-anthropic}"
+  : "${ANTHROPIC_MODEL:=claude-sonnet-4-6}"
+  export ANTHROPIC_API_KEY ANTHROPIC_MODEL
+elif [ -n "${OPENAI_API_KEY:-}" ]; then
+  PROVIDER="${PROVIDER:-openai}"
+  : "${OPENAI_MODEL:=gpt-4.1-mini}"
+  export OPENAI_API_KEY OPENAI_MODEL
+else
+  echo "[claro] ERROR: set ANTHROPIC_API_KEY or OPENAI_API_KEY in the environment" >&2
+  exit 2
+fi
+
+# Pre-process: fetch the upstream spec and ensure every operation has
+# a `description` (fall back to `summary`). Claro's enhancement graph
+# requires content.description to be populated; Apideck's spec has
+# summary-only operations that would otherwise fail mid-pipeline.
+PREPPED_SPEC="$CLARO_DIR/tmp/apideck-mcp-input.yml"
+mkdir -p "$(dirname "$PREPPED_SPEC")"
+echo "[claro] fetching + normalising spec → $PREPPED_SPEC"
+node --input-type=module -e "
+  import https from 'node:https';
+  import fs from 'node:fs';
+  import yaml from '$CLARO_DIR/node_modules/js-yaml/dist/js-yaml.mjs';
+  const url = '$SPEC_URL';
+  const chunks = [];
+  https.get(url, r => {
+    r.on('data', c => chunks.push(c));
+    r.on('end', () => {
+      const raw = Buffer.concat(chunks).toString('utf8');
+      const spec = yaml.load(raw);
+      let filled = 0;
+      for (const ops of Object.values(spec.paths ?? {})) {
+        for (const m of ['get','post','put','patch','delete','options','head']) {
+          const op = ops?.[m];
+          if (op && !op.description && op.summary) {
+            op.description = op.summary;
+            filled++;
+          }
+        }
+      }
+      fs.writeFileSync('$PREPPED_SPEC', yaml.dump(spec));
+      console.error('[claro] filled ' + filled + ' missing operation descriptions');
+    });
+  }).on('error', e => { console.error(e); process.exit(1); });
+"
+
+echo "[claro] enhance --specId $SPEC_ID --provider $PROVIDER --format yaml --cacheResponses"
 pnpm run enhance \
   --specId "$SPEC_ID" \
-  --incomingSpecUrl "$SPEC_URL" \
+  --incomingSpecPath "$PREPPED_SPEC" \
+  --provider "$PROVIDER" \
   --format yaml \
   --cacheResponses
 
