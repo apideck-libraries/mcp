@@ -280,15 +280,35 @@ function richDescription(op, toolName, method, paginationHint) {
   const usage = usageHint(toolName, suffix);
   if (usage) sections.push(usage);
 
-  // 4. Connection context — only for unified-API tools, not vault/connector/proxy meta
+  // 4. Connection context — unified-API tools call into a specific consumer
+  // connection; meta tools (vault / connector / proxy) use application-level
+  // auth and warrant a different context paragraph so the LLM understands
+  // the different threat model / failure modes.
   const parts = toolName.split("-");
   const unifiedApi = parts[0];
-  const isMeta = unifiedApi === "vault" || unifiedApi === "connector" || unifiedApi === "proxy";
-  if (!isMeta) {
+  if (unifiedApi === "vault") {
     sections.push(
-      `Requires an active \`${unifiedApi}\` connection on the consumer. ` +
-      `If the consumer has multiple \`${unifiedApi}\` services connected, pass \`x-apideck-service-id\` (e.g. "xero", "quickbooks") to target one. ` +
-      `Consumer auth is resolved server-side — don't pass API keys in arguments.`,
+      "Meta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. "
+      + "Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. "
+      + "Consumer auth is resolved server-side — don't pass API keys in arguments.",
+    );
+  } else if (unifiedApi === "connector") {
+    sections.push(
+      "Meta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. "
+      + "Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. "
+      + "Use for discovery before prompting the user to connect a service.",
+    );
+  } else if (unifiedApi === "proxy") {
+    sections.push(
+      "Passes the request through to the underlying SaaS without unified-API transformation. "
+      + "Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. "
+      + "Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes.",
+    );
+  } else {
+    sections.push(
+      `Requires an active \`${unifiedApi}\` connection on the consumer. `
+      + `If the consumer has multiple \`${unifiedApi}\` services connected, pass \`x-apideck-service-id\` (e.g. "xero", "quickbooks") to target one. `
+      + "Consumer auth is resolved server-side — don't pass API keys in arguments.",
     );
   }
 
