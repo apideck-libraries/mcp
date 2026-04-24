@@ -28,11 +28,23 @@ echo "[claro] claro checkout: $CLARO_DIR"
 if [ ! -d "$CLARO_DIR" ]; then
   echo "[claro] cloning apideck-io/claro …"
   gh repo clone apideck-io/claro "$CLARO_DIR"
+else
+  echo "[claro] pulling latest from origin/main …"
+  git -C "$CLARO_DIR" fetch origin main
+  git -C "$CLARO_DIR" checkout main
+  git -C "$CLARO_DIR" reset --hard origin/main
 fi
 
 cd "$CLARO_DIR"
 echo "[claro] pnpm install"
 pnpm install --frozen-lockfile || pnpm install
+# sqlite3 ships as a native module; pnpm doesn't run its install
+# script by default, so prebuild-install never fires. Trigger it
+# manually when the native artifact is missing.
+if ! [ -f node_modules/.pnpm/sqlite3@*/node_modules/sqlite3/build/Release/node_sqlite3.node ] 2>/dev/null; then
+  echo "[claro] building sqlite3 native module"
+  (cd node_modules/.pnpm/sqlite3@*/node_modules/sqlite3 && npm run install >/dev/null 2>&1) || true
+fi
 echo "[claro] pnpm run build"
 pnpm run build
 
