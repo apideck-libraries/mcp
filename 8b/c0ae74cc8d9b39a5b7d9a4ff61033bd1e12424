@@ -1,0 +1,36 @@
+specs/apideck-mcp/enhance-cache.json
+  1843bf7ab16e94b4 1-1346
+.github/workflows/generate.yaml
+  1843bf7ab16e94b4 10-16
+gen/node/enhance.mjs
+  1843bf7ab16e94b4 1-243
+gen/node/package.json
+  1843bf7ab16e94b4 1-10
+specs/apideck-mcp/enhanced-openapi.yml
+  1843bf7ab16e94b4 1-50106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "8bc0ae74cc8d9b39a5b7d9a4ff61033bd1e12424",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 52612,
+      "total_deletions": 1102,
+      "accepted_lines": 79379,
+      "overriden_lines": 676
+    }
+  },
+  "humans": {
+    "h_f6bcdbbbb4e208": {
+      "author": "GJ"
+    }
+  }
+}
