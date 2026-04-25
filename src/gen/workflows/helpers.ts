@@ -152,5 +152,24 @@ export function pickData(body: unknown): unknown {
   return body;
 }
 
+/**
+ * Most workflows take an optional `x-apideck-service-id` and propagate
+ * it to every upstream call as a header. Splitting that out keeps each
+ * workflow's `tool()` from re-implementing the same 4-line block.
+ */
+export function extractServiceContext(args: unknown): {
+  serviceId: string | undefined;
+  common: Record<string, unknown>;
+} {
+  const a = (args ?? {}) as Record<string, unknown>;
+  const serviceId = typeof a["x-apideck-service-id"] === "string"
+    ? a["x-apideck-service-id"]
+    : undefined;
+  return {
+    serviceId,
+    common: serviceId ? { "x-apideck-service-id": serviceId } : {},
+  };
+}
+
 /** Type alias for workflow ToolDefinitions. */
 export type WorkflowTool = ToolDefinition<Record<string, z.ZodTypeAny>>;

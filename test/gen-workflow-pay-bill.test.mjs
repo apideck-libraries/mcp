@@ -67,20 +67,20 @@ function stubFetch(routes) {
   return { calls, restore: () => (globalThis.fetch = orig) };
 }
 
-function bootDefault() {
-  return createGeneratedMCPServer({
-    logger,
-    dynamic: true,
-    getSDK: fakeSDK,
-  });
-}
+// Hoisted to module scope: each test isolates state via stubFetch, so a
+// single server boot is safe and skips ~330 tool registrations × 6 tests.
+const booted = createGeneratedMCPServer({
+  logger,
+  dynamic: true,
+  getSDK: fakeSDK,
+});
+const exec = booted.server._registeredTools.execute_tool;
 
 // ---------------------------------------------------------------------------
 // 1. Registered with write scope
 // ---------------------------------------------------------------------------
 console.log("Test: apideck-pay-bill registered with write scope");
 {
-  const booted = bootDefault();
   assert(
     booted.tools.some((t) => t.name === "apideck-pay-bill"),
     "tool registered in booted server",
@@ -113,8 +113,6 @@ console.log("Test: pays full bill amount and links allocation");
     },
   });
 
-  const booted = bootDefault();
-  const exec = booted.server._registeredTools.execute_tool;
   const res = await exec.handler(
     {
       name: "apideck-pay-bill",
@@ -172,8 +170,6 @@ console.log("Test: missing bill aborts, no payment posted");
     // intentionally no payments stub — we expect zero payment calls
   });
 
-  const booted = bootDefault();
-  const exec = booted.server._registeredTools.execute_tool;
   const res = await exec.handler(
     {
       name: "apideck-pay-bill",
@@ -205,8 +201,6 @@ console.log("Test: explicit amount < bill total → partial:true");
     "/accounting/payments": { data: { id: "pay-p1" } },
   });
 
-  const booted = bootDefault();
-  const exec = booted.server._registeredTools.execute_tool;
   const res = await exec.handler(
     {
       name: "apideck-pay-bill",
@@ -235,8 +229,6 @@ console.log("Test: zero-total bill without explicit amount errors out before pos
     },
   });
 
-  const booted = bootDefault();
-  const exec = booted.server._registeredTools.execute_tool;
   const res = await exec.handler(
     {
       name: "apideck-pay-bill",
@@ -269,8 +261,6 @@ console.log("Test: payment-create failure carries failingStep + upstream");
     },
   });
 
-  const booted = bootDefault();
-  const exec = booted.server._registeredTools.execute_tool;
   const res = await exec.handler(
     {
       name: "apideck-pay-bill",

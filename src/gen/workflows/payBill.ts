@@ -1,25 +1,22 @@
 /**
- * Pay a bill — first mutating Phase 3 workflow.
- *
- * Two-step composite over the generated accounting tools:
- *   1. accounting-bills-get        → fetch supplier, currency, total
- *   2. accounting-payments-create  → write payment with allocation
- *      back to the bill so the connector marks it (partially) paid
- *
- * The model would otherwise have to (a) call `bills-get`, (b) parse a
- * deeply nested supplier/currency/total, (c) construct a payment body
- * with an `allocations[].type = "bill"` link, and (d) decide whether
- * this is a full or partial payment. Folding it into one tool removes
- * the four most failure-prone steps for any AP automation flow.
+ * `apideck-pay-bill` — fetches a bill, then writes a payment that
+ * allocates back to it so the connector marks the bill (partially)
+ * paid in one MCP call.
  */
 
 import * as z from "zod";
 import {
+  extractServiceContext,
   pickData,
   runStep,
   workflowJsonResult,
   type WorkflowTool,
 } from "./helpers.js";
+
+// `allocations[].type = "bill"` is the load-bearing field that tells
+// the connector which bill this payment settles. Named so callers
+// don't grep for stringly magic.
+const ALLOCATION_TYPE_BILL = "bill";
 
 const args = {
   bill_id: z
@@ -63,6 +60,15 @@ const args = {
     ),
 };
 
+type PayBillArgs = {
+  bill_id: string;
+  account_id: string;
+  amount?: number;
+  transaction_date?: string;
+  payment_method?: string;
+  reference?: string;
+};
+
 export const apideckPayBill: WorkflowTool = {
   name: "apideck-pay-bill",
   description: [
@@ -86,32 +92,23 @@ export const apideckPayBill: WorkflowTool = {
   },
   args,
   async tool(client, a, ctx) {
-    const flat = a as Record<string, unknown>;
-    const billId = String(flat["bill_id"] ?? "");
-    const accountId = String(flat["account_id"] ?? "");
-    const explicitAmount = flat["amount"] as number | undefined;
-    const transactionDate = (flat["transaction_date"] as string | undefined)
+    const flat = a as PayBillArgs;
+    const { serviceId, common } = extractServiceContext(a);
+    const transactionDate = flat.transaction_date
       ?? new Date().toISOString().slice(0, 10);
-    const paymentMethod = flat["payment_method"] as string | undefined;
-    const reference = flat["reference"] as string | undefined;
-    const serviceId = flat["x-apideck-service-id"] as string | undefined;
 
-    const common: Record<string, unknown> = {};
-    if (serviceId) common["x-apideck-service-id"] = serviceId;
-
-    // 1. Fetch the bill so we can echo currency / supplier / total.
     const billStep = await runStep<Record<string, unknown>>(
       client,
       "accounting-bills-get",
-      { ...common, id: billId },
+      { ...common, id: flat.bill_id },
       ctx,
       (body) => pickData(body) as Record<string, unknown>,
     );
     if (!billStep.ok) {
-      // Distinguish "bill doesn't exist" from "connector can't read bills"
-      // so the LLM doesn't silently retry the workflow on every error.
+      // Distinguish "bill doesn't exist / connector down" from a generic
+      // upstream error so the LLM doesn't blindly retry the workflow.
       return workflowJsonResult({
-        bill_id: billId,
+        bill_id: flat.bill_id,
         error: billStep.unsupported ? billStep.reason : billStep.error,
         failingStep: "accounting-bills-get",
         upstream: billStep.upstream,
@@ -122,28 +119,26 @@ export const apideckPayBill: WorkflowTool = {
     const billTotal = Number(bill["total_amount"] ?? 0);
     const currency = (bill["currency"] as string | undefined) ?? "USD";
     const supplier = bill["supplier"] as { id?: string } | undefined;
-    const amount = explicitAmount ?? billTotal;
+    const amount = flat.amount ?? billTotal;
 
     if (!Number.isFinite(amount) || amount <= 0) {
       return workflowJsonResult({
-        bill_id: billId,
+        bill_id: flat.bill_id,
         error: `Bill has no positive total_amount (got ${bill["total_amount"]}). Pass an explicit \`amount\` to override.`,
         failingStep: "validate-amount",
       }, true);
     }
 
-    // 2. Create the payment, allocated against the bill so the connector
-    //    can match it. `allocations[].type = "bill"` is the magic field.
     const paymentBody: Record<string, unknown> = {
       total_amount: amount,
       currency,
       transaction_date: transactionDate,
-      account: { id: accountId },
-      allocations: [{ id: billId, type: "bill", amount }],
+      account: { id: flat.account_id },
+      allocations: [{ id: flat.bill_id, type: ALLOCATION_TYPE_BILL, amount }],
+      ...(supplier?.id ? { supplier: { id: supplier.id } } : {}),
+      ...(flat.payment_method ? { payment_method: flat.payment_method } : {}),
+      ...(flat.reference ? { reference: flat.reference } : {}),
     };
-    if (supplier?.id) paymentBody["supplier"] = { id: supplier.id };
-    if (paymentMethod) paymentBody["payment_method"] = paymentMethod;
-    if (reference) paymentBody["reference"] = reference;
 
     const paymentStep = await runStep<Record<string, unknown>>(
       client,
@@ -154,7 +149,7 @@ export const apideckPayBill: WorkflowTool = {
     );
     if (!paymentStep.ok) {
       return workflowJsonResult({
-        bill_id: billId,
+        bill_id: flat.bill_id,
         amount,
         currency,
         error: paymentStep.unsupported ? paymentStep.reason : paymentStep.error,
@@ -164,18 +159,16 @@ export const apideckPayBill: WorkflowTool = {
     }
 
     const payment = paymentStep.data;
-    const partial = amount + 0.001 < billTotal; // tiny epsilon for FP
-
     return workflowJsonResult({
-      bill_id: billId,
+      bill_id: flat.bill_id,
       payment_id: payment["id"] ?? null,
       amount,
       currency,
       transaction_date: transactionDate,
       bill_total: billTotal,
-      partial,
+      // Compare in cents to avoid float drift on decimal currencies.
+      partial: Math.round(amount * 100) < Math.round(billTotal * 100),
       service_id: serviceId ?? null,
-      payment,
     });
   },
 };
