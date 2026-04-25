@@ -27,7 +27,7 @@ const args = {
     .string()
     .min(1)
     .describe(
-      "ID of the account the payment is drawn from (typically a bank account from `accounting-accounts-list`).",
+      "ID of the account the payment is drawn from (typically a bank account from `accounting-ledger-accounts-list` filtered to `type=bank`).",
     ),
   amount: z
     .number()
@@ -46,7 +46,7 @@ const args = {
     .string()
     .optional()
     .describe(
-      "Payment method label, e.g. \"wire\", \"ach\", \"credit_card\", \"check\". Free-form — the connector decides what it accepts.",
+      "Payment method label. QuickBooks requires capitalized values: \"Check\", \"CreditCard\", \"Cash\". Other connectors accept lower-case \"check\" / \"credit_card\" / \"ach\" / \"wire\". When omitted, QuickBooks rejects the payment with a parse error — pass an explicit value for QB.",
     ),
   reference: z
     .string()
@@ -74,11 +74,11 @@ export const apideckPayBill: WorkflowTool = {
   description: [
     "Pay a vendor bill in one shot.",
     "",
-    "Looks up the bill, then creates a payment allocated against it so the connected accounting service marks the bill (partially) paid. Replaces the usual `bills-get` → manually-construct-allocation → `payments-create` dance.",
+    "Looks up the bill, then creates a bill-payment allocated against it so the connected accounting service marks the bill (partially) paid. Replaces the usual `bills-get` → manually-construct-allocation → `bill-payments-create` dance, and saves the agent from confusing AP bill-payments with AR customer payments (different endpoints, different connector semantics).",
     "",
     "**Mutating, not idempotent.** Each call creates a new payment record on the connector. Calling twice with the same arguments produces two payments. Confirm the user intended to pay before invoking.",
     "",
-    "Use when the user wants to settle a known bill. For raw payment creation (e.g. customer payments, unallocated transfers) call `accounting-payments-create` directly.",
+    "Use when the user wants to settle a known vendor bill. For customer payments against invoices use `accounting-payments-create` instead (different unified endpoint).",
     "",
     "Requires an active `accounting` connection on the consumer. If the consumer has multiple accounting services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.",
   ].join("\n"),
@@ -116,7 +116,13 @@ export const apideckPayBill: WorkflowTool = {
     }
 
     const bill = billStep.data;
-    const billTotal = Number(bill["total_amount"] ?? 0);
+    // Connectors disagree on the total field name. QuickBooks returns
+    // `total`; Apideck's unified spec prefers `total_amount`. Read both,
+    // and prefer `balance` (outstanding) over `total` (gross) so partial
+    // pays don't accidentally double-pay.
+    const billTotal = Number(
+      bill["balance"] ?? bill["total_amount"] ?? bill["total"] ?? 0,
+    );
     const currency = (bill["currency"] as string | undefined) ?? "USD";
     const supplier = bill["supplier"] as { id?: string } | undefined;
     const amount = flat.amount ?? billTotal;
@@ -140,9 +146,14 @@ export const apideckPayBill: WorkflowTool = {
       ...(flat.reference ? { reference: flat.reference } : {}),
     };
 
+    // Apideck's unified API splits AR payments (`accounting-payments-*`)
+    // from AP bill payments (`accounting-bill-payments-*`). Calling the
+    // wrong one routes through the wrong connector endpoint — QuickBooks
+    // rejects an AR Payment with `CustomerRef missing` when there's
+    // really a vendor bill on the other end.
     const paymentStep = await runStep<Record<string, unknown>>(
       client,
-      "accounting-payments-create",
+      "accounting-bill-payments-create",
       { ...common, body: paymentBody },
       ctx,
       (body) => pickData(body) as Record<string, unknown>,
@@ -153,7 +164,7 @@ export const apideckPayBill: WorkflowTool = {
         amount,
         currency,
         error: paymentStep.unsupported ? paymentStep.reason : paymentStep.error,
-        failingStep: "accounting-payments-create",
+        failingStep: "accounting-bill-payments-create",
         upstream: paymentStep.upstream,
       }, true);
     }

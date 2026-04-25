@@ -108,7 +108,7 @@ console.log("Test: pays full bill amount and links allocation");
         supplier: { id: "supp-9", display_name: "ACME Co" },
       },
     },
-    "/accounting/payments": {
+    "/accounting/bill-payments": {
       data: { id: "pay-77", total_amount: 250.5 },
     },
   });
@@ -141,7 +141,7 @@ console.log("Test: pays full bill amount and links allocation");
   assert(stub.calls.length === 2, `2 upstream calls (got ${stub.calls.length})`);
   const [billCall, payCall] = stub.calls;
   assert(billCall.method === "GET" && billCall.url.includes("/bills/bill-42"), "GET bill");
-  assert(payCall.method === "POST" && payCall.url.includes("/payments"), "POST payment");
+  assert(payCall.method === "POST" && payCall.url.includes("/bill-payments"), "POST payment");
   assert(payCall.headers["x-apideck-service-id"] === "xero", "service_id forwarded to payment call");
   assert(payCall.body?.total_amount === 250.5, "payment total_amount set");
   assert(payCall.body?.currency === "EUR", "payment currency set");
@@ -198,7 +198,7 @@ console.log("Test: explicit amount < bill total → partial:true");
     "/accounting/bills/bill-1": {
       data: { id: "bill-1", total_amount: 1000, currency: "USD", supplier: { id: "s1" } },
     },
-    "/accounting/payments": { data: { id: "pay-p1" } },
+    "/accounting/bill-payments": { data: { id: "pay-p1" } },
   });
 
   const res = await exec.handler(
@@ -214,7 +214,7 @@ console.log("Test: explicit amount < bill total → partial:true");
   assert(payload.partial === true, "partial:true on under-payment");
   assert(payload.amount === 400, "amount honoured");
   assert(payload.bill_total === 1000, "bill_total preserved");
-  const payCall = stub.calls.find((c) => c.url.includes("/payments"));
+  const payCall = stub.calls.find((c) => c.url.includes("/bill-payments"));
   assert(payCall?.body?.allocations[0].amount === 400, "allocation amount = explicit amount, not bill total");
 }
 
@@ -253,7 +253,7 @@ console.log("Test: payment-create failure carries failingStep + upstream");
     "/accounting/bills/bill-99": {
       data: { id: "bill-99", total_amount: 100, currency: "USD", supplier: { id: "s2" } },
     },
-    "/accounting/payments": {
+    "/accounting/bill-payments": {
       __status: 422,
       status_code: 422,
       type_name: "ValidationError",
@@ -272,7 +272,7 @@ console.log("Test: payment-create failure carries failingStep + upstream");
 
   assert(res.isError === true, "isError flagged");
   const payload = JSON.parse(res.content[0].text);
-  assert(payload.failingStep === "accounting-payments-create", "failingStep on payment");
+  assert(payload.failingStep === "accounting-bill-payments-create", "failingStep on payment");
   assert(
     typeof payload.error === "string" && payload.error.includes("account.id"),
     "upstream error text bubbles up",
