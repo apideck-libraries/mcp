@@ -1,0 +1,29 @@
+src/gen/workflows/monthEndClose.ts
+  1843bf7ab16e94b4 19,67
+src/gen/workflows/payBill.ts
+  1843bf7ab16e94b4 2-4,9,16-20,63-71,95-97,103,108-109,111,122,126,136-140,152,163,169-170
+src/gen/workflows/helpers.ts
+  1843bf7ab16e94b4 155-173
+test/gen-workflow-pay-bill.test.mjs
+  1843bf7ab16e94b4 70-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "b84aba6a7144caf709b5d9778412e0933468db9b",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 205,
+      "total_deletions": 168,
+      "accepted_lines": 66055,
+      "overriden_lines": 0
+    }
+  }
+}
