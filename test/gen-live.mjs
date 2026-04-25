@@ -18,8 +18,11 @@ if (!apiKey || !appId || !consumerId) {
 
 const toolName = process.argv[2] ?? "vault-connections-list";
 const rawInput = process.argv[3] ? JSON.parse(process.argv[3]) : {};
-// Generator now wraps args under `request`; accept either shape for convenience.
-const input = "request" in rawInput ? rawInput : { request: rawInput };
+// Custom engine now uses a flat top-level schema; accept either shape so old
+// invocations passing { request: {...} } still work as a convenience.
+const input = "request" in rawInput && Object.keys(rawInput).length === 1
+  ? rawInput.request
+  : rawInput;
 
 const logger = {
   level: "info",

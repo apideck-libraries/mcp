@@ -49,10 +49,10 @@ export async function callTool(
   const result = (await (def as unknown as {
     tool: (
       c: ApideckMcpCore,
-      a: { request?: unknown },
+      a: Record<string, unknown>,
       x: { signal?: AbortSignal | undefined },
     ) => Promise<CallToolResult>;
-  }).tool(client, { request: args }, { signal: ctx.signal })) as CallToolResult;
+  }).tool(client, args, { signal: ctx.signal })) as CallToolResult;
   const body = result.content?.[0] && "text" in result.content[0]
     ? (result.content[0] as { text: string }).text
     : "";

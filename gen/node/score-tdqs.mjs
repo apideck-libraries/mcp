@@ -47,26 +47,66 @@ const SAMPLE_SIZE = Number(process.env.SCORE_SAMPLE ?? 0);
 const CONCURRENCY = Number(process.env.SCORE_CONCURRENCY ?? 10);
 const openai = new OpenAI();
 
-const RUBRIC = `Score an MCP tool's description across five dimensions on a 1–5 scale.
+const RUBRIC = `Score an MCP tool across six dimensions on a 1–5 scale.
 
 Dimensions (from Glama's Tool Definition Quality Score framework):
   1. purposeClarity   — Is it obvious *what* the tool does? (1 = "List things" / 5 = specific verb + object + context)
   2. usageGuidelines  — Does it say *when* to use (or not use) this tool vs siblings? (1 = no hint / 5 = explicit "use X vs Y")
   3. behaviouralTransparency — Are side effects, idempotency, destructive behaviour explicit? (1 = silent / 5 = calls out read-only / destructive / creates-duplicates / etc.)
-  4. conciseness      — Tight prose: neither terse-to-useless nor padded (1 = either extreme / 5 = dense and readable)
-  5. contextualCompleteness — Non-obvious context for successful calls: auth scoping, multi-tenant, connection state, etc. (1 = nothing / 5 = tells you what's needed beyond just parameter types)
+  4. parameterSemantics — Are top-level parameters meaningful and individually documented? (1 = single opaque \`request\` wrapper / 3 = real params but most lack descriptions / 5 = each param has a clear, scoped \`.describe()\` and the count matches the operation's complexity)
+  5. conciseness      — Tight prose: neither terse-to-useless nor padded (1 = either extreme / 5 = dense and readable)
+  6. contextualCompleteness — Non-obvious context for successful calls: auth scoping, multi-tenant, connection state, expected response shape (1 = nothing / 5 = tells you what's needed beyond just parameter types)
 
-Return JSON: { purposeClarity:int, usageGuidelines:int, behaviouralTransparency:int, conciseness:int, contextualCompleteness:int, overall:float, comment:string }
+Return JSON: { purposeClarity:int, usageGuidelines:int, behaviouralTransparency:int, parameterSemantics:int, conciseness:int, contextualCompleteness:int, overall:float, comment:string }
 
-overall = weighted mean with weights purposeClarity=1.2, usageGuidelines=1.1, behaviouralTransparency=1.0, conciseness=0.7, contextualCompleteness=1.0 (divide by 5.0).
+overall = weighted mean with weights purposeClarity=1.2, usageGuidelines=1.1, behaviouralTransparency=1.0, parameterSemantics=1.1, conciseness=0.7, contextualCompleteness=1.0 (divide by 6.1).
 
 comment is a one-sentence diagnosis. Do not over-praise — real MCP tools in the wild average ~2.5.`;
+
+/**
+ * Reduce a Zod arg map to the lightweight shape the judge needs:
+ *   { name, type, optional, description }
+ * Lets the LLM see param count + per-param descriptions without parsing
+ * full Zod internals.
+ */
+function summarizeArgs(args) {
+  if (!args || typeof args !== "object") return [];
+  const out = [];
+  for (const [name, schema] of Object.entries(args)) {
+    let s = schema;
+    let optional = false;
+    let description;
+    while (s && typeof s === "object") {
+      if (typeof s.description === "string") description ??= s.description;
+      const def = s.def ?? s._def;
+      if (!def) break;
+      if (def.type === "optional" || def.type === "default" || def.type === "nullable") {
+        optional = true;
+        s = def.innerType ?? def.schema;
+      } else if (def.description && !description) {
+        description = def.description;
+        break;
+      } else {
+        break;
+      }
+    }
+    const def = s?.def ?? s?._def;
+    out.push({
+      name,
+      type: def?.type ?? "unknown",
+      optional,
+      description: description ?? null,
+    });
+  }
+  return out;
+}
 
 async function scoreOne(tool) {
   const input = {
     name: tool.name,
     scopes: tool.scopes ?? [],
     description: tool.description ?? "",
+    parameters: summarizeArgs(tool.args),
   };
   const resp = await openai.chat.completions.create({
     model: MODEL,
@@ -125,7 +165,7 @@ async function main() {
   const failed = results.filter((r) => r?.error);
 
   // Aggregate
-  const dims = ["purposeClarity", "usageGuidelines", "behaviouralTransparency", "conciseness", "contextualCompleteness"];
+  const dims = ["purposeClarity", "usageGuidelines", "behaviouralTransparency", "parameterSemantics", "conciseness", "contextualCompleteness"];
   const sums = Object.fromEntries(dims.map((d) => [d, 0]));
   let overallSum = 0;
   for (const r of ok) {

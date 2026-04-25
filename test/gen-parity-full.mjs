@@ -128,12 +128,14 @@ function extractMissingFields(text) {
 async function runOne(name) {
   const args = ARG_OVERRIDES[name] ?? {};
   if (args === null) return { name, kind: "skipped" };
-  const payload = { name, arguments: { request: args } };
+  // Engines diverge on shape: legacy wraps under `request`, custom is flat.
+  const legacyPayload = { name, arguments: { request: args } };
+  const customPayload = { name, arguments: args };
   let legacy, custom;
   try {
     [legacy, custom] = await Promise.all([
-      speakExec(payload, { signal: AbortSignal.timeout(20_000) }),
-      customExec(payload, { signal: AbortSignal.timeout(20_000) }),
+      speakExec(legacyPayload, { signal: AbortSignal.timeout(20_000) }),
+      customExec(customPayload, { signal: AbortSignal.timeout(20_000) }),
     ]);
   } catch (err) {
     return { name, kind: "throw", detail: err.message };

@@ -1,15 +1,16 @@
 {
   "model": "gpt-4.1-mini",
-  "scored": 30,
+  "scored": 80,
   "failed": 0,
   "avg": {
-    "purposeClarity": 4.966666666666667,
-    "usageGuidelines": 4.433333333333334,
-    "behaviouralTransparency": 4.9,
+    "purposeClarity": 4.9625,
+    "usageGuidelines": 4.6625,
+    "behaviouralTransparency": 4.8125,
+    "parameterSemantics": 4.375,
     "conciseness": 4,
-    "contextualCompleteness": 4.966666666666667
+    "contextualCompleteness": 4.9875
   },
-  "overall": 4.503333333333333,
+  "overall": 4.512625000000002,
   "grade": "A",
   "tools": [
     {
@@ -17,300 +18,880 @@
       "purposeClarity": 5,
       "usageGuidelines": 4,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.48,
-      "comment": "The description clearly defines the tool's purpose, usage context, and side effects with good detail and conciseness, though usage guidance could be slightly more explicit about alternatives."
+      "overall": 4.43,
+      "comment": "This tool is very clear in purpose, usage, and side effects, with well-documented parameters and context, though usage guidelines could be slightly more explicit about sibling tool distinctions."
     },
     {
-      "name": "accounting-bank-accounts-list",
+      "name": "accounting-attachments-get",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states what the tool does, when to use it versus a sibling, its read-only nature, and necessary context for successful calls, though it is slightly verbose."
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and thorough contextual information, though its prose could be slightly more concise."
     },
     {
-      "name": "accounting-bank-feed-statements-update",
+      "name": "accounting-bank-accounts-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.57,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, and behavioral transparency, though parameter documentation could be slightly more detailed."
+    },
+    {
+      "name": "accounting-bank-accounts-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "Clear and detailed purpose with good context and parameter descriptions, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-bank-feed-accounts-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool definition is very clear and complete, with explicit usage guidance, detailed parameter descriptions, and thorough context, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-bank-feed-statements-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool definition is very clear and complete, with explicit usage guidance, detailed parameter descriptions, and thorough context, though the prose could be slightly more concise."
+    },
+    {
+      "name": "accounting-bill-payments-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool description is very clear about its destructive purpose, usage conditions, and context, with well-documented parameters, though the parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "accounting-bills-create",
       "purposeClarity": 5,
       "usageGuidelines": 4,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.48,
-      "comment": "The description clearly states the tool's update function, when to use it, its partial update behavior, and important context about authentication and multi-service targeting, though usage guidance could be slightly more explicit about alternatives."
+      "overall": 4.43,
+      "comment": "This tool's definition clearly states its purpose, side effects, and context requirements, with mostly well-documented parameters and good usage guidance, though parameter descriptions could be more detailed."
     },
     {
-      "name": "accounting-categories-get",
+      "name": "accounting-bills-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "The tool description clearly defines its purpose and usage context with good parameter explanations and contextual details, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-company-info-get",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.7,
-      "comment": "The description clearly states the tool's specific purpose, when to use it versus related endpoints, its read-only nature, and important context about authentication and multi-tenant usage, though the prose could be slightly tighter."
+      "overall": 4.43,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, and behavioral transparency, though parameter documentation could be slightly more detailed for full clarity."
+    },
+    {
+      "name": "accounting-credit-notes-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "This tool's definition is very clear, well-scoped, and explicit about usage, side effects, parameters, and context, though parameter descriptions could be slightly more uniformly detailed."
     },
     {
       "name": "accounting-customers-get",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states the tool's purpose, when to use it versus related endpoints, its read-only behavior, and necessary connection context, though it could be slightly tighter in prose."
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit side effect information, detailed parameter descriptions, and thorough contextual details, though the prose could be slightly tighter."
     },
     {
-      "name": "accounting-employees-list",
+      "name": "accounting-departments-delete",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
-      "conciseness": 4,
-      "contextualCompleteness": 5,
-      "overall": 4.7,
-      "comment": "The description clearly states the tool's purpose, when to use it versus a sibling, its read-only nature, and detailed context including auth and pagination, though it could be slightly tighter."
-    },
-    {
-      "name": "accounting-expense-reports-update",
-      "purposeClarity": 5,
-      "usageGuidelines": 4,
-      "behaviouralTransparency": 4,
-      "conciseness": 4,
-      "contextualCompleteness": 5,
-      "overall": 4.24,
-      "comment": "The description clearly states the tool's purpose and usage, explains partial updates and idempotency, and provides detailed context on authentication and multi-tenant usage, though usage guidance could be slightly more explicit about alternatives."
-    },
-    {
-      "name": "accounting-invoices-create",
-      "purposeClarity": 5,
-      "usageGuidelines": 4,
-      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
       "overall": 4.48,
-      "comment": "The description clearly defines the tool's purpose, usage context, side effects, and necessary connection details, though usage guidelines could be slightly more explicit about alternatives."
+      "comment": "This tool is very clear in purpose, usage, and side effects, with well-documented parameters and context, though parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "accounting-employees-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "This tool description is clear and detailed, explicitly stating its purpose, usage context, side effects, parameter meanings, and necessary connection context, though parameter documentation could be slightly more granular."
+    },
+    {
+      "name": "accounting-employees-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "The tool clearly defines its update purpose with good parameter descriptions and context, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-expense-categories-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, explicit behavioral notes, detailed parameter descriptions, and thorough context, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-expense-reports-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and thorough contextual information, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-expenses-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.57,
+      "comment": "This tool is very clear in purpose, usage, and side effects, with well-documented parameters and context, though parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "accounting-invoice-items-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, and behavioral transparency, though parameter descriptions could be slightly more detailed for the 'body' object."
+    },
+    {
+      "name": "accounting-invoice-items-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "The tool clearly defines its update purpose and context with good parameter descriptions and usage notes, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-invoices-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and necessary context, though the prose is slightly verbose."
+    },
+    {
+      "name": "accounting-journal-entries-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit behavior, detailed parameter descriptions, and thorough context, though the prose could be slightly tighter."
     },
     {
       "name": "accounting-ledger-accounts-delete",
       "purposeClarity": 5,
       "usageGuidelines": 4,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
       "overall": 4.48,
-      "comment": "The description clearly states the tool's purpose, highlights destructive behavior with explicit user confirmation advice, and provides detailed context on connection requirements, though usage guidance could be slightly more explicit about alternatives."
+      "comment": "This tool is very clear in purpose, parameters, and destructive behavior, with strong contextual details, though usage guidelines could be more explicit about alternatives."
     },
     {
-      "name": "accounting-payments-get",
+      "name": "accounting-locations-create",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.7,
-      "comment": "The description clearly states the tool's purpose, when to use it versus related tools, its read-only behavior, and detailed context on authentication and multi-tenant usage, though it could be slightly tighter in prose."
+      "overall": 4.48,
+      "comment": "This tool is very clear about its purpose, usage context, side effects, and parameters, though parameter documentation could be slightly more detailed."
     },
     {
-      "name": "accounting-purchase-orders-get",
+      "name": "accounting-locations-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "Clear and specific purpose with good contextual details and parameter descriptions, though usage guidelines could be more explicit about alternatives and behavioural transparency could mention idempotency explicitly."
+    },
+    {
+      "name": "accounting-payments-list",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states the tool's purpose, when to use it versus related tools, its read-only nature, and necessary connection context, though it could be slightly tighter in prose."
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and necessary context, though the prose is slightly verbose."
     },
     {
-      "name": "accounting-refunds-list",
+      "name": "accounting-projects-delete",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.7,
-      "comment": "The description clearly states the tool's purpose, usage scenarios, side effects, and necessary context, though it is slightly verbose in places."
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, explicit destructive warnings, detailed parameter descriptions, and thorough contextual guidance, though its prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-purchase-orders-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "This tool is very clear about its purpose, usage scenarios, side effects, and context requirements, though parameter documentation could be slightly more detailed."
+    },
+    {
+      "name": "accounting-purchase-orders-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.13,
+      "comment": "Clear purpose and context with good parameter documentation and behavioral notes, though usage guidance could be more explicit about alternatives."
+    },
+    {
+      "name": "accounting-quotes-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool description is very clear, detailed, and well-structured, providing explicit usage guidance, parameter explanations, and context, though slightly verbose in places."
+    },
+    {
+      "name": "accounting-refunds-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool's definition is very clear and complete, with explicit usage guidance, detailed parameter descriptions, and thorough context, though the prose could be slightly more concise."
+    },
+    {
+      "name": "accounting-subsidiaries-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, explicit destructive behavior warnings, detailed parameter descriptions, and thorough contextual usage guidance, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-suppliers-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "This tool is very clear in purpose, usage, side effects, and context, with well-documented parameters, though the parameter descriptions could be slightly more detailed."
     },
     {
       "name": "accounting-suppliers-update",
       "purposeClarity": 5,
       "usageGuidelines": 4,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.48,
-      "comment": "The description clearly states the tool's purpose, side effects, and usage context with good detail, though usage guidelines could be slightly more explicit about alternatives."
+      "overall": 4.43,
+      "comment": "The tool is clearly defined with explicit update semantics and detailed context on usage and parameters, though usage guidelines could be more explicit about alternatives."
     },
     {
-      "name": "ats-applicants-create",
-      "purposeClarity": 5,
-      "usageGuidelines": 4,
-      "behaviouralTransparency": 5,
-      "conciseness": 4,
-      "contextualCompleteness": 5,
-      "overall": 4.48,
-      "comment": "The description clearly states the tool's purpose, usage context, side effects, and necessary connection details, though usage guidelines could be slightly more explicit about when not to use it."
-    },
-    {
-      "name": "ats-jobs-delete",
-      "purposeClarity": 5,
-      "usageGuidelines": 4,
-      "behaviouralTransparency": 5,
-      "conciseness": 4,
-      "contextualCompleteness": 5,
-      "overall": 4.48,
-      "comment": "The description clearly states the tool's purpose, destructive nature, and usage context with good detail, though usage guidelines could be slightly more explicit about alternatives."
-    },
-    {
-      "name": "connector-connectors-list",
+      "name": "accounting-tax-rates-list",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states the tool's purpose, usage scenarios, side effects, and necessary context, though it is slightly verbose."
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, explicit side effect notes, detailed parameter descriptions, and thorough context, though the prose could be slightly tighter."
+    },
+    {
+      "name": "accounting-tracking-categories-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit side effect info, detailed parameter descriptions, and thorough context, though slightly verbose in places."
+    },
+    {
+      "name": "ats-applicants-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.57,
+      "comment": "This tool's definition is very clear, explicit about destructive behavior and usage context, with well-documented parameters and thorough contextual details, though parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "ats-applications-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool description clearly defines its purpose, usage context, and side effects with well-documented parameters and relevant contextual details, though usage guidelines could be slightly more explicit about sibling tools."
+    },
+    {
+      "name": "ats-applications-update",
+      "purposeClarity": 4,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.07,
+      "comment": "The tool clearly defines its update purpose with good usage guidance and context, though parameter documentation could be more detailed and prose slightly tighter."
+    },
+    {
+      "name": "ats-jobs-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and contextual information, though the prose is slightly verbose."
+    },
+    {
+      "name": "connector-apis-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "The tool description is clear, explicit about usage and side effects, and provides thorough context, though parameter documentation could be slightly more detailed."
+    },
+    {
+      "name": "connector-connectors-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool is very clear in purpose, usage, and side effects, with well-documented parameters and context, though parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "crm-activities-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit behavior, detailed parameter descriptions, and thorough context, though the prose could be slightly tighter."
+    },
+    {
+      "name": "crm-companies-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "This tool is very clear in purpose, usage, and side effects, with well-documented parameters and context, though parameter descriptions could be slightly more detailed."
     },
     {
       "name": "crm-contacts-create",
       "purposeClarity": 5,
-      "usageGuidelines": 4,
+      "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.44,
-      "comment": "The description clearly defines the tool's purpose, usage context, and side effects with good detail and conciseness, though usage guidelines could be slightly more explicit."
+      "overall": 4.43,
+      "comment": "This tool description clearly defines its purpose, usage context, side effects, and parameters with good detail, though parameter documentation could be slightly more granular."
     },
     {
-      "name": "crm-custom-objects-delete",
+      "name": "crm-contacts-update",
       "purposeClarity": 5,
       "usageGuidelines": 4,
-      "behaviouralTransparency": 5,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.48,
-      "comment": "The description clearly defines the tool's purpose, destructive nature, and usage context with good detail, though usage guidelines could be slightly more explicit about alternatives."
+      "overall": 4.18,
+      "comment": "The tool clearly defines its update function with good parameter descriptions and context, though usage guidelines could be more explicit about alternatives."
     },
     {
-      "name": "crm-notes-get",
+      "name": "crm-custom-object-schemas-list",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.7,
-      "comment": "The description clearly states what the tool does, when to use it versus related tools, its read-only nature, and important context about authentication and multi-tenant usage, though it could be slightly tighter in prose."
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, explicit side effect notes, detailed parameter descriptions, and thorough context, though the prose could be slightly tighter."
     },
     {
-      "name": "crm-pipelines-list",
+      "name": "crm-custom-objects-get",
       "purposeClarity": 5,
       "usageGuidelines": 4,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "The tool description clearly defines its purpose, usage context, and side effects, with well-documented parameters and relevant contextual details, though parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "crm-leads-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
       "overall": 4.48,
-      "comment": "The description clearly states the tool's purpose, usage scenarios, and side effects, with strong contextual details, though pagination mention is slightly contradictory and usage guidance could be more explicit."
+      "comment": "This tool definition clearly states its destructive purpose, when and how to use it, and the necessary context, though parameter documentation could be slightly more detailed."
+    },
+    {
+      "name": "crm-notes-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.31,
+      "comment": "The tool description clearly defines its purpose, usage context, and side effects, with well-documented parameters and necessary contextual details, though usage guidelines could be slightly more explicit about sibling tools."
+    },
+    {
+      "name": "crm-notes-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "Clear and specific purpose with good contextual details and parameter documentation, though usage guidelines could be more explicit about alternatives and side effects could be more detailed."
+    },
+    {
+      "name": "crm-opportunities-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and contextual requirements, though the prose could be slightly tighter."
+    },
+    {
+      "name": "crm-pipelines-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool definition is very clear and complete, with explicit usage guidance, detailed parameter descriptions, and thorough context, though the prose could be slightly more concise."
+    },
+    {
+      "name": "crm-users-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.57,
+      "comment": "This tool is very clear about its destructive purpose, usage conditions, and context, though parameter documentation could be slightly more detailed."
+    },
+    {
+      "name": "ecommerce-customers-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit behavior, detailed parameter descriptions, and thorough contextual information, though the prose could be slightly tighter."
     },
     {
       "name": "ecommerce-products-get",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states the tool's specific purpose, when to use it versus related endpoints, its read-only nature, and important context about authentication and multi-service targeting, though the prose could be slightly tighter."
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit behavioral notes, detailed parameter descriptions, and thorough contextual information, though its description is slightly verbose."
     },
     {
-      "name": "file-storage-drives-list",
+      "name": "file-storage-drive-groups-delete",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states what the tool does, when to use it versus a sibling, its read-only nature, and detailed context including auth and pagination, though it is slightly verbose."
+      "overall": 4.43,
+      "comment": "This tool's definition is clear and explicit about its destructive nature, usage context, and parameters, though parameter documentation could be slightly more detailed."
     },
     {
-      "name": "file-storage-folders-create",
+      "name": "file-storage-drives-create",
       "purposeClarity": 5,
-      "usageGuidelines": 4,
+      "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
       "overall": 4.48,
-      "comment": "The description clearly states the tool's purpose, usage context, side effects, and necessary connection details, though usage guidelines could be slightly more explicit about when not to use it."
+      "comment": "This tool's definition is clear and thorough, explicitly stating its purpose, usage context, side effects, and parameter details, though parameter documentation could be slightly more granular."
     },
     {
-      "name": "file-storage-upload-sessions-finish",
+      "name": "file-storage-drives-update",
       "purposeClarity": 5,
-      "usageGuidelines": 3,
+      "usageGuidelines": 4,
       "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4,
-      "comment": "The description clearly states the tool's purpose and context, notes non-idempotency and connection requirements, but could improve usage guidance by explicitly contrasting with related endpoints."
+      "overall": 4.18,
+      "comment": "Clear and detailed purpose with good contextual info and parameter descriptions, though usage guidance could be more explicit and parameter docs slightly deeper."
+    },
+    {
+      "name": "file-storage-files-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool definition is very clear, well-documented, and explicit about usage, side effects, parameters, and context, though the prose could be slightly more concise."
+    },
+    {
+      "name": "file-storage-files-upload",
+      "purposeClarity": 4,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 3,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 3.93,
+      "comment": "The tool clearly defines its upload purpose and usage context with good behavioral notes and contextual details, though parameter documentation could be more granular."
+    },
+    {
+      "name": "file-storage-folders-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, explicit behavior, detailed parameter descriptions, and thorough contextual information, though the prose could be slightly tighter."
+    },
+    {
+      "name": "file-storage-shared-links-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well defined with clear purpose, usage guidance, side effect transparency, detailed parameter descriptions, and thorough contextual information, though its conciseness could be slightly improved."
+    },
+    {
+      "name": "file-storage-upload-sessions-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "The tool is clearly defined with explicit destructive behavior and contextual requirements, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "hris-companies-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool description clearly defines its purpose, usage context, and side effects, with well-documented parameters and necessary contextual details, though usage guidelines could be slightly more explicit about sibling tools."
+    },
+    {
+      "name": "hris-companies-update",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.18,
+      "comment": "Clear purpose and good contextual details with explicit parameter descriptions, though usage guidelines could be more explicit about when not to use this tool."
     },
     {
       "name": "hris-departments-list",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states what the tool does, when to use it versus a sibling, its read-only nature, and important context like connection requirements and pagination, though it could be slightly tighter in prose."
+      "overall": 4.75,
+      "comment": "This tool's definition is very clear, detailed, and well-structured, providing explicit usage guidance, parameter descriptions, and context, though the prose could be slightly more concise."
     },
     {
-      "name": "hris-payrolls-list",
+      "name": "hris-employee-schedules-list",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.6,
-      "comment": "The description clearly states the tool's function, usage scenarios, side effects, and necessary context, though it is slightly verbose in places."
+      "overall": 4.75,
+      "comment": "This tool's definition is very clear, well-documented with explicit usage guidance, parameter descriptions, and context, though the prose could be slightly tighter."
     },
     {
-      "name": "issue-tracking-collection-ticket-comments-update",
+      "name": "hris-employees-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool's definition is very clear, detailed, and well-structured, providing explicit usage guidance, parameter descriptions, and context, though the prose could be slightly more concise."
+    },
+    {
+      "name": "hris-time-off-requests-create",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool's definition clearly states its purpose, side effects, and context requirements, with mostly well-documented parameters and good usage guidance, though parameter descriptions could be slightly more detailed."
+    },
+    {
+      "name": "hris-time-off-requests-update",
       "purposeClarity": 5,
       "usageGuidelines": 4,
       "behaviouralTransparency": 4,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
       "overall": 4.18,
-      "comment": "The description clearly defines the tool's function and context, provides good usage guidance and side effect info, and includes detailed connection requirements, though usage guidance could be slightly more explicit about alternatives."
+      "comment": "Clear and specific purpose with good parameter documentation and contextual details, though usage guidelines could be more explicit about alternatives."
     },
     {
-      "name": "proxy-get",
+      "name": "issue-tracking-collection-ticket-comments-get",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
       "conciseness": 4,
       "contextualCompleteness": 5,
-      "overall": 4.7,
-      "comment": "The description clearly states the tool's purpose, when to use it versus siblings, its read-only nature, and necessary context like connection and service ID, though it is slightly verbose."
+      "overall": 4.57,
+      "comment": "This tool is very clear in purpose, usage, and side effects, with well-documented parameters and context, though parameter descriptions could be slightly more uniformly detailed."
+    },
+    {
+      "name": "issue-tracking-collection-tickets-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool's definition is very clear, explicit about destructive behavior, usage context, and parameters, though the prose could be slightly tighter."
+    },
+    {
+      "name": "issue-tracking-collection-users-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 5,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.75,
+      "comment": "This tool is very well documented with clear purpose, usage guidance, explicit behavioral notes, detailed parameter descriptions, and thorough contextual information, though the prose could be slightly tighter."
+    },
+    {
+      "name": "proxy-delete",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "This tool is very clear about its destructive purpose, usage context, and side effects, with well-documented parameters and thorough contextual details, though usage guidelines could be slightly more explicit about alternatives."
+    },
+    {
+      "name": "proxy-post",
+      "purposeClarity": 5,
+      "usageGuidelines": 4,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.43,
+      "comment": "The tool's purpose and side effects are clearly described with detailed parameter explanations and contextual usage guidance, though usage guidelines could be more explicit about alternatives."
+    },
+    {
+      "name": "vault-connection-custom-mappings-list",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "The tool description is clear, explicit about usage scenarios and side effects, and provides detailed parameter info and context, though one parameter's optional description could be slightly clearer."
     },
     {
       "name": "vault-connections-get",
       "purposeClarity": 5,
       "usageGuidelines": 5,
       "behaviouralTransparency": 5,
-      "conciseness": 4,
+      "parameterSemantics": 5,
+      "conciseness": 5,
       "contextualCompleteness": 5,
-      "overall": 4.56,
-      "comment": "The description clearly states the tool's purpose, when to use it versus related endpoints, its read-only nature, and important authentication context, though it could be slightly more concise."
+      "overall": 4.92,
+      "comment": "This tool definition is exemplary, clearly stating its purpose, usage context, side effects, parameter meanings, and necessary authentication details with concise and complete prose."
     },
     {
-      "name": "vault-create-callback-state",
+      "name": "vault-connections-update",
       "purposeClarity": 4,
       "usageGuidelines": 3,
-      "behaviouralTransparency": 5,
-      "conciseness": 4,
+      "behaviouralTransparency": 3,
+      "parameterSemantics": 3,
+      "conciseness": 3,
       "contextualCompleteness": 4,
-      "overall": 3.88,
-      "comment": "The description clearly explains the tool's purpose and side effects, including non-idempotency and auth context, but could improve usage guidance by explicitly contrasting when to use this tool versus others."
+      "overall": 3.43,
+      "comment": "The tool clearly states it updates connection details with some context on usage and authentication, but lacks explicit guidance on when to prefer it over related tools and more detailed parameter documentation."
+    },
+    {
+      "name": "vault-consumers-get",
+      "purposeClarity": 5,
+      "usageGuidelines": 5,
+      "behaviouralTransparency": 5,
+      "parameterSemantics": 4,
+      "conciseness": 4,
+      "contextualCompleteness": 5,
+      "overall": 4.48,
+      "comment": "This tool's definition is clear, well-scoped, and explicit about usage, side effects, parameters, and context, though parameter documentation could be slightly more detailed."
     }
   ]
 }
