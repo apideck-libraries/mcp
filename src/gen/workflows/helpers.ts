@@ -92,5 +92,65 @@ export function workflowErrorResult(err: unknown): CallToolResult {
   return workflowJsonResult({ error: message }, true);
 }
 
+/**
+ * Outcome of one step inside a graceful (allSettled-style) workflow.
+ *
+ *   ok=true     → use `data` (already passed through pickData)
+ *   unsupported → connector doesn't implement this resource / filter
+ *   ok=false    → real error (auth, timeout, validation, upstream 5xx)
+ */
+export type StepOutcome<T = unknown> =
+  | { ok: true; data: T }
+  | { ok: false; unsupported: true; reason: string; upstream?: unknown }
+  | { ok: false; unsupported: false; error: string; upstream?: unknown };
+
+/**
+ * Invoke a step and classify its outcome instead of throwing.
+ * Use when the workflow should return a partial snapshot rather than abort
+ * if one upstream is unsupported.
+ */
+export async function runStep<T = unknown>(
+  client: ApideckMcpCore,
+  name: string,
+  args: Record<string, unknown>,
+  ctx: StepContext,
+  pick: (body: unknown) => T = (b) => b as T,
+): Promise<StepOutcome<T>> {
+  try {
+    const body = await callTool(client, name, args, ctx);
+    return { ok: true, data: pick(body) };
+  } catch (err) {
+    if (err instanceof WorkflowStepError) {
+      const u = err.body as
+        | { status_code?: number; type_name?: string; message?: string; detail?: unknown }
+        | undefined;
+      const code = u?.status_code;
+      const type = u?.type_name;
+      const isUnsupported = code === 404
+        && (type === "ConnectorExecutionError" || type === "ResourceNotImplementedError");
+      const isUnsupportedFilter = type === "UnsupportedFiltersError";
+      if (isUnsupported || isUnsupportedFilter) {
+        return {
+          ok: false,
+          unsupported: true,
+          reason: u?.message ?? `${name} not supported by this connector`,
+          upstream: u,
+        };
+      }
+      return { ok: false, unsupported: false, error: err.message, upstream: u };
+    }
+    const message = err instanceof Error ? err.message : String(err);
+    return { ok: false, unsupported: false, error: message };
+  }
+}
+
+/** Pull the `data` envelope, or pass through if the shape isn't recognised. */
+export function pickData(body: unknown): unknown {
+  if (body && typeof body === "object" && "data" in body) {
+    return (body as { data: unknown }).data;
+  }
+  return body;
+}
+
 /** Type alias for workflow ToolDefinitions. */
 export type WorkflowTool = ToolDefinition<Record<string, z.ZodTypeAny>>;

@@ -16,8 +16,9 @@
 
 import * as z from "zod";
 import {
-  callTool,
-  workflowErrorResult,
+  pickData,
+  runStep,
+  type StepOutcome,
   workflowJsonResult,
   type WorkflowTool,
 } from "./helpers.js";
@@ -72,41 +73,42 @@ export const apideckMonthEndCloseCheck: WorkflowTool = {
       filter: { report_as_of_date: reportAsOfDate },
     };
 
-    try {
-      const [agedCreditors, agedDebtors, balanceSheet, profitAndLoss] = await Promise.all([
-        callTool(client, "accounting-aged-creditors-get", filterWithDate, ctx),
-        callTool(client, "accounting-aged-debtors-get", filterWithDate, ctx),
-        callTool(client, "accounting-balance-sheet-get", {
-          ...common,
-          filter: { end_date: reportAsOfDate },
-        }, ctx),
-        callTool(client, "accounting-profit-and-loss-get", {
-          ...common,
-          filter: { end_date: reportAsOfDate },
-        }, ctx),
-      ]);
+    const balanceFilter = { ...common, filter: { end_date: reportAsOfDate } };
+    const [agedCreditors, agedDebtors, balanceSheet, profitAndLoss] = await Promise.all([
+      runStep(client, "accounting-aged-creditors-get", filterWithDate, ctx, pickData),
+      runStep(client, "accounting-aged-debtors-get", filterWithDate, ctx, pickData),
+      runStep(client, "accounting-balance-sheet-get", balanceFilter, ctx, pickData),
+      runStep(client, "accounting-profit-and-loss-get", balanceFilter, ctx, pickData),
+    ]);
 
-      return workflowJsonResult({
-        report_as_of_date: reportAsOfDate,
-        service_id: serviceId ?? null,
-        aged_creditors: pickData(agedCreditors),
-        aged_debtors: pickData(agedDebtors),
-        balance_sheet: pickData(balanceSheet),
-        profit_and_loss: pickData(profitAndLoss),
-      });
-    } catch (err) {
-      return workflowErrorResult(err);
+    const named: Record<string, StepOutcome> = {
+      aged_creditors: agedCreditors,
+      aged_debtors: agedDebtors,
+      balance_sheet: balanceSheet,
+      profit_and_loss: profitAndLoss,
+    };
+
+    const warnings: string[] = [];
+    const out: Record<string, unknown> = {
+      report_as_of_date: reportAsOfDate,
+      service_id: serviceId ?? null,
+    };
+    let okCount = 0;
+    for (const [key, step] of Object.entries(named)) {
+      if (step.ok) {
+        out[key] = step.data;
+        okCount++;
+      } else if (step.unsupported) {
+        out[key] = { unsupported: true, reason: step.reason };
+        warnings.push(`${key}: unsupported${serviceId ? ` on ${serviceId}` : ""} (${step.reason})`);
+      } else {
+        out[key] = { error: step.error };
+        warnings.push(`${key}: ${step.error}`);
+      }
     }
+    if (warnings.length) out["warnings"] = warnings;
+
+    // Only flag the whole workflow as an error when nothing came back.
+    return workflowJsonResult(out, okCount === 0);
   },
 };
-
-/**
- * Pull the `data` field out of an Apideck envelope, or pass through the
- * raw value if the shape isn't recognised.
- */
-function pickData(body: unknown): unknown {
-  if (body && typeof body === "object" && "data" in body) {
-    return (body as { data: unknown }).data;
-  }
-  return body;
-}

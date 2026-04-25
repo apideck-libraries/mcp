@@ -7,8 +7,10 @@
  *   - fires exactly 4 upstream endpoints in parallel
  *   - aggregates their `data` fields into a single JSON result
  *   - falls back to today's date when report_as_of_date omitted
- *   - surfaces upstream errors as { error, failingStep } without
- *     obscuring which endpoint failed
+ *   - returns partial snapshots when some steps fail
+ *   - distinguishes "unsupported by connector" (404 / UnsupportedFilters)
+ *     from real upstream errors so the LLM doesn't retry hopeless calls
+ *   - flags isError only when EVERY step failed
  */
 
 import { createGeneratedMCPServer } from "../esm/src/gen/create-server.js";
@@ -146,15 +148,15 @@ console.log("Test: defaults report_as_of_date to today");
 }
 
 // ---------------------------------------------------------------------------
-// 4. Upstream failure surfaces as { error, failingStep } with isError=true
+// 4. Single upstream failure → partial snapshot with warning, NOT isError
 // ---------------------------------------------------------------------------
-console.log("Test: upstream failure preserves failingStep identity");
+console.log("Test: single upstream failure returns partial snapshot");
 {
   const stub = stubFetch({
-    "/accounting/aged-creditors": { data: {} },
+    "/accounting/aged-creditors": { data: { c: 1 } },
     "/accounting/aged-debtors": { __status: 500, message: "Xero is down" },
-    "/accounting/balance-sheet": { data: {} },
-    "/accounting/profit-and-loss": { data: {} },
+    "/accounting/balance-sheet": { data: { b: 2 } },
+    "/accounting/profit-and-loss": { data: { p: 3 } },
   });
   const booted = bootDefault();
   const execTool = booted.server._registeredTools.execute_tool;
@@ -165,15 +167,78 @@ console.log("Test: upstream failure preserves failingStep identity");
   stub.restore();
 
   const payload = JSON.parse(res.content[0].text);
-  assert(res.isError === true, "isError flagged");
+  assert(res.isError !== true, "not flagged as error when 3/4 succeed");
+  assert(payload.aged_creditors.c === 1, "succeeded steps still populated");
+  assert(payload.balance_sheet.b === 2, "balance-sheet present");
+  assert(payload.profit_and_loss.p === 3, "p&l present");
+  assert(payload.aged_debtors.error, "failed step carries `error` field");
+  assert(Array.isArray(payload.warnings) && payload.warnings.length === 1, "1 warning");
   assert(
-    payload.failingStep === "accounting-aged-debtors-get",
-    `failingStep = accounting-aged-debtors-get (got ${payload.failingStep})`,
+    payload.warnings[0].startsWith("aged_debtors:"),
+    `warning names the failing step (got ${payload.warnings[0]})`,
+  );
+}
+
+// ---------------------------------------------------------------------------
+// 5. 404 ConnectorExecutionError → unsupported (not error)
+// ---------------------------------------------------------------------------
+console.log("Test: 404 ConnectorExecutionError marked unsupported");
+{
+  const stub = stubFetch({
+    "/accounting/aged-creditors": {
+      __status: 404,
+      status_code: 404,
+      type_name: "ConnectorExecutionError",
+      message: "Aged-creditors not implemented for Odoo",
+    },
+    "/accounting/aged-debtors": { data: { d: 1 } },
+    "/accounting/balance-sheet": { data: { b: 2 } },
+    "/accounting/profit-and-loss": { data: { p: 3 } },
+  });
+  const booted = bootDefault();
+  const execTool = booted.server._registeredTools.execute_tool;
+  const res = await execTool.handler(
+    { name: "apideck-month-end-close-check", arguments: { "x-apideck-service-id": "odoo" } },
+    { signal: new AbortController().signal },
+  );
+  stub.restore();
+
+  const payload = JSON.parse(res.content[0].text);
+  assert(res.isError !== true, "partial snapshot, not error");
+  assert(payload.aged_creditors.unsupported === true, "marked unsupported");
+  assert(
+    typeof payload.aged_creditors.reason === "string"
+      && payload.aged_creditors.reason.includes("not implemented"),
+    "reason carries upstream message",
   );
   assert(
-    typeof payload.error === "string" && payload.error.includes("Xero is down"),
-    "upstream error text bubbles up",
+    payload.warnings.some((w) => w.includes("aged_creditors: unsupported on odoo")),
+    "warning mentions service_id",
   );
+}
+
+// ---------------------------------------------------------------------------
+// 6. All steps fail → isError=true
+// ---------------------------------------------------------------------------
+console.log("Test: all-fail surfaces as isError");
+{
+  const stub = stubFetch({
+    "/accounting/aged-creditors": { __status: 500, message: "boom" },
+    "/accounting/aged-debtors": { __status: 500, message: "boom" },
+    "/accounting/balance-sheet": { __status: 500, message: "boom" },
+    "/accounting/profit-and-loss": { __status: 500, message: "boom" },
+  });
+  const booted = bootDefault();
+  const execTool = booted.server._registeredTools.execute_tool;
+  const res = await execTool.handler(
+    { name: "apideck-month-end-close-check", arguments: {} },
+    { signal: new AbortController().signal },
+  );
+  stub.restore();
+
+  assert(res.isError === true, "isError when 0/4 succeed");
+  const payload = JSON.parse(res.content[0].text);
+  assert(payload.warnings.length === 4, "4 warnings");
 }
 
 console.log(
