@@ -12,7 +12,13 @@ permissions:
     branches:
       - main
     paths:
-      - .speakeasy/gen.lock
+      # Anything that affects the published tarball. The release job
+      # no-ops cleanly when there is no SDK change, and publish-npm
+      # already skips when the version is already on npm — so this
+      # trigger is idempotent.
+      - package.json
+      - src/**
+      - bin/**
   workflow_dispatch: {}
 
 jobs:
