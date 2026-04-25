@@ -40,20 +40,25 @@ jobs:
         id: url
         env:
           DISPATCH_URL: ${{ github.event.inputs.mcp_url }}
-          DEPLOY_URL: ${{ github.event.deployment_status.target_url }}
         run: |
+          # Probe the production custom domain rather than the per-deployment
+          # alias from deployment_status.target_url:
+          #   * the prod alias swap is atomic with deploy promotion — what
+          #     the smoke tests is what users hit
+          #   * no Deployment Protection bypass needed (custom domains aren't
+          #     gated)
+          #   * no DNS-propagation race for the per-deploy alias
           if [ -n "$DISPATCH_URL" ]; then
             echo "mcp_url=$DISPATCH_URL" >> "$GITHUB_OUTPUT"
           else
-            # Vercel's deployment_status.target_url is the app URL; append /mcp
-            echo "mcp_url=${DEPLOY_URL%/}/mcp" >> "$GITHUB_OUTPUT"
+            echo "mcp_url=https://mcp.apideck.dev/mcp" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Smoke test
         env:
           MCP_URL: ${{ steps.url.outputs.mcp_url }}
-          # Vercel returns a protected per-deployment alias URL via
-          # deployment_status.target_url. Pass the Automation bypass
-          # secret so the smoke can reach the function.
+          # Bypass kept available for `workflow_dispatch` runs that point at
+          # a per-deployment alias (preview / staging URL). On the default
+          # Production path the prod alias is unprotected, so this is a no-op.
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: node test/post-deploy.mjs
