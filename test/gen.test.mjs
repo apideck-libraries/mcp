@@ -56,7 +56,7 @@ const fakeClient = {
 
 const result = await invoicesList.tool(
   fakeClient,
-  { request: { limit: 5, "x-apideck-service-id": "quickbooks", filter: { updated_since: "2024-01-01" } } },
+  { limit: 5, "x-apideck-service-id": "quickbooks", filter: { updated_since: "2024-01-01" } },
   { signal: undefined },
 );
 globalThis.fetch = origFetch;
@@ -89,7 +89,7 @@ globalThis.fetch = async (url, opts) => {
 };
 await invoicesUpdate.tool(
   fakeClient,
-  { request: { id: "inv-123", body: { total: 100 } } },
+  { id: "inv-123", body: { total: 100 } },
   { signal: undefined },
 );
 globalThis.fetch = origFetch;
@@ -104,7 +104,7 @@ assert(typeof putReq.body === "string" && JSON.parse(putReq.body).total === 100,
 console.log("Test: non-2xx response sets isError");
 captured.length = 0;
 globalThis.fetch = async () => new Response('{"error":"nope"}', { status: 401, headers: { "content-type": "application/json" } });
-const errResult = await invoicesList.tool(fakeClient, { request: {} }, { signal: undefined });
+const errResult = await invoicesList.tool(fakeClient, {}, { signal: undefined });
 globalThis.fetch = origFetch;
 assert(errResult.isError === true, "401 → isError true");
 assert(errResult.content[0].text.includes("nope"), "error body returned to LLM");

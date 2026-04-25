@@ -80,7 +80,7 @@ async function callExec({ apiKey, appId, consumerId, toolName, args }) {
   const { server } = mirrorProdHandler({ apiKey, appId, consumerId });
   const execTool = server._registeredTools.execute_tool;
   return execTool.handler(
-    { name: toolName, arguments: { request: args } },
+    { name: toolName, arguments: args },
     { signal: new AbortController().signal },
   );
 }
@@ -136,7 +136,7 @@ async function callExec({ apiKey, appId, consumerId, toolName, args }) {
   const { server } = createGeneratedMCPServer({ logger, dynamic: true, getSDK });
   const execTool = server._registeredTools.execute_tool;
   await execTool.handler(
-    { name: "vault-connections-list", arguments: { request: {} } },
+    { name: "vault-connections-list", arguments: {} },
     { signal: new AbortController().signal },
   );
   stub.restore();
@@ -189,7 +189,7 @@ async function callExec({ apiKey, appId, consumerId, toolName, args }) {
   const { server } = createGeneratedMCPServer({ logger, dynamic: true, getSDK });
   const execTool = server._registeredTools.execute_tool;
   const res = await execTool.handler(
-    { name: "vault-connections-list", arguments: { request: {} } },
+    { name: "vault-connections-list", arguments: {} },
     { signal: new AbortController().signal },
   );
   stub.restore();

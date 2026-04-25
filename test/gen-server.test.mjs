@@ -98,13 +98,17 @@ try {
 }
 if (schemaObj) {
   assert(schemaObj.type === "object", "schema is an object type");
-  const requestProps = schemaObj.properties?.request?.properties ?? {};
-  assert("limit" in requestProps, "limit property present");
-  assert("filter" in requestProps, "filter property present");
-  assert("x-apideck-service-id" in requestProps, "service-id header property present");
+  const props = schemaObj.properties ?? {};
+  assert("limit" in props, "limit property present at top level");
+  assert("filter" in props, "filter property present at top level");
+  assert("x-apideck-service-id" in props, "service-id header at top level");
   assert(
-    typeof requestProps["x-apideck-service-id"]?.description === "string",
+    typeof props["x-apideck-service-id"]?.description === "string",
     "service-id carries a description",
+  );
+  assert(
+    !("request" in props),
+    "schema is flat — no request wrapper",
   );
 }
 
@@ -136,7 +140,7 @@ const execTool = analyticsBooted.server._registeredTools.execute_tool;
 const execRes = await execTool.handler(
   {
     name: "accounting-invoices-list",
-    arguments: { request: { limit: 10, "x-apideck-service-id": "quickbooks" } },
+    arguments: { limit: 10, "x-apideck-service-id": "quickbooks" },
   },
   { signal: new AbortController().signal },
 );

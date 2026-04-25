@@ -114,10 +114,11 @@ function diff(a, b, path = "", out = []) {
 }
 
 function callBoth(name, args) {
-  const payload = { name, arguments: { request: args } };
+  // Engines diverge on argument shape: legacy wraps under `request`, custom
+  // exposes a flat top-level schema. Each engine gets its native shape.
   return Promise.all([
-    speakExec(payload, { signal: AbortSignal.timeout(30_000) }),
-    customExec(payload, { signal: AbortSignal.timeout(30_000) }),
+    speakExec({ name, arguments: { request: args } }, { signal: AbortSignal.timeout(30_000) }),
+    customExec({ name, arguments: args }, { signal: AbortSignal.timeout(30_000) }),
   ]);
 }
 

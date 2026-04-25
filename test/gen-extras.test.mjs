@@ -47,7 +47,7 @@ globalThis.fetch = async (url, opts) => {
 const png1x1 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 await upload.tool(
   fakeSDK,
-  { request: { body: { data: png1x1, mimeType: "image/png" } } },
+  { body: { data: png1x1, mimeType: "image/png" } },
   { signal: new AbortController().signal },
 );
 globalThis.fetch = origFetch;
@@ -68,7 +68,7 @@ globalThis.fetch = async () => {
   return new Response('{"data":[]}', { status: 200, headers: { "content-type": "application/json" } });
 };
 const start = Date.now();
-const retryRes = await list.tool(fakeSDK, { request: { limit: 1 } }, { signal: new AbortController().signal });
+const retryRes = await list.tool(fakeSDK, { limit: 1 }, { signal: new AbortController().signal });
 const elapsed = Date.now() - start;
 globalThis.fetch = origFetch;
 
@@ -91,7 +91,7 @@ globalThis.fetch = async () =>
   });
 const imgRes = await download.tool(
   fakeSDK,
-  { request: { id: "file-123" } },
+  { id: "file-123" },
   { signal: new AbortController().signal },
 );
 globalThis.fetch = origFetch;
@@ -130,7 +130,7 @@ globalThis.fetch = async () => {
   persistentCalls++;
   return new Response("server exploded", { status: 502 });
 };
-const giveUpRes = await list.tool(fakeSDK, { request: { limit: 1 } }, { signal: new AbortController().signal });
+const giveUpRes = await list.tool(fakeSDK, { limit: 1 }, { signal: new AbortController().signal });
 globalThis.fetch = origFetch;
 assert(persistentCalls === 4, `fetch called 4× (default attempts) — got ${persistentCalls}`);
 assert(giveUpRes.isError === true, "gives up with isError: true");

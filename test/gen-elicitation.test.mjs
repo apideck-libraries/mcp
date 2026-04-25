@@ -218,7 +218,7 @@ console.log("Test: e2e — connection error from Apideck triggers elicitation");
     await booted.server._registeredTools.execute_tool.handler(
       {
         name: "accounting-invoices-list",
-        arguments: { request: { limit: 1 } },
+        arguments: { limit: 1 },
       },
       { signal: new AbortController().signal },
     );
@@ -280,7 +280,7 @@ console.log("Test: non-connection 4xx returns plain text result, no elicitation"
   const res = await booted.server._registeredTools.execute_tool.handler(
     {
       name: "accounting-invoices-list",
-      arguments: { request: { limit: 1 } },
+      arguments: { limit: 1 },
     },
     { signal: new AbortController().signal },
   );
