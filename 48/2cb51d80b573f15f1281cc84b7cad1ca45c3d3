@@ -1,0 +1,29 @@
+.github/workflows/ci.yaml
+  1843bf7ab16e94b4 44
+test/gen-workflow-pay-bill.test.mjs
+  1843bf7ab16e94b4 1-295
+src/gen/workflows/payBill.ts
+  1843bf7ab16e94b4 1-181
+src/gen/workflows/index.ts
+  1843bf7ab16e94b4 12,17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "482cb51d80b573f15f1281cc84b7cad1ca45c3d3",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 66482,
+      "total_deletions": 46,
+      "accepted_lines": 66477,
+      "overriden_lines": 0
+    }
+  }
+}
