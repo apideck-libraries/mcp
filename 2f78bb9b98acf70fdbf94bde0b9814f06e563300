@@ -1,0 +1,23 @@
+.github/workflows/publish.yaml
+  fe8e065aec47c41e 15-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "2f78bb9b98acf70fdbf94bde0b9814f06e563300",
+  "prompts": {
+    "fe8e065aec47c41e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8bfdd3e1-fef9-4336-a83c-a0e4c85a6ad9",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 5,
+      "accepted_lines": 7,
+      "overriden_lines": 0
+    }
+  }
+}
