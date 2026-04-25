@@ -1,0 +1,25 @@
+test/gen-elicitation.test.mjs
+  1843bf7ab16e94b4 92-108
+src/gen/elicitation.ts
+  1843bf7ab16e94b4 31-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "26222fb960c484a5c741f2048aa55b15a73330dc",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 112,
+      "total_deletions": 41,
+      "accepted_lines": 66023,
+      "overriden_lines": 0
+    }
+  }
+}
