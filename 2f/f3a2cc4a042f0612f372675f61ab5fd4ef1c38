@@ -1,0 +1,25 @@
+test/post-deploy.mjs
+  fe8e065aec47c41e 16-20,40-50,53
+.github/workflows/post-deploy-smoke.yaml
+  fe8e065aec47c41e 55-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "2ff3a2cc4a042f0612f372675f61ab5fd4ef1c38",
+  "prompts": {
+    "fe8e065aec47c41e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8bfdd3e1-fef9-4336-a83c-a0e4c85a6ad9",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 21,
+      "total_deletions": 7,
+      "accepted_lines": 21,
+      "overriden_lines": 0
+    }
+  }
+}
