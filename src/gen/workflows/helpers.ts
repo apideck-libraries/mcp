@@ -120,6 +120,12 @@ export async function runStep<T = unknown>(
     const body = await callTool(client, name, args, ctx);
     return { ok: true, data: pick(body) };
   } catch (err) {
+    // MCP protocol errors (most importantly UrlElicitationRequiredError —
+    // used to hand the user a Vault consent URL when a connection has
+    // expired or never authorised) MUST surface to the client unchanged.
+    // Wrapping them in a workflow `{ error }` envelope strips the URL
+    // payload and breaks the elicitation flow.
+    if (err instanceof Error && err.name === "McpError") throw err;
     if (err instanceof WorkflowStepError) {
       const u = err.body as
         | { status_code?: number; type_name?: string; message?: string; detail?: unknown }

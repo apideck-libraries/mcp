@@ -279,6 +279,44 @@ console.log("Test: payment-create failure carries failingStep + upstream");
   );
 }
 
+// ---------------------------------------------------------------------------
+// 7. Connection elicitation propagates through the workflow (not swallowed)
+// ---------------------------------------------------------------------------
+console.log("Test: UrlElicitationRequiredError thrown, not wrapped in tool result");
+{
+  const stub = stubFetch({
+    "/accounting/bills/bill-X": {
+      __status: 401,
+      message: "Connection is missing — please re-authorise the connection.",
+      detail: { context: { connector: "xero", unified_api: "accounting" } },
+    },
+    "/vault/sessions": { data: { session_uri: "https://vault.apideck.com/session/test-jwt" } },
+  });
+
+  let thrown;
+  let result;
+  try {
+    result = await exec.handler(
+      {
+        name: "apideck-pay-bill",
+        arguments: { bill_id: "bill-X", account_id: "acc-1" },
+      },
+      { signal: new AbortController().signal },
+    );
+  } catch (err) {
+    thrown = err;
+  }
+  stub.restore();
+
+  assert(thrown, `error thrown (got result=${JSON.stringify(result)?.slice(0, 80)})`);
+  assert(thrown?.name === "McpError", `McpError, got ${thrown?.name}`);
+  const url = thrown?.data?.elicitations?.[0]?.url;
+  assert(
+    typeof url === "string" && url.includes("vault.apideck.com/session"),
+    "consent URL preserved through workflow",
+  );
+}
+
 console.log(
   `\n${failures === 0 ? "All pay-bill tests passed" : `${failures} test(s) failed`}`,
 );
