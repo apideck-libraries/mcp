@@ -13,6 +13,11 @@ const MCP_URL = process.env.MCP_URL ?? "https://mcp.apideck.dev/mcp";
 const API_KEY = process.env.APIDECK_SMOKE_API_KEY ?? "smoke-no-key";
 const APP_ID = process.env.APIDECK_SMOKE_APP_ID ?? "smoke-no-app";
 const CONSUMER_ID = process.env.APIDECK_SMOKE_CONSUMER_ID ?? "smoke-no-consumer";
+// Vercel Deployment Protection bypass for Automation. Required when probing
+// per-deployment alias URLs (e.g. https://<project>-<hash>-<team>.vercel.app);
+// not needed for the unprotected production domain. See
+// https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation
+const VERCEL_PROTECTION_BYPASS = process.env.VERCEL_AUTOMATION_BYPASS_SECRET ?? "";
 
 let failures = 0;
 const assert = (cond, msg) => {
@@ -32,15 +37,20 @@ function parseSSE(text) {
 
 async function rpc(url, payload) {
   const started = Date.now();
+  const headers = {
+    "content-type": "application/json",
+    accept: "application/json, text/event-stream",
+    "x-apideck-api-key": API_KEY,
+    "x-apideck-app-id": APP_ID,
+    "x-apideck-consumer-id": CONSUMER_ID,
+  };
+  if (VERCEL_PROTECTION_BYPASS) {
+    headers["x-vercel-protection-bypass"] = VERCEL_PROTECTION_BYPASS;
+    headers["x-vercel-set-bypass-cookie"] = "true";
+  }
   const resp = await fetch(url, {
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-      accept: "application/json, text/event-stream",
-      "x-apideck-api-key": API_KEY,
-      "x-apideck-app-id": APP_ID,
-      "x-apideck-consumer-id": CONSUMER_ID,
-    },
+    headers,
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(20_000),
   });

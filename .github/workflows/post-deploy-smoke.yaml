@@ -52,4 +52,8 @@ jobs:
       - name: Smoke test
         env:
           MCP_URL: ${{ steps.url.outputs.mcp_url }}
+          # Vercel returns a protected per-deployment alias URL via
+          # deployment_status.target_url. Pass the Automation bypass
+          # secret so the smoke can reach the function.
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: node test/post-deploy.mjs
