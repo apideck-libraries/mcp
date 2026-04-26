@@ -28,6 +28,19 @@ Generated from Apideck's OpenAPI spec using [Speakeasy](https://www.speakeasy.co
 | Webhook | 6 | Webhook subscriptions, logs |
 | Proxy | 6 | GET, POST, PUT, PATCH, DELETE, OPTIONS |
 
+### Workflow tools
+
+On top of the 330 endpoint tools, the server ships **intent-grouped workflows** — single MCP tools that orchestrate 2-4 underlying calls behind a high-level intent. Saves agents the round-trips and the field-plumbing they routinely get wrong (AR vs AP, allocation arrays, customer vs supplier refs).
+
+| Tool | What it does | Calls |
+|---|---|---|
+| `apideck-month-end-close-check` | One-shot read-only snapshot — aged creditors, aged debtors, balance sheet, P&L in parallel. Partial results when some reports aren't supported by the connector. | 4 |
+| `apideck-pay-bill` | Pays a vendor bill: looks up the bill, then writes a bill-payment with the right allocation back to it. AP. | 2 |
+| `apideck-receive-customer-payment` | Records a customer payment against an invoice. AR mirror of pay-bill. | 2 |
+| `apideck-onboard-employee` | Converts a hired ATS applicant into an HRIS employee, optionally moves the applicant to a Hired stage. Crosses two unified APIs. | 2-3 |
+
+Workflows propagate Vault OAuth elicitations (so a missing connection still hands the user a consent URL) and surface upstream errors with `failingStep` so the agent knows which leg broke. See [`docs/authoring-workflow-tools.md`](docs/authoring-workflow-tools.md) for the pattern.
+
 ## Hosted
 
 The MCP server is live at:
