@@ -10,9 +10,11 @@
 
 import { apideckMonthEndCloseCheck } from "./monthEndClose.js";
 import { apideckPayBill } from "./payBill.js";
+import { apideckReceiveCustomerPayment } from "./receivePayment.js";
 import type { WorkflowTool } from "./helpers.js";
 
 export const workflowTools: WorkflowTool[] = [
   apideckMonthEndCloseCheck,
   apideckPayBill,
+  apideckReceiveCustomerPayment,
 ];
