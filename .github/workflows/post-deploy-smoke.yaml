@@ -55,6 +55,7 @@ jobs:
           fi
 
       - name: Smoke test
+        id: smoke
         env:
           MCP_URL: ${{ steps.url.outputs.mcp_url }}
           # Bypass kept available for `workflow_dispatch` runs that point at
@@ -69,3 +70,44 @@ jobs:
           APIDECK_SMOKE_APP_ID: ${{ secrets.APIDECK_SMOKE_APP_ID }}
           APIDECK_SMOKE_CONSUMER_ID: ${{ secrets.APIDECK_SMOKE_CONSUMER_ID }}
         run: node test/post-deploy.mjs
+
+      - name: Notify Slack on failure
+        # Fires only when the smoke step failed and a webhook is configured.
+        # Set the SLACK_WEBHOOK_URL repo secret to a Slack Incoming Webhook
+        # bound to the channel that should page the on-call. When unset the
+        # step is skipped silently — useful for forks and contributors.
+        if: failure() && steps.smoke.outcome == 'failure' && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          MCP_URL: ${{ steps.url.outputs.mcp_url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DEPLOY_URL: ${{ github.event.deployment_status.target_url }}
+          ENVIRONMENT: ${{ github.event.deployment.environment || 'workflow_dispatch' }}
+          SHA: ${{ github.event.deployment.sha || github.sha }}
+        run: |
+          SHORT_SHA=$(echo "$SHA" | cut -c1-7)
+          PAYLOAD=$(jq -n \
+            --arg mcp_url "$MCP_URL" \
+            --arg run_url "$RUN_URL" \
+            --arg deploy_url "$DEPLOY_URL" \
+            --arg environment "$ENVIRONMENT" \
+            --arg sha "$SHA" \
+            --arg short_sha "$SHORT_SHA" \
+            '{
+              text: ("🚨 Apideck MCP post-deploy smoke failed (" + $environment + " @ " + $short_sha + ")"),
+              blocks: [
+                { type: "header", text: { type: "plain_text", text: "🚨 Post-deploy smoke failed" } },
+                { type: "section", fields: [
+                  { type: "mrkdwn", text: ("*Environment:*\n" + $environment) },
+                  { type: "mrkdwn", text: ("*Commit:*\n<https://github.com/apideck-libraries/mcp/commit/" + $sha + "|" + $short_sha + ">") },
+                  { type: "mrkdwn", text: ("*Probed URL:*\n" + $mcp_url) },
+                  { type: "mrkdwn", text: ("*Deploy:*\n" + (if $deploy_url == "" then "—" else "<" + $deploy_url + "|Vercel>" end)) }
+                ]},
+                { type: "actions", elements: [
+                  { type: "button", text: { type: "plain_text", text: "View workflow run" }, url: $run_url, style: "danger" }
+                ]}
+              ]
+            }')
+          curl -fsSL -X POST "$SLACK_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
