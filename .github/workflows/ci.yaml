@@ -41,6 +41,9 @@ jobs:
           node test/gen-sandbox.test.mjs
           node test/gen-elicitation.test.mjs
           node test/gen-workflows.test.mjs
+          node test/gen-workflow-pay-bill.test.mjs
+          node test/gen-workflow-receive-payment.test.mjs
+          node test/gen-workflow-onboard-employee.test.mjs
 
   deploy:
     needs: build-and-test

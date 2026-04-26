@@ -89,6 +89,24 @@ console.log("Test: generic 4xx is not flagged as connection issue");
 }
 
 // ---------------------------------------------------------------------------
+// 2b. ConnectorCredentialsError / noConnectionFound IS a connection issue
+// (Apideck returns this when the consumer never authorised the service).
+// ---------------------------------------------------------------------------
+console.log("Test: ConnectorCredentialsError noConnectionFound is detected");
+{
+  const issue = detectConnectionIssue(
+    401,
+    JSON.stringify({
+      status_code: 401,
+      type_name: "ConnectorCredentialsError",
+      message: "Accounting Connector not authorized.",
+      detail: "noConnectionFound",
+    }),
+  );
+  assert(issue !== null, "ConnectorCredentialsError noConnectionFound detected");
+}
+
+// ---------------------------------------------------------------------------
 // 3. Non-JSON connection error still detected via substring
 // ---------------------------------------------------------------------------
 console.log("Test: non-JSON body containing canonical marker still detected");

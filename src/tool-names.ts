@@ -1,1323 +1,1343 @@
 // Auto-generated at build time
 export const toolNames: Array<{ name: string; description: string }>= [
   {
-    "name": "accounting-tax-rates-list",
-    "description": "List Tax Rates\n\nList Tax Rates. Note: Not all connectors return the actual rate/percentage value. In this case, only the tax code or reference is returned. Connectors Affected: Quickbooks\n"
-  },
-  {
-    "name": "accounting-tax-rates-create",
-    "description": "Create Tax Rate\n\nCreate Tax Rate"
-  },
-  {
-    "name": "accounting-tax-rates-get",
-    "description": "Get Tax Rate\n\nGet Tax Rate. Note: Not all connectors return the actual rate/percentage value. In this case, only the tax code or reference is returned. Support will soon be added to return the actual rate/percentage by doing additional calls in the background to provide the full view of a given tax rate. Connectors Affected: Quickbooks\n"
-  },
-  {
-    "name": "accounting-tax-rates-update",
-    "description": "Update Tax Rate\n\nUpdate Tax Rate"
-  },
-  {
-    "name": "accounting-tax-rates-delete",
-    "description": "Delete Tax Rate\n\nDelete Tax Rate"
-  },
-  {
-    "name": "accounting-bills-list",
-    "description": "List Bills\n\nList Bills"
-  },
-  {
-    "name": "accounting-bills-create",
-    "description": "Create Bill\n\nCreate Bill"
-  },
-  {
-    "name": "accounting-bills-get",
-    "description": "Get Bill\n\nGet Bill"
-  },
-  {
-    "name": "accounting-bills-update",
-    "description": "Update Bill\n\nUpdate Bill"
-  },
-  {
-    "name": "accounting-bills-delete",
-    "description": "Delete Bill\n\nDelete Bill"
-  },
-  {
-    "name": "accounting-invoices-list",
-    "description": "List Invoices\n\nList Invoices"
-  },
-  {
-    "name": "accounting-invoices-create",
-    "description": "Create Invoice\n\nCreate Invoice"
-  },
-  {
-    "name": "accounting-invoices-get",
-    "description": "Get Invoice\n\nGet Invoice"
-  },
-  {
-    "name": "accounting-invoices-update",
-    "description": "Update Invoice\n\nUpdate Invoice"
-  },
-  {
-    "name": "accounting-invoices-delete",
-    "description": "Delete Invoice\n\nDelete Invoice"
-  },
-  {
-    "name": "accounting-ledger-accounts-list",
-    "description": "List Ledger Accounts\n\nList Ledger Accounts"
-  },
-  {
-    "name": "accounting-ledger-accounts-create",
-    "description": "Create Ledger Account\n\nCreate Ledger Account"
-  },
-  {
-    "name": "accounting-ledger-accounts-get",
-    "description": "Get Ledger Account\n\nGet Ledger Account"
-  },
-  {
-    "name": "accounting-ledger-accounts-update",
-    "description": "Update Ledger Account\n\nUpdate Ledger Account"
-  },
-  {
-    "name": "accounting-ledger-accounts-delete",
-    "description": "Delete Ledger Account\n\nDelete Ledger Account"
-  },
-  {
-    "name": "accounting-invoice-items-list",
-    "description": "List Invoice Items\n\nList Invoice Items"
-  },
-  {
-    "name": "accounting-invoice-items-create",
-    "description": "Create Invoice Item\n\nCreate Invoice Item"
-  },
-  {
-    "name": "accounting-invoice-items-get",
-    "description": "Get Invoice Item\n\nGet Invoice Item"
-  },
-  {
-    "name": "accounting-invoice-items-update",
-    "description": "Update Invoice Item\n\nUpdate Invoice Item"
-  },
-  {
-    "name": "accounting-invoice-items-delete",
-    "description": "Delete Invoice Item\n\nDelete Invoice Item"
-  },
-  {
-    "name": "accounting-credit-notes-list",
-    "description": "List Credit Notes\n\nList Credit Notes"
-  },
-  {
-    "name": "accounting-credit-notes-create",
-    "description": "Create Credit Note\n\nCreate Credit Note"
-  },
-  {
-    "name": "accounting-credit-notes-get",
-    "description": "Get Credit Note\n\nGet Credit Note"
-  },
-  {
-    "name": "accounting-credit-notes-update",
-    "description": "Update Credit Note\n\nUpdate Credit Note"
-  },
-  {
-    "name": "accounting-credit-notes-delete",
-    "description": "Delete Credit Note\n\nDelete Credit Note"
-  },
-  {
-    "name": "accounting-customers-list",
-    "description": "List Customers\n\nList Customers"
-  },
-  {
-    "name": "accounting-customers-create",
-    "description": "Create Customer\n\nCreate Customer"
-  },
-  {
-    "name": "accounting-customers-get",
-    "description": "Get Customer\n\nGet Customer"
-  },
-  {
-    "name": "accounting-customers-update",
-    "description": "Update Customer\n\nUpdate Customer"
-  },
-  {
-    "name": "accounting-customers-delete",
-    "description": "Delete Customer\n\nDelete Customer"
-  },
-  {
-    "name": "accounting-suppliers-list",
-    "description": "List Suppliers\n\nList Suppliers"
-  },
-  {
-    "name": "accounting-suppliers-create",
-    "description": "Create Supplier\n\nCreate Supplier"
-  },
-  {
-    "name": "accounting-suppliers-get",
-    "description": "Get Supplier\n\nGet Supplier"
-  },
-  {
-    "name": "accounting-suppliers-update",
-    "description": "Update Supplier\n\nUpdate Supplier"
-  },
-  {
-    "name": "accounting-suppliers-delete",
-    "description": "Delete Supplier\n\nDelete Supplier"
-  },
-  {
-    "name": "accounting-payments-list",
-    "description": "List Payments\n\nList Payments"
-  },
-  {
-    "name": "accounting-payments-create",
-    "description": "Create Payment\n\nCreate Payment"
-  },
-  {
-    "name": "accounting-payments-get",
-    "description": "Get Payment\n\nGet Payment"
-  },
-  {
-    "name": "accounting-payments-update",
-    "description": "Update Payment\n\nUpdate Payment"
-  },
-  {
-    "name": "accounting-payments-delete",
-    "description": "Delete Payment\n\nDelete Payment"
-  },
-  {
-    "name": "accounting-refunds-list",
-    "description": "List Refunds\n\nList Refunds"
-  },
-  {
-    "name": "accounting-refunds-create",
-    "description": "Create Refund\n\nCreate Refund"
-  },
-  {
-    "name": "accounting-refunds-get",
-    "description": "Get Refund\n\nGet Refund"
-  },
-  {
-    "name": "accounting-refunds-update",
-    "description": "Update Refund\n\nUpdate Refund"
-  },
-  {
-    "name": "accounting-refunds-delete",
-    "description": "Delete Refund\n\nDelete Refund"
-  },
-  {
-    "name": "accounting-company-info-get",
-    "description": "Get company info\n\nGet company info"
-  },
-  {
-    "name": "accounting-companies-list",
-    "description": "List companies\n\nList all companies accessible through the current connection. Only connectors that support multi-company access (x-apideck-supports-multi-company) will return a list of companies. Use the returned company ID in the x-apideck-company-id header to scope subsequent requests to a specific company."
-  },
-  {
-    "name": "accounting-balance-sheet-get",
-    "description": "Get BalanceSheet\n\nGet BalanceSheet"
-  },
-  {
-    "name": "accounting-profit-and-loss-get",
-    "description": "Get Profit and Loss\n\nGet Profit and Loss"
-  },
-  {
-    "name": "accounting-journal-entries-list",
-    "description": "List Journal Entries\n\nList Journal Entries"
-  },
-  {
-    "name": "accounting-journal-entries-create",
-    "description": "Create Journal Entry\n\nCreate Journal Entry"
-  },
-  {
-    "name": "accounting-journal-entries-get",
-    "description": "Get Journal Entry\n\nGet Journal Entry"
-  },
-  {
-    "name": "accounting-journal-entries-update",
-    "description": "Update Journal Entry\n\nUpdate Journal Entry"
-  },
-  {
-    "name": "accounting-journal-entries-delete",
-    "description": "Delete Journal Entry\n\nDelete Journal Entry"
-  },
-  {
-    "name": "accounting-purchase-orders-list",
-    "description": "List Purchase Orders\n\nList Purchase Orders"
-  },
-  {
-    "name": "accounting-purchase-orders-create",
-    "description": "Create Purchase Order\n\nCreate Purchase Order"
-  },
-  {
-    "name": "accounting-purchase-orders-get",
-    "description": "Get Purchase Order\n\nGet Purchase Order"
-  },
-  {
-    "name": "accounting-purchase-orders-update",
-    "description": "Update Purchase Order\n\nUpdate Purchase Order"
-  },
-  {
-    "name": "accounting-purchase-orders-delete",
-    "description": "Delete Purchase Order\n\nDelete Purchase Order"
-  },
-  {
-    "name": "accounting-subsidiaries-list",
-    "description": "List Subsidiaries\n\nList Subsidiaries"
-  },
-  {
-    "name": "accounting-subsidiaries-create",
-    "description": "Create Subsidiary\n\nCreate Subsidiary"
-  },
-  {
-    "name": "accounting-subsidiaries-get",
-    "description": "Get Subsidiary\n\nGet Subsidiary"
-  },
-  {
-    "name": "accounting-subsidiaries-update",
-    "description": "Update Subsidiary\n\nUpdate Subsidiary"
-  },
-  {
-    "name": "accounting-subsidiaries-delete",
-    "description": "Delete Subsidiary\n\nDelete Subsidiary"
-  },
-  {
-    "name": "accounting-locations-list",
-    "description": "List Locations\n\nList Locations"
-  },
-  {
-    "name": "accounting-locations-create",
-    "description": "Create Location\n\nCreate Location"
-  },
-  {
-    "name": "accounting-locations-get",
-    "description": "Get Location\n\nGet Location"
-  },
-  {
-    "name": "accounting-locations-update",
-    "description": "Update Location\n\nUpdate Location"
-  },
-  {
-    "name": "accounting-locations-delete",
-    "description": "Delete Location\n\nDelete Location"
-  },
-  {
-    "name": "accounting-departments-list",
-    "description": "List Departments\n\nList Departments"
-  },
-  {
-    "name": "accounting-departments-create",
-    "description": "Create Department\n\nCreate Department"
-  },
-  {
-    "name": "accounting-departments-get",
-    "description": "Get Department\n\nGet Department"
-  },
-  {
-    "name": "accounting-departments-update",
-    "description": "Update Department\n\nUpdate Department"
-  },
-  {
-    "name": "accounting-departments-delete",
-    "description": "Delete Department\n\nDelete Department"
-  },
-  {
-    "name": "accounting-attachments-list",
-    "description": "List Attachments\n\nList Attachments"
-  },
-  {
-    "name": "accounting-attachments-upload",
-    "description": "Upload attachment\n\nUpload attachment"
-  },
-  {
-    "name": "accounting-attachments-get",
-    "description": "Get Attachment\n\nGet Attachment"
-  },
-  {
-    "name": "accounting-attachments-delete",
-    "description": "Delete Attachment\n\nDelete Attachment"
-  },
-  {
-    "name": "accounting-attachments-download",
-    "description": "Download Attachment\n\nDownload Attachment"
-  },
-  {
-    "name": "accounting-bank-accounts-list",
-    "description": "List Bank Accounts\n\nList Bank Accounts"
-  },
-  {
-    "name": "accounting-bank-accounts-create",
-    "description": "Create Bank Account\n\nCreate Bank Account"
-  },
-  {
-    "name": "accounting-bank-accounts-get",
-    "description": "Get Bank Account\n\nGet Bank Account"
-  },
-  {
-    "name": "accounting-bank-accounts-update",
-    "description": "Update Bank Account\n\nUpdate Bank Account"
-  },
-  {
-    "name": "accounting-bank-accounts-delete",
-    "description": "Delete Bank Account\n\nDelete Bank Account"
-  },
-  {
-    "name": "accounting-tracking-categories-list",
-    "description": "List Tracking Categories\n\nList Tracking Categories"
-  },
-  {
-    "name": "accounting-tracking-categories-create",
-    "description": "Create Tracking Category\n\nCreate Tracking Category"
-  },
-  {
-    "name": "accounting-tracking-categories-get",
-    "description": "Get Tracking Category\n\nGet Tracking Category"
-  },
-  {
-    "name": "accounting-tracking-categories-update",
-    "description": "Update Tracking Category\n\nUpdate Tracking Category"
-  },
-  {
-    "name": "accounting-tracking-categories-delete",
-    "description": "Delete Tracking Category\n\nDelete Tracking Category"
-  },
-  {
-    "name": "accounting-bill-payments-list",
-    "description": "List Bill Payments\n\nList Bill Payments"
-  },
-  {
-    "name": "accounting-bill-payments-create",
-    "description": "Create Bill Payment\n\nCreate Bill Payment"
-  },
-  {
-    "name": "accounting-bill-payments-get",
-    "description": "Get Bill Payment\n\nGet Bill Payment"
-  },
-  {
-    "name": "accounting-bill-payments-update",
-    "description": "Update Bill Payment\n\nUpdate Bill Payment"
-  },
-  {
-    "name": "accounting-bill-payments-delete",
-    "description": "Delete Bill Payment\n\nDelete Bill Payment"
-  },
-  {
-    "name": "accounting-expenses-list",
-    "description": "List Expenses\n\nList Expenses"
-  },
-  {
-    "name": "accounting-expenses-create",
-    "description": "Create Expense\n\nCreate Expense"
-  },
-  {
-    "name": "accounting-expenses-get",
-    "description": "Get Expense\n\nGet Expense"
-  },
-  {
-    "name": "accounting-expenses-update",
-    "description": "Update Expense\n\nUpdate Expense"
-  },
-  {
-    "name": "accounting-expenses-delete",
-    "description": "Delete Expense\n\nDelete Expense"
-  },
-  {
     "name": "accounting-aged-creditors-get",
-    "description": "Get Aged Creditors\n\nGet Aged Creditors"
+    "description": "Retrieve aged creditors data.\n\nFetches the aged creditors report showing outstanding amounts owed to suppliers categorized by age. Use this operation to analyze creditor payment status and manage accounts payable effectively. It reads current accounting data to generate the report and does not modify any re...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-aged-creditors-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-aged-debtors-get",
-    "description": "Get Aged Debtors\n\nGet Aged Debtors"
+    "description": "Retrieve a report of aged debtors to review outstanding customer balances categorized by age. Use this operation when you need to analyze overdue invoices and manage accounts receivable effectively. It reads current accounting data to generate the report but does not modify an...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-aged-debtors-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-bank-feed-accounts-list",
-    "description": "List Bank Feed Accounts\n\nList Bank Feed Accounts"
+    "name": "accounting-attachments-delete",
+    "description": "Delete an attachment from a specified accounting reference.\n\nThis operation deletes a specific attachment linked to an accounting reference such as an invoice or bill. Use this endpoint when you need to remove an attachment permanently from the system. It directly modifies the stored data by removing the attachment and cannot be undone ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-attachments-download",
+    "description": "This operation retrieves the binary content of a specific attachment associated with a given reference type and ID. Use this endpoint when you need to access or save the actual file linked to an accounting record. It reads the stored attachment data without modifying it. Ensur...\n\nRead-only; safe to call repeatedly.\n\nReturns binary content as an MCP image/audio block. For metadata only, call `accounting-attachments-get`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-attachments-get",
+    "description": "Retrieve a specific attachment by reference type, reference ID, and attachment ID.\n\nThis operation fetches a single attachment associated with a specified reference type and reference ID. Use this endpoint when you need to access the details or content of a particular attachment linked to an accounting record. It reads the attachment data without modifying it...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-attachments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-attachments-list",
+    "description": "Retrieve all attachments for a specified reference type and ID.\n\nFetches all attachments linked to a given reference type and reference ID within the accounting system. Use this operation when you need to view or manage all files associated with a particular accounting record. It reads attachment metadata and content but does not modify any...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-attachments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-attachments-upload",
+    "description": "Upload an attachment to a specified accounting reference.\n\nUploads a file as an attachment linked to a specific accounting entity identified by reference type and ID. Use this operation when you need to add supporting documents or files to accounting records. It writes the attachment data to the system associated with the given refere...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nPass binary content as a base64 string, data URL, or `{ data, mimeType }` in `body`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-balance-sheet-get",
+    "description": "Retrieve the current balance sheet for the accounting period.\n\nFetches the balance sheet data representing the financial position of the entity at a specific point in time. Use this operation when you need a snapshot of assets, liabilities, and equity for reporting or analysis purposes. It reads the latest accounting records to compile th...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-balance-sheet-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bank-accounts-create",
+    "description": "This operation creates a new bank account record within the accounting system. Use this endpoint when you need to register a bank account for tracking financial transactions and balances. It writes details such as account type, bank name, currency, and balances to the system. ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bank-accounts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bank-accounts-delete",
+    "description": "This operation deletes a bank account identified by its ID. Use this endpoint when you need to remove a bank account from the system permanently. Deleting a bank account will remove all associated data and cannot be undone. Ensure the bank account is not linked to active trans...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bank-accounts-get",
+    "description": "Retrieve details of a specific bank account.\n\nThis operation fetches detailed information about a single bank account identified by its ID. Use this endpoint when you need to view or verify the data of a particular bank account rather than listing multiple accounts. It reads the bank account data without modifying it. Ens...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bank-accounts-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bank-accounts-list",
+    "description": "Retrieve a list of all bank accounts.\n\nFetches all bank accounts associated with the accounting system. Use this operation when you need an overview of all bank accounts rather than details of a single account. It reads the current state of bank accounts without modifying any data. This operation does not support f...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bank-accounts-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-bank-accounts-update",
+    "description": "Update details of an existing bank account.\n\nThis operation modifies the attributes of a specified bank account, such as its name, account number, type, balances, and linked ledger account. Use this endpoint when you need to correct or change bank account information already stored, rather than creating a new account. It...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-bank-feed-accounts-create",
-    "description": "Create Bank Feed Account\n\nCreate Bank Feed Account"
-  },
-  {
-    "name": "accounting-bank-feed-accounts-get",
-    "description": "Get Bank Feed Account\n\nGet Bank Feed Account"
-  },
-  {
-    "name": "accounting-bank-feed-accounts-update",
-    "description": "Update Bank Feed Account\n\nUpdate Bank Feed Account"
+    "description": "Add a new bank feed account to the accounting system.\n\nThis operation creates a new bank feed account, linking external bank or credit card accounts to your accounting records. Use this endpoint when you need to integrate a new financial account for automatic transaction feeds, as opposed to updating or deleting existing accounts....\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bank-feed-accounts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-bank-feed-accounts-delete",
-    "description": "Delete Bank Feed Account\n\nDelete Bank Feed Account"
+    "description": "This operation removes a specified bank feed account from the system. Use this endpoint when you need to permanently delete a bank feed account that is no longer required. Deleting the account will remove all associated data and cannot be undone. Ensure the account is not link...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-bank-feed-statements-list",
-    "description": "List Bank Feed Statements\n\nList Bank Feed Statements"
+    "name": "accounting-bank-feed-accounts-get",
+    "description": "Retrieve details of a specific bank feed account.\n\nThis operation fetches detailed information about a single bank feed account identified by its ID. Use this endpoint when you need to view or verify the data of a particular bank feed account rather than listing multiple accounts. It reads the current state of the specified ba...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bank-feed-accounts-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bank-feed-accounts-list",
+    "description": "Retrieve a list of all bank feed accounts.\n\nThis operation fetches all bank feed accounts associated with the organization. Use this endpoint when you need to view or manage the bank accounts linked for automatic transaction feeds. It reads the current bank feed account data without modifying any records. This endpoint ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bank-feed-accounts-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-bank-feed-accounts-update",
+    "description": "Update details of an existing bank feed account.\n\nThis operation modifies the properties of a specified bank feed account, such as account type, linked source or target accounts, currency, and feed status. Use this endpoint when you need to correct or change information for an existing bank feed account rather than creating a...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-bank-feed-statements-create",
-    "description": "Create Bank Feed Statement\n\nCreate Bank Feed Statement"
-  },
-  {
-    "name": "accounting-bank-feed-statements-get",
-    "description": "Get Bank Feed Statement\n\nGet Bank Feed Statement"
-  },
-  {
-    "name": "accounting-bank-feed-statements-update",
-    "description": "Update Bank Feed Statement\n\nUpdate Bank Feed Statement"
+    "description": "Create a new bank feed statement for an accounting bank feed account.\n\nThis operation creates a bank feed statement associated with a specified bank feed account. Use this endpoint when you need to add a new statement reflecting a period's transactions and balances imported from a bank feed. It records details such as start and end dates, balance...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bank-feed-statements-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-bank-feed-statements-delete",
-    "description": "Delete Bank Feed Statement\n\nDelete Bank Feed Statement"
+    "description": "Deletes a specific bank feed statement identified by its ID. Use this operation when you need to remove an existing bank feed statement from the system. This action permanently removes the statement and any associated data, so ensure the statement is no longer needed before de...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-categories-list",
-    "description": "List Categories\n\nList Categories"
+    "name": "accounting-bank-feed-statements-get",
+    "description": "Retrieve a specific bank feed statement by its ID.\n\nThis operation fetches the details of a single bank feed statement using its unique identifier. Use this when you need to view or process information from a particular bank feed statement rather than a list of statements. It reads data related to the bank feed statement withou...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bank-feed-statements-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bank-feed-statements-list",
+    "description": "Retrieve a list of bank feed statements.\n\nFetches all bank feed statements available in the accounting system. Use this operation when you need to view or process multiple bank feed statements at once, rather than accessing individual statements. It reads the stored bank feed statement data without modifying it. There...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bank-feed-statements-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-bank-feed-statements-update",
+    "description": "This operation modifies the details of a specified bank feed statement, such as status, balances, dates, and transactions. Use this endpoint when you need to correct or amend information in a bank feed statement rather than creating a new one or retrieving existing data. It up...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bill-payments-create",
+    "description": "This operation creates a new bill payment record to document payments made to suppliers. Use this endpoint when you need to record a payment against one or more bills, specifying details such as payment method, amount, and transaction date. It writes payment data linked to sup...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bill-payments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bill-payments-delete",
+    "description": "This operation deletes a specific bill payment from the accounting system. Use this when you need to remove an existing bill payment record permanently. Deleting a bill payment affects the associated financial records and cannot be undone. Ensure the bill payment ID is correct...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bill-payments-get",
+    "description": "Retrieve a specific bill payment by its ID.\n\nThis operation fetches the details of a single bill payment using its unique identifier. Use this endpoint when you need to view or verify information about a particular bill payment rather than listing multiple payments. It reads data related to the specified bill payment and...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bill-payments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bill-payments-list",
+    "description": "Retrieve a list of all bill payments.\n\nFetches a comprehensive list of all bill payments recorded in the accounting system. Use this operation when you need to review or analyze payment transactions made against bills. It reads payment data without modifying any records. This operation is ideal for obtaining an ove...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bill-payments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-bill-payments-update",
+    "description": "This operation modifies the details of an existing bill payment record. Use it when you need to correct or change information such as payment method, amount, currency, or associated supplier after the initial creation. It updates the stored data for the specified bill payment ...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bills-create",
+    "description": "Create a new bill in the accounting system.\n\nThis operation creates a new bill record associated with a company, supplier, and relevant accounting details. Use this endpoint when you need to add a bill to track expenses or liabilities within your accounting workflow. It writes data such as bill number, supplier informati...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-bills-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bills-delete",
+    "description": "Deletes the specified bill from the accounting system. Use this operation when you need to remove a bill permanently, such as when it was created in error or is no longer needed. This action cannot be undone and will remove all associated data for the bill. Ensure the bill ID ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bills-get",
+    "description": "Retrieve a specific bill by its ID.\n\nFetches detailed information about a single bill using its unique identifier. Use this operation when you need to view or verify the details of an existing bill rather than listing multiple bills or creating new ones. It reads the bill data without modifying it. Ensure the pro...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-bills-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-bills-list",
+    "description": "Retrieve a list of all bills in the accounting system.\n\nFetches a comprehensive list of bills recorded in the accounting system. Use this operation when you need to view or process multiple bills at once, unlike operations that handle single bill details. It reads the stored bill data without modifying any records. This operation m...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-bills-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-bills-update",
+    "description": "This operation modifies the details of an existing bill in the accounting system. Use this endpoint when you need to change information such as supplier, amounts, dates, or related company data for a specific bill. It updates the stored bill record and may affect financial rep...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-categories-get",
-    "description": "Get Category\n\nGet Category"
+    "description": "Retrieve a specific accounting category by its ID.\n\nThis operation fetches the details of a single accounting category identified by its unique ID. Use this endpoint when you need to view or verify information about a particular category rather than listing multiple categories. It reads category data without modifying any recor...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-categories-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-quotes-list",
-    "description": "List Quotes\n\nList Quotes"
+    "name": "accounting-categories-list",
+    "description": "Retrieve a list of all accounting categories.\n\nThis operation fetches all accounting categories available in the system. Use it when you need to view or select from existing categories for accounting purposes. It reads category data without modifying any records. This endpoint does not support filtering or pagination, so i...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-categories-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "accounting-quotes-create",
-    "description": "Create Quote\n\nCreate Quote"
+    "name": "accounting-companies-list",
+    "description": "Retrieve all companies accessible through the current connection.\n\nThis operation fetches a list of all companies available via the current connection. Use this when you need to identify or select from multiple companies supported by connectors with multi-company access. The response provides company IDs that you must include in the x-apideck...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-companies-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "accounting-quotes-get",
-    "description": "Get Quote\n\nGet Quote"
+    "name": "accounting-company-info-get",
+    "description": "Retrieve detailed company information.\n\nFetch detailed information about the company from the accounting system. Use this operation when you need to access current company details for reporting or verification purposes. It reads the stored company data without modifying it. This operation does not require any input ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-company-info-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-quotes-update",
-    "description": "Update Quote\n\nUpdate Quote"
+    "name": "accounting-credit-notes-create",
+    "description": "Create a new credit note for a customer in the accounting system.\n\nThis operation creates a credit note to record a reduction in the amount owed by a customer. Use this endpoint when you need to issue a credit for returned goods, billing adjustments, or other reasons that decrease the customer's balance. It writes financial data including amo...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-credit-notes-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-quotes-delete",
-    "description": "Delete Quote\n\nDelete Quote"
+    "name": "accounting-credit-notes-delete",
+    "description": "Deletes a specified credit note from the accounting records. Use this operation when you need to remove an existing credit note that is no longer valid or was created in error. This action permanently removes the credit note and cannot be undone, so ensure the correct ID is pr...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-projects-list",
-    "description": "List projects\n\nList projects"
+    "name": "accounting-credit-notes-get",
+    "description": "Retrieve a specific credit note by its ID.\n\nFetches the details of a single credit note using its unique identifier. Use this operation when you need to view or verify information about a particular credit note rather than listing multiple notes. It reads the credit note data without modifying it. Ensure the provided ID...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-credit-notes-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-projects-create",
-    "description": "Create project\n\nCreate project"
+    "name": "accounting-credit-notes-list",
+    "description": "Retrieve a list of all credit notes.\n\nFetches all credit notes recorded in the accounting system. Use this operation when you need to review or process multiple credit notes at once, rather than accessing individual credit notes. This operation reads stored credit note data without modifying it. It may return a la...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-credit-notes-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "accounting-projects-get",
-    "description": "Get project\n\nGet project"
+    "name": "accounting-credit-notes-update",
+    "description": "This operation modifies the details of an existing credit note in the accounting system. Use this endpoint when you need to correct or change information on a credit note, such as customer data, amounts, or tax details. It updates the stored credit note record and affects fina...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-projects-update",
-    "description": "Update project\n\nUpdate project"
+    "name": "accounting-customers-create",
+    "description": "This operation creates a new customer record with detailed information such as company name, contact names, and customer category. Use this endpoint when you need to add a new customer to your accounting database rather than updating existing records. It writes customer data t...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-customers-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-projects-delete",
-    "description": "Delete project\n\nDelete project"
+    "name": "accounting-customers-delete",
+    "description": "Deletes a customer record from the accounting system using the specified ID. Use this operation when you need to remove a customer permanently, unlike operations that update or retrieve customer data. This action irreversibly removes the customer's information and may affect r...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-employees-list",
-    "description": "List Employees\n\nList Employees"
+    "name": "accounting-customers-get",
+    "description": "Retrieve details of a specific customer by ID.\n\nThis operation fetches detailed information about a single customer using their unique identifier. Use this endpoint when you need to view or verify customer data rather than listing multiple customers. It reads customer records without modifying any data. Ensure the customer ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-customers-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-customers-list",
+    "description": "Retrieve a list of all customers.\n\nFetches a complete list of customers from the accounting system. Use this operation when you need to view or process all customer records at once, unlike operations that handle individual customers. This call reads customer data without modifying it and may return large datase...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-customers-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-customers-update",
+    "description": "Update an existing customer's details in the accounting system.\n\nThis operation modifies the information of a specified customer within the accounting system. Use this endpoint when you need to change customer attributes such as name, company, or category, rather than creating a new customer or retrieving customer data. It updates the store...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-departments-create",
+    "description": "Create a new department in the accounting system.\n\nThis operation creates a new department within the accounting module. Use it when you need to add organizational units for financial tracking and reporting. It writes department details such as name, status, hierarchy, and custom mappings. Ensure that identifiers and versionin...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-departments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-departments-delete",
+    "description": "Deletes the specified department from the accounting system. Use this operation when you need to remove a department that is no longer active or relevant. This action permanently removes the department data and cannot be undone. Ensure that the department is not linked to acti...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-departments-get",
+    "description": "Retrieve details of a specific department by its ID.\n\nThis operation fetches detailed information about a single department identified by its unique ID. Use this endpoint when you need to view or verify the attributes of a particular department within the accounting system. It reads department data without modifying it and return...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-departments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-departments-list",
+    "description": "Retrieve a list of all accounting departments.\n\nThis operation fetches a complete list of accounting departments within the system. Use this endpoint when you need to view or process all departments rather than a specific one. It reads department data without modifying any records. There are no special constraints beyond st...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-departments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-departments-update",
+    "description": "Update an existing department's details in the accounting system.\n\nThis operation modifies the attributes of an existing department, such as its name, status, code, and hierarchical relationships. Use this endpoint when you need to change department information without creating a new entry, unlike creation endpoints. It updates stored data an...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-employees-create",
-    "description": "Create Employee\n\nCreate Employee"
-  },
-  {
-    "name": "accounting-employees-get",
-    "description": "Get Employee\n\nGet Employee"
-  },
-  {
-    "name": "accounting-employees-update",
-    "description": "Update Employee\n\nUpdate Employee"
+    "description": "This operation creates a new employee record with details such as name, job title, status, and department. Use this endpoint when adding new employees to the accounting system, rather than updating existing ones or managing payroll. It writes employee data to the system and ma...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-employees-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-employees-delete",
-    "description": "Delete Employee\n\nDelete Employee"
+    "description": "This operation removes an employee record from the accounting system using the employee's unique identifier. Use this endpoint when you need to permanently delete an employee's data rather than just updating or deactivating it. Deleting an employee may affect related accountin...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-expense-categories-list",
-    "description": "List Expense Categories\n\nList Expense Categories"
+    "name": "accounting-employees-get",
+    "description": "Retrieve detailed information about a specific employee.\n\nThis operation fetches detailed information for a single employee identified by their ID. Use this endpoint when you need to view or verify employee data within the accounting system. It reads employee records without modifying any data. Ensure the employee ID exists to avoid ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-employees-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-employees-list",
+    "description": "Retrieve a list of all employees in the accounting system.\n\nThis operation fetches a complete list of employees managed within the accounting system. Use this endpoint when you need to view or process employee data collectively rather than individually. It reads employee records without modifying any data. There are no special constrai...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-employees-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-employees-update",
+    "description": "Update an existing employee's details in the accounting system.\n\nThis operation modifies the information of an existing employee, such as name, job title, status, and contact details. Use this endpoint when you need to change employee data rather than creating a new record or retrieving employee information. It updates the stored employee r...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-expense-categories-create",
-    "description": "Create Expense Category\n\nCreate Expense Category"
-  },
-  {
-    "name": "accounting-expense-categories-get",
-    "description": "Get Expense Category\n\nGet Expense Category"
-  },
-  {
-    "name": "accounting-expense-categories-update",
-    "description": "Update Expense Category\n\nUpdate Expense Category"
+    "description": "This operation creates a new expense category to organize and track expenses within the accounting system. Use this endpoint when you need to add a category that defines how expenses are classified, including associated ledger accounts and tax rates. It writes the new category...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-expense-categories-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-expense-categories-delete",
-    "description": "Delete Expense Category\n\nDelete Expense Category"
+    "description": "This operation removes an existing expense category from the accounting system. Use this when you need to permanently delete a category that is no longer needed, rather than just disabling or editing it. Deleting an expense category will remove it from all future transactions ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "accounting-expense-reports-list",
-    "description": "List Expense Reports\n\nList Expense Reports"
+    "name": "accounting-expense-categories-get",
+    "description": "Retrieve a specific expense category by its ID.\n\nThis operation fetches the details of a single expense category using its unique identifier. Use this endpoint when you need to view or verify information about a particular expense category rather than listing all categories. It reads data from the accounting system and retur...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-expense-categories-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-expense-categories-list",
+    "description": "Retrieve all expense categories.\n\nFetches a complete list of expense categories used in accounting. Use this operation when you need to view or select from all available expense categories, as opposed to creating or updating them. It reads the current set of categories without modifying any data. This operatio...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-expense-categories-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-expense-categories-update",
+    "description": "Update an existing expense category with new details.\n\nModify the properties of an existing expense category to reflect changes such as name, code, status, linked accounts, tax rates, and custom mappings. Use this operation when you need to correct or update expense category information rather than creating a new one. It writes up...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-expense-reports-create",
-    "description": "Create Expense Report\n\nCreate Expense Report"
-  },
-  {
-    "name": "accounting-expense-reports-get",
-    "description": "Get Expense Report\n\nGet Expense Report"
-  },
-  {
-    "name": "accounting-expense-reports-update",
-    "description": "Update Expense Report\n\nUpdate Expense Report"
+    "description": "Create a new expense report with specified details.\n\nThis operation creates a new expense report in the accounting system. Use it when you need to record expenses incurred by employees or projects, capturing details like dates, amounts, currency, and status. It writes a new expense report record and does not return a response bo...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-expense-reports-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "accounting-expense-reports-delete",
-    "description": "Delete Expense Report\n\nDelete Expense Report"
+    "description": "This operation deletes a specified expense report from the accounting system. Use this when you need to remove an expense report that is no longer needed or was created in error. Deleting an expense report permanently removes its data and cannot be undone. Ensure the report is...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "ats-jobs-list",
-    "description": "List Jobs\n\nList Jobs"
+    "name": "accounting-expense-reports-get",
+    "description": "Retrieve a specific expense report by its ID.\n\nThis operation fetches the details of a single expense report using its unique identifier. Use this endpoint when you need to view or review the information of an existing expense report. It reads the stored data for the specified report without modifying it. Ensure the provid...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-expense-reports-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "ats-jobs-create",
-    "description": "Create Job\n\nCreate Job"
+    "name": "accounting-expense-reports-list",
+    "description": "Retrieve a list of all expense reports.\n\nFetches all expense reports available in the accounting system. Use this operation when you need to view or process multiple expense reports at once, rather than accessing individual reports. It reads the stored expense report data without modifying it. This operation does not...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-expense-reports-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "ats-jobs-get",
-    "description": "Get Job\n\nGet Job"
+    "name": "accounting-expense-reports-update",
+    "description": "Update an existing expense report with new details.\n\nThis operation modifies the fields of an existing expense report, such as status, dates, currency, and employee information. Use this endpoint when you need to correct or change information on a previously created expense report rather than creating a new one. It updates the s...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "ats-jobs-update",
-    "description": "Update Job\n\nUpdate Job"
+    "name": "accounting-expenses-create",
+    "description": "This operation creates a new expense entry within the accounting system. Use this endpoint when you need to record a financial expense associated with a company, supplier, account, or department. It writes detailed expense data including transaction date, amounts, and linked e...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-expenses-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "ats-jobs-delete",
-    "description": "Delete Job\n\nDelete Job"
+    "name": "accounting-expenses-delete",
+    "description": "This operation removes a specific expense from the accounting records using its unique identifier. Use this tool when you need to permanently delete an expense entry rather than updating or retrieving it. Deleting an expense will remove all associated data for that entry and c...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "ats-applicants-list",
-    "description": "List Applicants\n\nList Applicants"
+    "name": "accounting-expenses-get",
+    "description": "Retrieve a specific expense by its ID.\n\nThis operation fetches the details of a single expense using its unique identifier. Use this endpoint when you need to view or verify information about a particular expense rather than listing multiple expenses. It reads the expense data stored in the accounting system and ret...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-expenses-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-expenses-list",
+    "description": "Retrieve a list of all expenses.\n\nFetches a complete list of expenses recorded in the accounting system. Use this operation when you need to review or analyze all expense entries rather than individual or filtered expense records. It reads the stored expense data without modifying it. This operation does not s...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-expenses-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-expenses-update",
+    "description": "Update an existing expense record with new details.\n\nThis operation modifies an existing expense by applying partial updates to its fields. Use this endpoint when you need to change specific attributes of an expense without replacing the entire record. It updates data such as transaction date, account, supplier, location, and de...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoice-items-create",
+    "description": "This operation creates a new invoice item with specified details such as name, description, type, and tax status. Use this endpoint when you need to add items that can be sold or purchased, including inventory and service types, to your accounting records. It writes the new it...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-invoice-items-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoice-items-delete",
+    "description": "This operation removes a specific invoice item from the accounting system using its unique identifier. Use this endpoint when you need to permanently delete an invoice item rather than just updating or archiving it. Deleting an invoice item will remove all associated data for ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoice-items-get",
+    "description": "Retrieve a specific invoice item by its ID.\n\nThis operation fetches the details of a single invoice item using its unique identifier. Use this when you need to view or verify information about a particular invoice item rather than a list of items. It reads data related to the invoice item without modifying any records. E...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-invoice-items-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoice-items-list",
+    "description": "Retrieve a list of all invoice items.\n\nFetches all invoice items available in the accounting system. Use this operation when you need to view or process multiple invoice items at once, rather than accessing individual items. It reads the stored invoice item data without modifying it. This operation does not support...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-invoice-items-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-invoice-items-update",
+    "description": "Update an existing invoice item by modifying its details.\n\nThis operation updates the properties of an existing invoice item, such as its name, description, type, and taxability. Use this endpoint when you need to change specific attributes of an invoice item without creating a new one. It modifies stored data related to the invoice i...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoices-create",
+    "description": "Create a new invoice in the accounting system.\n\nThis operation creates a new invoice record with specified details such as type, customer, dates, and related company information. Use this endpoint when you need to add an invoice rather than update or retrieve existing ones. It writes invoice data to the accounting database ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-invoices-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoices-delete",
+    "description": "This operation removes an existing invoice from the accounting system. Use this endpoint when you need to permanently delete an invoice record, such as when it was created in error or is no longer needed. Deleting an invoice will remove all associated data and cannot be undone...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoices-get",
+    "description": "Retrieve a specific invoice by its ID.\n\nThis operation fetches the details of a single invoice identified by its unique ID. Use this endpoint when you need to view or process information about a particular invoice rather than a list of invoices. It reads invoice data without modifying it, ensuring you get the curren...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-invoices-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-invoices-list",
+    "description": "Retrieve a list of all invoices.\n\nFetches a complete list of invoices from the accounting system. Use this operation when you need to view or process multiple invoices at once, unlike operations that handle single invoice details. This call reads invoice data without modifying it and may return large datasets ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-invoices-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-invoices-update",
+    "description": "Update an existing invoice with new details.\n\nModify the details of an existing invoice to reflect changes such as customer information, dates, terms, or invoice type. Use this operation when you need to correct or update invoice data after creation, rather than creating a new invoice. It updates the stored invoice record...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-journal-entries-create",
+    "description": "This operation creates a new journal entry with specified details such as line items, currency, status, and posting date. Use this endpoint when you need to record financial transactions or adjustments in the accounting records. It writes the journal entry data to the system, ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-journal-entries-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-journal-entries-delete",
+    "description": "This operation deletes a specific journal entry from the accounting records. Use this when you need to remove an incorrect or obsolete journal entry. Deleting a journal entry permanently removes it and may affect financial reports and balances. Ensure the entry is no longer ne...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-journal-entries-get",
+    "description": "Retrieve a specific journal entry by its ID.\n\nFetches the details of a single journal entry identified by its unique ID. Use this operation when you need to view or verify the contents of an individual journal entry rather than a list of entries. It reads the stored journal entry data without modifying it. Ensure the prov...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-journal-entries-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-journal-entries-list",
+    "description": "Retrieve a list of all journal entries.\n\nFetches all journal entries recorded in the accounting system. Use this operation when you need to review or analyze the complete set of journal entries rather than individual entries. It reads existing journal entry data without modifying any records. This operation may retur...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-journal-entries-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-journal-entries-update",
+    "description": "Update an existing journal entry with new details.\n\nThis operation modifies the details of an existing journal entry in the accounting system. Use this endpoint when you need to change attributes such as status, line items, currency, or memo of a journal entry. It updates the stored data for the specified entry and may affect f...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-ledger-accounts-create",
+    "description": "Create a new ledger account in the accounting system.\n\nThis operation creates a new ledger account with specified attributes such as classification, type, and balances. Use this endpoint when you need to add a new account to track financial transactions, rather than updating existing accounts or retrieving account data. It writes ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-ledger-accounts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-ledger-accounts-delete",
+    "description": "Delete a ledger account by its identifier.\n\nThis operation removes a ledger account from the accounting system. Use this when you need to permanently eliminate an account that is no longer needed or was created in error. Deleting a ledger account may affect financial reports and transaction histories that reference it. ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-ledger-accounts-get",
+    "description": "Retrieve a specific ledger account by its ID.\n\nFetches detailed information about a single ledger account using its unique identifier. Use this operation when you need to view or verify the details of an existing ledger account. It reads data without modifying any records. Ensure the provided ID corresponds to an existing ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-ledger-accounts-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-ledger-accounts-list",
+    "description": "Retrieve a list of all ledger accounts.\n\nFetches all ledger accounts available in the accounting system. Use this operation when you need a comprehensive view of all ledger accounts rather than a specific one. It reads the current ledger account data without modifying any records. This operation does not support filt...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-ledger-accounts-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-ledger-accounts-update",
+    "description": "Update an existing ledger account with new details.\n\nThis operation modifies the properties of an existing ledger account in the accounting system. Use this endpoint when you need to change account information such as classification, type, name, or balances. It updates the stored data for the specified ledger account and does no...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-locations-create",
+    "description": "This operation creates a new location record within the accounting system. Use this endpoint when you need to add a new physical or organizational location associated with your company, such as a branch or subsidiary. It writes data including identifiers, company and display n...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-locations-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-locations-delete",
+    "description": "Delete a location by its ID.\n\nThis operation removes a location from the accounting system permanently. Use this when you need to eliminate a location that is no longer active or relevant. Deleting a location may affect any records or transactions associated with it, so ensure it is safe to remove. The ope...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-locations-get",
+    "description": "Retrieve details of a specific location by its ID.\n\nThis operation fetches detailed information about a single location identified by its unique ID. Use this when you need to view or verify data for a particular location within the accounting system. It reads location data without modifying any records. Ensure the location ID p...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-locations-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-locations-list",
+    "description": "Retrieve a list of all accounting locations.\n\nThis operation fetches all accounting locations available in the system. Use this endpoint when you need to view or manage the full set of locations related to accounting processes. It reads location data without modifying any records. There are no special constraints beyond s...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-locations-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-locations-update",
+    "description": "Update an existing accounting location with new details.\n\nThis operation modifies the attributes of an existing accounting location, such as its name, status, addresses, and hierarchical relationships. Use this endpoint when you need to change location information rather than creating a new location or retrieving existing data. It up...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-payments-create",
+    "description": "This operation creates a new payment entry to record funds received or applied within the accounting system. Use this endpoint when you need to register a payment against invoices or accounts receivable, as opposed to other endpoints that manage invoices or refunds. It writes ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-payments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-payments-delete",
+    "description": "This operation deletes a payment record identified by its ID. Use this endpoint when you need to remove a payment from the accounting system, such as correcting errors or reversing transactions. Deleting a payment permanently removes it and may affect related financial records...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-payments-get",
+    "description": "Retrieve a payment by its unique identifier.\n\nFetch detailed information about a specific payment using its unique ID. Use this operation when you need to view or verify the details of an individual payment rather than a list of payments. It reads payment data without modifying any records. Ensure the payment ID exists to...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-payments-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-payments-list",
+    "description": "Retrieve a list of all payments.\n\nFetches a comprehensive list of payments recorded in the accounting system. Use this operation when you need to view or analyze all payment transactions rather than individual payment details. It reads payment records without modifying any data. This endpoint does not support ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-payments-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-payments-update",
+    "description": "This operation modifies the details of an existing payment record. Use it when you need to correct or change payment information such as amount, currency, payment method, or associated accounts. It updates the stored payment data without creating a new payment entry. Ensure th...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-profit-and-loss-get",
+    "description": "Retrieve the Profit and Loss statement for the specified period.\n\nThis operation fetches the Profit and Loss statement, summarizing revenues, expenses, and net income for a given timeframe. Use this endpoint when you need a financial overview to assess business performance, rather than detailed transaction data. It reads accounting records t...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-profit-and-loss-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-projects-create",
+    "description": "This operation creates a new project with specified details such as name, status, type, and priority. Use this endpoint when you need to add a project record for tracking accounting-related activities. It writes project data including identifiers, descriptions, and progress me...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-projects-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-projects-delete",
+    "description": "Delete a project by its ID.\n\nThis operation removes a project from the accounting system permanently. Use this endpoint when you need to eliminate a project that is no longer needed or was created in error. Deleting a project will remove all associated data and cannot be undone, so ensure the project is n...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-projects-get",
+    "description": "Retrieve detailed information about a specific project.\n\nThis operation fetches detailed information for a single project identified by its ID. Use this endpoint when you need to view or verify the current data of a particular project within the accounting system. It reads project details without modifying any data. Ensure the proje...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-projects-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-projects-list",
+    "description": "Retrieve a list of all projects.\n\nFetches a comprehensive list of projects within the accounting system. Use this operation when you need to view or manage multiple projects at once, rather than accessing individual project details. It reads project data without modifying any records. This operation does not s...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-projects-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-projects-update",
+    "description": "Update an existing project with new details.\n\nThis operation modifies the attributes of an existing project in the accounting system. Use this endpoint when you need to change project information such as status, priority, or completion percentage, rather than creating a new project or retrieving project data. It updates t...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-purchase-orders-create",
+    "description": "This operation creates a new purchase order record within the accounting system. Use this endpoint when you need to initiate a purchase order for tracking supplier orders and related financial commitments. It writes purchase order details such as supplier, status, dates, and a...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-purchase-orders-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-purchase-orders-delete",
+    "description": "This operation deletes a specified purchase order from the accounting system. Use this endpoint when you need to remove a purchase order that is no longer needed or was created in error. Deleting a purchase order permanently removes its data and cannot be undone. Ensure the pu...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-purchase-orders-get",
+    "description": "Retrieve a purchase order by its ID.\n\nFetch the details of a specific purchase order using its unique identifier. Use this operation when you need to view or verify the information of an existing purchase order. This action reads the purchase order data without modifying it. Ensure the ID provided corresponds to a...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-purchase-orders-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-purchase-orders-list",
+    "description": "Retrieve a list of all purchase orders.\n\nFetches all purchase orders available in the accounting system. Use this operation when you need to view or process multiple purchase orders at once, unlike operations that handle individual purchase orders. This operation reads purchase order data without modifying it and may...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-purchase-orders-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-purchase-orders-update",
+    "description": "This operation modifies an existing purchase order by applying the provided updates to its fields. Use this endpoint when you need to change information such as supplier details, status, or dates on a purchase order that already exists. It writes changes directly to the purcha...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-quotes-create",
+    "description": "This operation creates a new quote record within the accounting system. Use this endpoint when you need to generate a quote for a customer before converting it into an invoice or sales order. It writes data such as customer details, quote number, dates, terms, and related comp...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-quotes-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-quotes-delete",
+    "description": "This operation removes a quote from the accounting system using its unique identifier. Use this tool when you need to permanently delete a quote rather than update or archive it. Deleting a quote will remove all associated data and cannot be undone. Ensure the quote is no long...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-quotes-get",
+    "description": "Retrieve a specific quote by its ID.\n\nThis operation fetches the details of a single quote identified by its unique ID. Use this endpoint when you need to view or process information about a particular quote rather than a list of quotes. It reads the stored quote data without modifying it. Ensure the provided ID c...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-quotes-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-quotes-list",
+    "description": "Retrieve a list of all quotes.\n\nFetches all quotes available in the accounting system. Use this operation when you need to view or process multiple quotes at once, rather than a single quote. It reads the stored quote data without modifying it. This operation does not support filtering or pagination by default.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-quotes-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-quotes-update",
+    "description": "Update an existing quote with new details.\n\nThis operation modifies the details of an existing quote in the accounting system. Use this endpoint when you need to change information such as customer data, dates, terms, or linked documents on a quote. It updates the stored quote record and may affect related financial doc...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-refunds-create",
+    "description": "Create a new refund record in the accounting system.\n\nThis operation creates a refund entry associated with a customer and company, recording amounts, taxes, currency details, and status. Use this endpoint when you need to document a refund transaction distinct from other financial operations like invoices or payments. It writes ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-refunds-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-refunds-delete",
+    "description": "This operation deletes a refund record identified by its ID. Use this endpoint when you need to remove a refund from the accounting system, such as correcting errors or reversing transactions. Deleting a refund permanently removes it and may affect related financial records. E...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-refunds-get",
+    "description": "Retrieve a refund by its unique identifier.\n\nThis operation fetches the details of a specific refund using its ID. Use this endpoint when you need to view information about a particular refund rather than a list of refunds. It reads refund data from the accounting system and returns the current state of that refund. Ensu...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-refunds-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-refunds-list",
+    "description": "Retrieve a list of all refunds.\n\nFetches a comprehensive list of all refund records in the accounting system. Use this operation when you need to review or process multiple refunds at once, rather than accessing individual refund details. It reads refund data but does not modify any records. This operation re...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-refunds-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-refunds-update",
+    "description": "This operation modifies the details of an existing refund in the accounting system. Use this endpoint when you need to correct or change information about a refund, such as amounts, dates, or status. It updates the stored refund data, affecting financial records related to the...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-subsidiaries-create",
+    "description": "This operation creates a new subsidiary entity within the accounting system. Use this endpoint when you need to add a subsidiary under a parent company or as a standalone entity, unlike updating or deleting existing subsidiaries. It writes subsidiary details such as name, stat...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-subsidiaries-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-subsidiaries-delete",
+    "description": "Deletes a subsidiary record from the accounting system using its unique identifier. Use this operation when you need to remove a subsidiary that is no longer relevant or active. This action permanently removes the subsidiary data and cannot be undone. Ensure that the subsidiar...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-subsidiaries-get",
+    "description": "Retrieve details of a specific subsidiary by its ID.\n\nThis operation fetches detailed information about a single subsidiary within the accounting system. Use this endpoint when you need to view or verify data for a particular subsidiary rather than listing all subsidiaries. It reads subsidiary data without modifying any records. ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-subsidiaries-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-subsidiaries-list",
+    "description": "Retrieve a list of all subsidiaries.\n\nFetches a complete list of subsidiaries within the accounting system. Use this operation when you need to view or manage all subsidiaries collectively, rather than accessing individual subsidiary details. It reads subsidiary data without modifying any records. This operation d...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-subsidiaries-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-subsidiaries-update",
+    "description": "Update an existing subsidiary's details in the accounting system.\n\nThis operation modifies the attributes of a specified subsidiary, such as its name, status, address, and related identifiers. Use this endpoint when you need to change subsidiary information rather than creating a new one or retrieving existing data. It updates the subsidiary ...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-suppliers-create",
+    "description": "This operation creates a new supplier record within the accounting system. Use this endpoint when you need to register a new supplier with details such as company name, contact names, and category. It writes supplier data to the system, enabling tracking and management of supp...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-suppliers-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-suppliers-delete",
+    "description": "Delete a supplier by its unique identifier.\n\nThis operation removes a supplier from the accounting system permanently. Use this when you need to eliminate a supplier record that is no longer needed or relevant. Deleting a supplier may affect related transactions or reports that reference this supplier. Ensure the supplie...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-suppliers-get",
+    "description": "Retrieve detailed information about a specific supplier.\n\nThis operation fetches detailed information for a single supplier identified by its unique ID. Use this endpoint when you need to view or verify supplier details rather than listing multiple suppliers or creating new ones. It reads supplier data from the accounting system and ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-suppliers-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-suppliers-list",
+    "description": "Retrieve a list of all suppliers.\n\nFetches a complete list of suppliers from the accounting system. Use this operation when you need to view or process all supplier records rather than a specific supplier. It reads supplier data without modifying any records. This operation does not support filtering or paginat...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-suppliers-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-suppliers-update",
+    "description": "Update an existing supplier's details in the accounting system.\n\nThis operation modifies the information of an existing supplier, allowing you to change fields such as company name, contact details, and category. Use this endpoint when you need to correct or update supplier data rather than creating a new supplier or deleting one. It writes...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tax-rates-create",
+    "description": "This operation creates a new tax rate record with specified details such as name, code, rates, and associated accounts. Use this endpoint when you need to add a tax rate that your accounting processes will apply to transactions. It writes the tax rate data into the system, mak...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-tax-rates-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tax-rates-delete",
+    "description": "Deletes the specified tax rate from the accounting system. Use this operation when you need to remove an obsolete or incorrect tax rate. This action permanently removes the tax rate and cannot be undone. Ensure the tax rate is not in use before deletion to avoid data inconsist...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tax-rates-get",
+    "description": "Retrieve a specific tax rate by its ID.\n\nThis operation fetches details of a tax rate using its unique identifier. Use this endpoint when you need to obtain tax rate information for accounting purposes. Note that some connectors, such as Quickbooks, may only return the tax code or reference instead of the actual rate...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-tax-rates-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tax-rates-list",
+    "description": "Retrieve a list of all tax rates available in the accounting system.\n\nThis operation fetches all tax rates configured in the accounting system. Use this endpoint when you need to obtain tax rate information for reporting or calculation purposes. Note that some connectors, such as QuickBooks, may not provide the actual tax percentage and instead ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-tax-rates-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-tax-rates-update",
+    "description": "Update an existing tax rate with new details.\n\nModify the properties of an existing tax rate to reflect changes such as name, code, rates, or accounts. Use this operation when you need to correct or adjust tax rate information rather than creating a new one. It updates the stored tax rate data and affects calculations that...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tracking-categories-create",
+    "description": "Create a new tracking category in the accounting system.\n\nThis operation creates a new tracking category used to classify and organize financial transactions. Use this endpoint when you need to add a new category for tracking purposes, rather than modifying or deleting existing ones. It writes the category details including name, cod...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `accounting-tracking-categories-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tracking-categories-delete",
+    "description": "This operation removes a tracking category from the accounting system. Use this when you need to permanently delete a tracking category that is no longer needed. Deleting a tracking category may affect reports or transactions that reference it, so ensure it is not in active us...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tracking-categories-get",
+    "description": "Retrieve a tracking category by its ID.\n\nFetch a specific tracking category using its unique identifier. Use this operation when you need detailed information about one tracking category rather than a list of all categories. It reads the tracking category data without modifying it. Ensure the provided ID corresponds ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `accounting-tracking-categories-list`.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "accounting-tracking-categories-list",
+    "description": "Retrieve all tracking categories.\n\nFetches a complete list of tracking categories used in accounting. Use this operation when you need to view or manage all available tracking categories rather than a specific one. It reads the current tracking category data without modifying it. There are no special constraint...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `accounting-tracking-categories-get` instead.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "accounting-tracking-categories-update",
+    "description": "Update an existing tracking category with new details.\n\nThis operation modifies the properties of an existing tracking category in the accounting system. Use this endpoint when you need to change attributes such as the category's name, code, status, or custom mappings. It updates the stored data for the specified tracking category ...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple `accounting` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "ats-applicants-create",
-    "description": "Create Applicant\n\nCreate Applicant"
-  },
-  {
-    "name": "ats-applicants-get",
-    "description": "Get Applicant\n\nGet Applicant"
-  },
-  {
-    "name": "ats-applicants-update",
-    "description": "Update Applicant\n\nUpdate Applicant"
+    "description": "This operation creates a new applicant record within the applicant tracking system. Use this endpoint when you need to add a new candidate's personal and professional details to the database. It writes applicant information such as name, birthday, gender, and social security n...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `ats-applicants-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "ats-applicants-delete",
-    "description": "Delete Applicant\n\nDelete Applicant"
+    "description": "Delete an applicant by ID.\n\nThis operation removes an applicant from the system permanently. Use this when you need to erase an applicant's record, such as when they withdraw or are no longer considered. Deleting an applicant will remove all associated data and cannot be undone. Ensure the applicant ID i...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "ats-applications-list",
-    "description": "List Applications\n\nList Applications"
+    "name": "ats-applicants-get",
+    "description": "Retrieve detailed information about a specific applicant.\n\nThis operation fetches detailed information for a single applicant identified by their unique ID. Use this endpoint when you need to view or process data for one applicant rather than multiple applicants. It reads applicant data without modifying it and requires a valid applic...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ats-applicants-list`.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "ats-applicants-list",
+    "description": "Retrieve a list of all applicants.\n\nThis operation fetches a complete list of applicants from the applicant tracking system. Use this endpoint when you need to view or process all applicants rather than querying specific ones. It reads applicant data without modifying any records. There are no special constraint...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ats-applicants-get` instead.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "ats-applicants-update",
+    "description": "Update an applicant's details in the applicant tracking system.\n\nThis operation modifies the information of an existing applicant in the applicant tracking system. Use this endpoint when you need to change any applicant attributes such as name, birthday, gender, or cover letter. It updates the stored applicant data without creating a new re...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "ats-applications-create",
-    "description": "Create Application\n\nCreate Application"
-  },
-  {
-    "name": "ats-applications-get",
-    "description": "Get Application\n\nGet Application"
-  },
-  {
-    "name": "ats-applications-update",
-    "description": "Update Application\n\nUpdate Application"
+    "description": "Create a new application record in the applicant tracking system.\n\nThis operation creates a new application entry linking an applicant to a job within the applicant tracking system. Use this endpoint when you need to add a fresh application with details such as status, stage, and custom mappings. It writes the application data including metad...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `ats-applications-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "ats-applications-delete",
-    "description": "Delete Application\n\nDelete Application"
+    "description": "Delete an application by its ID.\n\nThis operation removes an application from the system permanently. Use this when you need to completely erase an application and its associated data. Deleting an application cannot be undone and will remove all related records. Ensure the application ID is correct before perfo...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "crm-companies-list",
-    "description": "List companies\n\nList companies"
+    "name": "ats-applications-get",
+    "description": "Retrieve a specific application by its ID.\n\nThis operation fetches the details of a single application identified by its unique ID. Use this endpoint when you need to view or process information about one particular application rather than a list of applications. It reads application data without modifying it. Ensure th...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ats-applications-list`.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "crm-companies-create",
-    "description": "Create company\n\nCreate company"
+    "name": "ats-applications-list",
+    "description": "Retrieve a list of all applications.\n\nFetches a complete list of applications from the ATS system. Use this operation when you need to view or process all applications at once, rather than querying individual records. This operation reads application data without modifying it. It does not support filtering or pagi...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ats-applications-get` instead.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "crm-companies-get",
-    "description": "Get company\n\nGet company"
+    "name": "ats-applications-update",
+    "description": "Update an existing application with new details.\n\nModify the details of an existing application in the ATS system. Use this operation when you need to change application attributes such as status, stage, or custom mappings. This updates the stored application data and records who made the update and when. Ensure the applicati...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "crm-companies-update",
-    "description": "Update company\n\nUpdate company"
+    "name": "ats-jobs-create",
+    "description": "Create a new job listing in the applicant tracking system.\n\nThis operation creates a new job listing with specified details such as title, status, visibility, and employment terms. Use this endpoint when you need to add a job opening to the system rather than updating or retrieving existing jobs. It writes job data including location, ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `ats-jobs-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "crm-companies-delete",
-    "description": "Delete company\n\nDelete company"
+    "name": "ats-jobs-delete",
+    "description": "Delete a job by its ID.\n\nThis operation removes a job from the system permanently. Use this when you need to completely eliminate a job record rather than just updating or archiving it. Deleting a job will remove all associated data and cannot be undone. Ensure the job ID is correct to avoid unintende...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "crm-contacts-list",
-    "description": "List contacts\n\nList contacts"
+    "name": "ats-jobs-get",
+    "description": "Retrieve a job by its ID.\n\nFetch detailed information about a specific job using its unique identifier. Use this operation when you need to view or verify the details of a single job record. This endpoint reads job data without modifying it and does not support bulk retrieval. Ensure the job ID exists t...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ats-jobs-list`.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "crm-contacts-create",
-    "description": "Create contact\n\nCreate contact"
+    "name": "ats-jobs-list",
+    "description": "Retrieve a list of all jobs in the ATS.\n\nFetches a complete list of jobs available in the applicant tracking system. Use this operation when you need to view or process all job entries rather than a specific job or filtered subset. It reads job data without modifying any records. This endpoint does not support filter...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ats-jobs-get` instead.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "crm-contacts-get",
-    "description": "Get contact\n\nGet contact"
-  },
-  {
-    "name": "crm-contacts-update",
-    "description": "Update contact\n\nUpdate contact"
-  },
-  {
-    "name": "crm-contacts-delete",
-    "description": "Delete contact\n\nDelete contact"
-  },
-  {
-    "name": "crm-opportunities-list",
-    "description": "List opportunities\n\nList opportunities"
-  },
-  {
-    "name": "crm-opportunities-create",
-    "description": "Create opportunity\n\nCreate opportunity"
-  },
-  {
-    "name": "crm-opportunities-get",
-    "description": "Get opportunity\n\nGet opportunity"
-  },
-  {
-    "name": "crm-opportunities-update",
-    "description": "Update opportunity\n\nUpdate opportunity"
-  },
-  {
-    "name": "crm-opportunities-delete",
-    "description": "Delete opportunity\n\nDelete opportunity"
-  },
-  {
-    "name": "crm-leads-list",
-    "description": "List leads\n\nList leads"
-  },
-  {
-    "name": "crm-leads-create",
-    "description": "Create lead\n\nCreate lead"
-  },
-  {
-    "name": "crm-leads-get",
-    "description": "Get lead\n\nGet lead"
-  },
-  {
-    "name": "crm-leads-update",
-    "description": "Update lead\n\nUpdate lead"
-  },
-  {
-    "name": "crm-leads-delete",
-    "description": "Delete lead\n\nDelete lead"
-  },
-  {
-    "name": "crm-pipelines-list",
-    "description": "List pipelines\n\nList pipelines"
-  },
-  {
-    "name": "crm-pipelines-create",
-    "description": "Create pipeline\n\nCreate pipeline"
-  },
-  {
-    "name": "crm-pipelines-get",
-    "description": "Get pipeline\n\nGet pipeline"
-  },
-  {
-    "name": "crm-pipelines-update",
-    "description": "Update pipeline\n\nUpdate pipeline"
-  },
-  {
-    "name": "crm-pipelines-delete",
-    "description": "Delete pipeline\n\nDelete pipeline"
-  },
-  {
-    "name": "crm-notes-list",
-    "description": "List notes\n\nList notes"
-  },
-  {
-    "name": "crm-notes-create",
-    "description": "Create note\n\nCreate note"
-  },
-  {
-    "name": "crm-notes-get",
-    "description": "Get note\n\nGet note"
-  },
-  {
-    "name": "crm-notes-update",
-    "description": "Update note\n\nUpdate note"
-  },
-  {
-    "name": "crm-notes-delete",
-    "description": "Delete note\n\nDelete note"
-  },
-  {
-    "name": "crm-users-list",
-    "description": "List users\n\nList users"
-  },
-  {
-    "name": "crm-users-create",
-    "description": "Create user\n\nCreate user"
-  },
-  {
-    "name": "crm-users-get",
-    "description": "Get user\n\nGet user"
-  },
-  {
-    "name": "crm-users-update",
-    "description": "Update user\n\nUpdate user"
-  },
-  {
-    "name": "crm-users-delete",
-    "description": "Delete user\n\nDelete user"
-  },
-  {
-    "name": "crm-activities-list",
-    "description": "List activities\n\nList activities"
-  },
-  {
-    "name": "crm-activities-create",
-    "description": "Create activity\n\nCreate activity"
-  },
-  {
-    "name": "crm-activities-get",
-    "description": "Get activity\n\nGet activity"
-  },
-  {
-    "name": "crm-activities-update",
-    "description": "Update activity\n\nUpdate activity"
-  },
-  {
-    "name": "crm-activities-delete",
-    "description": "Delete activity\n\nDelete activity"
-  },
-  {
-    "name": "crm-custom-object-schemas-list",
-    "description": "List custom object schemas\n\nList custom object schemas"
-  },
-  {
-    "name": "crm-custom-object-schemas-create",
-    "description": "Create custom object schema\n\nCreate custom object schema"
-  },
-  {
-    "name": "crm-custom-object-schemas-get",
-    "description": "Get custom object schema\n\nGet custom object schema"
-  },
-  {
-    "name": "crm-custom-object-schemas-update",
-    "description": "Update custom object schema\n\nUpdate custom object schema"
-  },
-  {
-    "name": "crm-custom-object-schemas-delete",
-    "description": "Delete custom object schema\n\nDelete custom object schema"
-  },
-  {
-    "name": "crm-custom-objects-list",
-    "description": "List custom objects\n\nList custom objects"
-  },
-  {
-    "name": "crm-custom-objects-create",
-    "description": "Create custom object\n\nCreate custom object"
-  },
-  {
-    "name": "crm-custom-objects-get",
-    "description": "Get custom object\n\nGet custom object"
-  },
-  {
-    "name": "crm-custom-objects-update",
-    "description": "Update custom object\n\nUpdate custom object"
-  },
-  {
-    "name": "crm-custom-objects-delete",
-    "description": "Delete custom object\n\nDelete custom object"
-  },
-  {
-    "name": "ecommerce-orders-list",
-    "description": "List Orders\n\nList Orders"
-  },
-  {
-    "name": "ecommerce-orders-get",
-    "description": "Get Order\n\nGet Order"
-  },
-  {
-    "name": "ecommerce-products-list",
-    "description": "List Products\n\nList Products"
-  },
-  {
-    "name": "ecommerce-products-get",
-    "description": "Get Product\n\nGet Product"
-  },
-  {
-    "name": "ecommerce-customers-list",
-    "description": "List Customers\n\nList Customers"
-  },
-  {
-    "name": "ecommerce-customers-get",
-    "description": "Get Customer\n\nGet Customer"
-  },
-  {
-    "name": "ecommerce-stores-get",
-    "description": "Get Store\n\nGet Store"
-  },
-  {
-    "name": "file-storage-files-list",
-    "description": "List Files\n\nList Files"
-  },
-  {
-    "name": "file-storage-files-search",
-    "description": "Search Files\n\nSearch Files"
-  },
-  {
-    "name": "file-storage-files-get",
-    "description": "Get File\n\nGet File"
-  },
-  {
-    "name": "file-storage-files-update",
-    "description": "Rename or move File\n\nRename or move File"
-  },
-  {
-    "name": "file-storage-files-delete",
-    "description": "Delete File\n\nDelete File"
-  },
-  {
-    "name": "file-storage-files-download",
-    "description": "Download File\n\nDownload File"
-  },
-  {
-    "name": "file-storage-files-export",
-    "description": "Export File\n\nExport File"
-  },
-  {
-    "name": "file-storage-folders-create",
-    "description": "Create Folder\n\nCreate Folder"
-  },
-  {
-    "name": "file-storage-folders-get",
-    "description": "Get Folder\n\nGet Folder"
-  },
-  {
-    "name": "file-storage-folders-update",
-    "description": "Rename or move Folder\n\nRename or move Folder"
-  },
-  {
-    "name": "file-storage-folders-delete",
-    "description": "Delete Folder\n\nDelete Folder"
-  },
-  {
-    "name": "file-storage-folders-copy",
-    "description": "Copy Folder\n\nCopy Folder"
-  },
-  {
-    "name": "file-storage-shared-links-list",
-    "description": "List Shared Links\n\nList Shared Links"
-  },
-  {
-    "name": "file-storage-shared-links-create",
-    "description": "Create Shared Link\n\nCreate Shared Link"
-  },
-  {
-    "name": "file-storage-shared-links-get",
-    "description": "Get Shared Link\n\nGet Shared Link"
-  },
-  {
-    "name": "file-storage-shared-links-update",
-    "description": "Update Shared Link\n\nUpdate Shared Link"
-  },
-  {
-    "name": "file-storage-shared-links-delete",
-    "description": "Delete Shared Link\n\nDelete Shared Link"
-  },
-  {
-    "name": "file-storage-upload-sessions-create",
-    "description": "Start Upload Session\n\nStart an Upload Session. Upload sessions are used to upload large files, use the [Upload File](#operation/filesUpload) endpoint to upload smaller files (up to 100MB). Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file upload guide](/guides/file-upload)."
-  },
-  {
-    "name": "file-storage-upload-sessions-get",
-    "description": "Get Upload Session\n\nGet Upload Session. Use the `part_size` to split your file into parts. Upload the parts to the [Upload part of File](#operation/uploadSessionsUpload) endpoint. Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file upload guide](/guides/file-upload)."
-  },
-  {
-    "name": "file-storage-upload-sessions-upload",
-    "description": "Upload part of File to Upload Session\n\nUpload part of File to Upload Session (max 100MB). Get `part_size` from [Get Upload Session](#operation/uploadSessionsOne) first. Every File part (except the last one) uploaded to this endpoint should have Content-Length equal to `part_size`. Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file upload guide](/guides/file-upload)."
-  },
-  {
-    "name": "file-storage-upload-sessions-delete",
-    "description": "Abort Upload Session\n\nAbort Upload Session. Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file upload guide](/guides/file-upload)."
-  },
-  {
-    "name": "file-storage-upload-sessions-finish",
-    "description": "Finish Upload Session\n\nFinish Upload Session. Only call this endpoint after all File parts have been uploaded to [Upload part of File](#operation/uploadSessionsUpload). Note that the base URL is upload.apideck.com instead of unify.apideck.com. For more information on uploads, refer to the [file upload guide](/guides/file-upload)."
-  },
-  {
-    "name": "file-storage-drives-list",
-    "description": "List Drives\n\nList Drives"
-  },
-  {
-    "name": "file-storage-drives-create",
-    "description": "Create Drive\n\nCreate Drive"
-  },
-  {
-    "name": "file-storage-drives-get",
-    "description": "Get Drive\n\nGet Drive"
-  },
-  {
-    "name": "file-storage-drives-update",
-    "description": "Update Drive\n\nUpdate Drive"
-  },
-  {
-    "name": "file-storage-drives-delete",
-    "description": "Delete Drive\n\nDelete Drive"
-  },
-  {
-    "name": "file-storage-drive-groups-list",
-    "description": "List DriveGroups\n\nList DriveGroups"
-  },
-  {
-    "name": "file-storage-drive-groups-create",
-    "description": "Create DriveGroup\n\nCreate DriveGroup"
-  },
-  {
-    "name": "file-storage-drive-groups-get",
-    "description": "Get DriveGroup\n\nGet DriveGroup"
-  },
-  {
-    "name": "file-storage-drive-groups-update",
-    "description": "Update DriveGroup\n\nUpdate DriveGroup"
-  },
-  {
-    "name": "file-storage-drive-groups-delete",
-    "description": "Delete DriveGroup\n\nDelete DriveGroup"
-  },
-  {
-    "name": "hris-employees-list",
-    "description": "List Employees\n\nApideck operates as a stateless Unified API, which means that the list endpoint only provides a portion of the employee model. This is due to the fact that most HRIS systems do not readily provide all data in every call. However, you can access the complete employee model through an employee detail call."
-  },
-  {
-    "name": "hris-employees-create",
-    "description": "Create Employee\n\nCreate Employee"
-  },
-  {
-    "name": "hris-employees-get",
-    "description": "Get Employee\n\nGet Employee"
-  },
-  {
-    "name": "hris-employees-update",
-    "description": "Update Employee\n\nUpdate Employee"
-  },
-  {
-    "name": "hris-employees-delete",
-    "description": "Delete Employee\n\nDelete Employee"
-  },
-  {
-    "name": "hris-companies-list",
-    "description": "List Companies\n\nList Companies"
-  },
-  {
-    "name": "hris-companies-create",
-    "description": "Create Company\n\nCreate Company"
-  },
-  {
-    "name": "hris-companies-get",
-    "description": "Get Company\n\nGet Company"
-  },
-  {
-    "name": "hris-companies-update",
-    "description": "Update Company\n\nUpdate Company"
-  },
-  {
-    "name": "hris-companies-delete",
-    "description": "Delete Company\n\nDelete Company"
-  },
-  {
-    "name": "hris-departments-list",
-    "description": "List Departments\n\nList Departments"
-  },
-  {
-    "name": "hris-departments-create",
-    "description": "Create Department\n\nCreate Department"
-  },
-  {
-    "name": "hris-departments-get",
-    "description": "Get Department\n\nGet Department"
-  },
-  {
-    "name": "hris-departments-update",
-    "description": "Update Department\n\nUpdate Department"
-  },
-  {
-    "name": "hris-departments-delete",
-    "description": "Delete Department\n\nDelete Department"
-  },
-  {
-    "name": "hris-payrolls-list",
-    "description": "List Payroll\n\nList Payroll"
-  },
-  {
-    "name": "hris-payrolls-get",
-    "description": "Get Payroll\n\nGet Payroll"
-  },
-  {
-    "name": "hris-employee-payrolls-list",
-    "description": "List Employee Payrolls\n\nList payrolls for employee"
-  },
-  {
-    "name": "hris-employee-payrolls-get",
-    "description": "Get Employee Payroll\n\nGet payroll for employee"
-  },
-  {
-    "name": "hris-employee-schedules-list",
-    "description": "List Employee Schedules\n\nList schedules for employee, a schedule is a work pattern, not the actual worked hours, for an employee."
-  },
-  {
-    "name": "hris-time-off-requests-list",
-    "description": "List Time Off Requests\n\nList Time Off Requests"
-  },
-  {
-    "name": "hris-time-off-requests-create",
-    "description": "Create Time Off Request\n\nCreate Time Off Request"
-  },
-  {
-    "name": "hris-time-off-requests-get",
-    "description": "Get Time Off Request\n\nGet Time Off Request"
-  },
-  {
-    "name": "hris-time-off-requests-update",
-    "description": "Update Time Off Request\n\nUpdate Time Off Request"
-  },
-  {
-    "name": "hris-time-off-requests-delete",
-    "description": "Delete Time Off Request\n\nDelete Time Off Request"
-  },
-  {
-    "name": "issue-tracking-collections-list",
-    "description": "List Collections\n\nList Collections"
-  },
-  {
-    "name": "issue-tracking-collections-get",
-    "description": "Get Collection\n\nGet Collection"
-  },
-  {
-    "name": "issue-tracking-collection-tickets-list",
-    "description": "List Tickets\n\nList Tickets"
-  },
-  {
-    "name": "issue-tracking-collection-tickets-create",
-    "description": "Create Ticket\n\nCreate Ticket"
-  },
-  {
-    "name": "issue-tracking-collection-tickets-get",
-    "description": "Get Ticket\n\nGet Ticket"
-  },
-  {
-    "name": "issue-tracking-collection-tickets-update",
-    "description": "Update Ticket\n\nUpdate Ticket"
-  },
-  {
-    "name": "issue-tracking-collection-tickets-delete",
-    "description": "Delete Ticket\n\nDelete Ticket"
-  },
-  {
-    "name": "issue-tracking-collection-ticket-comments-list",
-    "description": "List Comments\n\nList Comments"
-  },
-  {
-    "name": "issue-tracking-collection-ticket-comments-create",
-    "description": "Create Comment\n\nCreate Comment"
-  },
-  {
-    "name": "issue-tracking-collection-ticket-comments-get",
-    "description": "Get Comment\n\nGet Comment"
-  },
-  {
-    "name": "issue-tracking-collection-ticket-comments-update",
-    "description": "Update Comment\n\nUpdate Comment"
-  },
-  {
-    "name": "issue-tracking-collection-ticket-comments-delete",
-    "description": "Delete Comment\n\nDelete Comment"
-  },
-  {
-    "name": "issue-tracking-collection-users-list",
-    "description": "List Users\n\nList Users"
-  },
-  {
-    "name": "issue-tracking-collection-users-get",
-    "description": "Get user\n\nGet user"
-  },
-  {
-    "name": "issue-tracking-collection-tags-list",
-    "description": "List Tags\n\nList Tags"
-  },
-  {
-    "name": "connector-connectors-list",
-    "description": "List Connectors\n\nList Connectors"
-  },
-  {
-    "name": "connector-connectors-get",
-    "description": "Get Connector\n\nGet Connector"
-  },
-  {
-    "name": "connector-connector-docs-get",
-    "description": "Get Connector Doc content\n\nGet Connector Doc content"
-  },
-  {
-    "name": "connector-connector-resources-get",
-    "description": "Get Connector Resource\n\nGet Connector Resource"
-  },
-  {
-    "name": "connector-apis-list",
-    "description": "List APIs\n\nList APIs"
-  },
-  {
-    "name": "connector-apis-get",
-    "description": "Get API\n\nGet API"
-  },
-  {
-    "name": "connector-api-resources-get",
-    "description": "Get API Resource\n\nGet API Resource"
+    "name": "ats-jobs-update",
+    "description": "Update an existing job with new details.\n\nModify the attributes of a specific job to reflect changes such as title, status, visibility, or employment terms. Use this operation when you need to revise job information without creating a new job entry. It updates the stored job data and affects how the job is presented o...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `ats` connection on the consumer. If the consumer has multiple `ats` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "connector-api-resource-coverage-get",
-    "description": "Get API Resource Coverage\n\nGet API Resource Coverage"
+    "description": "Retrieve coverage details for a specific API resource.\n\nThis operation fetches the coverage information of a particular resource within an API. Use this endpoint when you need to assess how well a resource is covered, such as for testing or monitoring purposes. It reads coverage data associated with the specified resource but does ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resource-coverage-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service."
   },
   {
-    "name": "proxy-get",
-    "description": "GET\n\nProxies a downstream GET request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
+    "name": "connector-api-resources-get",
+    "description": "Retrieve a specific API resource by its ID.\n\nThis operation fetches the details of a single API resource identified by its resource ID within a given API. Use this endpoint when you need to view or inspect the configuration or metadata of a particular resource rather than listing all resources. It reads the resource data...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-api-resources-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service."
   },
   {
-    "name": "proxy-options",
-    "description": "OPTIONS\n\nProxies a downstream OPTION request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
+    "name": "connector-apis-get",
+    "description": "Retrieve details of a specific API by its ID.\n\nThis operation fetches detailed information about a single API identified by its ID. Use this endpoint when you need to view or verify the configuration or metadata of a particular API within the connector system. It reads and returns the stored API data without modifying it. ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-apis-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service."
   },
   {
-    "name": "proxy-post",
-    "description": "POST\n\nProxies a downstream POST request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
+    "name": "connector-apis-list",
+    "description": "Retrieve a list of all available APIs.\n\nThis operation fetches a complete list of all APIs accessible through the connector. Use this to discover which APIs can be integrated or managed within the system. It reads the current API registry without modifying any data. There are no special constraints beyond standard a...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-apis-get` instead.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "proxy-put",
-    "description": "PUT\n\nProxies a downstream PUT request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
+    "name": "connector-connector-docs-get",
+    "description": "Retrieve the content of a specific connector document.\n\nThis operation fetches the content of a specified document associated with a connector. Use this when you need to access detailed information or documentation for a particular connector. It reads the document data without modifying any connector settings. Ensure the connector ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-docs-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service."
   },
   {
-    "name": "proxy-patch",
-    "description": "PATCH\n\nProxies a downstream PATCH request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
+    "name": "connector-connector-resources-get",
+    "description": "Retrieve a specific resource from a connector.\n\nThis operation fetches the details of a single resource identified by its ID within a specified connector. Use this when you need to access information about one particular resource rather than a list of resources. It reads data associated with the resource but does not modify...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connector-resources-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service."
+  },
+  {
+    "name": "connector-connectors-get",
+    "description": "Retrieve details of a specific connector by its ID.\n\nThis operation fetches detailed information about a single connector identified by its ID. Use this endpoint when you need to view or verify the configuration and status of a particular connector. It reads connector data without modifying any resources. Ensure the connector ID...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `connector-connectors-list`.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service."
+  },
+  {
+    "name": "connector-connectors-list",
+    "description": "Retrieve a list of all connectors.\n\nFetches a complete list of connectors available in the system. Use this operation when you need to view or manage all connectors rather than a specific one. It reads connector metadata without modifying any data. This operation does not require any input parameters and returns...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `connector-connectors-get` instead.\n\nMeta operation on Apideck's connector catalogue — returns metadata about available integrations, resources, and coverage. Read-only, authenticated with the application-level Apideck API key; doesn't require or affect any consumer connection. Use for discovery before prompting the user to connect a service.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-activities-create",
+    "description": "Create a new activity record in the CRM system to log interactions or events related to users, accounts, contacts, companies, opportunities, leads, owners, or campaigns. Use this operation when you need to add detailed activity data such as timestamps, durations, and associati...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-activities-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-activities-delete",
+    "description": "Deletes a specific activity identified by its ID from the CRM system. Use this operation when you need to permanently remove an activity record. This action cannot be undone and will remove all data associated with the activity. Ensure the activity ID exists before attempting ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-activities-get",
+    "description": "Retrieve a specific CRM activity by its ID.\n\nThis operation fetches the details of a single CRM activity using its unique identifier. Use this endpoint when you need to view or process information about a particular activity rather than a list of activities. It reads the stored activity data without modifying it. Ensure ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-activities-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-activities-list",
+    "description": "Retrieve a list of CRM activities.\n\nFetch a comprehensive list of activities recorded in the CRM system. Use this operation when you need to view or analyze all activities rather than a specific subset or single activity. It reads activity data without modifying any records. This operation does not support filte...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-activities-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-activities-update",
+    "description": "Update an existing CRM activity by modifying its details.\n\nThis operation updates the details of an existing CRM activity, such as its date, duration, associated users, and related entities. Use this endpoint when you need to change information about a specific activity rather than creating a new one or retrieving activity data. It mo...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-companies-create",
+    "description": "Create a new company record in the CRM to store its details and attributes. Use this operation when adding a new company that does not yet exist in the system. It writes company data such as name, owner, financial info, and contact details. Ensure the company ID is unique if p...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-companies-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-companies-delete",
+    "description": "Delete a company by its ID.\n\nThis operation removes a company from the CRM system permanently. Use this endpoint when you need to completely erase a company's record rather than updating or archiving it. Deleting a company will remove all associated data and cannot be undone. Ensure the company ID is vali...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-companies-get",
+    "description": "Retrieve a company by its ID.\n\nFetch detailed information about a specific company using its unique identifier. Use this operation when you need to view or process data for a single company rather than multiple companies. This request reads company data without modifying it. Ensure the provided ID correspon...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-companies-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-companies-list",
+    "description": "Retrieve a list of companies.\n\nFetch a list of companies stored in the CRM system. Use this operation when you need to view or process multiple company records at once. It reads company data without modifying it and supports filtering and pagination through query parameters. This operation is ideal for over...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-companies-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-companies-update",
+    "description": "Update an existing company's details.\n\nModify the information of an existing company in the CRM system. Use this operation when you need to change company attributes such as name, owner, status, or financial details. This updates the stored company record and overwrites the specified fields. Ensure the company ID e...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-contacts-create",
+    "description": "This operation creates a new contact record within the CRM, allowing you to specify details such as name, ownership, type, and associated company or lead. Use this endpoint when adding a new individual or entity to your contact database, rather than updating existing contacts ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-contacts-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-contacts-delete",
+    "description": "This operation removes a contact from the CRM system using its unique identifier. Use this to permanently delete contacts that are no longer needed or relevant. Deleting a contact will remove all associated data and cannot be undone. Ensure that the contact ID exists before at...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-contacts-get",
+    "description": "Retrieve a contact by its unique identifier.\n\nThis operation fetches the details of a specific contact using its unique ID. Use this when you need to view or process information about a single contact rather than multiple contacts. It reads the contact data stored in the system without modifying it. Ensure the contact ID ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-contacts-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-contacts-list",
+    "description": "Retrieve a list of all contacts.\n\nFetches a complete list of contacts stored in the CRM system. Use this operation when you need to view or process multiple contacts at once, unlike single contact retrieval endpoints. It reads contact data without modifying it and may return large datasets depending on the num...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-contacts-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-contacts-update",
+    "description": "Update an existing contact's details in the CRM.\n\nThis operation modifies the information of a specified contact within the CRM system. Use this endpoint when you need to change any contact attributes such as name, type, ownership, or associated company details. It updates the stored data for the contact identified by the giv...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-object-schemas-create",
+    "description": "Creates a new custom object schema to define a structured data model for CRM custom objects. Use this operation when you need to add a new schema rather than modifying existing ones. It writes the schema definition including fields, visibility, and status, enabling custom data...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-custom-object-schemas-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-object-schemas-delete",
+    "description": "This operation deletes a specified custom object schema from the CRM system. Use this when you need to permanently remove a custom object schema that is no longer needed. Deleting the schema will remove its definition and may affect any data or integrations relying on it. Ensu...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-object-schemas-get",
+    "description": "Retrieve a custom object schema by its ID.\n\nThis operation fetches the details of a specific custom object schema using its unique identifier. Use this endpoint when you need to view the structure and metadata of a particular custom object schema in your CRM. It reads the schema data without modifying it. Ensure the pro...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-custom-object-schemas-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-object-schemas-list",
+    "description": "Retrieve a list of all custom object schemas.\n\nFetches all custom object schemas defined in the CRM system. Use this operation when you need to view or manage the structure of custom objects rather than individual records. It reads the schema definitions without modifying any data. This operation does not support filtering...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-custom-object-schemas-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-custom-object-schemas-update",
+    "description": "Update a custom object schema by modifying its properties.\n\nThis operation updates an existing custom object schema, allowing you to change its name, description, fields, visibility, and activation status. Use this endpoint when you need to modify the structure or metadata of a custom object schema rather than creating a new one. It wr...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-objects-create",
+    "description": "Create a new custom object in the CRM system.\n\nThis operation creates a new custom object within the CRM, allowing you to define unique data structures tailored to your business needs. Use this endpoint when you need to add a custom object rather than modifying existing ones or using standard CRM objects. It writes the cus...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-custom-objects-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-objects-delete",
+    "description": "Delete a specific custom object by its ID.\n\nDeletes a custom object identified by its unique ID within the specified object type. Use this operation when you need to permanently remove a single custom object from the CRM system. This action cannot be undone and will remove all data associated with that object. Ensure th...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-objects-get",
+    "description": "Retrieve a specific custom object by its ID.\n\nFetches the details of a single custom object identified by its unique ID within a specified object type. Use this operation when you need to access the data of one particular custom object rather than multiple objects or object metadata. It reads the stored data for that obje...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-custom-objects-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-custom-objects-list",
+    "description": "Retrieve a list of custom objects.\n\nFetches all custom objects associated with the specified object ID. Use this operation when you need to view or manage the collection of custom objects rather than individual entries. It reads the current state of custom objects without modifying any data. Ensure the object ID...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-custom-objects-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-custom-objects-update",
+    "description": "Update a custom object by modifying its properties.\n\nThis operation updates an existing custom object with new values for its properties. Use this endpoint when you need to change details of a specific custom object rather than creating a new one or retrieving data. It modifies the stored data for the object, including fields an...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-leads-create",
+    "description": "This operation creates a new lead record in the CRM, allowing you to capture potential customer information. Use this endpoint when you need to add fresh lead data rather than updating existing leads. It writes lead details such as contact info, company association, and source...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-leads-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-leads-delete",
+    "description": "Deletes a lead from the CRM system using its unique identifier. Use this operation when you need to permanently remove a lead and no longer require its data. This action cannot be undone and will remove all associated information for the lead. Ensure the lead ID is correct to ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-leads-get",
+    "description": "Retrieve a lead by its unique identifier.\n\nFetch detailed information about a specific lead using its unique ID. Use this operation when you need to view or process data for a single lead rather than multiple leads. It reads the lead's stored data without modifying it. Ensure the lead ID exists to avoid errors.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-leads-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-leads-list",
+    "description": "Retrieve a list of leads.\n\nFetches a collection of leads from the CRM system. Use this operation when you need to view or process multiple leads at once. It reads lead data without modifying any records. This operation does not support filtering or pagination parameters in the current specification.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-leads-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-leads-update",
+    "description": "Update an existing lead with new information.\n\nThis operation modifies the details of an existing lead in the CRM system. Use it when you need to change lead attributes such as name, company, owner, or description. It updates the stored lead data directly and does not create new leads. Ensure the lead ID exists before atte...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-notes-create",
+    "description": "Create a new note linked to CRM entities.\n\nCreate a new note within the CRM system to record information related to contacts, companies, opportunities, activities, or leads. Use this operation when you need to add detailed notes that are associated with one or more CRM records. The note can include a title, content, ow...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-notes-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-notes-delete",
+    "description": "This operation deletes a specific note identified by its ID. Use this when you need to permanently remove a note from the CRM system. Deleting a note cannot be undone and will remove all associated data for that note. Ensure the note ID exists before attempting deletion to avo...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-notes-get",
+    "description": "Retrieve a specific CRM note by its ID.\n\nThis operation fetches the details of a single CRM note identified by its unique ID. Use this when you need to view or process the content of a particular note within the CRM system. It reads the stored note data without modifying it. Ensure the note ID exists to avoid errors.\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-notes-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-notes-list",
+    "description": "Retrieve a list of all CRM notes.\n\nFetches all notes stored within the CRM system. Use this operation when you need to view or process multiple notes at once, unlike single note retrieval or creation endpoints. It reads existing note data without modifying it. There are no special constraints beyond standard ac...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-notes-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-notes-update",
+    "description": "Update an existing CRM note by modifying its details.\n\nThis operation updates the details of an existing note within the CRM system. Use this endpoint when you need to change the content, associations, or status of a note rather than creating a new one. It modifies stored note data such as title, content, ownership, and linked ent...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-opportunities-create",
+    "description": "Create a new sales opportunity record in the CRM system to track potential deals. Use this operation when you need to add a fresh opportunity with details like title, contact, monetary amount, and expected close date. This action writes a new opportunity entry and may affect s...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-opportunities-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-opportunities-delete",
+    "description": "Delete an opportunity by its ID.\n\nThis operation removes an opportunity from the CRM system permanently. Use this when you need to eliminate an opportunity that is no longer relevant or was created in error. Deleting an opportunity will remove all associated data and cannot be undone. Ensure that the opportuni...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-opportunities-get",
+    "description": "Retrieve a specific opportunity by its ID.\n\nFetch the details of a single opportunity using its unique identifier. Use this operation when you need to view or process information about one particular opportunity rather than a list. It reads the opportunity data without modifying it. Ensure the provided ID corresponds to...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-opportunities-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-opportunities-list",
+    "description": "Retrieve a list of all opportunities.\n\nFetches a comprehensive list of all opportunities within the CRM system. Use this operation when you need to view or analyze existing opportunities rather than creating or updating them. It reads the current state of opportunities without modifying any data. This operation doe...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-opportunities-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-opportunities-update",
+    "description": "Update an existing opportunity with new details.\n\nUpdate an existing opportunity to modify its attributes such as title, contact, monetary amount, probability, and close date. Use this operation when you need to change specific fields of an opportunity without creating a new record. It writes updated data to the opportunity r...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-pipelines-create",
+    "description": "Create a new CRM pipeline with specified details.\n\nThis operation creates a new pipeline in the CRM system, allowing you to define its stages, currency, and other attributes. Use this when you need to add a new sales or process pipeline rather than modifying existing ones. It writes the pipeline data including stages and confi...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-pipelines-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-pipelines-delete",
+    "description": "This operation removes a specified CRM pipeline from the system. Use this tool when you need to permanently delete a pipeline that is no longer needed or relevant. Deleting a pipeline will remove all associated data and cannot be undone. Ensure that the pipeline is not in acti...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-pipelines-get",
+    "description": "Retrieve a specific CRM pipeline by its ID.\n\nThis operation fetches the details of a single CRM pipeline identified by its unique ID. Use this endpoint when you need to view or manage the configuration of a particular pipeline rather than listing all pipelines. It reads pipeline data without modifying it and requires a v...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-pipelines-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-pipelines-list",
+    "description": "Retrieve all CRM pipelines.\n\nFetches a list of all pipelines within the CRM system. Use this operation when you need an overview of all available pipelines for managing sales or project workflows. It reads pipeline data without modifying any records. This operation does not support filtering or pagination...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-pipelines-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-pipelines-update",
+    "description": "Update an existing CRM pipeline with new details.\n\nModify the properties of an existing CRM pipeline, such as its name, currency, stages, and status flags. Use this operation when you need to change pipeline configuration or update its metadata, rather than creating a new pipeline or deleting one. It writes updated pipeline da...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-users-create",
+    "description": "Create a new CRM user with specified details.\n\nThis operation creates a new user in the CRM system with the provided information such as name, title, department, and company details. Use this endpoint when you need to add a user record rather than update or delete one. It writes user data to the CRM database and may affect...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `crm-users-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-users-delete",
+    "description": "Delete a user by their ID.\n\nThis operation removes a user from the CRM system permanently. Use this when you need to revoke access or remove user data that is no longer needed. Deleting a user will erase their associated information and cannot be undone. Ensure that deleting the user does not violate any...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-users-get",
+    "description": "Retrieve a user by ID.\n\nFetch detailed information about a specific user using their unique identifier. Use this operation when you need to view or verify user details individually rather than listing multiple users. This request reads user data without modifying it. Ensure the user ID exists to avoi...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `crm-users-list`.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "crm-users-list",
+    "description": "Retrieve a list of all CRM users.\n\nFetches a complete list of users within the CRM system. Use this operation when you need to view or manage all users rather than a specific user. It reads user data without modifying it and does not support filtering or pagination. This is ideal for obtaining an overview of al...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `crm-users-get` instead.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "crm-users-update",
+    "description": "This operation updates the details of an existing user in the CRM system. Use this endpoint when you need to modify user attributes such as name, title, department, or other profile information. It overwrites the specified fields with the provided data while preserving unspeci...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `crm` connection on the consumer. If the consumer has multiple `crm` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "ecommerce-customers-get",
+    "description": "Retrieve a customer's details by their ID.\n\nThis operation fetches detailed information about a specific customer using their unique identifier. Use this endpoint when you need to view or verify customer data individually rather than in bulk. It reads customer records without modifying any data. Ensure the provided ID c...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-customers-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "ecommerce-customers-list",
+    "description": "Retrieve a list of all customers.\n\nThis operation fetches a complete list of customers in the ecommerce system. Use this endpoint when you need to view or process all customer records rather than individual customer details. It reads customer data but does not modify any records. There are no special constraint...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ecommerce-customers-get` instead.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "ecommerce-orders-get",
+    "description": "Retrieve details of a specific order by its ID.\n\nThis operation fetches the complete information of a single order identified by its unique ID. Use this endpoint when you need to view or verify the details of an existing order. It reads order data without modifying it and returns all relevant order attributes. Ensure the ord...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-orders-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "ecommerce-orders-list",
+    "description": "Retrieve a list of all ecommerce orders.\n\nThis operation fetches a complete list of ecommerce orders. Use it when you need to view or process multiple orders at once, unlike operations that handle single orders. It reads order data without modifying any records. There are no special constraints beyond standard access ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ecommerce-orders-get` instead.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "ecommerce-products-get",
+    "description": "Retrieve detailed information about a specific product by its ID.\n\nThis operation fetches detailed information for a single product identified by its unique ID. Use this endpoint when you need to display or process data for one specific product rather than a list or search results. It reads product details such as name, description, price, an...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-products-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "ecommerce-products-list",
+    "description": "Retrieve a list of all products.\n\nThis operation fetches a complete list of products available in the ecommerce system. Use this endpoint when you need to display or process all products rather than a specific subset. It reads product data without modifying any records. There are no special constraints beyond ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `ecommerce-products-get` instead.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "ecommerce-stores-get",
+    "description": "Retrieve details of a specific ecommerce store.\n\nThis operation fetches detailed information about a single ecommerce store. Use it when you need to view or verify store data, such as name, address, or settings. It reads store data without modifying it and does not have side effects. Ensure the store identifier is correctly ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `ecommerce-stores-list`.\n\nRequires an active `ecommerce` connection on the consumer. If the consumer has multiple `ecommerce` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drive-groups-create",
+    "description": "Create a new DriveGroup with specified attributes.\n\nThis operation creates a new DriveGroup resource with the provided details such as name, display name, description, and custom mappings. Use this endpoint when you need to add a new DriveGroup to organize or manage file storage drives. It writes the DriveGroup data to the syst...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-drive-groups-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drive-groups-delete",
+    "description": "Deletes the specified DriveGroup from the file storage system. Use this operation when you need to permanently remove a DriveGroup and its associations. This action cannot be undone and will remove all references to the DriveGroup. Ensure that the DriveGroup is no longer neede...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drive-groups-get",
+    "description": "Retrieve a DriveGroup by its ID.\n\nThis operation fetches the details of a specific DriveGroup using its unique identifier. Use this endpoint when you need to view or verify the properties of an existing DriveGroup. It reads and returns the current state of the DriveGroup without modifying any data. Ensure the ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-drive-groups-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drive-groups-list",
+    "description": "Retrieve a list of all DriveGroups.\n\nThis operation fetches all DriveGroups available in the file storage system. Use this endpoint when you need to view or manage the collection of DriveGroups rather than individual drives or files. It reads the current state of DriveGroups without modifying any data. There are ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-drive-groups-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "file-storage-drive-groups-update",
+    "description": "Update properties of an existing DriveGroup.\n\nModify the attributes of a specified DriveGroup, such as its name, display name, description, and custom mappings. Use this operation when you need to change metadata or configuration details of a DriveGroup without creating a new one. It updates the stored data for the DriveG...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drives-create",
+    "description": "Create a new file storage drive with specified properties.\n\nThis operation creates a new drive in the file storage system using the provided details such as name, description, and custom mappings. Use this endpoint when you need to add a new storage drive rather than modifying existing ones or retrieving drive information. It writes ne...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-drives-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drives-delete",
+    "description": "Delete a drive by its identifier.\n\nThis operation deletes a specified drive from the file storage system. Use this when you need to permanently remove a drive and its associated data. Deleting a drive is irreversible and will remove all stored files within that drive. Ensure the drive is no longer needed before...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drives-get",
+    "description": "Retrieve detailed information about a specific drive.\n\nThis operation fetches detailed information about a single drive identified by its ID. Use this endpoint when you need to access metadata or status of a particular drive rather than listing multiple drives. It reads the current state of the drive without modifying any data. En...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-drives-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-drives-list",
+    "description": "Retrieve a list of all file storage drives.\n\nThis operation fetches a complete list of all available file storage drives. Use this endpoint when you need to view or manage the drives accessible in the file storage system. It reads the current state of drives without modifying any data. There are no special constraints be...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-drives-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "file-storage-drives-update",
+    "description": "Update properties of a file storage drive by its identifier.\n\nThis operation modifies the attributes of an existing file storage drive, such as its name, description, or custom mappings. Use this endpoint when you need to change drive metadata or configuration details without creating a new drive. It updates the stored data for the speci...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-delete",
+    "description": "This operation deletes a file identified by its ID from the file storage system. Use this when you need to permanently remove a file and free up storage space. It does not return any content upon success. Ensure the file ID exists, as deleting a non-existent file may result in...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-download",
+    "description": "This operation retrieves the contents of a file identified by its unique ID. Use this endpoint when you need to obtain the actual file data for local use or processing. It reads the file data stored in the system and returns it as a downloadable response. Ensure the file ID is...\n\nRead-only; safe to call repeatedly.\n\nReturns binary content as an MCP image/audio block. For metadata only, call `file-storage-files-get`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-export",
+    "description": "This operation exports the contents of a specified file from the file storage system. Use this endpoint when you need to retrieve a file's data for download or transfer. It reads the file data associated with the given ID and returns it in the response. Ensure the file ID exis...\n\nRead-only; safe to call repeatedly.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-get",
+    "description": "Retrieve a file by its unique identifier.\n\nThis operation fetches the file associated with the specified identifier from the file storage system. Use this endpoint when you need to access the contents or metadata of a single file. It reads the stored file data without modifying it. Ensure the file ID exists to avoid er...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-files-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-list",
+    "description": "Retrieve a list of all files in storage.\n\nThis operation fetches a complete list of files stored in the file storage system. Use this endpoint when you need to view or manage all available files rather than accessing individual files. It reads metadata about each file but does not modify any data. There are no special...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-files-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "file-storage-files-search",
+    "description": "Search for files matching a query within a specified drive.\n\nThis operation searches for files based on a query string within a given drive. Use this tool when you need to locate files by name or content criteria in a particular file storage drive. It reads the file metadata and indexes to return matching results. Ensure the drive ident...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse for keyword / filtered lookups when `file-storage-files-list` is too broad.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-update",
+    "description": "Modify the name, description, or parent folder of an existing file to rename or move it within the file storage system. Use this operation when you need to reorganize files or update their metadata without creating new files. This action updates the file's attributes and may a...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-files-upload",
+    "description": "This operation uploads a single file with a maximum size of 100MB to the file storage system. Use this endpoint for smaller files; for files larger than 100MB, use the Upload Sessions API instead. The upload writes the file data to storage and makes it available for subsequent...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nPass binary content as a base64 string, data URL, or `{ data, mimeType }` in `body`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-folders-copy",
+    "description": "This operation copies an existing folder to a new location within the file storage system, optionally assigning it a new name. Use this when you need to duplicate folder contents without affecting the original. It creates a separate copy under the specified parent folder, pres...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-folders-create",
+    "description": "This operation creates a new folder within the file storage system. Use it when you need to organize files by grouping them into folders, optionally specifying a parent folder to nest it. It writes folder metadata such as name, description, and drive association. Ensure the pa...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-folders-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-folders-delete",
+    "description": "This operation deletes a specified folder from the file storage system. Use this when you need to permanently remove a folder and its contents. Deleting a folder may affect any files or subfolders contained within it, so ensure no important data is lost. This action is irrever...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-folders-get",
+    "description": "Retrieve a folder by its ID.\n\nThis operation fetches the details of a specific folder using its unique identifier. Use this endpoint when you need to access metadata or information about a single folder within the file storage system. It reads folder data without modifying any content. Ensure the folder ID...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-folders-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-folders-update",
+    "description": "Modify a folder's name, description, or move it to a different parent folder within the file storage system. Use this operation when you need to rename a folder or reorganize its location in the folder hierarchy. This action updates the folder metadata and may affect folder st...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-shared-links-create",
+    "description": "This operation creates a shared link that provides access to a specified file or folder within the file storage system. Use this endpoint when you want to generate a public or company-restricted link to share content securely, optionally protecting it with a password or settin...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-shared-links-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-shared-links-delete",
+    "description": "This operation removes a shared link from the file storage system. Use this when you want to revoke access previously granted via a shared link. Deleting the link immediately invalidates it, preventing further access to the associated file or resource. This action is irreversi...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-shared-links-get",
+    "description": "Retrieve a shared link by its ID.\n\nThis operation fetches the details of a specific shared link using its unique identifier. Use this endpoint when you need to access or verify the properties of an existing shared link rather than creating or modifying one. It reads the shared link data without altering it. Ens...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-shared-links-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-shared-links-list",
+    "description": "Retrieve a list of all shared links.\n\nThis operation fetches all shared links available in the file storage system. Use this to view or manage existing shared links rather than creating or deleting them. It reads the current shared link records without modifying any data. There are no special constraints beyond st...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `file-storage-shared-links-get` instead.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "file-storage-shared-links-update",
+    "description": "Update a shared link's settings and access controls.\n\nThis operation modifies the properties of an existing shared link, such as its URL, access scope, password protection, and expiration. Use this endpoint when you need to change how a shared link is configured without creating a new one. It updates the link's metadata and acces...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-upload-sessions-create",
+    "description": "Start a new upload session for large file transfers.\n\nThis operation initiates an upload session to facilitate uploading large files that exceed 100MB. Use this endpoint instead of the standard file upload endpoint, which is intended for smaller files. The session allows chunked or segmented uploads to the specified drive and fol...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `file-storage-upload-sessions-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-upload-sessions-delete",
+    "description": "Abort an active file upload session.\n\nThis operation aborts an ongoing file upload session, terminating the upload process immediately. Use this when you need to cancel an upload in progress, such as when the upload is no longer needed or an error occurs. It stops any further data transfer and releases associated ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-upload-sessions-finish",
+    "description": "This operation finalizes an upload session once all parts of a file have been successfully uploaded using the corresponding upload parts endpoint. Use this endpoint to signal that the file upload is complete and ready for processing or storage. It writes the final state of the...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-upload-sessions-get",
+    "description": "Retrieve details of a specific upload session.\n\nThis operation fetches the details of an existing upload session, including the recommended part size for splitting files. Use this endpoint to obtain session information before uploading file parts via the upload part endpoint. It is intended for managing multipart file uploa...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `file-storage-upload-sessions-list`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "file-storage-upload-sessions-upload",
+    "description": "Upload a file part to an existing upload session.\n\nThis operation uploads a segment of a file to a specified upload session, with each part limited to a maximum size of 100MB. Use this endpoint when you need to upload large files in parts, ensuring each part (except the last) matches the expected part size obtained from the up...\n\nReplaces the target record. Omitted fields may be cleared depending on the connector.\n\nPass binary content as a base64 string, data URL, or `{ data, mimeType }` in `body`.\n\nRequires an active `file` connection on the consumer. If the consumer has multiple `file` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-companies-create",
+    "description": "Create a new company record in the HRIS system.\n\nThis operation creates a new company entry within the HRIS platform. Use this endpoint when you need to add a company with details such as legal name, display name, status, and contact information. It writes the provided company data to the system, establishing a new company p...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-companies-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-companies-delete",
+    "description": "This operation deletes a company record from the system using its unique identifier. Use this endpoint when you need to permanently remove a company and its associated data. Deleting a company is irreversible and may affect related records or integrations that depend on this c...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-companies-get",
+    "description": "Retrieve detailed information about a specific company.\n\nThis operation fetches detailed information about a single company identified by its ID. Use this endpoint when you need to view or verify company details within the HRIS system. It reads company data without modifying it and returns the current state of the company's informat...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-companies-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-companies-list",
+    "description": "Retrieve a list of all companies in the HRIS system.\n\nFetches a complete list of companies managed within the HRIS platform. Use this operation when you need to view or process all company records rather than individual entries. It reads company data without modifying any records. This operation does not support filtering or pagi...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-companies-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "hris-companies-update",
+    "description": "Update an existing company's details.\n\nModify the information of an existing company in the system using this operation. Use this endpoint when you need to change company attributes such as name, status, contact details, or currency. It updates the stored company record with the provided data, affecting how the com...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-departments-create",
+    "description": "This operation creates a new department within the HRIS system, allowing you to define its name, code, description, and hierarchical parent if applicable. Use this endpoint when adding organizational units to reflect company structure. It writes department data including custo...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-departments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-departments-delete",
+    "description": "This operation removes a department from the HRIS system using its unique identifier. Use this endpoint when you need to permanently delete a department record, unlike updating or retrieving department details. Deleting a department may affect related employee or organizationa...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-departments-get",
+    "description": "Retrieve a specific department by its ID.\n\nThis operation fetches detailed information about a single department using its unique identifier. Use this endpoint when you need to view or verify data for one department rather than a list of departments. It reads department data without modifying it and requires a valid de...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-departments-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-departments-list",
+    "description": "Retrieve a list of all departments in the HRIS system.\n\nThis operation fetches a complete list of departments within the HRIS system. Use this endpoint when you need to view or process all department records rather than a specific one. It reads department data without modifying any records. There are no special constraints beyond s...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-departments-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "hris-departments-update",
+    "description": "Update an existing department's details.\n\nThis operation modifies the attributes of an existing department within the HRIS system. Use this endpoint when you need to change department information such as its name, code, description, or hierarchical parent. It updates the stored data for the specified department and ma...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employee-payrolls-get",
+    "description": "Retrieve a specific payroll record for an employee.\n\nThis operation fetches the payroll details for a given employee identified by their employee ID and payroll ID. Use this endpoint when you need to view or verify a particular payroll entry rather than a list of payrolls. It reads payroll data associated with the specified empl...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-employee-payrolls-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employee-payrolls-list",
+    "description": "Retrieve all payroll records for a specific employee.\n\nFetches the complete list of payroll entries associated with a given employee. Use this operation when you need to review or analyze all payroll data for an individual employee. It reads payroll information without modifying any data. Ensure the employee identifier is valid to...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-employee-payrolls-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employee-schedules-list",
+    "description": "Retrieve all work schedules for a specific employee.\n\nThis operation fetches all defined work schedules associated with a given employee, representing their planned work patterns rather than actual hours worked. Use this endpoint when you need to view or manage an employee's scheduled work patterns, distinct from time tracking or...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-employee-schedules-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employees-create",
+    "description": "This operation creates a new employee record with the provided personal and employment details. Use this endpoint when you need to register a new employee in the HR system rather than updating existing records. It writes employee data such as names, titles, and identifiers to ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-employees-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employees-delete",
+    "description": "Delete an employee by their ID.\n\nThis operation removes an employee record from the system permanently. Use this endpoint when you need to completely erase an employee's data rather than just deactivate or archive it. Deleting an employee will remove all associated information and cannot be undone, so ensure ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employees-get",
+    "description": "Retrieve detailed information about a specific employee.\n\nThis operation fetches comprehensive data for a single employee identified by their unique ID. Use this endpoint when you need to view or verify individual employee details rather than bulk employee data. It reads employee records from the HRIS database without modifying any d...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-employees-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-employees-list",
+    "description": "Retrieve a list of employees from the HRIS system.\n\nThis operation fetches a partial list of employee records from the HRIS system, providing a subset of employee data due to typical API limitations. Use this endpoint to obtain an overview of employees rather than full details. For complete employee information, use the employe...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-employees-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "hris-employees-update",
+    "description": "Update an existing employee's details in the HRIS system.\n\nThis operation modifies the information of a specific employee in the HRIS database. Use this endpoint when you need to change employee attributes such as name, title, or marital status, rather than creating a new employee record. It updates the stored data for the employee id...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-payrolls-get",
+    "description": "Retrieve detailed information about a specific payroll.\n\nThis operation fetches detailed information for a single payroll identified by its ID. Use this endpoint when you need to view or verify payroll details for a particular payroll instance. It reads payroll data without modifying it and is useful for auditing or reporting purpos...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-payrolls-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-payrolls-list",
+    "description": "Retrieve a list of all payroll records.\n\nFetches all payroll records available in the system. Use this operation to obtain a comprehensive overview of payroll data rather than individual payroll details or updates. It reads payroll information without modifying any data. This operation does not support filtering or p...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-payrolls-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-time-off-requests-create",
+    "description": "This operation creates a time off request record for an specified employee under a given policy. Use this endpoint when you need to submit a new request for vacation, sick leave, personal time, or other types of absence. It writes the request details including dates, type, sta...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `hris-time-off-requests-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-time-off-requests-delete",
+    "description": "Delete a specific time off request for an employee.\n\nThis operation deletes a particular time off request associated with an employee. Use this endpoint when you need to remove an existing time off request from the system. Deleting the request permanently removes its record and cannot be undone. Ensure the request ID corresponds...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-time-off-requests-get",
+    "description": "Retrieve a specific time off request for an employee.\n\nFetch detailed information about a single time off request associated with a particular employee. Use this operation when you need to view or verify the details of an individual time off request rather than a list of requests. It reads the stored data for the specified request...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `hris-time-off-requests-list`.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "hris-time-off-requests-list",
+    "description": "Retrieve a list of all time off requests.\n\nFetches all time off requests recorded in the system. Use this operation to view or manage employee leave data comprehensively. It reads existing time off request records without modifying any data. This endpoint is ideal when you need a full overview rather than details of a ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `hris-time-off-requests-get` instead.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "hris-time-off-requests-update",
+    "description": "Modify details of a specific time off request for an employee, such as dates, status, or type. Use this operation when you need to change an existing request rather than creating a new one or retrieving information. It updates the stored data for the request, affecting how the...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `hris` connection on the consumer. If the consumer has multiple `hris` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-tags-list",
+    "description": "Retrieve all tags for a specific issue tracking collection.\n\nFetches the complete list of tags associated with a given issue tracking collection. Use this operation when you need to view or manage tags within a particular collection, as opposed to tags across multiple collections. This operation reads tag data without modifying it. Ensu...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-tags-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "issue-tracking-collection-ticket-comments-create",
+    "description": "Add a comment to a specific ticket in an issue tracking collection.\n\nThis operation creates a new comment on a specified ticket within an issue tracking collection. Use this endpoint when you want to append additional information or discussion to an existing ticket. It writes the comment data, including content and metadata, to the ticket's com...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `issue-tracking-collection-ticket-comments-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-ticket-comments-delete",
+    "description": "Delete a specific comment from a ticket in an issue tracking collection.\n\nThis operation removes a single comment identified by its ID from a specified ticket within an issue tracking collection. Use this endpoint when you need to permanently delete a comment rather than editing or hiding it. Deleting a comment is irreversible and will remove it fro...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-ticket-comments-get",
+    "description": "Retrieve a specific comment from a ticket in an issue tracking collection.\n\nThis operation fetches the details of a single comment identified by its ID within a specified ticket and collection. Use this when you need to view or process the content of an individual comment rather than a list of comments. It reads the comment data without modifying it a...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collection-ticket-comments-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "issue-tracking-collection-ticket-comments-list",
+    "description": "Retrieve all comments for a specific ticket in a collection.\n\nFetches the complete list of comments associated with a given ticket within a specified collection. Use this operation when you need to view the discussion or notes related to a particular ticket. It reads all existing comments but does not modify any data. Ensure the collecti...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-ticket-comments-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "issue-tracking-collection-ticket-comments-update",
+    "description": "This operation updates the content or metadata of an existing comment on a specific ticket in an issue tracking collection. Use this endpoint when you need to modify comment details such as the body text or custom mappings, rather than creating a new comment or deleting one. I...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-tickets-create",
+    "description": "Create a new ticket in a specified issue tracking collection.\n\nThis operation creates a new ticket within a given issue tracking collection. Use this endpoint when you need to add a ticket to organize and track issues related to a specific collection. It writes ticket details such as subject, description, status, priority, and assignees t...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `issue-tracking-collection-tickets-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-tickets-delete",
+    "description": "Delete a specific ticket from an issue tracking collection.\n\nThis operation removes a ticket identified by its ID from a specified issue tracking collection. Use this endpoint when you need to permanently delete a ticket rather than updating or closing it. Deleting a ticket will remove all associated data and cannot be undone. Ensure th...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-tickets-get",
+    "description": "Retrieve a specific ticket from a collection.\n\nThis operation fetches the details of a single ticket within a specified collection. Use this endpoint when you need to view or process information about one particular ticket rather than multiple tickets. It reads the ticket data without modifying it and requires valid collec...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collection-tickets-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-tickets-list",
+    "description": "Retrieve all tickets for a specific collection.\n\nFetches a list of all tickets associated with the specified collection. Use this operation when you need to view or manage all tickets within a particular collection. It reads ticket data linked to the collection but does not modify any information. Ensure the collection ID is...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-tickets-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "issue-tracking-collection-tickets-update",
+    "description": "Update a ticket's details within a collection.\n\nModify the attributes of an existing ticket in a specified collection, such as its subject, description, status, priority, and assignees. Use this operation when you need to change ticket information without creating a new ticket or deleting the existing one. It updates the st...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-users-get",
+    "description": "Retrieve a specific user from an issue tracking collection.\n\nThis operation fetches the details of a single user within a specified issue tracking collection. Use this endpoint when you need to access information about a particular user rather than a list of users. It reads user data associated with the given collection and user identif...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collection-users-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collection-users-list",
+    "description": "Retrieve all users associated with a specific issue tracking collection.\n\nThis operation fetches the complete list of users linked to a given issue tracking collection. Use this endpoint when you need to view or manage users within a particular collection, rather than users across all collections. It reads user data related to the specified collecti...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collection-users-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "issue-tracking-collections-get",
+    "description": "Retrieve a specific issue tracking collection by its ID.\n\nThis operation fetches the details of a single issue tracking collection identified by its unique ID. Use this endpoint when you need to view or manage the contents of a particular collection rather than listing all collections. It reads the collection data without modifying i...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `issue-tracking-collections-list`.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "issue-tracking-collections-list",
+    "description": "Retrieve a list of all issue tracking collections.\n\nFetches all existing issue tracking collections available in the system. Use this operation when you need an overview of all collections rather than details of a specific one. It reads the current state of collections without modifying any data. There are no special constraint...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `issue-tracking-collections-get` instead.\n\nRequires an active `issue` connection on the consumer. If the consumer has multiple `issue` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
     "name": "proxy-delete",
-    "description": "DELETE\n\nProxies a downstream DELETE request to a service and injects the necessary credentials into a request stored in Vault. This allows you to have an additional security layer and logging without needing to rely on Unify for normalization.\n**Note**: Vault will proxy all data to the downstream URL and method/verb in the headers.\n"
+    "description": "Delete a resource by proxying a downstream DELETE request with injected credentials.\n\nThis operation proxies a DELETE request to a downstream service while injecting credentials stored in Vault to ensure secure access. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It forwards all data to th...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes."
   },
   {
-    "name": "vault-consumers-create",
-    "description": "Create consumer\n\nCreate a consumer"
+    "name": "proxy-get",
+    "description": "Proxy a downstream GET request with injected credentials for secure access.\n\nThis operation forwards a GET request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need an additional security layer and logging without relying on Unify for normalization. It reads credentials from Vault and includ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `proxy-list`.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes."
   },
   {
-    "name": "vault-consumers-list",
-    "description": "Get all consumers\n\nThis endpoint includes all application consumers, along with an aggregated count of requests made.\n"
+    "name": "proxy-options",
+    "description": "Forward OPTIONS requests to a downstream service with injected credentials.\n\nThis operation forwards an OPTIONS HTTP request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need to add a security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream U...\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes."
   },
   {
-    "name": "vault-consumers-get",
-    "description": "Get consumer\n\nConsumer detail including their aggregated counts with the connections they have authorized.\n"
+    "name": "proxy-patch",
+    "description": "Proxy a PATCH request to a downstream service with injected credentials.\n\nThis operation forwards a PATCH request to a downstream service while injecting necessary credentials stored in Vault. Use this when you want to add an extra security layer and logging without relying on Unify for request normalization. It proxies all data to the downstream UR...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes."
   },
   {
-    "name": "vault-consumers-update",
-    "description": "Update consumer\n\nUpdate consumer metadata such as name and email."
+    "name": "proxy-post",
+    "description": "Proxy a downstream POST request with injected credentials for secure forwarding.\n\nThis operation forwards a POST request to a downstream service while injecting credentials stored in Vault to enhance security. Use this when you need to add an extra security layer and logging without relying on Unify for data normalization. It forwards all data to the downst...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes."
   },
   {
-    "name": "vault-consumers-delete",
-    "description": "Delete consumer\n\nDelete consumer and all their connections, including credentials."
-  },
-  {
-    "name": "vault-consumer-request-counts-list",
-    "description": "Consumer request counts\n\nGet consumer request counts within a given datetime range.\n"
-  },
-  {
-    "name": "vault-connections-list",
-    "description": "Get all connections\n\nThis endpoint includes all the configured integrations and contains the required assets\nto build an integrations page where your users can install integrations.\nOAuth2 supported integrations will contain authorize and revoke links to handle the authentication flows.\n"
-  },
-  {
-    "name": "vault-connections-get",
-    "description": "Get connection\n\nGet a connection"
-  },
-  {
-    "name": "vault-connections-update",
-    "description": "Update connection\n\nUpdate a connection"
-  },
-  {
-    "name": "vault-connections-delete",
-    "description": "Deletes a connection\n\nDeletes a connection"
-  },
-  {
-    "name": "vault-connections-imports",
-    "description": "Import connection\n\nImport an authorized connection.\n"
-  },
-  {
-    "name": "vault-connections-token",
-    "description": "Authorize Access Token\n\nTriggers exchanging persisted connection credentials for an access token and store it in Vault. Currently supported for connections with the `client_credentials` or `password` OAuth grant type.\n\nNote:\n  - Do not include any credentials in the request body. This operation does not persist changes, but only triggers the exchange of persisted connection credentials for an access token.\n  - The access token will not be returned in the response. A 200 response code indicates the authorization was successful and that a valid access token was stored on the connection.\n  - The access token will be used for subsequent API requests.\n"
-  },
-  {
-    "name": "vault-validate-connection-state",
-    "description": "Validate Connection State\n\nThis endpoint validates the current state of a given connection. This will perform different checks based on the connection auth type. For basic and apiKey auth types, the presence of required fields is checked.\nFor connectors that implement OAuth2, this operation forces the refresh flow for an access token regardless of its expiry.\n\nNote:\n  - Do not include any credentials in the request body. This operation does not persist changes, but only triggers the validation of connection state.\n  - If a refresh token flow was performed and successful, the new access token will then be used for subsequent API requests.\n"
-  },
-  {
-    "name": "vault-connection-consents-list",
-    "description": "Get consent records\n\nGet all consent records for a connection"
+    "name": "proxy-put",
+    "description": "Proxy a downstream PUT request with injected credentials for secure forwarding.\n\nThis operation forwards a PUT request to a downstream service while injecting necessary credentials stored in Vault. Use this when you need an additional security layer and logging without relying on Unify for request normalization. It securely proxies all data to the downstre...\n\nReplaces the target record. Omitted fields may be cleared depending on the connector.\n\nPasses the request through to the underlying SaaS without unified-API transformation. Requires an active connection on the consumer; pass `x-apideck-service-id` to pick the target service. Use when the unified API doesn't yet cover a needed endpoint. Responses are raw connector-native shapes."
   },
   {
     "name": "vault-connection-consent-update",
-    "description": "Update consent state\n\nUpdate the consent state of a connection"
+    "description": "This operation updates the consent status for a specified vault connection, indicating whether access is granted or revoked. Use this endpoint when you need to change the user's permission state for a connection managed within the vault. It modifies the consent data associated...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "vault-create-callback-state",
-    "description": "Create Callback State\n\nThis endpoint creates a callback state that can be used to issue requests to the callback endpoint.\n"
-  },
-  {
-    "name": "vault-connection-settings-list",
-    "description": "Get resource settings\n\nThis endpoint returns custom settings and their defaults required by connection for a given resource.\n"
-  },
-  {
-    "name": "vault-connection-settings-update",
-    "description": "Update settings\n\nUpdate default values for a connection's resource settings"
-  },
-  {
-    "name": "vault-custom-fields-list",
-    "description": "Get resource custom fields\n\nThis endpoint returns an custom fields on a connection resource.\n"
+    "name": "vault-connection-consents-list",
+    "description": "Retrieve all consent records for a specific connection.\n\nThis operation fetches all consent records associated with a given connection identified by unified API and service ID. Use this endpoint when you need to review or audit all consents granted for a particular connection. It reads consent data without modifying any records. Ens...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-consents-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "vault-connection-custom-mappings-list",
-    "description": "List connection custom mappings\n\nThis endpoint returns a list of custom mappings for a connection."
+    "description": "Retrieve all custom mappings for a specific connection.\n\nThis operation fetches the complete list of custom mappings associated with a given connection. Use this endpoint when you need to view or audit the custom mappings configured for a particular unified API, service, and resource combination. It reads the stored mapping configur...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-custom-mappings-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connection-settings-list",
+    "description": "Retrieve custom and default connection settings for a specific resource.\n\nThis operation fetches the custom configuration settings along with their default values required for a connection to a specified resource. Use this endpoint when you need to understand or modify the connection parameters for a particular resource within a service. It reads th...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connection-settings-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connection-settings-update",
+    "description": "Update default settings for a connection's resource.\n\nThis operation modifies the default configuration values for a specific resource within a connection. Use it when you need to change connection parameters such as authentication type, state, or status without creating a new connection. It updates stored settings that affect ho...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connections-delete",
+    "description": "This operation removes a specified connection from the vault. Use this when you need to permanently delete a connection and no longer require access to its stored credentials or configuration. Deleting a connection is irreversible and will remove all associated data for that c...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connections-get",
+    "description": "Retrieve a specific connection by unified API and service ID.\n\nThis operation fetches the details of a single connection identified by the unified API and service ID. Use this endpoint when you need to access information about a particular connection rather than a list of connections. It reads the stored connection data without modifying ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-connections-list`.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connections-imports",
+    "description": "This operation imports an authorized connection for a specified service into the vault. Use this when you need to add existing credentials and settings to manage connections centrally. It writes the provided credentials, settings, and metadata into the vault, enabling secure s...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connections-list",
+    "description": "Retrieve all configured integration connections.\n\nThis operation fetches all configured integration connections available in the vault. Use this endpoint to obtain the complete list of integrations for building an integrations page where users can install them. OAuth2-supported integrations include authorize and revoke links ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-connections-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connections-token",
+    "description": "Exchange stored credentials for an access token and save it in Vault.\n\nThis operation exchanges persisted connection credentials for an access token and stores it securely in Vault. Use this when you need to authorize a connection that uses the client_credentials or password OAuth grant type without sending credentials in the request. It does not...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-connections-update",
+    "description": "Update an existing connection's details and configuration.\n\nThis operation modifies the properties of an existing connection, such as its state, authentication type, status, and other metadata. Use this endpoint when you need to change connection settings without creating a new connection. It updates stored connection data and may affe...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-consumer-request-counts-list",
+    "description": "Retrieve request counts for a consumer within a datetime range.\n\nThis operation fetches the number of requests made by a specific consumer over a specified datetime range. Use this endpoint when you need aggregated request statistics for monitoring or analysis purposes. It reads historical request data associated with the consumer but does ...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumer-request-counts-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-consumers-create",
+    "description": "This operation creates a new consumer entity within the vault system. Use this endpoint when you need to register a consumer with specific metadata for identification or access purposes. It writes the consumer data to the vault, making it available for subsequent operations in...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-consumers-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-consumers-delete",
+    "description": "Delete a consumer and all associated connections.\n\nThis operation removes a specified consumer along with all their connections and credentials. Use this when you need to completely revoke a consumer's access and remove their related data from the system. Deleting a consumer is irreversible and will eliminate all credentials t...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-consumers-get",
+    "description": "Retrieve detailed information about a specific consumer.\n\nThis operation fetches detailed information about a consumer, including aggregated counts related to the connections they have authorized. Use this endpoint when you need to view a consumer's profile and their associated connection statistics. It reads data about the consumer ...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `vault-consumers-list`.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-consumers-list",
+    "description": "Retrieve all application consumers with their request counts.\n\nFetches a list of all application consumers registered in the vault, including an aggregated count of requests each has made. Use this endpoint when you need a comprehensive overview of consumer activity and usage statistics. It reads existing consumer data and their request m...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-consumers-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "vault-consumers-update",
+    "description": "Update a consumer's metadata including name and email.\n\nThis operation updates the metadata of an existing consumer, such as their name and email address. Use this endpoint when you need to modify consumer details without affecting other consumer attributes. It writes changes directly to the consumer's stored metadata. Ensure the c...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-create-callback-state",
+    "description": "Create a callback state for issuing requests to a callback endpoint.\n\nThis operation creates a callback state that enables secure interactions with a callback endpoint. Use this endpoint when you need to establish a state token to manage callback requests within the vault connections. It writes a new callback state associated with the specified ...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "vault-custom-fields-list",
+    "description": "Retrieve custom fields for a connection resource.\n\nThis operation fetches all custom fields associated with a specified connection resource. Use this endpoint when you need to view or manage metadata fields that are uniquely defined for a resource within a vault connection. It reads the current custom field configurations with...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-fields-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "vault-custom-mappings-list",
-    "description": "List custom mappings\n\nThis endpoint returns a list of custom mappings."
-  },
-  {
-    "name": "vault-sessions-create",
-    "description": "Create Session\n\nMaking a POST request to this endpoint will initiate a Hosted Vault session. Redirect the consumer to the returned\nURL to allow temporary access to manage their integrations and settings.\n\nNote: This is a short lived token that will expire after 1 hour (TTL: 3600).\n"
+    "description": "Retrieve all custom mappings for a specified unified API and service.\n\nThis operation fetches a list of all custom mappings associated with a given unified API and service identifier. Use this endpoint when you need to view or manage the custom mappings configured for a particular service within the vault. It reads the stored mapping data without...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-custom-mappings-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "vault-logs-list",
-    "description": "Get all consumer request logs\n\nThis endpoint includes all consumer request logs.\n"
+    "description": "Retrieve all consumer request logs from the vault.\n\nThis operation fetches all consumer request logs stored in the vault. Use this endpoint when you need a comprehensive view of all logged consumer requests, unlike more specific log retrieval endpoints that filter by criteria. It reads all available log entries without modifyin...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `vault-logs-get` instead.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
   },
   {
-    "name": "webhook-webhooks-list",
-    "description": "List webhook subscriptions\n\nList all webhook subscriptions"
+    "name": "vault-sessions-create",
+    "description": "Create a temporary Hosted Vault session for managing integrations and settings.\n\nThis operation initiates a Hosted Vault session by generating a short-lived token and a URL for access. Use this endpoint when you need to grant a consumer temporary access to manage their integrations and settings through the Vault interface. The session token expires after o...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `vault-sessions-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
-    "name": "webhook-webhooks-create",
-    "description": "Create webhook subscription\n\nCreate a webhook subscription to receive events.\n\n**Delivery URL Validation**: The provided `delivery_url` will be validated synchronously by sending an HTTP POST request with an HMAC signature. If validation fails (network error, timeout, non-2xx response), the webhook will still be created but with `status: \"disabled\"` and `disabled_reason: \"delivery_url_validation_failed\"`.\n\n**Important**: Always check the `status` and `disabled_reason` fields in the response to ensure the webhook is active.\n"
-  },
-  {
-    "name": "webhook-webhooks-get",
-    "description": "Get webhook subscription\n\nGet the webhook subscription details"
-  },
-  {
-    "name": "webhook-webhooks-update",
-    "description": "Update webhook subscription\n\nUpdate a webhook subscription.\n\n**Delivery URL Validation**: When updating the `delivery_url`, it will be validated synchronously by sending an HTTP POST request with an HMAC signature. If validation fails (network error, timeout, non-2xx response), the webhook will still be updated but with `status: \"disabled\"` and `disabled_reason: \"delivery_url_validation_failed\"`. Validation only occurs when the URL is changed.\n\n**Important**: Always check the `status` and `disabled_reason` fields in the response to ensure the webhook is active.\n"
-  },
-  {
-    "name": "webhook-webhooks-delete",
-    "description": "Delete webhook subscription\n\nDelete a webhook subscription"
+    "name": "vault-validate-connection-state",
+    "description": "Validate the current state of a connection and refresh tokens if needed.\n\nThis operation checks the validity of a specified connection by performing different validations depending on its authentication type. Use this to verify that required fields exist for basic and API key authentications, or to trigger an OAuth2 access token refresh regardless o...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nMeta operation on Apideck Vault itself — manages consumers, connections, sessions, or custom mappings rather than hitting a downstream SaaS. Authenticated with the application-level Apideck API key; no consumer connection required beyond what each endpoint documents. Consumer auth is resolved server-side — don't pass API keys in arguments."
   },
   {
     "name": "webhook-event-logs-list",
-    "description": "List event logs\n\nList event logs"
+    "description": "Retrieve a list of all webhook event logs.\n\nThis operation fetches all recorded webhook event logs. Use it to review the history of webhook events for monitoring or debugging purposes. It reads stored event data without modifying any records. There are no special constraints beyond standard access permissions.\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `webhook-event-logs-get` instead.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "webhook-webhooks-create",
+    "description": "Create a webhook subscription to receive specified events.\n\nThis operation creates a webhook subscription that delivers specified events to a given URL. Use this to set up event notifications via HTTP POST requests to your endpoint. The delivery URL is validated synchronously by sending a signed POST request; if validation fails, the w...\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to add a new record. Check `webhook-webhooks-list` first if duplicates are a concern — this tool doesn't dedupe.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "webhook-webhooks-delete",
+    "description": "Delete a webhook subscription by its ID.\n\nThis operation removes an existing webhook subscription identified by its ID. Use this to stop receiving events or notifications from the webhook source. Deleting a webhook subscription permanently disables its event delivery and cannot be undone. Ensure the ID corresponds to ...\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only when the user has explicitly confirmed deletion. No soft-delete — the record is removed from the upstream service.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "webhook-webhooks-get",
+    "description": "Retrieve details of a specific webhook subscription.\n\nThis operation fetches the details of a webhook subscription identified by its ID. Use this endpoint when you need to view the configuration or status of an existing webhook subscription. It reads the stored subscription data without modifying it. Ensure the specified ID corre...\n\nRead-only; safe to call repeatedly.\n\nUse when you already have the record id. To browse or search, call `webhook-webhooks-list`.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "webhook-webhooks-list",
+    "description": "Retrieve a list of all webhook subscriptions.\n\nThis operation fetches all existing webhook subscriptions configured in the system. Use it when you need to view or manage the current webhooks rather than creating or deleting them. It reads the stored webhook subscription data without modifying it. There are no special const...\n\nRead-only; safe to call repeatedly.\n\nUse when you need multiple records or don't yet know the target id. For a single known record, call `webhook-webhooks-get` instead.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments.\n\n(Paginated: the response's `$.meta.cursors.next` is the next-page cursor — pass it back as `cursor`.)"
+  },
+  {
+    "name": "webhook-webhooks-update",
+    "description": "Update a webhook subscription and validate its delivery URL if changed.\n\nThis operation updates an existing webhook subscription, allowing changes to its delivery URL, description, status, and subscribed events. Use this endpoint when you need to modify webhook settings, especially to update the delivery URL, which triggers a synchronous validation...\n\nUpdates fields on an existing record. Only the fields you pass are modified.\n\nUse to modify an existing record. Requires the record id. Pass only the fields you want changed.\n\nRequires an active `webhook` connection on the consumer. If the consumer has multiple `webhook` services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "apideck-month-end-close-check",
+    "description": "One-shot month-end close snapshot.\n\nFetches aged creditors, aged debtors, balance sheet, and profit-and-loss in parallel from the connected accounting service and returns them as a single object — saves 4 round-trips.\n\nRead-only; safe to call repeatedly.\n\nUse when you need a combined financial snapshot at a point in time. For individual reports, call `accounting-aged-creditors-get`, `accounting-aged-debtors-get`, `accounting-balance-sheet-get`, or `accounting-profit-and-loss-get` directly.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple accounting services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "apideck-pay-bill",
+    "description": "Pay a vendor bill in one shot.\n\nLooks up the bill, then creates a bill-payment allocated against it so the connected accounting service marks the bill (partially) paid. Replaces the usual `bills-get` → manually-construct-allocation → `bill-payments-create` dance, and saves the agent from confusing AP bill-payments with AR customer payments (different endpoints, different connector semantics).\n\n**Mutating, not idempotent.** Each call creates a new payment record on the connector. Calling twice with the same arguments produces two payments. Confirm the user intended to pay before invoking.\n\nUse when the user wants to settle a known vendor bill. For customer payments against invoices use `accounting-payments-create` instead (different unified endpoint).\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple accounting services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "apideck-receive-customer-payment",
+    "description": "Record a customer payment against an invoice in one shot.\n\nLooks up the invoice, then creates an AR payment allocated against it so the connected accounting service marks the invoice (partially) paid. AR mirror of `apideck-pay-bill` (which is for vendor bills / AP). Saves the agent from confusing AR customer-payments with AP bill-payments — different unified endpoints, different connector semantics.\n\n**Mutating, not idempotent.** Each call creates a new payment record on the connector. Calling twice with the same arguments produces two payments. Confirm the user intended to record the payment before invoking.\n\nUse when the user wants to record a customer payment against a known invoice. For paying a vendor bill use `apideck-pay-bill` instead. For raw payment creation (unallocated transfers, prepayments) call `accounting-payments-create` directly.\n\nRequires an active `accounting` connection on the consumer. If the consumer has multiple accounting services connected, pass `x-apideck-service-id` (e.g. \"xero\", \"quickbooks\") to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
+  },
+  {
+    "name": "apideck-onboard-employee",
+    "description": "Convert a hired ATS applicant into an HRIS employee in one shot.\n\nLooks up the applicant in the ATS, maps their name/contact fields onto an HRIS employee record, and creates the employee with caller-supplied employment data (start date, department, title). Optionally moves the ATS applicant to a \"hired\" stage to close the loop. Replaces the usual `ats-applicants-get` → manually-map-fields → `hris-employees-create` → `ats-applicants-update` chain.\n\n**Mutating, not idempotent.** Each call creates a new employee record. Calling twice with the same applicant produces two HRIS employees. Confirm the user intended to onboard before invoking.\n\nUse when the user has decided to hire a known applicant. For employee creation from scratch (no ATS lineage) call `hris-employees-create` directly.\n\nCrosses two unified APIs: requires active `ats` AND `hris` connections on the consumer. If either has multiple services connected, pass `x-apideck-ats-service-id` and/or `x-apideck-hris-service-id` to target one. Consumer auth is resolved server-side — don't pass API keys in arguments."
   }
 ];

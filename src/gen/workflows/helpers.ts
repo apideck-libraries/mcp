@@ -120,6 +120,12 @@ export async function runStep<T = unknown>(
     const body = await callTool(client, name, args, ctx);
     return { ok: true, data: pick(body) };
   } catch (err) {
+    // MCP protocol errors (most importantly UrlElicitationRequiredError —
+    // used to hand the user a Vault consent URL when a connection has
+    // expired or never authorised) MUST surface to the client unchanged.
+    // Wrapping them in a workflow `{ error }` envelope strips the URL
+    // payload and breaks the elicitation flow.
+    if (err instanceof Error && err.name === "McpError") throw err;
     if (err instanceof WorkflowStepError) {
       const u = err.body as
         | { status_code?: number; type_name?: string; message?: string; detail?: unknown }
@@ -150,6 +156,25 @@ export function pickData(body: unknown): unknown {
     return (body as { data: unknown }).data;
   }
   return body;
+}
+
+/**
+ * Most workflows take an optional `x-apideck-service-id` and propagate
+ * it to every upstream call as a header. Splitting that out keeps each
+ * workflow's `tool()` from re-implementing the same 4-line block.
+ */
+export function extractServiceContext(args: unknown): {
+  serviceId: string | undefined;
+  common: Record<string, unknown>;
+} {
+  const a = (args ?? {}) as Record<string, unknown>;
+  const serviceId = typeof a["x-apideck-service-id"] === "string"
+    ? a["x-apideck-service-id"]
+    : undefined;
+  return {
+    serviceId,
+    common: serviceId ? { "x-apideck-service-id": serviceId } : {},
+  };
 }
 
 /** Type alias for workflow ToolDefinitions. */

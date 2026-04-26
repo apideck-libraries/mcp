@@ -16,6 +16,7 @@
 
 import * as z from "zod";
 import {
+  extractServiceContext,
   pickData,
   runStep,
   type StepOutcome,
@@ -63,10 +64,7 @@ export const apideckMonthEndCloseCheck: WorkflowTool = {
   async tool(client, a, ctx) {
     const reportAsOfDate = (a as Record<string, string | undefined>)["report_as_of_date"]
       ?? new Date().toISOString().slice(0, 10);
-    const serviceId = (a as Record<string, string | undefined>)["x-apideck-service-id"];
-
-    const common: Record<string, unknown> = {};
-    if (serviceId) common["x-apideck-service-id"] = serviceId;
+    const { serviceId, common } = extractServiceContext(a);
 
     const filterWithDate = {
       ...common,

@@ -28,6 +28,19 @@ Generated from Apideck's OpenAPI spec using [Speakeasy](https://www.speakeasy.co
 | Webhook | 6 | Webhook subscriptions, logs |
 | Proxy | 6 | GET, POST, PUT, PATCH, DELETE, OPTIONS |
 
+### Workflow tools
+
+On top of the 330 endpoint tools, the server ships **intent-grouped workflows** — single MCP tools that orchestrate 2-4 underlying calls behind a high-level intent. Saves agents the round-trips and the field-plumbing they routinely get wrong (AR vs AP, allocation arrays, customer vs supplier refs).
+
+| Tool | What it does | Calls |
+|---|---|---|
+| `apideck-month-end-close-check` | One-shot read-only snapshot — aged creditors, aged debtors, balance sheet, P&L in parallel. Partial results when some reports aren't supported by the connector. | 4 |
+| `apideck-pay-bill` | Pays a vendor bill: looks up the bill, then writes a bill-payment with the right allocation back to it. AP. | 2 |
+| `apideck-receive-customer-payment` | Records a customer payment against an invoice. AR mirror of pay-bill. | 2 |
+| `apideck-onboard-employee` | Converts a hired ATS applicant into an HRIS employee, optionally moves the applicant to a Hired stage. Crosses two unified APIs. | 2-3 |
+
+Workflows propagate Vault OAuth elicitations (so a missing connection still hands the user a consent URL) and surface upstream errors with `failingStep` so the agent knows which leg broke. See [`docs/authoring-workflow-tools.md`](docs/authoring-workflow-tools.md) for the pattern.
+
 ## Hosted
 
 The MCP server is live at:
@@ -101,7 +114,18 @@ client = MultiServerMCPClient({
 tools = await client.get_tools()
 ```
 
-### Claude Desktop / Cursor / Windsurf
+### Claude Desktop (.mcpb plugin bundle)
+
+Apideck ships a Claude plugin bundle (`.mcpb` — Anthropic's Model Context Protocol Bundle format). Drop it into Claude Desktop and you get the full server (330 endpoint tools + 4 workflow tools) with API key / consumer ID / app ID prompted via the standard plugin UI.
+
+```bash
+# Build the bundle locally:
+npm run mcpb:build      # → mcp-server.mcpb (~590 KB)
+```
+
+Or grab a prebuilt bundle from the latest [GitHub Release](https://github.com/apideck-libraries/mcp/releases). Open it with Claude Desktop's plugin installer; Claude Desktop reads `manifest.json` to wire credentials and spawn the server.
+
+### Claude Desktop / Cursor / Windsurf (manual config)
 
 Add to your MCP client config:
 

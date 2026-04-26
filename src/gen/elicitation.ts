@@ -28,6 +28,10 @@ const CONNECTION_ISSUE_MARKERS = [
   "invalid grant",
   "unauthorized_client",
   "persistuseruid hook",
+  "noconnectionfound",
+  "connector not authorized",
+  "connector credentials error",
+  "connectorcredentialserror",
 ];
 
 export interface ConnectionIssue {
