@@ -114,7 +114,18 @@ client = MultiServerMCPClient({
 tools = await client.get_tools()
 ```
 
-### Claude Desktop / Cursor / Windsurf
+### Claude Desktop (.mcpb plugin bundle)
+
+Apideck ships a Claude plugin bundle (`.mcpb` — Anthropic's Model Context Protocol Bundle format). Drop it into Claude Desktop and you get the full server (330 endpoint tools + 4 workflow tools) with API key / consumer ID / app ID prompted via the standard plugin UI.
+
+```bash
+# Build the bundle locally:
+npm run mcpb:build      # → mcp-server.mcpb (~590 KB)
+```
+
+Or grab a prebuilt bundle from the latest [GitHub Release](https://github.com/apideck-libraries/mcp/releases). Open it with Claude Desktop's plugin installer; Claude Desktop reads `manifest.json` to wire credentials and spawn the server.
+
+### Claude Desktop / Cursor / Windsurf (manual config)
 
 Add to your MCP client config:
 
