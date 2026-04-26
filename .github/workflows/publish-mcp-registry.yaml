@@ -64,15 +64,36 @@ jobs:
           sudo mv mcp-publisher /usr/local/bin/
           mcp-publisher --help
 
+      - name: Skip if already in registry
+        id: registry-check
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          # The npm publish workflow is idempotent — it skips when a version
+          # is already on npm. This `workflow_run` trigger fires regardless
+          # of whether anything was actually published, so guard the
+          # registry publish the same way to avoid 400 "duplicate version"
+          # failures on no-op runs (post-merge to main without a bump).
+          if curl -fsSL "https://registry.modelcontextprotocol.io/v0/servers/com.apideck%2Fmcp/versions" \
+              | jq -e --arg v "$VERSION" '.servers[].server.version == $v' > /dev/null 2>&1; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Version $VERSION already in MCP Registry — skipping publish"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "Version $VERSION not yet in registry"
+          fi
+
       - name: Authenticate with MCP Registry (DNS)
+        if: steps.registry-check.outputs.skip == 'false'
         run: mcp-publisher login dns --domain=apideck.com --private-key="$MCP_REGISTRY_PRIVATE_KEY"
         env:
           MCP_REGISTRY_PRIVATE_KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
 
       - name: Publish
+        if: steps.registry-check.outputs.skip == 'false'
         run: mcp-publisher publish
 
       - name: Verify in registry
+        if: steps.registry-check.outputs.skip == 'false'
         run: |
           sleep 5
           curl -fsSL "https://registry.modelcontextprotocol.io/v0.1/servers?search=com.apideck/mcp" | jq .
