@@ -4,15 +4,30 @@ import { build } from "bun";
 import { chmod, cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { packExtension } from "@anthropic-ai/mcpb";
 import { join } from "node:path";
-import { createMCPServer } from "./server.ts";
+import { createGeneratedMCPServer } from "../gen/create-server.ts";
+import { ApideckMcpCore } from "../core.ts";
 import { createConsoleLogger } from "./console-logger.ts";
 
 const shouldPack = process.argv.includes("--pack");
 
 async function buildMcpServer() {
-  // Explicitly create server to register tools
+  // Use the custom generator so the bundled .mcpb advertises the same
+  // tool surface the deployed server exposes — including the Phase 3
+  // workflow tools (apideck-pay-bill, apideck-receive-customer-payment,
+  // apideck-onboard-employee, apideck-month-end-close-check) — and the
+  // flat schemas that score AAA on Glama TDQS. Static mode here so the
+  // manifest carries the full 330+4 list, not just the 4 meta-tools.
   const logger = createConsoleLogger("info");
-  const { tools } = createMCPServer({ logger });
+  const { tools } = createGeneratedMCPServer({
+    logger,
+    dynamic: false,
+    getSDK: () =>
+      new ApideckMcpCore({
+        appId: "manifest-build",
+        consumerId: "manifest-build",
+        security: { apiKey: "manifest-build" },
+      }),
+  });
 
   // Iterate through all registered tools and add them to the manifest
   const manifest = await readFile("manifest.json", "utf8");
