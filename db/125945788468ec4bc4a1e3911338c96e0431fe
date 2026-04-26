@@ -1,0 +1,23 @@
+docs/observability.md
+  1843bf7ab16e94b4 1-157
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "db125945788468ec4bc4a1e3911338c96e0431fe",
+  "prompts": {
+    "1843bf7ab16e94b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1fb22ac8-4dcb-4934-a3f7-7269809084d6",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "GJ",
+      "messages": [],
+      "total_additions": 157,
+      "total_deletions": 0,
+      "accepted_lines": 1769,
+      "overriden_lines": 0
+    }
+  }
+}
