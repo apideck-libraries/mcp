@@ -61,4 +61,11 @@ jobs:
           # a per-deployment alias (preview / staging URL). On the default
           # Production path the prod alias is unprotected, so this is a no-op.
           VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          # Real upstream creds for the execute_tool stage. When unset, the
+          # smoke skips the live upstream check and runs meta-tools only.
+          # Suggested consumer: `test-consumer-id` (sandbox with QuickBooks /
+          # Moneybird connections pre-authorized).
+          APIDECK_SMOKE_API_KEY: ${{ secrets.APIDECK_SMOKE_API_KEY }}
+          APIDECK_SMOKE_APP_ID: ${{ secrets.APIDECK_SMOKE_APP_ID }}
+          APIDECK_SMOKE_CONSUMER_ID: ${{ secrets.APIDECK_SMOKE_CONSUMER_ID }}
         run: node test/post-deploy.mjs

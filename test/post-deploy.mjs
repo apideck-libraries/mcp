@@ -109,6 +109,39 @@ async function check(name, url) {
   const body = res.parsed.result?.content?.[0]?.text ?? "";
   assert(body.includes("input_schema"), "describe_tool_input wraps output");
   assert(res.elapsed < 10_000, `describe_tool_input under 10s (was ${res.elapsed}ms)`);
+
+  // 4. execute_tool against a real upstream — only when credentials are
+  // wired in CI secrets. We use `vault-connections-list` because it hits
+  // Apideck Vault itself (not a downstream connector), so it isolates the
+  // Apideck request path without depending on any specific SaaS being
+  // online + connected. A 200 here proves: server resolves bound creds,
+  // forwards the Bearer token, dispatches to api.apideck.com, and parses
+  // the response — i.e. the entire production happy path.
+  if (API_KEY === "smoke-no-key") {
+    console.log("  SKIP: APIDECK_SMOKE_API_KEY not set — skipping live upstream check");
+    return;
+  }
+  res = await rpc(url, {
+    jsonrpc: "2.0",
+    id: 4,
+    method: "tools/call",
+    params: {
+      name: "execute_tool",
+      arguments: { name: "vault-connections-list", arguments: {} },
+    },
+  });
+  const callResult = res.parsed.result;
+  const callText = callResult?.content?.[0]?.text ?? "";
+  assert(callResult?.isError !== true, `execute_tool succeeded (got isError=${callResult?.isError}, body=${callText.slice(0, 120)})`);
+  let callBody;
+  try {
+    callBody = JSON.parse(callText);
+  } catch {
+    assert(false, `execute_tool body is JSON (got: ${callText.slice(0, 120)})`);
+    return;
+  }
+  assert(Array.isArray(callBody.data), "vault-connections-list returns data[]");
+  assert(res.elapsed < 15_000, `execute_tool under 15s (was ${res.elapsed}ms)`);
 }
 
 try {
