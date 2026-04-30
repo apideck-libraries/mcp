@@ -1,0 +1,13 @@
+{
+  "name": "Apideck MCP Server",
+  "description": "Model Context Protocol server for the Apideck Unified API. Connect any MCP-compatible agent to 200+ connectors — accounting, HRIS, CRM, file storage, and more — through one integration.",
+  "repositoryUrl": "https://github.com/apideck-libraries/mcp",
+  "installationCommand": "npx -y @apideck/mcp start",
+  "tools": [
+    "accounting-invoices-list",
+    "crm-companies-list",
+    "filestorage-files-list",
+    "hris-employees-list",
+    "vault-connections-list"
+  ]
+}
