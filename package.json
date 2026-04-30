@@ -1,0 +1,65 @@
+{
+  "name": "@apideck/mcp",
+  "version": "0.1.17",
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apideck-libraries/mcp.git"
+  },
+  "homepage": "https://mcp.apideck.dev",
+  "bugs": {
+    "url": "https://github.com/apideck-libraries/mcp/issues"
+  },
+  "bin": {
+    "mcp": "dist/bin/mcp.js"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/run-tests.mjs",
+    "build": "tsc -p tsconfig.build.json",
+    "postbuild": "node scripts/postbuild.mjs",
+    "prepublishOnly": "pnpm build && node scripts/prepublish-scrub.mjs",
+    "license-audit": "node scripts/license-audit.mjs",
+    "spdx-check": "node scripts/spdx-check.mjs",
+    "import-rule": "node scripts/import-rule.mjs",
+    "url-rule": "node scripts/url-rule.mjs",
+    "generate": "node generator/generate.mjs",
+    "parity-probe": "node generator/parity-probe.mjs",
+    "mcpb:build": "pnpm build && node --import tsx src/build.mts"
+  },
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^12.1.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@stricli/core": "^1.2.6",
+    "@vercel/functions": "^3.4.4",
+    "js-yaml": "^4.1.1",
+    "json-schema-to-zod": "2.8.1",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@eslint/js": "^9.17.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.17.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-notice": "^1.0.0",
+    "openai": "^5",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
