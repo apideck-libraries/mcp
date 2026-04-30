@@ -1,0 +1,25 @@
+name: Close External PRs
+on:
+  pull_request_target:
+    types: [opened, reopened]
+permissions:
+  pull-requests: write
+  contents: read
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    if: ${{ !contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.pull_request.author_association) }}
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const number = context.payload.pull_request.number;
+            await github.rest.issues.createComment({
+              owner, repo, issue_number: number,
+              body: 'Thanks for your interest in Apideck MCP Server. This repository is an auto-generated mirror of the published `@apideck/mcp` npm package — code lives in our private generator repo, so PRs cannot be merged here. Please file a [bug report or feature request](../../issues/new/choose) instead. We read every issue and merge corresponding fixes upstream, which then propagate here on the next release.'
+            });
+            await github.rest.pulls.update({
+              owner, repo, pull_number: number, state: 'closed'
+            });
