@@ -1,0 +1,39 @@
+name: Feature Request
+description: Suggest a new feature or improvement for the Apideck MCP Server.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: What are you trying to do?
+      description: Describe the use case or problem you're trying to solve. What task would this feature unlock?
+      placeholder: "e.g. I'm trying to list open invoices from my accounting system directly in my AI agent..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_behaviour
+    attributes:
+      label: Proposed Behaviour
+      description: Describe the behaviour you would like to see. How should the feature work from the user's perspective?
+      placeholder: "e.g. A new tool `accounting-invoices-list-open` that accepts a date range filter and returns only unpaid invoices..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered (optional)
+      description: Have you considered any alternative approaches or workarounds? Why don't they fully address your need?
+      placeholder: "e.g. I tried using `accounting-invoices-list` with a status filter, but it doesn't support date range filtering..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: priority_context
+    attributes:
+      label: Priority / Urgency Context (optional)
+      description: Is there any context that would help us understand the priority or urgency of this request? (e.g., a product launch, a customer requirement, or a blocking workflow.)
+      placeholder: "e.g. This is blocking a production workflow for our team. We need it for a launch on ..."
+    validations:
+      required: false
