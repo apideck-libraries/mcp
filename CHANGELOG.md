@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/apideck-libraries/mcp/compare/v0.2.3...v0.2.4) (2026-05-06)
+
+
+### Bug Fixes
+
+* **mirror:** preserve commit history across releases ([#131](https://github.com/apideck-libraries/mcp/issues/131)) ([c6f415a](https://github.com/apideck-libraries/mcp/commit/c6f415a842c6405903d66fc4b83df7e478d24d45))
+
 ## [0.2.3](https://github.com/apideck-libraries/mcp/compare/v0.2.2...v0.2.3) (2026-05-06)
 
 

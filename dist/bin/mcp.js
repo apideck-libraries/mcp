@@ -22,6 +22,7 @@
  *   - Flag names are kebab-case literals (e.g. `'api-key'`) so Stricli's default
  *     `original` scanner matches `--api-key` exactly.
  */
+import { realpathSync } from 'node:fs';
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 import { buildApplication, buildChoiceParser, buildCommand, buildRouteMap, numberParser, run, } from '@stricli/core';
@@ -199,8 +200,24 @@ export const runCli = async (argv) => {
     // and writes exitCode, so the cast is safe.
     await run(app, argv, { process: process });
 };
-if (process.argv[1] !== undefined &&
-    fileURLToPath(import.meta.url) === process.argv[1]) {
+// `process.argv[1]` is the path used to invoke the script, which is the
+// npm-installed bin symlink (e.g. `/usr/local/bin/mcp`) for global installs.
+// `import.meta.url` is the realpath of the loaded module. A naive `===`
+// compare misses the symlink case and skips `runCli`, leaving the binary as
+// a silent no-op — observed via `mcp-proxy -- mcp start --transport stdio`
+// where the child exits cleanly before responding to initialize, surfacing
+// in the parent as `McpError: Connection closed (-32000)`.
+export const isCliEntrypoint = (metaUrl, argv1, realpath = realpathSync) => {
+    if (argv1 === undefined)
+        return false;
+    try {
+        return fileURLToPath(metaUrl) === realpath(argv1);
+    }
+    catch {
+        return false;
+    }
+};
+if (isCliEntrypoint(import.meta.url, process.argv[1])) {
     void runCli(process.argv.slice(2));
 }
 //# sourceMappingURL=mcp.js.map

@@ -1,6 +1,6 @@
 {
   "name": "@apideck/mcp",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "type": "module",
   "packageManager": "pnpm@9.15.4",
   "repository": {
