@@ -19,10 +19,12 @@ const buildContext = () => {
     const stored = contextStorage.getStore();
     if (stored)
         return stored;
+    const serviceId = process.env.APIDECK_SERVICE_ID;
     return {
         apiKey: async () => ({ apiKey: envOrThrow('APIDECK_API_KEY') }),
         consumerId: envOrThrow('APIDECK_CONSUMER_ID'),
         appId: envOrThrow('APIDECK_APP_ID'),
+        ...(serviceId !== undefined && serviceId !== '' ? { serviceId } : {}),
         logger: createConsoleLogger(),
     };
 };

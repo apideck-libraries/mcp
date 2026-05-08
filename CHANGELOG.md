@@ -1,10 +1,18 @@
 # Changelog
 
+## [0.2.5](https://github.com/apideck-libraries/mcp/compare/v0.2.4...v0.2.5) (2026-05-08)
+
+
+### Bug Fixes
+
+* **runtime:** forward x-apideck-service-id header to Unify ([#136](https://github.com/apideck-libraries/mcp/issues/136)) ([4075d8c](https://github.com/apideck-libraries/mcp/commit/4075d8c7ccfb64b914b0aa9b67c4f7ac44eab9d0))
+
 ## [0.2.4](https://github.com/apideck-libraries/mcp/compare/v0.2.3...v0.2.4) (2026-05-06)
 
 
 ### Bug Fixes
 
+* **cli:** resolve symlinks when detecting CLI entrypoint ([#133](https://github.com/apideck-libraries/mcp/issues/133)) ([329b6f7](https://github.com/apideck-libraries/mcp/commit/329b6f7b95f0cdf21b4701897351f7372a7c9841))
 * **mirror:** preserve commit history across releases ([#131](https://github.com/apideck-libraries/mcp/issues/131)) ([c6f415a](https://github.com/apideck-libraries/mcp/commit/c6f415a842c6405903d66fc4b83df7e478d24d45))
 
 ## [0.2.3](https://github.com/apideck-libraries/mcp/compare/v0.2.2...v0.2.3) (2026-05-06)

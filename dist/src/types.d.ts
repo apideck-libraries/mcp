@@ -39,6 +39,7 @@ export interface CallContext {
     apiKey: SecurityResolver;
     consumerId: string;
     appId: string;
+    serviceId?: string;
     signal?: AbortSignal;
     logger: Logger;
 }

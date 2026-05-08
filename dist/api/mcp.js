@@ -85,6 +85,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
     const headerApiKey = parseAuthApiKey(req.headers);
     const headerConsumerId = getHeader(req.headers, 'x-apideck-consumer-id');
     const headerAppId = getHeader(req.headers, 'x-apideck-app-id');
+    const headerServiceId = getHeader(req.headers, 'x-apideck-service-id');
     const modeParam = url.searchParams.get('mode');
     const VALID_MODES = ['static', 'dynamic', 'code'];
     if (modeParam !== null && !VALID_MODES.includes(modeParam)) {
@@ -106,6 +107,11 @@ export const createHandler = (opts = {}) => async (req, res) => {
         },
         consumerId: headerConsumerId ?? envOrThrow('APIDECK_CONSUMER_ID'),
         appId: headerAppId ?? envOrThrow('APIDECK_APP_ID'),
+        ...(headerServiceId !== undefined && headerServiceId !== ''
+            ? { serviceId: headerServiceId }
+            : process.env.APIDECK_SERVICE_ID
+                ? { serviceId: process.env.APIDECK_SERVICE_ID }
+                : {}),
         logger: createConsoleLogger(),
     });
     const posthogApiKey = process.env.POSTHOG_API_KEY;

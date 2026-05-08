@@ -193,6 +193,11 @@ const prepareRequest = async (req) => {
     headers.authorization = `Bearer ${apiKey}`;
     headers['x-apideck-consumer-id'] = req.context.consumerId;
     headers['x-apideck-app-id'] = req.context.appId;
+    if (req.context.serviceId !== undefined && req.context.serviceId !== '') {
+        headers['x-apideck-service-id'] = req.context.serviceId;
+    }
+    // Per-request headers (e.g. workflow-supplied `x-apideck-service-id`) win
+    // over context defaults so a tool can target a specific connection.
     if (req.headers) {
         for (const [k, v] of Object.entries(req.headers))
             headers[k] = v;
