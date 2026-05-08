@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.6](https://github.com/apideck-libraries/mcp/compare/v0.2.5...v0.2.6) (2026-05-08)
+
+
+### Bug Fixes
+
+* **runtime:** forward x-apideck-service-id header to Unify ([#138](https://github.com/apideck-libraries/mcp/issues/138)) ([55607dc](https://github.com/apideck-libraries/mcp/commit/55607dcca7d535dff68621819cd0a981aefc467a))
+
 ## [0.2.5](https://github.com/apideck-libraries/mcp/compare/v0.2.4...v0.2.5) (2026-05-08)
 
 
