@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.7](https://github.com/apideck-libraries/mcp/compare/v0.2.6...v0.2.7) (2026-05-08)
+
+
+### Bug Fixes
+
+* **runtime:** expand object/array query params (deepObject style) ([#140](https://github.com/apideck-libraries/mcp/issues/140)) ([1eedd58](https://github.com/apideck-libraries/mcp/commit/1eedd588aa1ff992fca1459c396fc88ee4d99825))
+
 ## [0.2.6](https://github.com/apideck-libraries/mcp/compare/v0.2.5...v0.2.6) (2026-05-08)
 
 

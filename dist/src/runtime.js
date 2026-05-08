@@ -59,14 +59,32 @@ const classifyBody = (body) => {
     }
     return { kind: 'json', data: body };
 };
+const isPlainObject = (v) => typeof v === 'object' &&
+    v !== null &&
+    !Array.isArray(v) &&
+    Object.getPrototypeOf(v) === Object.prototype;
+const appendQuery = (params, key, value) => {
+    if (value === undefined || value === null)
+        return;
+    if (Array.isArray(value)) {
+        for (const item of value)
+            appendQuery(params, key, item);
+        return;
+    }
+    if (isPlainObject(value)) {
+        for (const [subKey, subVal] of Object.entries(value)) {
+            appendQuery(params, `${key}[${subKey}]`, subVal);
+        }
+        return;
+    }
+    params.append(key, String(value));
+};
 const buildUrl = (req) => {
     const base = process.env.APIDECK_BASE_URL ?? DEFAULT_BASE_URL;
     const url = new URL(req.path, base);
     if (req.query) {
         for (const [k, v] of Object.entries(req.query)) {
-            if (v === undefined)
-                continue;
-            url.searchParams.set(k, String(v));
+            appendQuery(url.searchParams, k, v);
         }
     }
     return url;

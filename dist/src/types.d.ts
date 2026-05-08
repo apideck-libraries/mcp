@@ -47,10 +47,11 @@ export type BinaryInput = string | {
     data: string | Uint8Array;
     mimeType: string;
 };
+export type QueryValue = unknown;
 export interface RuntimeRequest {
     method: HttpMethod;
     path: string;
-    query?: Record<string, string | number | boolean | undefined>;
+    query?: Record<string, QueryValue>;
     headers?: Record<string, string>;
     body?: unknown;
     context: CallContext;
