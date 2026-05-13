@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.8](https://github.com/apideck-libraries/mcp/compare/v0.2.7...v0.2.8) (2026-05-13)
+
+
+### Bug Fixes
+
+* **runtime:** throw on missing required path parameter ([#143](https://github.com/apideck-libraries/mcp/issues/143)) ([3ed9312](https://github.com/apideck-libraries/mcp/commit/3ed9312cd858b137e6c1c76207027ced4e80ee38))
+
 ## [0.2.7](https://github.com/apideck-libraries/mcp/compare/v0.2.6...v0.2.7) (2026-05-08)
 
 

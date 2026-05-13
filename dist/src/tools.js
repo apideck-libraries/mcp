@@ -60,7 +60,10 @@ const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
     const path = pathTemplate.replace(/\{(\w+)\}/g, (_, key) => {
         const val = remaining[key];
         delete remaining[key];
-        return encodeURIComponent(String(val ?? ''));
+        if (val === undefined || val === null || val === '') {
+            throw new Error(`Missing required path parameter "${key}" for ${method} ${pathTemplate}`);
+        }
+        return encodeURIComponent(String(val));
     });
     let query;
     if (opts.query) {
