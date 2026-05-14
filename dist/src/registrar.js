@@ -1,5 +1,12 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 Apideck
+import { z } from 'zod';
+const SERVICE_ID_SHAPE = {
+    service_id: z
+        .string()
+        .optional()
+        .describe('Apideck service_id (e.g. "quickbooks", "xero") selecting which downstream connection to route to. Overrides the x-apideck-service-id header and APIDECK_SERVICE_ID env for this call. Omit to use the consumer default.'),
+};
 const annotationsForScope = (scope) => {
     switch (scope) {
         case 'read':
@@ -23,7 +30,7 @@ export const registerTool = (server, tool, opts) => {
         ...(tool.description !== undefined
             ? { description: tool.description }
             : {}),
-        inputSchema: tool.inputSchema,
+        inputSchema: tool.inputSchema.extend(SERVICE_ID_SHAPE),
         annotations,
     }, tool.handler);
     return 1;

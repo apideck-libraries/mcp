@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/apideck-libraries/mcp/compare/v0.2.8...v0.3.0) (2026-05-14)
+
+
+### Features
+
+* **runtime:** accept service_id as a per-call tool argument ([#145](https://github.com/apideck-libraries/mcp/issues/145)) ([ba113e5](https://github.com/apideck-libraries/mcp/commit/ba113e5456f6cc25b670a48c1c7e55af87922a6c))
+
 ## [0.2.8](https://github.com/apideck-libraries/mcp/compare/v0.2.7...v0.2.8) (2026-05-13)
 
 

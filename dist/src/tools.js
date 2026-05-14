@@ -57,6 +57,8 @@ const resultToContent = (result) => {
 };
 const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
     const remaining = { ...args };
+    const serviceIdArg = remaining.service_id;
+    delete remaining.service_id;
     const path = pathTemplate.replace(/\{(\w+)\}/g, (_, key) => {
         const val = remaining[key];
         delete remaining[key];
@@ -101,13 +103,17 @@ const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
             headers = acc;
     }
     const canHaveBody = method !== 'GET' && method !== 'HEAD';
+    const baseContext = buildContext();
+    const context = typeof serviceIdArg === 'string' && serviceIdArg !== ''
+        ? { ...baseContext, serviceId: serviceIdArg }
+        : baseContext;
     const result = await callRuntime({
         method,
         path,
         ...(query !== undefined ? { query } : {}),
         ...(headers !== undefined ? { headers } : {}),
         body: canHaveBody ? remaining : undefined,
-        context: buildContext(),
+        context,
     });
     if ('content' in result)
         return result;
