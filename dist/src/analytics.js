@@ -2,7 +2,7 @@
 // Copyright (c) 2026 Apideck
 import { contextStorage } from './tools.js';
 import { RuntimeError } from './types.js';
-const VERSION = process.env.npm_package_version ?? '0.1.0';
+import { PKG_VERSION } from './version.js';
 const POSTHOG_BATCH_URL = 'https://eu.i.posthog.com/batch';
 const deriveDistinctId = (props) => {
     const appId = typeof props.app_id === 'string' && props.app_id ? props.app_id : '';
@@ -19,8 +19,8 @@ const deriveDistinctId = (props) => {
 };
 const buildAutoProps = () => ({
     $lib: 'apideck-mcp',
-    $lib_version: VERSION,
-    mcp_version: VERSION,
+    $lib_version: PKG_VERSION,
+    mcp_version: PKG_VERSION,
     environment: process.env.VERCEL_ENV ?? 'development',
     commit_sha: process.env.VERCEL_GIT_COMMIT_SHA,
     deployment_url: process.env.VERCEL_URL,
@@ -103,6 +103,9 @@ const buildContextProps = () => {
         out.app_id = ctx.appId;
     if (ctx.consumerId)
         out.consumer_id = ctx.consumerId;
+    if (ctx.outboundQueryKeys && ctx.outboundQueryKeys.length > 0) {
+        out.query_param_keys = ctx.outboundQueryKeys;
+    }
     return out;
 };
 export const wrapHandlerWithAnalytics = (tool, analytics, mode) => {

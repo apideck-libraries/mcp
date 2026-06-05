@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 Apideck
 import { z } from 'zod';
+import { PKG_VERSION } from './version.js';
 export const createSmokeTool = (mode) => ({
     name: 'apideck-ping',
     title: 'Apideck Ping',
@@ -14,7 +15,7 @@ export const createSmokeTool = (mode) => ({
                 type: 'text',
                 text: JSON.stringify({
                     ok: true,
-                    version: process.env.npm_package_version ?? '0.0.0',
+                    version: PKG_VERSION,
                     mode,
                 }),
             },

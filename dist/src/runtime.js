@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 Apideck
 import { Buffer } from 'node:buffer';
+import { API_VERSION } from './api-version.js';
 import { RuntimeError } from './types.js';
 import { buildConnectionElicitation, connectionIssueFallback, detectConnectionIssue, mintVaultSessionUrl, } from './elicitation.js';
+import { PKG_VERSION } from './version.js';
 const DEFAULT_BASE_URL = 'https://unify.apideck.com';
 const MAX_ATTEMPTS = 4;
 const BASE_DELAY_MS = 500;
@@ -214,6 +216,8 @@ const prepareRequest = async (req) => {
     if (req.context.serviceId !== undefined && req.context.serviceId !== '') {
         headers['x-apideck-service-id'] = req.context.serviceId;
     }
+    headers['user-agent'] =
+        `apideck-mcp/${PKG_VERSION} (api/${API_VERSION}; mode/${req.context.mode ?? 'unknown'})`;
     // Per-request headers (e.g. workflow-supplied `x-apideck-service-id`) win
     // over context defaults so a tool can target a specific connection.
     if (req.headers) {
@@ -235,6 +239,9 @@ export const callRuntime = async (req, options = {}) => {
     if (signal?.aborted)
         throw abortError(signal);
     const { url, init } = await prepareRequest(req);
+    const queryKeys = [...new Set(url.searchParams.keys())];
+    // Sidecar for analytics: surfaced as query_param_keys on mcp_tool_called.
+    req.context.outboundQueryKeys = queryKeys;
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
         if (signal?.aborted)
             throw abortError(signal);
@@ -242,6 +249,7 @@ export const callRuntime = async (req, options = {}) => {
             method: req.method,
             path: req.path,
             attempt,
+            ...(queryKeys.length > 0 ? { queryKeys } : {}),
         });
         let resp;
         try {

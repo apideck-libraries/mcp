@@ -17,13 +17,14 @@ import { createApideckSearch } from './code-tools/search.js';
 import { registerTool } from './registrar.js';
 import { createSmokeTool } from './smoke-tool.js';
 import { contextStorage, tools as allTools } from './tools.js';
+import { PKG_VERSION } from './version.js';
 import { workflows } from './workflows/index.js';
 const SCOPE_ENUM = z.enum(['read', 'write', 'destructive']);
 const filterByOpts = (items, opts) => items.filter((t) => (opts.scopes === undefined || opts.scopes.includes(t.scope)) &&
     (opts.allowedTools === undefined ||
         opts.allowedTools.includes(t.name)));
 export const createServer = (opts) => {
-    const version = process.env.npm_package_version ?? '0.0.0';
+    const version = PKG_VERSION;
     const server = new McpServer({ name: 'apideck-mcp', version }, { capabilities: { tools: {} } });
     const wrapIfAnalytics = (tool) => wrapHandlerWithAnalytics(tool, opts.analytics, opts.mode);
     const wrapWithContext = (tool) => {

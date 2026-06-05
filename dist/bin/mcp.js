@@ -46,9 +46,33 @@ const startCommand = buildCommand({
             ...(posthogApiKey ? { apiKey: posthogApiKey } : {}),
             logger: createConsoleLogger(),
         });
+        // Mirror the env-var branch of buildContext() (in the generated
+        // src/tools.ts) inline so the stdio path runs through
+        // contextStorage.run(getContext(), …) in server.ts — without this, the
+        // analytics store (app_id/consumer_id and the query_param_keys bridge)
+        // would never populate on stdio.
+        const requireEnv = (k) => {
+            const v = process.env[k];
+            if (!v)
+                throw new Error(`${k} must be set to invoke Apideck tools`);
+            return v;
+        };
         const server = createServer({
             mode: flags.mode,
             analytics,
+            getContext: () => {
+                const serviceId = process.env.APIDECK_SERVICE_ID;
+                return {
+                    apiKey: async () => ({ apiKey: requireEnv('APIDECK_API_KEY') }),
+                    consumerId: requireEnv('APIDECK_CONSUMER_ID'),
+                    appId: requireEnv('APIDECK_APP_ID'),
+                    ...(serviceId !== undefined && serviceId !== ''
+                        ? { serviceId }
+                        : {}),
+                    logger: createConsoleLogger(),
+                    mode: flags.mode,
+                };
+            },
         });
         const transport = new StdioServerTransport();
         const onShutdown = () => {

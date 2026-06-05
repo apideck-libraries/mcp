@@ -6,6 +6,7 @@ import { createAnalytics } from '../src/analytics.js';
 import { createConsoleLogger } from '../src/logger.js';
 import { createServer } from '../src/server.js';
 import { tools as allTools } from '../src/tools.js';
+import { PKG_VERSION } from '../src/version.js';
 import { workflows } from '../src/workflows/index.js';
 export const config = { maxDuration: 60 };
 const CORS_HEADERS = [
@@ -67,7 +68,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
             tools: allTools.length + workflows.length,
             modes: ['static', 'dynamic', 'code'],
             scopes: deriveDomainScopes(allTools),
-            version: process.env.npm_package_version ?? '0.1.0',
+            version: PKG_VERSION,
             commit_sha: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
             sample_tools: allTools.slice(0, 5).map((t) => t.name),
         };
@@ -113,6 +114,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
                 ? { serviceId: process.env.APIDECK_SERVICE_ID }
                 : {}),
         logger: createConsoleLogger(),
+        mode,
     });
     const posthogApiKey = process.env.POSTHOG_API_KEY;
     const analytics = (opts.analyticsFactory ?? createAnalytics)({

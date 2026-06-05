@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.7.0](https://github.com/apideck-libraries/mcp/compare/v0.6.0...v0.7.0) (2026-06-05)
+
+
+### Features
+
+* **observability:** correct version source, User-Agent header, query-key telemetry ([#156](https://github.com/apideck-libraries/mcp/issues/156)) ([c4762ad](https://github.com/apideck-libraries/mcp/commit/c4762adb6725c47c5cfab534a6944ab8c49c0b24))
+
+## [0.6.0](https://github.com/apideck-libraries/mcp/compare/v0.5.0...v0.6.0) (2026-06-03)
+
+
+### Features
+
+* **spec:** regenerate tools.ts from spec ([#153](https://github.com/apideck-libraries/mcp/issues/153)) ([1da6bf0](https://github.com/apideck-libraries/mcp/commit/1da6bf09388f3dae3e4a6cf85f73359fcb164d73))
+
+## [0.5.0](https://github.com/apideck-libraries/mcp/compare/v0.4.0...v0.5.0) (2026-05-25)
+
+
+### Features
+
+* **spec:** regenerate tools.ts from spec ([#148](https://github.com/apideck-libraries/mcp/issues/148)) ([74eb130](https://github.com/apideck-libraries/mcp/commit/74eb130e22f31b2870dfd26de5faa9c342a761a4))
+* **spec:** regenerate tools.ts from spec ([#150](https://github.com/apideck-libraries/mcp/issues/150)) ([bc98f1e](https://github.com/apideck-libraries/mcp/commit/bc98f1ef9f84473776884bedff3deacc52c8e33b))
+
 ## [0.4.0](https://github.com/apideck-libraries/mcp/compare/v0.3.0...v0.4.0) (2026-05-14)
 
 

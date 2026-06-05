@@ -42,6 +42,14 @@ export interface CallContext {
     serviceId?: string;
     signal?: AbortSignal;
     logger: Logger;
+    /** Runtime mode, set by the server or context factory when known. */
+    mode?: MCPMode;
+    /**
+     * Outbound query parameter key names (no values) from the last request.
+     * Written by callRuntime after each outbound request; consumed by analytics
+     * to populate query_param_keys on mcp_tool_called.
+     */
+    outboundQueryKeys?: string[];
 }
 export type BinaryInput = string | {
     data: string | Uint8Array;
