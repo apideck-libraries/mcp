@@ -76,10 +76,12 @@ export interface ExecuteToolHandlerOpts {
     mode?: MCPMode;
 }
 /**
- * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. Raw
- * input passthrough (no Zod re-parse); the upstream generated handler and
- * `callRuntime` validate. Handler throw → `isError: true` text result with
- * the error message. `extra` (signal, requestId, authInfo) is forwarded
+ * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. A
+ * string `input` is JSON-decoded first (Claude Code sends it encoded; see
+ * GH-11152), then passed through without Zod re-parse — the upstream
+ * generated handler and `callRuntime` validate. Malformed JSON → `isError`
+ * before dispatch. Handler throw → `isError: true` text result with the
+ * error message. `extra` (signal, requestId, authInfo) is forwarded
  * unchanged.
  *
  * When `opts.analytics` is provided, the dispatched tool is wrapped per-call

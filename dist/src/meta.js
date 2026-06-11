@@ -162,10 +162,12 @@ export const createDescribeToolInputHandler = (tools) => {
     };
 };
 /**
- * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. Raw
- * input passthrough (no Zod re-parse); the upstream generated handler and
- * `callRuntime` validate. Handler throw → `isError: true` text result with
- * the error message. `extra` (signal, requestId, authInfo) is forwarded
+ * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. A
+ * string `input` is JSON-decoded first (Claude Code sends it encoded; see
+ * GH-11152), then passed through without Zod re-parse — the upstream
+ * generated handler and `callRuntime` validate. Malformed JSON → `isError`
+ * before dispatch. Handler throw → `isError: true` text result with the
+ * error message. `extra` (signal, requestId, authInfo) is forwarded
  * unchanged.
  *
  * When `opts.analytics` is provided, the dispatched tool is wrapped per-call
@@ -182,11 +184,42 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
         if (tool === undefined) {
             return notFoundResult(target);
         }
+        // Claude Code transmits the `input` argument as a JSON-encoded string,
+        // not an object. Decode it before dispatch — otherwise the generated
+        // handler's `{ ...args }` spreads the string into character-index keys
+        // and silently drops every named param (filter, body, path, …). GH-11152.
+        let resolvedInput = input;
+        if (typeof input === 'string') {
+            let parsed;
+            try {
+                parsed = JSON.parse(input);
+            }
+            catch (err) {
+                const detail = err instanceof Error ? err.message : String(err);
+                return {
+                    content: [
+                        { type: 'text', text: `invalid JSON input for tool "${target}": ${detail}` },
+                    ],
+                    isError: true,
+                };
+            }
+            // Tool args must be an object. A primitive/array/null decode is not
+            // usable and would be spread into garbage by the generated handler.
+            if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                return {
+                    content: [
+                        { type: 'text', text: `invalid input for tool "${target}": expected a JSON object` },
+                    ],
+                    isError: true,
+                };
+            }
+            resolvedInput = parsed;
+        }
         const dispatchTool = analytics
             ? wrapHandlerWithAnalytics(tool, analytics, mode)
             : tool;
         try {
-            return await dispatchTool.handler(input, extra);
+            return await dispatchTool.handler(resolvedInput, extra);
         }
         catch (err) {
             if (err instanceof McpError)

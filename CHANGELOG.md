@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/apideck-libraries/mcp/compare/v0.8.0...v0.8.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* decode JSON-encoded string input in execute_tool (GH-11152) ([#162](https://github.com/apideck-libraries/mcp/issues/162)) ([e263cf7](https://github.com/apideck-libraries/mcp/commit/e263cf7cf3f437045635301b2974367cda060944))
+
 ## [0.8.0](https://github.com/apideck-libraries/mcp/compare/v0.7.0...v0.8.0) (2026-06-10)
 
 
