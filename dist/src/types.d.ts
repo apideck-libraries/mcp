@@ -50,6 +50,13 @@ export interface CallContext {
      * to populate query_param_keys on mcp_tool_called.
      */
     outboundQueryKeys?: string[];
+    /**
+     * Correlation ID tracing one MCP call across runtime logs, the outbound
+     * Unify request (`x-correlation-id` header), and the PostHog event.
+     * Read from the inbound `x-correlation-id` header or generated at the
+     * entry point; always populated by the context factories.
+     */
+    correlationId?: string;
 }
 export type BinaryInput = string | {
     data: string | Uint8Array;

@@ -218,6 +218,10 @@ const prepareRequest = async (req) => {
     }
     headers['user-agent'] =
         `apideck-mcp/${PKG_VERSION} (api/${API_VERSION}; mode/${req.context.mode ?? 'unknown'})`;
+    if (req.context.correlationId !== undefined &&
+        req.context.correlationId !== '') {
+        headers['x-correlation-id'] = req.context.correlationId;
+    }
     // Per-request headers (e.g. workflow-supplied `x-apideck-service-id`) win
     // over context defaults so a tool can target a specific connection.
     if (req.headers) {
@@ -235,7 +239,8 @@ export const callRuntime = async (req, options = {}) => {
     const maxAttempts = options.maxAttempts ?? MAX_ATTEMPTS;
     const baseDelay = options.baseDelayMs ?? BASE_DELAY_MS;
     const cap = options.capMs ?? CAP_MS;
-    const { logger, signal } = req.context;
+    const { logger, signal, correlationId } = req.context;
+    const corr = correlationId ? { correlationId } : {};
     if (signal?.aborted)
         throw abortError(signal);
     const { url, init } = await prepareRequest(req);
@@ -246,6 +251,7 @@ export const callRuntime = async (req, options = {}) => {
         if (signal?.aborted)
             throw abortError(signal);
         logger.info('runtime.fetch', {
+            ...corr,
             method: req.method,
             path: req.path,
             attempt,
@@ -260,6 +266,7 @@ export const callRuntime = async (req, options = {}) => {
                 throw abortError(signal);
             if (isNetworkError(err)) {
                 logger.warn('runtime.network-error', {
+                    ...corr,
                     code: err.cause.code,
                     attempt,
                 });
@@ -267,7 +274,10 @@ export const callRuntime = async (req, options = {}) => {
                     await sleep(computeDelay(attempt, baseDelay, cap), signal);
                     continue;
                 }
-                logger.error('runtime.network-exhausted', { code: err.cause.code });
+                logger.error('runtime.network-exhausted', {
+                    ...corr,
+                    code: err.cause.code,
+                });
                 throw new RuntimeError('network error', {
                     code: err.cause.code,
                     cause: err,
@@ -281,6 +291,7 @@ export const callRuntime = async (req, options = {}) => {
         const retriable = isRetriableStatus(resp.status, req.method);
         if (retriable && attempt < maxAttempts - 1) {
             logger.warn('runtime.retriable-status', {
+                ...corr,
                 status: resp.status,
                 attempt,
             });
@@ -288,7 +299,7 @@ export const callRuntime = async (req, options = {}) => {
             continue;
         }
         const body = await tryParseBody(resp);
-        logger.error('runtime.http-error', { status: resp.status });
+        logger.error('runtime.http-error', { ...corr, status: resp.status });
         const issue = detectConnectionIssue(resp.status, body);
         if (issue) {
             let sessionUrl = null;

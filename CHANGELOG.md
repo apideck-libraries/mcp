@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/apideck-libraries/mcp/compare/v0.8.1...v0.9.0) (2026-06-11)
+
+
+### Features
+
+* **observability:** add x-correlation-id tracing across MCP calls ([#164](https://github.com/apideck-libraries/mcp/issues/164)) ([b953408](https://github.com/apideck-libraries/mcp/commit/b953408ccb885e7162d3d6793ab4fbb29e897851))
+
 ## [0.8.1](https://github.com/apideck-libraries/mcp/compare/v0.8.0...v0.8.1) (2026-06-11)
 
 

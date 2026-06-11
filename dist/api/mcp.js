@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 Apideck
+import { randomUUID } from 'node:crypto';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { waitUntil } from '@vercel/functions';
 import { createAnalytics } from '../src/analytics.js';
@@ -87,6 +88,9 @@ export const createHandler = (opts = {}) => async (req, res) => {
     const headerConsumerId = getHeader(req.headers, 'x-apideck-consumer-id');
     const headerAppId = getHeader(req.headers, 'x-apideck-app-id');
     const headerServiceId = getHeader(req.headers, 'x-apideck-service-id');
+    // Trace one MCP call across logs, the outbound Unify request, and PostHog.
+    const correlationId = getHeader(req.headers, 'x-correlation-id') ?? randomUUID();
+    res.setHeader('x-correlation-id', correlationId);
     const modeParam = url.searchParams.get('mode');
     const VALID_MODES = ['static', 'dynamic', 'code'];
     if (modeParam !== null && !VALID_MODES.includes(modeParam)) {
@@ -115,7 +119,11 @@ export const createHandler = (opts = {}) => async (req, res) => {
                 : {}),
         logger: createConsoleLogger(),
         mode,
+        correlationId,
     });
+    // Entry log so every request is traceable in Vercel logs by correlationId,
+    // even when no tool runs.
+    createConsoleLogger().info('mcp.request', { correlationId, method, mode });
     const posthogApiKey = process.env.POSTHOG_API_KEY;
     const analytics = (opts.analyticsFactory ?? createAnalytics)({
         ...(posthogApiKey ? { apiKey: posthogApiKey } : {}),

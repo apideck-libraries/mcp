@@ -5,6 +5,7 @@
 import { AsyncLocalStorage } from 'node:async_hooks';
 export const contextStorage = new AsyncLocalStorage();
 // END MANUAL SECTION
+import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
 import { callRuntime } from './runtime.js';
 import { createConsoleLogger } from './logger.js';
@@ -26,6 +27,7 @@ const buildContext = () => {
         appId: envOrThrow('APIDECK_APP_ID'),
         ...(serviceId !== undefined && serviceId !== '' ? { serviceId } : {}),
         logger: createConsoleLogger(),
+        correlationId: randomUUID(),
     };
 };
 const resultToContent = (result) => {

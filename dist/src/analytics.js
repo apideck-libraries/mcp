@@ -106,6 +106,8 @@ const buildContextProps = () => {
     if (ctx.outboundQueryKeys && ctx.outboundQueryKeys.length > 0) {
         out.query_param_keys = ctx.outboundQueryKeys;
     }
+    if (ctx.correlationId)
+        out.correlation_id = ctx.correlationId;
     return out;
 };
 export const wrapHandlerWithAnalytics = (tool, analytics, mode) => {

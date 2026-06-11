@@ -22,6 +22,7 @@
  *   - Flag names are kebab-case literals (e.g. `'api-key'`) so Stricli's default
  *     `original` scanner matches `--api-key` exactly.
  */
+import { randomUUID } from 'node:crypto';
 import { realpathSync } from 'node:fs';
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
@@ -71,6 +72,7 @@ const startCommand = buildCommand({
                         : {}),
                     logger: createConsoleLogger(),
                     mode: flags.mode,
+                    correlationId: randomUUID(),
                 };
             },
         });
