@@ -1,6 +1,6 @@
 {
   "name": "@apideck/mcp",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "type": "module",
   "packageManager": "pnpm@9.15.4",
   "repository": {
@@ -43,7 +43,7 @@
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@stricli/core": "^1.2.6",
     "@vercel/functions": "^3.4.4",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.2.0",
     "json-schema-to-zod": "2.8.1",
     "zod": "^4.0.0"
   },
