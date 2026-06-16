@@ -14,6 +14,7 @@ import { createDescribeToolInputHandler, createExecuteToolHandler, createListSco
 import { wrapHandlerWithAnalytics } from './analytics.js';
 import { createRunTool } from './code-tools/run.js';
 import { createApideckSearch } from './code-tools/search.js';
+import { applyMtqsNormalization } from './mtqs.js';
 import { registerTool } from './registrar.js';
 import { createSmokeTool } from './smoke-tool.js';
 import { contextStorage, tools as allTools } from './tools.js';
@@ -43,7 +44,7 @@ export const createServer = (opts) => {
     // attribute to the real tool name, not the wrapper. Outer wrap would
     // double-emit.
     const composeNoAnalytics = (tool) => wrapWithContext(tool);
-    const registerMetaTool = (name, description, inputSchema, handler, composeFn = compose) => {
+    const registerMetaTool = (name, description, inputSchema, handler, annotations, composeFn = compose) => {
         const synthetic = {
             name,
             description,
@@ -52,7 +53,17 @@ export const createServer = (opts) => {
             inputSchema: z.object(inputSchema),
             handler,
         };
-        server.registerTool(name, { description, inputSchema }, composeFn(synthetic).handler);
+        server.registerTool(name, { description, inputSchema, annotations }, composeFn(synthetic).handler);
+    };
+    // Meta-tools read a local in-process tool registry, so they are closed-world
+    // (openWorldHint:false) and idempotent — except execute_tool, which
+    // dispatches an arbitrary downstream Apideck call (open-world, not safe to
+    // assume idempotent or non-destructive).
+    const READ_META_ANNOTATIONS = {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: false,
     };
     if (opts.mode === 'code') {
         // Code mode is opinionated by design: an agent always needs both
@@ -68,6 +79,7 @@ export const createServer = (opts) => {
             ...(opts.analytics ? { analytics: opts.analytics } : {}),
             mode: opts.mode,
         })), {});
+        applyMtqsNormalization(server);
         return server;
     }
     if (opts.mode === 'dynamic') {
@@ -75,16 +87,42 @@ export const createServer = (opts) => {
         const filteredWorkflows = filterByOpts(workflows, opts);
         const allVisible = [...visibleTools, ...filteredWorkflows];
         registerMetaTool('list_tools', 'Discover Apideck tools. Call with no args for domain index; filter with domain/search_terms/scope.', {
-            domain: z.string().optional(),
-            search_terms: z.array(z.string()).optional(),
-            scope: SCOPE_ENUM.optional(),
-        }, createListToolsHandler(allVisible));
-        registerMetaTool('describe_tool_input', 'Return the JSON-Schema input contract for a tool by name.', { name: z.string() }, createDescribeToolInputHandler(allVisible));
-        registerMetaTool('execute_tool', 'Invoke a tool by name. `input` is forwarded raw to the tool handler.', { name: z.string(), input: z.unknown() }, createExecuteToolHandler(allVisible, {
+            domain: z
+                .string()
+                .optional()
+                .describe('Restrict results to a single tool domain (e.g. "accounting", "hris"). Omit to get the cross-domain index. Use a key returned by a prior no-arg call.'),
+            search_terms: z
+                .array(z.string())
+                .optional()
+                .describe('Case-insensitive substring terms ANDed across a tool name/description (e.g. ["invoice","create"]). Omit to list everything in the domain.'),
+            scope: SCOPE_ENUM.optional().describe('Filter by mutation scope: "read" (no writes), "write" (creates/updates), or "destructive" (deletes/overwrites). Omit to include all scopes.'),
+        }, createListToolsHandler(allVisible), READ_META_ANNOTATIONS);
+        registerMetaTool('describe_tool_input', 'Return the JSON-Schema input contract for a tool by name.', {
+            name: z
+                .string()
+                .describe('Exact tool name to describe (e.g. "accounting-invoices-create"), as returned by list_tools.'),
+        }, createDescribeToolInputHandler(allVisible), READ_META_ANNOTATIONS);
+        registerMetaTool('execute_tool', 'Invoke a tool by name. `input` is forwarded raw to the tool handler.', {
+            name: z
+                .string()
+                .describe('Exact tool name to invoke (e.g. "accounting-invoices-create"), as returned by list_tools.'),
+            input: z
+                .record(z.string(), z.unknown())
+                .optional()
+                .describe("Arguments object forwarded verbatim to the target tool. Its shape matches that tool's input schema (fetch it with describe_tool_input). Omit for tools that take no arguments."),
+        }, createExecuteToolHandler(allVisible, {
             ...(opts.analytics ? { analytics: opts.analytics } : {}),
             mode: opts.mode,
-        }), composeNoAnalytics);
-        registerMetaTool('list_scopes', 'Return the list of allowed MCP scopes.', {}, createListScopesHandler());
+        }), 
+        // execute_tool dispatches an arbitrary downstream Apideck call: open-world,
+        // and neither idempotent nor guaranteed-additive at this layer.
+        {
+            readOnlyHint: false,
+            destructiveHint: false,
+            idempotentHint: false,
+            openWorldHint: true,
+        }, composeNoAnalytics);
+        registerMetaTool('list_scopes', 'Return the list of allowed MCP scopes.', {}, createListScopesHandler(), READ_META_ANNOTATIONS);
     }
     const smokeEnabled = opts.smoke ?? process.env.APIDECK_MCP_SMOKE === '1';
     if (smokeEnabled) {
@@ -105,6 +143,7 @@ export const createServer = (opts) => {
             });
         }
     }
+    applyMtqsNormalization(server);
     return server;
 };
 //# sourceMappingURL=server.js.map

@@ -7,6 +7,8 @@ export type MCPMode = 'static' | 'dynamic' | 'code';
 export interface ToolAnnotations {
     readOnlyHint?: boolean;
     destructiveHint?: boolean;
+    idempotentHint?: boolean;
+    openWorldHint?: boolean;
 }
 /**
  * MCP tool entry registered by the server.
@@ -24,6 +26,13 @@ export interface ToolDefinition {
     domain: string;
     scope: MCPScope;
     inputSchema: ZodObject<ZodRawShape>;
+    /**
+     * Optional per-tool annotation overrides merged over the scope defaults
+     * (see `scopeAnnotations` in mtqs.ts). Use for closed-domain tools that
+     * read a local registry rather than an external API (`openWorldHint:
+     * false`), or any tool whose risk posture differs from its scope default.
+     */
+    annotations?: ToolAnnotations;
     handler: (args: Record<string, unknown>, extra: RequestHandlerExtra<ServerRequest, ServerNotification>) => CallToolResult | Promise<CallToolResult>;
 }
 export interface Logger {

@@ -17,8 +17,14 @@ const STEPS = [
     { toolName: 'accounting-profit-and-loss-one', payloadKey: 'profit_and_loss' },
 ];
 const inputSchema = z.object({
-    report_as_of_date: z.string().optional(),
-    'x-apideck-service-id': z.string().optional(),
+    report_as_of_date: z
+        .string()
+        .optional()
+        .describe('Cut-off date for the close reports (YYYY-MM-DD). Aged-debtor/creditor and balance-sheet figures are reported as of this date. Defaults to today when omitted.'),
+    'x-apideck-service-id': z
+        .string()
+        .optional()
+        .describe('Target accounting service when the consumer has multiple connections (e.g. "xero", "quickbooks"). Omit to use the consumer default.'),
 });
 /**
  * Build the `apideck-month-end-close-check` tool definition. The factory

@@ -15,8 +15,13 @@ import { z } from 'zod';
 import { wrapHandlerWithAnalytics } from '../analytics.js';
 import { kebabToCamel } from '../search-filter.js';
 const inputSchema = z.object({
-    script: z.string(),
-    timeout_ms: z.number().optional(),
+    script: z
+        .string()
+        .describe('JavaScript source run in a sandboxed node:vm. Call endpoints via the injected `apideck.<methodName>(input)` proxy (method names from apideck_search) and return a value or assign to a top-level variable. No require/fs/process/network access beyond the proxy.'),
+    timeout_ms: z
+        .number()
+        .optional()
+        .describe('Hard wall-clock limit for script execution, in milliseconds. Defaults to 5000. Raise for scripts that fan out across many endpoint calls.'),
 });
 const DEFAULT_TIMEOUT_MS = 5000;
 const stringifyArg = (arg) => {

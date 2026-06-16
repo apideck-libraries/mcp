@@ -9,7 +9,9 @@
 import { z } from 'zod';
 import { kebabToCamel, matchesSearchTerms } from '../search-filter.js';
 const inputSchema = z.object({
-    query: z.string(),
+    query: z
+        .string()
+        .describe('Case-insensitive search text. Whitespace splits into terms that are ANDed across each tool name/description (e.g. "invoice create" matches accounting-invoices-create). Pass an empty string to list all endpoints.'),
 });
 /**
  * Build the `apideck_search` tool definition. Factory takes the endpoint
@@ -26,6 +28,8 @@ export const createApideckSearch = (endpointTools) => ({
     description: 'Search Apideck endpoint tools by substring. Returns name + camelCase method for use with apideck_run.',
     domain: 'code-tools',
     scope: 'read',
+    // Closed-world: searches the in-process tool registry, no external call.
+    annotations: { openWorldHint: false },
     inputSchema,
     handler: (args) => {
         const query = typeof args.query === 'string' ? args.query : '';

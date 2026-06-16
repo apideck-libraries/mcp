@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/apideck-libraries/mcp/compare/v0.9.0...v0.10.0) (2026-06-16)
+
+
+### Features
+
+* **mcp:** raise voke MCP tool-quality score to Tier A ([#170](https://github.com/apideck-libraries/mcp/issues/170)) ([f7cf976](https://github.com/apideck-libraries/mcp/commit/f7cf976d875740ac11388f7832360ea881b45fc5))
+
 ## [0.9.0](https://github.com/apideck-libraries/mcp/compare/v0.8.1...v0.9.0) (2026-06-11)
 
 
