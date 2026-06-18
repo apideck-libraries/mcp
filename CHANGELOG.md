@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.1](https://github.com/apideck-libraries/mcp/compare/v0.11.0...v0.11.1) (2026-06-18)
+
+
+### Bug Fixes
+
+* **mcp:** surface downstream error body on tool errors ([#175](https://github.com/apideck-libraries/mcp/issues/175)) ([c3f72a8](https://github.com/apideck-libraries/mcp/commit/c3f72a8987a72e30a3be195d204521302bf587e7))
+
 ## [0.11.0](https://github.com/apideck-libraries/mcp/compare/v0.10.0...v0.11.0) (2026-06-16)
 
 

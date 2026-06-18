@@ -14,6 +14,7 @@
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
 import { wrapHandlerWithAnalytics } from './analytics.js';
+import { RuntimeError } from './types.js';
 import { matchesSearchTerms } from './search-filter.js';
 /**
  * Maximum tools returned by `list_tools` in a single response. Tied to the
@@ -224,6 +225,19 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
         catch (err) {
             if (err instanceof McpError)
                 throw err;
+            // A connector 4xx/5xx surfaces as RuntimeError carrying the downstream
+            // status + body (runtime.ts). Forward both — mirroring the success-path
+            // shape in tools.ts — so callers see the real `detail.error` instead of a
+            // bare "HTTP <status>". Runtime failures without a status (network error,
+            // loop exhausted) keep returning the plain message. GH-11245.
+            if (err instanceof RuntimeError && err.status !== undefined) {
+                return {
+                    content: [
+                        { type: 'text', text: JSON.stringify({ status: err.status, body: err.body }) },
+                    ],
+                    isError: true,
+                };
+            }
             const message = err instanceof Error ? err.message : String(err);
             return {
                 content: [{ type: 'text', text: message }],
