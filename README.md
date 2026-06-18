@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/%40apideck%2Fmcp?logo=npm&label=%40apideck%2Fmcp)](https://www.npmjs.com/package/@apideck/mcp)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-com.apideck%2Fmcp-blue)](https://registry.modelcontextprotocol.io/v0/servers/com.apideck%2Fmcp/versions)
 [![Glama score](https://glama.ai/mcp/servers/apideck-libraries/mcp/badges/score.svg)](https://glama.ai/mcp/servers/apideck-libraries/mcp)
+[![voke MTQS](https://img.shields.io/badge/voke%20MTQS-Tier%20A-brightgreen)](https://github.com/voke-sh/voke)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Model Context Protocol server for the [Apideck Unified API](https://www.apideck.com). Connect any MCP-compatible agent to 200+ connectors — accounting systems, HRIS platforms, CRM, file storage, and more — through one integration.

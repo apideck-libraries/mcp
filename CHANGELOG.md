@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.2](https://github.com/apideck-libraries/mcp/compare/v0.11.1...v0.11.2) (2026-06-18)
+
+
+### Bug Fixes
+
+* **docs:** render voke MTQS badge via shields.io static badge ([#178](https://github.com/apideck-libraries/mcp/issues/178)) ([a021650](https://github.com/apideck-libraries/mcp/commit/a0216504ca6a14df971b8a624c25b9ba98a595b4))
+
 ## [0.11.1](https://github.com/apideck-libraries/mcp/compare/v0.11.0...v0.11.1) (2026-06-18)
 
 
