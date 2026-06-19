@@ -16,3 +16,23 @@ jobs:
           node-version: 22
       - name: Smoke check
         run: node -e "console.log('ok')"
+
+  # Build the container image Glama publishes from this repo and smoke-test it
+  # over stdio. This is the same build Glama runs for the directory listing;
+  # keeping it green here means a broken image is caught on the mirror itself,
+  # not just discovered when Glama's scanner fails.
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build container image
+        run: docker build -t apideck-mcp:ci .
+      - name: Smoke — server starts over stdio
+        run: |
+          set -euo pipefail
+          out=$(printf '%s\n%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"ci","version":"0"}}}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
+            | docker run -i --rm apideck-mcp:ci start --transport stdio)
+          echo "$out"
+          echo "$out" | grep '"id":2' | jq -e '.result.tools | length > 0'

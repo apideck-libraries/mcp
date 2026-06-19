@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.3](https://github.com/apideck-libraries/mcp/compare/v0.11.2...v0.11.3) (2026-06-19)
+
+
+### Bug Fixes
+
+* **glama:** ship pinned Dockerfile to stop flaky directory build ([#180](https://github.com/apideck-libraries/mcp/issues/180)) ([864e6a5](https://github.com/apideck-libraries/mcp/commit/864e6a507a4434f92ee2f8eabff33effeef72161))
+
 ## [0.11.2](https://github.com/apideck-libraries/mcp/compare/v0.11.1...v0.11.2) (2026-06-18)
 
 
