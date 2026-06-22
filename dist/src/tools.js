@@ -143,7 +143,7 @@ export const tools = [
         domain: 'accounting',
         description: 'Retrieve attachments for a reference.\n\nThis operation retrieves all attachments associated with a specified reference type and reference ID. You need to provide the reference type and reference ID as inputs. It returns a list of attachments related to the given reference.\n\nRead-only; safe to call repeatedly.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
         scope: 'read',
-        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "raw": z.boolean().default(false), "cursor": z.string().nullable().optional(), "limit": z.number().int().gte(1).lte(200).default(20), "fields": z.string().nullable().optional() }),
+        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "expense-report", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "raw": z.boolean().default(false), "cursor": z.string().nullable().optional(), "limit": z.number().int().gte(1).lte(200).default(20), "fields": z.string().nullable().optional() }),
         handler: dispatchHandler('GET', '/accounting/attachments/{reference_type}/{reference_id}', { query: ['raw', 'cursor', 'limit', 'fields'] }),
     },
     {
@@ -151,7 +151,7 @@ export const tools = [
         domain: 'accounting',
         description: 'Delete accounting attachment.\n\nThis operation deletes an attachment associated with a specific accounting reference. You need to provide the reference type, reference ID, and the attachment ID to identify the attachment to delete. The operation removes the attachment and returns a confirmation of deletion.\n\n**Destructive**: permanently deletes the target record on the connected service. Confirm with the user before calling.\n\nUse only after the user has explicitly confirmed deletion. Prefer an update tool if the goal is to deactivate rather than remove.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
         scope: 'destructive',
-        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "id": z.string().describe("Path parameter: id"), "raw": z.boolean().default(false) }),
+        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "expense-report", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "id": z.string().describe("Path parameter: id"), "raw": z.boolean().default(false) }),
         handler: dispatchHandler('DELETE', '/accounting/attachments/{reference_type}/{reference_id}/{id}', { query: ['raw'] }),
     },
     {
@@ -159,7 +159,7 @@ export const tools = [
         domain: 'accounting',
         description: 'Download attachment file.\n\nRetrieves and downloads an attachment file associated with a specific reference type and ID, identified by the attachment ID. The operation requires the reference type, reference ID, and the attachment ID as inputs. It returns the attachment file data for consumption.\n\nRead-only; safe to call repeatedly.\n\nUse to retrieve binary content (PDF/image/audio). Returned as base64 in the MCP content block.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
         scope: 'read',
-        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "id": z.string().describe("Path parameter: id"), "fields": z.string().nullable().optional() }),
+        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "expense-report", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "id": z.string().describe("Path parameter: id"), "fields": z.string().nullable().optional() }),
         handler: dispatchHandler('GET', '/accounting/attachments/{reference_type}/{reference_id}/{id}/download', { query: ['fields'] }),
     },
     {
@@ -167,7 +167,7 @@ export const tools = [
         domain: 'accounting',
         description: 'Get attachment by reference and ID.\n\nRetrieve a specific attachment using its reference type, reference ID, and attachment ID. The operation requires the type of reference, the ID of that reference, and the attachment\'s unique ID as inputs. It returns the details of the requested attachment from the @apideck/mcp-...\n\nRead-only; safe to call repeatedly.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
         scope: 'read',
-        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "id": z.string().describe("Path parameter: id"), "raw": z.boolean().default(false), "fields": z.string().nullable().optional() }),
+        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "expense-report", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "id": z.string().describe("Path parameter: id"), "raw": z.boolean().default(false), "fields": z.string().nullable().optional() }),
         handler: dispatchHandler('GET', '/accounting/attachments/{reference_type}/{reference_id}/{id}', { query: ['raw', 'fields'] }),
     },
     {
@@ -175,7 +175,7 @@ export const tools = [
         domain: 'accounting',
         description: 'Upload attachment to reference.\n\nThis operation uploads an attachment to a specified reference in the accounting system. It requires the reference type and reference ID to identify where the attachment belongs. The request must include the attachment data, and the response confirms successful upload.\n\nCreates a new record on the connected service. Not idempotent — retrying may create duplicates.\n\nUse to send binary content (PDF/image/audio). Pass the payload as a base64 data URL or `{ data, mimeType }`.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
         scope: 'write',
-        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "raw": z.boolean().default(false), "data": z.string().describe("Base64-encoded file content or a data: URL (e.g. data:image/png;base64,...). Use with mimeType to send as multipart FormData."), "mimeType": z.string().describe("MIME type of the file (e.g. application/pdf, image/png).") }),
+        inputSchema: z.object({ "reference_type": z.enum(["invoice", "bill", "expense", "expense-report", "quote"]).describe("Path parameter: reference_type"), "reference_id": z.string().describe("A unique identifier for an object.").readonly(), "raw": z.boolean().default(false), "data": z.string().describe("Base64-encoded file content or a data: URL (e.g. data:image/png;base64,...). Use with mimeType to send as multipart FormData."), "mimeType": z.string().describe("MIME type of the file (e.g. application/pdf, image/png).") }),
         handler: dispatchHandler('POST', '/accounting/attachments/{reference_type}/{reference_id}', { query: ['raw'] }),
     },
     {
