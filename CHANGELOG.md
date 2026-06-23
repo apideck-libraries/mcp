@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.1](https://github.com/apideck-libraries/mcp/compare/v0.12.0...v0.12.1) (2026-06-22)
+
+
+### Bug Fixes
+
+* **code-tools:** marshal apideck_run vm boundary values to close sandbox escape ([#184](https://github.com/apideck-libraries/mcp/issues/184)) ([d8f64bc](https://github.com/apideck-libraries/mcp/commit/d8f64bc75d8ea5dcc0518868cf6153dce86ff10d)), closes [#174](https://github.com/apideck-libraries/mcp/issues/174)
+
 ## [0.12.0](https://github.com/apideck-libraries/mcp/compare/v0.11.3...v0.12.0) (2026-06-22)
 
 

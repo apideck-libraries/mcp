@@ -108,6 +108,15 @@ export const createRunTool = (endpointTools, opts = {}) => ({
         // process, require, etc.). After the wrap, `.constructor` resolves
         // to the vm-realm Function — `Function('return require')()` returns
         // undefined inside the sandbox.
+        //
+        // The `apideck.*` wrapper additionally marshals every value that
+        // crosses host→vm back into the vm realm (#174 Finding 1): the
+        // host-realm Promise/value/Error an endpoint dispatch returns would
+        // otherwise expose `<hostObj>.constructor.constructor` → host Function
+        // → host process. We re-realm the resolved value via vm-realm JSON and
+        // re-throw failures as a vm-realm Error carrying only `.message`, so no
+        // host-realm reference is ever handed to the script. `Promise`/`JSON`
+        // here are vm-realm globals because the bootstrap runs in the context.
         const bootstrap = `
       (() => {
         const wrapAll = (originalRef) => {
@@ -118,7 +127,22 @@ export const createRunTool = (endpointTools, opts = {}) => ({
           }
           return wrapped;
         };
-        globalThis.apideck = wrapAll(globalThis.apideck);
+        const wrapApideck = (originalRef) => {
+          const wrapped = Object.create(null);
+          for (const k of Object.keys(originalRef)) {
+            const fn = originalRef[k];
+            wrapped[k] = function(...args) {
+              return Promise.resolve()
+                .then(() => fn.apply(undefined, args))
+                .then(
+                  (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v))),
+                  (e) => { throw new Error(e && e.message ? String(e.message) : String(e)); }
+                );
+            };
+          }
+          return wrapped;
+        };
+        globalThis.apideck = wrapApideck(globalThis.apideck);
         globalThis.console = wrapAll(globalThis.console);
       })();
     `;
