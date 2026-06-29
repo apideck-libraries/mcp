@@ -1,2 +1,2 @@
-export declare const PKG_VERSION = "0.12.1";
+export declare const PKG_VERSION = "0.13.0";
 //# sourceMappingURL=version.d.ts.map
