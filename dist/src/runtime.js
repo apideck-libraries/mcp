@@ -211,7 +211,12 @@ const prepareRequest = async (req) => {
         body = form;
     }
     headers.authorization = `Bearer ${apiKey}`;
-    headers['x-apideck-consumer-id'] = req.context.consumerId;
+    // Omit the consumer header when unset so application-scoped endpoints
+    // (e.g. /webhook/logs) run unscoped. Consumer-scoped endpoints return their
+    // own "consumer required" error, which is surfaced to the caller.
+    if (req.context.consumerId !== undefined && req.context.consumerId !== '') {
+        headers['x-apideck-consumer-id'] = req.context.consumerId;
+    }
     headers['x-apideck-app-id'] = req.context.appId;
     if (req.context.serviceId !== undefined && req.context.serviceId !== '') {
         headers['x-apideck-service-id'] = req.context.serviceId;
@@ -303,16 +308,21 @@ export const callRuntime = async (req, options = {}) => {
         const issue = detectConnectionIssue(resp.status, body);
         if (issue) {
             let sessionUrl = null;
-            try {
-                sessionUrl = await mintVaultSessionUrl({
-                    apiKey: req.context.apiKey,
-                    appId: req.context.appId,
-                    consumerId: req.context.consumerId,
-                    ...(signal !== undefined ? { signal } : {}),
-                });
-            }
-            catch {
-                sessionUrl = null;
+            // Vault sessions are consumer-scoped; only mint a re-auth URL when a
+            // consumer is set. Unscoped calls fall back to the plain issue message.
+            const { consumerId } = req.context;
+            if (consumerId !== undefined && consumerId !== '') {
+                try {
+                    sessionUrl = await mintVaultSessionUrl({
+                        apiKey: req.context.apiKey,
+                        appId: req.context.appId,
+                        consumerId,
+                        ...(signal !== undefined ? { signal } : {}),
+                    });
+                }
+                catch {
+                    sessionUrl = null;
+                }
             }
             if (sessionUrl !== null)
                 throw buildConnectionElicitation(issue, sessionUrl);

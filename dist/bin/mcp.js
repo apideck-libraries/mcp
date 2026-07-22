@@ -63,9 +63,14 @@ const startCommand = buildCommand({
             analytics,
             getContext: () => {
                 const serviceId = process.env.APIDECK_SERVICE_ID;
+                // Consumer is optional: the server boots unscoped and a per-call
+                // `consumer_id` arg can supply it. App ID stays required.
+                const consumerId = process.env.APIDECK_CONSUMER_ID;
                 return {
                     apiKey: async () => ({ apiKey: requireEnv('APIDECK_API_KEY') }),
-                    consumerId: requireEnv('APIDECK_CONSUMER_ID'),
+                    ...(consumerId !== undefined && consumerId !== ''
+                        ? { consumerId }
+                        : {}),
                     appId: requireEnv('APIDECK_APP_ID'),
                     ...(serviceId !== undefined && serviceId !== ''
                         ? { serviceId }

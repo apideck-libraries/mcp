@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.0](https://github.com/apideck-libraries/mcp/compare/v0.16.0...v0.17.0) (2026-07-22)
+
+
+### Features
+
+* **consumer:** make consumer ID optional with per-call override ([#197](https://github.com/apideck-libraries/mcp/issues/197)) ([2881609](https://github.com/apideck-libraries/mcp/commit/2881609d5046a0cdd7d3a60547b1df01fc71f8ec)), closes [#196](https://github.com/apideck-libraries/mcp/issues/196)
+
 ## [0.16.0](https://github.com/apideck-libraries/mcp/compare/v0.15.0...v0.16.0) (2026-07-20)
 
 

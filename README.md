@@ -178,8 +178,27 @@ Pass credentials via headers:
 | Header | Description |
 |---|---|
 | `x-apideck-api-key` | Your Apideck API key |
-| `x-apideck-consumer-id` | The end-user / customer ID in your app |
+| `x-apideck-consumer-id` | The end-user / customer ID in your app (**optional** — see below) |
 | `x-apideck-app-id` | Your Apideck application ID |
+
+### Consumer scoping (optional)
+
+The consumer ID is **optional at connect time**. Leave `APIDECK_CONSUMER_ID` /
+`x-apideck-consumer-id` unset to start the server **unscoped**, then supply or
+override the consumer per call by passing a `consumer_id` argument to any tool:
+
+```
+execute_tool({ name: "crm-contacts-all", input: { consumer_id: "acme-inc" } })
+```
+
+Precedence: the per-call `consumer_id` argument wins over the
+`APIDECK_CONSUMER_ID` env var / `x-apideck-consumer-id` header.
+
+- **Unscoped calls** work for application-scoped endpoints that don't need a
+  consumer — e.g. webhook logs (`webhook-event-logs-all`) and
+  `vault-connections-all`.
+- **Consumer-scoped endpoints** called without a consumer return Apideck's
+  "consumer required" error, so set `consumer_id` (or the env/header) for those.
 
 ---
 

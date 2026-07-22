@@ -21,9 +21,10 @@ const buildContext = () => {
     if (stored)
         return stored;
     const serviceId = process.env.APIDECK_SERVICE_ID;
+    const consumerId = process.env.APIDECK_CONSUMER_ID;
     return {
         apiKey: async () => ({ apiKey: envOrThrow('APIDECK_API_KEY') }),
-        consumerId: envOrThrow('APIDECK_CONSUMER_ID'),
+        ...(consumerId !== undefined && consumerId !== '' ? { consumerId } : {}),
         appId: envOrThrow('APIDECK_APP_ID'),
         ...(serviceId !== undefined && serviceId !== '' ? { serviceId } : {}),
         logger: createConsoleLogger(),
@@ -61,6 +62,8 @@ const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
     const remaining = { ...args };
     const serviceIdArg = remaining.service_id;
     delete remaining.service_id;
+    const consumerIdArg = remaining.consumer_id;
+    delete remaining.consumer_id;
     const path = pathTemplate.replace(/\{(\w+)\}/g, (_, key) => {
         const val = remaining[key];
         delete remaining[key];
@@ -106,9 +109,15 @@ const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
     }
     const canHaveBody = method !== 'GET' && method !== 'HEAD';
     const baseContext = buildContext();
-    const context = typeof serviceIdArg === 'string' && serviceIdArg !== ''
-        ? { ...baseContext, serviceId: serviceIdArg }
-        : baseContext;
+    // Per-call service_id / consumer_id args override context defaults so a
+    // tool can target a specific connection or consumer without reconnecting.
+    const context = { ...baseContext };
+    if (typeof serviceIdArg === 'string' && serviceIdArg !== '') {
+        context.serviceId = serviceIdArg;
+    }
+    if (typeof consumerIdArg === 'string' && consumerIdArg !== '') {
+        context.consumerId = consumerIdArg;
+    }
     const result = await callRuntime({
         method,
         path,

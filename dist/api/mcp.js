@@ -102,6 +102,9 @@ export const createHandler = (opts = {}) => async (req, res) => {
         return;
     }
     const mode = modeParam ?? 'dynamic';
+    // Consumer is optional: boot unscoped and let a per-call `consumer_id` arg
+    // (or the header) supply it. App ID stays required.
+    const consumerId = headerConsumerId ?? process.env.APIDECK_CONSUMER_ID;
     const getContext = () => ({
         apiKey: async () => {
             const key = headerApiKey ?? process.env.APIDECK_API_KEY;
@@ -110,7 +113,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
             }
             return { apiKey: key };
         },
-        consumerId: headerConsumerId ?? envOrThrow('APIDECK_CONSUMER_ID'),
+        ...(consumerId !== undefined && consumerId !== '' ? { consumerId } : {}),
         appId: headerAppId ?? envOrThrow('APIDECK_APP_ID'),
         ...(headerServiceId !== undefined && headerServiceId !== ''
             ? { serviceId: headerServiceId }

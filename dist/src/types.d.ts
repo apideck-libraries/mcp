@@ -46,7 +46,13 @@ export type SecurityResolver = () => Promise<{
 }>;
 export interface CallContext {
     apiKey: SecurityResolver;
-    consumerId: string;
+    /**
+     * Apideck consumer to scope calls to. Optional: the server can boot without
+     * one (unscoped) and a per-call `consumer_id` argument can supply or override
+     * it. When absent/empty, `x-apideck-consumer-id` is omitted from the outbound
+     * request so application-scoped endpoints (e.g. `/webhook/logs`) work.
+     */
+    consumerId?: string;
     appId: string;
     serviceId?: string;
     signal?: AbortSignal;
