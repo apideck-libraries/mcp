@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://github.com/apideck-libraries/mcp/compare/v0.17.0...v0.18.0) (2026-07-27)
+
+
+### Features
+
+* **spec:** regenerate tools.ts from spec ([#200](https://github.com/apideck-libraries/mcp/issues/200)) ([2e16cda](https://github.com/apideck-libraries/mcp/commit/2e16cda127bf02b507d113cdea01637f0909796d))
+
 ## [0.17.0](https://github.com/apideck-libraries/mcp/compare/v0.16.0...v0.17.0) (2026-07-22)
 
 
