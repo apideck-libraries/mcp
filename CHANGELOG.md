@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.1](https://github.com/apideck-libraries/mcp/compare/v0.18.0...v0.18.1) (2026-08-01)
+
+
+### Bug Fixes
+
+* **deploy:** stop serving the repository root over HTTP ([#202](https://github.com/apideck-libraries/mcp/issues/202)) ([9c055d7](https://github.com/apideck-libraries/mcp/commit/9c055d72732732fad2bb731b8447a93b65f9f30b))
+
 ## [0.18.0](https://github.com/apideck-libraries/mcp/compare/v0.17.0...v0.18.0) (2026-07-27)
 
 
