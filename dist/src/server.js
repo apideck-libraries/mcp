@@ -6,7 +6,8 @@
  * `dynamic` mode registers the four Tiered Discovery meta-tools
  * (`list_tools`, `describe_tool_input`, `execute_tool`, `list_scopes`)
  * over the generated tool array, pre-filtered by `opts.scopes` and
- * `opts.allowedTools`. `static` mode currently only registers the optional smoke tool; full static-mode registration is pending. `code` mode registers only `apideck_search` + `apideck_run`.
+ * `opts.allowedTools`. `static` mode currently only registers the optional smoke tool; full static-mode registration is pending. `code` mode registers only `apideck_search` + `apideck_run`, over the
+ * tool array pre-filtered by `opts.scopes` (not `opts.allowedTools`).
  */
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
@@ -68,14 +69,18 @@ export const createServer = (opts) => {
     if (opts.mode === 'code') {
         // Code mode is opinionated by design: an agent always needs both
         // apideck_search (to discover endpoint methods) and apideck_run (to
-        // dispatch them). Restricting either via allowedTools/scopes would
-        // break the mode's utility, so opts.allowedTools, opts.scopes, and
-        // opts.smoke are intentionally ignored here.
-        registerTool(server, compose(createApideckSearch(allTools)), {});
+        // dispatch them). Restricting either via allowedTools would break the
+        // mode's utility, so opts.allowedTools and opts.smoke are intentionally
+        // ignored here. opts.scopes does apply — it pre-filters the visible
+        // tool array before either code-tool is constructed.
+        const visibleForCode = filterByOpts(allTools, {
+            ...(opts.scopes !== undefined ? { scopes: opts.scopes } : {}),
+        });
+        registerTool(server, compose(createApideckSearch(visibleForCode)), {});
         // apideck_run dispatches arbitrary endpoint tools via the apideck.*
         // proxy — analytics is applied per-dispatch inside createRunTool so
         // each apideck.<method>() call emits an event for the real tool name.
-        registerTool(server, composeNoAnalytics(createRunTool(allTools, {
+        registerTool(server, composeNoAnalytics(createRunTool(visibleForCode, {
             ...(opts.analytics ? { analytics: opts.analytics } : {}),
             mode: opts.mode,
         })), {});

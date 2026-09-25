@@ -32,6 +32,7 @@ import handler from '../api/mcp.js';
 import { createAnalytics } from '../src/analytics.js';
 import { createConsoleLogger } from '../src/logger.js';
 import { createServer } from '../src/server.js';
+import { SCOPES } from '../src/types.js';
 const APIDECK_REACHABILITY_URL = 'https://unify.apideck.com/vault/consumers';
 const POSTHOG_BATCH_URL = 'https://eu.i.posthog.com/batch';
 const modeParser = buildChoiceParser(['static', 'dynamic', 'code']);
@@ -40,6 +41,7 @@ const modeParser = buildChoiceParser(['static', 'dynamic', 'code']);
 // is a no-op — it exists so Stricli does not reject the unknown argument and
 // abort before the transport connects.
 const transportParser = buildChoiceParser(['stdio']);
+const scopeParser = buildChoiceParser(SCOPES);
 const startCommand = buildCommand({
     func: async (flags) => {
         const posthogApiKey = process.env.POSTHOG_API_KEY;
@@ -61,6 +63,7 @@ const startCommand = buildCommand({
         const server = createServer({
             mode: flags.mode,
             analytics,
+            ...(flags.scope !== undefined ? { scopes: flags.scope } : {}),
             getContext: () => {
                 const serviceId = process.env.APIDECK_SERVICE_ID;
                 // Consumer is optional: the server boots unscoped and a per-call
@@ -78,6 +81,7 @@ const startCommand = buildCommand({
                     logger: createConsoleLogger(),
                     mode: flags.mode,
                     correlationId: randomUUID(),
+                    ...(flags['lock-identity'] ? { lockIdentity: true } : {}),
                 };
             },
         });
@@ -102,6 +106,18 @@ const startCommand = buildCommand({
                 parse: transportParser,
                 brief: 'Transport (stdio only — accepted for mcp-proxy compatibility)',
                 default: 'stdio',
+            },
+            scope: {
+                kind: 'parsed',
+                parse: scopeParser,
+                brief: 'Filter tools by scope (read | write | destructive); may be repeated: --scope read --scope write',
+                variadic: true,
+                optional: true,
+            },
+            'lock-identity': {
+                kind: 'boolean',
+                withNegated: false,
+                brief: 'Opt-in: ignore per-call consumer_id/service_id tool arguments; identity comes only from the boot env',
             },
         },
     },

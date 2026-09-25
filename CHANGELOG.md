@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.1](https://github.com/apideck-libraries/mcp/compare/v0.20.0...v0.20.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* apply scopes, add opt-in identity lock, keep vault path params ([#218](https://github.com/apideck-libraries/mcp/issues/218)) ([ff66b11](https://github.com/apideck-libraries/mcp/commit/ff66b11d54d747ccbca38aa4045ee0eb107f35f1))
+
 ## [0.20.0](https://github.com/apideck-libraries/mcp/compare/v0.19.0...v0.20.0) (2026-09-25)
 
 

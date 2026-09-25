@@ -200,6 +200,16 @@ Precedence: the per-call `consumer_id` argument wins over the
 - **Consumer-scoped endpoints** called without a consumer return Apideck's
   "consumer required" error, so set `consumer_id` (or the env/header) for those.
 
+#### Locking identity (opt-in)
+
+To pin identity to the boot header/env and stop agents from switching consumer
+or connection per call, start with `--lock-identity` (CLI) or append
+`?lock_identity=true` (hosted). Locked calls ignore per-call `consumer_id` /
+`service_id` arguments. Off by default. Vault consumer tools that take
+`consumer_id` as a path parameter (e.g. `vault-consumers-one`) only accept the
+locked consumer; any other value, or no locked consumer, is refused.
+`service_id` path parameters (e.g. `vault-connections-one`) are unaffected.
+
 ---
 
 ## Three Modes
@@ -281,6 +291,11 @@ Filter tools by HTTP method class:
 | `read` | GET, HEAD | `--scope read` |
 | `write` | POST, PUT, PATCH | `--scope write` |
 | `destructive` | DELETE | `--scope destructive` |
+
+Repeat the flag to combine scopes (`--scope read --scope write`). On the hosted
+endpoint use a comma-separated query param: `?scopes=read,write`. Invalid or
+empty values are rejected (CLI parse error / HTTP 400). Scopes apply in every
+mode, including `code`.
 
 ---
 

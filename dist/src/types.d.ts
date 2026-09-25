@@ -55,6 +55,12 @@ export interface CallContext {
     consumerId?: string;
     appId: string;
     serviceId?: string;
+    /**
+     * Opt-in: when true, per-call `consumer_id`/`service_id` tool arguments are
+     * ignored and identity comes only from the boot header/env. Absent/false
+     * keeps the default precedence (per-call argument overrides boot identity).
+     */
+    lockIdentity?: boolean;
     signal?: AbortSignal;
     logger: Logger;
     /** Runtime mode, set by the server or context factory when known. */

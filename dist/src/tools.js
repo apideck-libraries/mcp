@@ -60,10 +60,16 @@ const resultToContent = (result) => {
 };
 const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
     const remaining = { ...args };
-    const serviceIdArg = remaining.service_id;
-    delete remaining.service_id;
-    const consumerIdArg = remaining.consumer_id;
-    delete remaining.consumer_id;
+    // service_id / consumer_id are identity overrides unless the path template
+    // consumes them (vault tools), in which case they stay for templating.
+    const serviceIdInPath = pathTemplate.includes('{service_id}');
+    const consumerIdInPath = pathTemplate.includes('{consumer_id}');
+    const serviceIdArg = serviceIdInPath ? undefined : remaining.service_id;
+    if (!serviceIdInPath)
+        delete remaining.service_id;
+    const consumerIdArg = consumerIdInPath ? undefined : remaining.consumer_id;
+    if (!consumerIdInPath)
+        delete remaining.consumer_id;
     const path = pathTemplate.replace(/\{(\w+)\}/g, (_, key) => {
         const val = remaining[key];
         delete remaining[key];
@@ -109,13 +115,20 @@ const dispatchHandler = (method, pathTemplate, opts = {}) => async (args) => {
     }
     const canHaveBody = method !== 'GET' && method !== 'HEAD';
     const baseContext = buildContext();
+    // A locked session may only address its own consumer through a
+    // {consumer_id} path param (vault consumer tools); refuse anything else.
+    if (baseContext.lockIdentity && consumerIdInPath && args.consumer_id !== baseContext.consumerId) {
+        throw new Error(`consumer_id does not match the locked identity for ${method} ${pathTemplate}`);
+    }
     // Per-call service_id / consumer_id args override context defaults so a
-    // tool can target a specific connection or consumer without reconnecting.
+    // tool can target a specific connection or consumer without reconnecting,
+    // unless the boot context opts in to lockIdentity, which pins identity to
+    // the boot header/env and ignores these per-call overrides entirely.
     const context = { ...baseContext };
-    if (typeof serviceIdArg === 'string' && serviceIdArg !== '') {
+    if (!baseContext.lockIdentity && typeof serviceIdArg === 'string' && serviceIdArg !== '') {
         context.serviceId = serviceIdArg;
     }
-    if (typeof consumerIdArg === 'string' && consumerIdArg !== '') {
+    if (!baseContext.lockIdentity && typeof consumerIdArg === 'string' && consumerIdArg !== '') {
         context.consumerId = consumerIdArg;
     }
     const result = await callRuntime({

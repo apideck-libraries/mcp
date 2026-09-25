@@ -7,6 +7,7 @@ import { createAnalytics } from '../src/analytics.js';
 import { createConsoleLogger } from '../src/logger.js';
 import { createServer } from '../src/server.js';
 import { tools as allTools } from '../src/tools.js';
+import { SCOPES } from '../src/types.js';
 import { PKG_VERSION } from '../src/version.js';
 import { workflows } from '../src/workflows/index.js';
 export const config = { maxDuration: 60 };
@@ -102,9 +103,42 @@ export const createHandler = (opts = {}) => async (req, res) => {
         return;
     }
     const mode = modeParam ?? 'dynamic';
+    const scopesParam = url.searchParams.get('scopes');
+    let scopes;
+    if (scopesParam !== null) {
+        const scopeTokens = scopesParam
+            .split(',')
+            .map((s) => s.trim())
+            .filter((s) => s.length > 0);
+        const invalidScopes = scopeTokens.filter((s) => !SCOPES.includes(s));
+        if (scopeTokens.length === 0 || invalidScopes.length > 0) {
+            res.statusCode = 400;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({
+                error: `invalid scopes: ${scopesParam}; expected comma-separated values from ${SCOPES.join(', ')}`,
+            }));
+            return;
+        }
+        scopes = scopeTokens;
+    }
     // Consumer is optional: boot unscoped and let a per-call `consumer_id` arg
     // (or the header) supply it. App ID stays required.
     const consumerId = headerConsumerId ?? process.env.APIDECK_CONSUMER_ID;
+    // Opt-in: when true, per-call consumer_id/service_id tool arguments are
+    // ignored and identity comes only from the boot header/env (see
+    // CallContext.lockIdentity).
+    const lockIdentityParam = url.searchParams.get('lock_identity');
+    if (lockIdentityParam !== null &&
+        lockIdentityParam !== 'true' &&
+        lockIdentityParam !== 'false') {
+        res.statusCode = 400;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({
+            error: `invalid lock_identity: ${lockIdentityParam}; expected true or false`,
+        }));
+        return;
+    }
+    const lockIdentity = lockIdentityParam === 'true';
     const getContext = () => ({
         apiKey: async () => {
             const key = headerApiKey ?? process.env.APIDECK_API_KEY;
@@ -123,6 +157,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
         logger: createConsoleLogger(),
         mode,
         correlationId,
+        ...(lockIdentity ? { lockIdentity: true } : {}),
     });
     // Entry log so every request is traceable in Vercel logs by correlationId,
     // even when no tool runs.
@@ -137,6 +172,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
         mode,
         getContext,
         analytics,
+        ...(scopes !== undefined ? { scopes } : {}),
     });
     const transport = (opts.transportFactory ?? (() => new StreamableHTTPServerTransport({})))();
     await server.connect(transport);
