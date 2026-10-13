@@ -1,6 +1,6 @@
 {
   "name": "@apideck/mcp",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "type": "module",
   "packageManager": "pnpm@9.15.4",
   "repository": {
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@apidevtools/swagger-parser": "^12.1.0",
-    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@modelcontextprotocol/sdk": "^1.31.0",
     "@stricli/core": "^1.2.6",
     "@vercel/functions": "^3.4.4",
     "js-yaml": "^4.3.2",

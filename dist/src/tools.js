@@ -801,6 +801,22 @@ export const tools = [
         handler: dispatchHandler('PATCH', '/accounting/expenses/{id}', { query: ['raw'] }),
     },
     {
+        name: 'accounting-fiscal-periods-all',
+        domain: 'accounting',
+        description: 'List Fiscal Periods.\n\nList the fiscal (accounting) periods of the company, with their dates and whether they are open for posting.\n\nRead-only; safe to call repeatedly.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
+        scope: 'read',
+        inputSchema: z.object({ "raw": z.boolean().default(false), "cursor": z.string().nullable().optional(), "limit": z.number().int().gte(1).lte(200).default(20), "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).optional(), "fields": z.string().nullable().optional() }),
+        handler: dispatchHandler('GET', '/accounting/fiscal-periods', { query: ['raw', 'cursor', 'limit', 'pass_through', 'fields'] }),
+    },
+    {
+        name: 'accounting-fiscal-periods-one',
+        domain: 'accounting',
+        description: 'Get Fiscal Period.\n\nRead-only; safe to call repeatedly.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
+        scope: 'read',
+        inputSchema: z.object({ "id": z.string().describe("Path parameter: id"), "raw": z.boolean().default(false), "fields": z.string().nullable().optional() }),
+        handler: dispatchHandler('GET', '/accounting/fiscal-periods/{id}', { query: ['raw', 'fields'] }),
+    },
+    {
         name: 'accounting-general-ledger-transactions-all',
         domain: 'accounting',
         description: 'List general ledger transactions.\n\nRetrieve a list of general ledger transactions using the @apideck/mcp package. This operation fetches all available transactions without requiring specific input parameters. The response includes detailed information about each transaction.\n\nRead-only; safe to call repeatedly.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
@@ -1607,6 +1623,14 @@ export const tools = [
         scope: 'write',
         inputSchema: z.object({ "id": z.string().describe("A unique identifier for an object.").readonly(), "raw": z.boolean().default(false), "parent_id": z.string().nullable().describe("A unique identifier for an object.").optional(), "parent_name": z.string().nullable().describe("The name of the parent tracking category.").optional(), "name": z.string().describe("The name of the tracking category.").optional(), "code": z.string().nullable().describe("The code of the tracking category.").optional(), "status": z.enum(["active", "inactive"]).describe("Based on the status some functionality is enabled or disabled.").optional(), "custom_mappings": z.record(z.string(), z.any()).nullable().describe("When custom mappings are configured on the resource, the result is included here.").readonly().optional(), "row_version": z.string().nullable().describe("A binary value used to detect updates to a object and prevent data conflicts. It is incremented each time an update is made to the object.").optional(), "updated_by": z.string().nullable().describe("The user who last updated the object.").readonly().optional(), "created_by": z.string().nullable().describe("The user who created the object.").readonly().optional(), "updated_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was last updated.").readonly().optional(), "created_at": z.string().datetime({ offset: true }).nullable().describe("The date and time when the object was created.").readonly().optional(), "pass_through": z.array(z.object({ "service_id": z.string().describe("Identifier for the service to which this pass_through should be applied."), "operation_id": z.string().describe("Optional identifier for a workflow operation to which this pass_through should be applied. This is useful for Unify calls that are making more than one downstream request.").optional(), "extend_object": z.record(z.string(), z.any()).describe("Simple object allowing any properties for direct extension.").optional(), "extend_paths": z.array(z.object({ "path": z.string().describe("JSONPath string specifying where to apply the value."), "value": z.any().describe("The value to set at the specified path, can be any type.") }).strict()).describe("Array of objects for structured data modifications via paths.").optional() }).strict()).describe("The pass_through property allows passing service-specific, custom data or structured modifications in request body when creating or updating resources.").optional(), "subsidiaries": z.array(z.any()).describe("The subsidiaries the account belongs to.").optional() }).strict(),
         handler: dispatchHandler('PATCH', '/accounting/tracking-categories/{id}', { query: ['raw'] }),
+    },
+    {
+        name: 'accounting-trial-balance-one',
+        domain: 'accounting',
+        description: 'Get Trial Balance.\n\nGet the trial balance as of a date. Read-only.\n\nRead-only; safe to call repeatedly.\n\nRequires an active `accounting` connection on the consumer\'s Apideck Vault. If the tool returns a connection error, use URL elicitation to guide the consumer to reconnect.',
+        scope: 'read',
+        inputSchema: z.object({ "pass_through": z.object({ "example_downstream_property": z.string().describe("All passthrough query parameters are passed along to the connector as is (?pass_through[search]=leads becomes ?search=leads)").optional() }).catchall(z.any()).optional(), "filter": z.object({ "end_date": z.string().regex(new RegExp("^\\d{4}-\\d{2}-\\d{2}$")).describe("The date the balances are reported as of (YYYY-MM-DD). Defaults to today (UTC). Connectors that only report per period round it up to the end of its period; the response `end_date` is the date used.").optional(), "accounting_method": z.enum(["cash", "accrual"]).describe("The accounting method used for the report: cash or accrual.").optional() }).strict().optional(), "raw": z.boolean().default(false) }),
+        handler: dispatchHandler('GET', '/accounting/trial-balance', { query: ['pass_through', 'filter', 'raw'] }),
     },
     {
         name: 'ats-applicants-add',
