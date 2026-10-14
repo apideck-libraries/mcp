@@ -56,6 +56,12 @@ export interface CallContext {
     appId: string;
     serviceId?: string;
     /**
+     * How Unify should read the bearer credential. `JWT` means `apiKey` holds a
+     * Vault session token, sent with `x-apideck-auth-type: JWT` as the API
+     * Explorer does. Absent: a regular API key.
+     */
+    authType?: 'JWT';
+    /**
      * Opt-in: when true, per-call `consumer_id`/`service_id` tool arguments are
      * ignored and identity comes only from the boot header/env. Absent/false
      * keeps the default precedence (per-call argument overrides boot identity).

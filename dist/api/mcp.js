@@ -89,6 +89,11 @@ export const createHandler = (opts = {}) => async (req, res) => {
     const headerConsumerId = getHeader(req.headers, 'x-apideck-consumer-id');
     const headerAppId = getHeader(req.headers, 'x-apideck-app-id');
     const headerServiceId = getHeader(req.headers, 'x-apideck-service-id');
+    // Opt-in Vault session auth: with `x-apideck-auth-type: JWT` the bearer
+    // credential is a session token (see CallContext.authType). Any other
+    // value keeps API-key auth, matching Unify.
+    const jwtAuth = getHeader(req.headers, 'x-apideck-auth-type')?.trim().toUpperCase() ===
+        'JWT';
     // Trace one MCP call across logs, the outbound Unify request, and PostHog.
     const correlationId = getHeader(req.headers, 'x-correlation-id') ?? randomUUID();
     res.setHeader('x-correlation-id', correlationId);
@@ -158,6 +163,7 @@ export const createHandler = (opts = {}) => async (req, res) => {
         mode,
         correlationId,
         ...(lockIdentity ? { lockIdentity: true } : {}),
+        ...(jwtAuth ? { authType: 'JWT' } : {}),
     });
     // Entry log so every request is traceable in Vercel logs by correlationId,
     // even when no tool runs.

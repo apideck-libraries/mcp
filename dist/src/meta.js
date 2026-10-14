@@ -165,8 +165,8 @@ export const createDescribeToolInputHandler = (tools) => {
 /**
  * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. A
  * string `input` is JSON-decoded first (Claude Code sends it encoded; see
- * GH-11152), then passed through without Zod re-parse — the upstream
- * generated handler and `callRuntime` validate. Malformed JSON → `isError`
+ * GH-11152), then checked against the target input schema before dispatch.
+ * Validated arguments retain their original shape (no stripping/coercion). Malformed JSON → `isError`
  * before dispatch. Handler throw → `isError: true` text result with the
  * error message. `extra` (signal, requestId, authInfo) is forwarded
  * unchanged.
@@ -195,11 +195,10 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
             try {
                 parsed = JSON.parse(input);
             }
-            catch (err) {
-                const detail = err instanceof Error ? err.message : String(err);
+            catch {
                 return {
                     content: [
-                        { type: 'text', text: `invalid JSON input for tool "${target}": ${detail}` },
+                        { type: 'text', text: JSON.stringify({ code: 'invalid_tool_input', tool: target, path: 'input', message: 'Invalid JSON input; no API call was made.' }) },
                     ],
                     isError: true,
                 };
@@ -215,6 +214,49 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
                 };
             }
             resolvedInput = parsed;
+        }
+        if (resolvedInput === undefined)
+            resolvedInput = {};
+        if (resolvedInput === null || typeof resolvedInput !== 'object' || Array.isArray(resolvedInput)) {
+            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
+                            code: 'invalid_tool_input', tool: target, path: 'input',
+                            message: 'Expected an arguments object. Fetch describe_tool_input for this tool.',
+                        }) }] };
+        }
+        // Catch common accidental body wrappers even for all-optional schemas.
+        const shape = tool.inputSchema instanceof z.ZodObject ? tool.inputSchema.shape : {};
+        const wrapper = ['invoice', 'body', 'request'].find(key => Object.hasOwn(resolvedInput, key) && !Object.hasOwn(shape, key));
+        if (wrapper) {
+            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
+                            code: 'invalid_tool_input', tool: target, path: `input.${wrapper}`,
+                            message: 'Unexpected wrapper. Put the described arguments directly in input; no API call was made.',
+                            next_action: 'describe_tool_input',
+                        }) }] };
+        }
+        // Identity overrides are runtime arguments, not request body fields.
+        // Keep path identities in the schema so their required checks still apply.
+        const schemaInput = { ...resolvedInput };
+        for (const key of ['consumer_id', 'service_id']) {
+            if (!Object.hasOwn(shape, key) && Object.hasOwn(schemaInput, key)) {
+                if (typeof schemaInput[key] !== 'string') {
+                    return { isError: true, content: [{ type: 'text', text: JSON.stringify({
+                                    code: 'invalid_tool_input', tool: target, path: `input.${key}`,
+                                    message: 'Identity overrides must be strings; no API call was made.',
+                                }) }] };
+                }
+                delete schemaInput[key];
+            }
+        }
+        const validation = await tool.inputSchema.safeParseAsync(schemaInput);
+        if (!validation.success) {
+            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
+                            code: 'invalid_tool_input', tool: target,
+                            issues: validation.error.issues.map(issue => ({
+                                path: ['input', ...issue.path].join('.'), code: issue.code,
+                            })),
+                            message: 'Arguments do not match the tool schema; no API call was made.',
+                            next_action: 'describe_tool_input',
+                        }) }] };
         }
         const dispatchTool = analytics
             ? wrapHandlerWithAnalytics(tool, analytics, mode)

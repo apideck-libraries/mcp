@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.25.0](https://github.com/apideck-libraries/mcp/compare/v0.24.0...v0.25.0) (2026-10-14)
+
+
+### Features
+
+* **auth:** accept Vault session tokens via x-apideck-auth-type: JWT ([#231](https://github.com/apideck-libraries/mcp/issues/231)) ([6f04cfe](https://github.com/apideck-libraries/mcp/commit/6f04cfe40ed645abee0584d599311c0cfdda766a))
+
+
+### Bug Fixes
+
+* validate dynamic tool inputs and project writable request schemas ([#230](https://github.com/apideck-libraries/mcp/issues/230)) ([2545f60](https://github.com/apideck-libraries/mcp/commit/2545f601bbb1f2e19f572b9a51d9330e984b3178))
+
 ## [0.24.0](https://github.com/apideck-libraries/mcp/compare/v0.23.0...v0.24.0) (2026-10-13)
 
 

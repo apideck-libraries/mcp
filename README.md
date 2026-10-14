@@ -180,6 +180,24 @@ Pass credentials via headers:
 | `x-apideck-api-key` | Your Apideck API key |
 | `x-apideck-consumer-id` | The end-user / customer ID in your app (**optional** — see below) |
 | `x-apideck-app-id` | Your Apideck application ID |
+| `x-apideck-auth-type` | Optional. Set to `JWT` to authenticate with a Vault session token instead of an API key |
+
+#### Vault session tokens (JWT)
+
+To let an end user's browser or agent call tools without your API key, create a
+[Vault session](https://developers.apideck.com/apis/vault/reference/sessions)
+on your backend and pass its `session_token` instead:
+
+```
+Authorization: Bearer <session_token>
+x-apideck-auth-type: JWT
+x-apideck-app-id: <your app ID>
+x-apideck-consumer-id: <the session's consumer ID>
+```
+
+The server forwards `x-apideck-auth-type: JWT` on every Apideck API call, the
+same way the API Explorer authenticates sessions. Any other value keeps API-key
+auth.
 
 ### Consumer scoping (optional)
 
@@ -230,14 +248,23 @@ list_tools({})
       hint: "Call list_tools(domain=X) or list_tools(search_terms=[...])" }
 
 list_tools({"search_terms": ["invoices"]})
-  → accounting-invoices-list, accounting-invoices-create, accounting-invoices-get, ...
+  → accounting-invoices-all, accounting-invoices-add, accounting-invoices-one, ...
 
-describe_tool_input({"name": "accounting-invoices-list"})
+describe_tool_input({"name": "accounting-invoices-all"})
   → Full JSON Schema with all parameters
 
-execute_tool({"name": "accounting-invoices-list", "input": {"request": {"limit": 10}}})
+execute_tool({"name": "accounting-invoices-all", "input": {"limit": 10}})
   → Invoice data from the connected accounting system
 ```
+
+Put operation fields directly in `input`, using the contract returned by
+`describe_tool_input`. Dynamic execution validates the arguments before dispatch;
+malformed wrappers and schema violations return `isError: true` with
+`code: "invalid_tool_input"`, a field path or issue paths, and no downstream call.
+Validation errors do not echo submitted values. Per-call `consumer_id` and
+`service_id` overrides remain supported; identity-lock rules still apply.
+Request schemas omit read-only response fields, while retaining writable linked
+IDs and required path IDs. This does not add idempotency or make write retries safe.
 
 You can combine dynamic mode with a scope filter:
 

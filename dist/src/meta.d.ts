@@ -78,8 +78,8 @@ export interface ExecuteToolHandlerOpts {
 /**
  * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. A
  * string `input` is JSON-decoded first (Claude Code sends it encoded; see
- * GH-11152), then passed through without Zod re-parse — the upstream
- * generated handler and `callRuntime` validate. Malformed JSON → `isError`
+ * GH-11152), then checked against the target input schema before dispatch.
+ * Validated arguments retain their original shape (no stripping/coercion). Malformed JSON → `isError`
  * before dispatch. Handler throw → `isError: true` text result with the
  * error message. `extra` (signal, requestId, authInfo) is forwarded
  * unchanged.

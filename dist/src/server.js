@@ -107,14 +107,14 @@ export const createServer = (opts) => {
                 .string()
                 .describe('Exact tool name to describe (e.g. "accounting-invoices-create"), as returned by list_tools.'),
         }, createDescribeToolInputHandler(allVisible), READ_META_ANNOTATIONS);
-        registerMetaTool('execute_tool', 'Invoke a tool by name. `input` is forwarded raw to the tool handler.', {
+        registerMetaTool('execute_tool', 'Invoke a tool by name. `input` is validated against the target schema before dispatch.', {
             name: z
                 .string()
                 .describe('Exact tool name to invoke (e.g. "accounting-invoices-create"), as returned by list_tools.'),
             input: z
                 .record(z.string(), z.unknown())
                 .optional()
-                .describe("Arguments object forwarded verbatim to the target tool. Its shape matches that tool's input schema (fetch it with describe_tool_input). Omit for tools that take no arguments."),
+                .describe("Arguments object validated before being forwarded to the target tool. Its shape matches that tool's input schema (fetch it with describe_tool_input). Omit for tools that take no arguments."),
         }, createExecuteToolHandler(allVisible, {
             ...(opts.analytics ? { analytics: opts.analytics } : {}),
             mode: opts.mode,
