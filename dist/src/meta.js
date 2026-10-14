@@ -13,7 +13,7 @@
  */
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
-import { wrapHandlerWithAnalytics } from './analytics.js';
+import { captureRejectedCall, wrapHandlerWithAnalytics } from './analytics.js';
 import { RuntimeError } from './types.js';
 import { matchesSearchTerms } from './search-filter.js';
 /**
@@ -185,53 +185,45 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
         if (tool === undefined) {
             return notFoundResult(target);
         }
+        // Every pre-dispatch rejection shares one envelope and is still tracked.
+        const reject = (fields) => {
+            captureRejectedCall(tool, analytics, mode);
+            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
+                            code: 'invalid_tool_input', tool: target, ...fields,
+                        }) }] };
+        };
         // Claude Code transmits the `input` argument as a JSON-encoded string,
         // not an object. Decode it before dispatch — otherwise the generated
         // handler's `{ ...args }` spreads the string into character-index keys
         // and silently drops every named param (filter, body, path, …). GH-11152.
         let resolvedInput = input;
         if (typeof input === 'string') {
-            let parsed;
             try {
-                parsed = JSON.parse(input);
+                resolvedInput = JSON.parse(input);
             }
             catch {
-                return {
-                    content: [
-                        { type: 'text', text: JSON.stringify({ code: 'invalid_tool_input', tool: target, path: 'input', message: 'Invalid JSON input; no API call was made.' }) },
-                    ],
-                    isError: true,
-                };
+                return reject({ path: 'input', message: 'Invalid JSON input; no API call was made.' });
             }
-            // Tool args must be an object. A primitive/array/null decode is not
-            // usable and would be spread into garbage by the generated handler.
-            if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
-                return {
-                    content: [
-                        { type: 'text', text: `invalid input for tool "${target}": expected a JSON object` },
-                    ],
-                    isError: true,
-                };
-            }
-            resolvedInput = parsed;
         }
         if (resolvedInput === undefined)
             resolvedInput = {};
+        // Tool args must be an object; a primitive/array/null (including one
+        // decoded from a string) would be spread into garbage by the handler.
         if (resolvedInput === null || typeof resolvedInput !== 'object' || Array.isArray(resolvedInput)) {
-            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
-                            code: 'invalid_tool_input', tool: target, path: 'input',
-                            message: 'Expected an arguments object. Fetch describe_tool_input for this tool.',
-                        }) }] };
+            return reject({
+                path: 'input',
+                message: 'Expected an arguments object. Fetch describe_tool_input for this tool.',
+            });
         }
         // Catch common accidental body wrappers even for all-optional schemas.
         const shape = tool.inputSchema instanceof z.ZodObject ? tool.inputSchema.shape : {};
         const wrapper = ['invoice', 'body', 'request'].find(key => Object.hasOwn(resolvedInput, key) && !Object.hasOwn(shape, key));
         if (wrapper) {
-            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
-                            code: 'invalid_tool_input', tool: target, path: `input.${wrapper}`,
-                            message: 'Unexpected wrapper. Put the described arguments directly in input; no API call was made.',
-                            next_action: 'describe_tool_input',
-                        }) }] };
+            return reject({
+                path: `input.${wrapper}`,
+                message: 'Unexpected wrapper. Put the described arguments directly in input; no API call was made.',
+                next_action: 'describe_tool_input',
+            });
         }
         // Identity overrides are runtime arguments, not request body fields.
         // Keep path identities in the schema so their required checks still apply.
@@ -239,24 +231,36 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
         for (const key of ['consumer_id', 'service_id']) {
             if (!Object.hasOwn(shape, key) && Object.hasOwn(schemaInput, key)) {
                 if (typeof schemaInput[key] !== 'string') {
-                    return { isError: true, content: [{ type: 'text', text: JSON.stringify({
-                                    code: 'invalid_tool_input', tool: target, path: `input.${key}`,
-                                    message: 'Identity overrides must be strings; no API call was made.',
-                                }) }] };
+                    return reject({
+                        path: `input.${key}`,
+                        message: 'Identity overrides must be strings; no API call was made.',
+                    });
                 }
                 delete schemaInput[key];
             }
         }
+        // Non-strict write schemas (batch adds, uploads) would let zod drop
+        // unknown keys during validation while the handler still sent them as
+        // body fields. Reject them, as strict single-record writes already do.
+        if (tool.scope !== 'read' && tool.inputSchema instanceof z.ZodObject) {
+            const unknown = Object.keys(schemaInput).filter(key => !Object.hasOwn(shape, key));
+            if (unknown.length > 0) {
+                return reject({
+                    issues: unknown.map(key => ({ path: `input.${key}`, code: 'unrecognized_keys' })),
+                    message: 'Arguments do not match the tool schema; no API call was made.',
+                    next_action: 'describe_tool_input',
+                });
+            }
+        }
         const validation = await tool.inputSchema.safeParseAsync(schemaInput);
         if (!validation.success) {
-            return { isError: true, content: [{ type: 'text', text: JSON.stringify({
-                            code: 'invalid_tool_input', tool: target,
-                            issues: validation.error.issues.map(issue => ({
-                                path: ['input', ...issue.path].join('.'), code: issue.code,
-                            })),
-                            message: 'Arguments do not match the tool schema; no API call was made.',
-                            next_action: 'describe_tool_input',
-                        }) }] };
+            return reject({
+                issues: validation.error.issues.map(issue => ({
+                    path: ['input', ...issue.path].join('.'), code: issue.code,
+                })),
+                message: 'Arguments do not match the tool schema; no API call was made.',
+                next_action: 'describe_tool_input',
+            });
         }
         const dispatchTool = analytics
             ? wrapHandlerWithAnalytics(tool, analytics, mode)

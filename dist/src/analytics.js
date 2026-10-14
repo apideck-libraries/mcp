@@ -110,6 +110,22 @@ const buildContextProps = () => {
         out.correlation_id = ctx.correlationId;
     return out;
 };
+/**
+ * Emit `mcp_tool_called` for a call rejected before dispatch (input failed
+ * validation), so rejected calls show up alongside upstream errors.
+ */
+export const captureRejectedCall = (tool, analytics, mode) => {
+    analytics?.capture('mcp_tool_called', {
+        ...buildContextProps(),
+        tool_name: tool.name,
+        is_error: true,
+        duration_ms: 0,
+        mode,
+        scope: deriveScope(tool.name),
+        status: 'error',
+        error_type: 'invalid_input',
+    });
+};
 export const wrapHandlerWithAnalytics = (tool, analytics, mode) => {
     if (!analytics)
         return tool;

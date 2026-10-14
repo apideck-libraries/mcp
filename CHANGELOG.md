@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.1](https://github.com/apideck-libraries/mcp/compare/v0.25.0...v0.25.1) (2026-10-14)
+
+
+### Bug Fixes
+
+* address review follow-ups from [#230](https://github.com/apideck-libraries/mcp/issues/230) and [#231](https://github.com/apideck-libraries/mcp/issues/231) ([#234](https://github.com/apideck-libraries/mcp/issues/234)) ([0c2b78a](https://github.com/apideck-libraries/mcp/commit/0c2b78a7121c58bf5b368c9042b6264663f0aab1))
+
 ## [0.25.0](https://github.com/apideck-libraries/mcp/compare/v0.24.0...v0.25.0) (2026-10-14)
 
 

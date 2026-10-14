@@ -197,7 +197,14 @@ x-apideck-consumer-id: <the session's consumer ID>
 
 The server forwards `x-apideck-auth-type: JWT` on every Apideck API call, the
 same way the API Explorer authenticates sessions. Any other value keeps API-key
-auth.
+auth. A few limits:
+
+- The header only takes effect alongside a bearer token in the request. The
+  server's own `APIDECK_API_KEY` is never sent as a JWT.
+- A session token can't create a new Vault session. If a connection needs
+  re-authorizing, the tool returns the plain error message instead of a
+  re-auth link.
+- JWT auth works over HTTP only. The stdio CLI always uses an API key.
 
 ### Consumer scoping (optional)
 
@@ -261,7 +268,8 @@ Put operation fields directly in `input`, using the contract returned by
 `describe_tool_input`. Dynamic execution validates the arguments before dispatch;
 malformed wrappers and schema violations return `isError: true` with
 `code: "invalid_tool_input"`, a field path or issue paths, and no downstream call.
-Validation errors do not echo submitted values. Per-call `consumer_id` and
+Write tools also reject unknown top-level fields, so nothing undeclared reaches
+the API. Validation errors do not echo submitted values. Per-call `consumer_id` and
 `service_id` overrides remain supported; identity-lock rules still apply.
 Request schemas omit read-only response fields, while retaining writable linked
 IDs and required path IDs. This does not add idempotency or make write retries safe.

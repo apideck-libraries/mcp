@@ -58,7 +58,9 @@ export interface CallContext {
     /**
      * How Unify should read the bearer credential. `JWT` means `apiKey` holds a
      * Vault session token, sent with `x-apideck-auth-type: JWT` as the API
-     * Explorer does. Absent: a regular API key.
+     * Explorer does. Absent: a regular API key. HTTP transport only (set from
+     * the `x-apideck-auth-type` header); the stdio entry point always uses an
+     * API key.
      */
     authType?: 'JWT';
     /**

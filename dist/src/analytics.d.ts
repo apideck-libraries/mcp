@@ -15,5 +15,10 @@ export declare const classifyError: (err: unknown) => {
     error_type: string;
     status: "error" | "timeout";
 };
+/**
+ * Emit `mcp_tool_called` for a call rejected before dispatch (input failed
+ * validation), so rejected calls show up alongside upstream errors.
+ */
+export declare const captureRejectedCall: (tool: ToolDefinition, analytics: Analytics | undefined, mode: MCPMode) => void;
 export declare const wrapHandlerWithAnalytics: (tool: ToolDefinition, analytics: Analytics | undefined, mode: MCPMode) => ToolDefinition;
 //# sourceMappingURL=analytics.d.ts.map

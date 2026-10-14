@@ -213,8 +213,9 @@ const prepareRequest = async (req) => {
     headers.authorization = `Bearer ${apiKey}`;
     // A Vault session token authenticates as the session's consumer; Unify
     // needs the auth type to read the bearer as a JWT rather than an API key.
-    if (req.context.authType === 'JWT')
+    if (req.context.authType === 'JWT') {
         headers['x-apideck-auth-type'] = 'JWT';
+    }
     // Omit the consumer header when unset so application-scoped endpoints
     // (e.g. /webhook/logs) run unscoped. Consumer-scoped endpoints return their
     // own "consumer required" error, which is surfaced to the caller.
@@ -313,9 +314,13 @@ export const callRuntime = async (req, options = {}) => {
         if (issue) {
             let sessionUrl = null;
             // Vault sessions are consumer-scoped; only mint a re-auth URL when a
-            // consumer is set. Unscoped calls fall back to the plain issue message.
+            // consumer is set. Minting needs an API key, so a caller authenticated
+            // with a Vault session token (authType JWT) skips it too. Both fall back
+            // to the plain issue message.
             const { consumerId } = req.context;
-            if (consumerId !== undefined && consumerId !== '') {
+            if (consumerId !== undefined &&
+                consumerId !== '' &&
+                req.context.authType !== 'JWT') {
                 try {
                     sessionUrl = await mintVaultSessionUrl({
                         apiKey: req.context.apiKey,

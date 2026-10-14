@@ -14,7 +14,8 @@ export const config = { maxDuration: 60 };
 const CORS_HEADERS = [
     ['Access-Control-Allow-Origin', '*'],
     ['Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS'],
-    ['Access-Control-Allow-Headers', 'Content-Type, *'],
+    // `*` never matches Authorization in a preflight, so list it explicitly.
+    ['Access-Control-Allow-Headers', 'Content-Type, Authorization, *'],
 ];
 const setCorsHeaders = (res) => {
     for (const [k, v] of CORS_HEADERS)
@@ -91,9 +92,13 @@ export const createHandler = (opts = {}) => async (req, res) => {
     const headerServiceId = getHeader(req.headers, 'x-apideck-service-id');
     // Opt-in Vault session auth: with `x-apideck-auth-type: JWT` the bearer
     // credential is a session token (see CallContext.authType). Any other
-    // value keeps API-key auth, matching Unify.
-    const jwtAuth = getHeader(req.headers, 'x-apideck-auth-type')?.trim().toUpperCase() ===
-        'JWT';
+    // value keeps API-key auth, matching Unify. Only honoured with a
+    // client-supplied bearer, so the env API key is never sent labelled as a
+    // JWT.
+    const jwtAuth = headerApiKey !== undefined &&
+        headerApiKey !== '' &&
+        getHeader(req.headers, 'x-apideck-auth-type')?.trim().toUpperCase() ===
+            'JWT';
     // Trace one MCP call across logs, the outbound Unify request, and PostHog.
     const correlationId = getHeader(req.headers, 'x-correlation-id') ?? randomUUID();
     res.setHeader('x-correlation-id', correlationId);
