@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.27.0](https://github.com/apideck-libraries/mcp/compare/v0.26.0...v0.27.0) (2026-10-27)
+
+
+### Features
+
+* **spec:** regenerate tools from OpenAPI 40280779329 ([#250](https://github.com/apideck-libraries/mcp/issues/250)) ([5a5a5f2](https://github.com/apideck-libraries/mcp/commit/5a5a5f2fd9a35d637773de71a1b8bd23563147e0))
+
+
+### Bug Fixes
+
+* **server:** register endpoint tools in static mode ([#232](https://github.com/apideck-libraries/mcp/issues/232)) ([#246](https://github.com/apideck-libraries/mcp/issues/246)) ([c42255a](https://github.com/apideck-libraries/mcp/commit/c42255a0518ada918c7c86e80e48963510371f09))
+
 ## [0.26.0](https://github.com/apideck-libraries/mcp/compare/v0.25.1...v0.26.0) (2026-10-22)
 
 

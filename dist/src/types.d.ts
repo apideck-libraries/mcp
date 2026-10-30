@@ -25,6 +25,14 @@ export interface ToolDefinition {
     description?: string;
     domain: string;
     scope: MCPScope;
+    /**
+     * Unified API + Unify `ResourceId`, equal to the path's second segment;
+     * absent for platform tools and workflows.
+     */
+    resource?: {
+        api: string;
+        id: string;
+    };
     inputSchema: ZodObject<ZodRawShape>;
     /**
      * Optional per-tool annotation overrides merged over the scope defaults

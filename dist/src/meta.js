@@ -13,9 +13,11 @@
  */
 import { McpError } from '@modelcontextprotocol/sdk/types.js';
 import { z } from 'zod';
+import { isResourceSupported } from './capabilities.js';
 import { captureRejectedCall, wrapHandlerWithAnalytics } from './analytics.js';
 import { RuntimeError } from './types.js';
 import { matchesSearchTerms } from './search-filter.js';
+import { contextStorage } from './tools.js';
 /**
  * Maximum tools returned by `list_tools` in a single response. Tied to the
  * Budget B SLO (a list_tools page must fit under 1300 tokens). Tuned by the
@@ -115,8 +117,19 @@ const jsonText = (payload) => ({
  * Budget B SLO: every response stays under 1300 tokens. Enforced by the
  * probe in `src/meta.test.ts` against the real `tools` array.
  */
-export const createListToolsHandler = (tools) => {
-    return (args) => {
+export const createListToolsHandler = (allTools, opts = {}) => {
+    const { resolveCapabilities } = opts;
+    return async (args) => {
+        // Scope to the connection's supported resources when a session service_id
+        // is known; any lookup failure resolves to null and leaves the list as is.
+        const sessionServiceId = contextStorage.getStore()?.serviceId;
+        let tools = allTools;
+        if (resolveCapabilities !== undefined &&
+            typeof sessionServiceId === 'string' &&
+            sessionServiceId !== '') {
+            const caps = await resolveCapabilities(sessionServiceId);
+            tools = allTools.filter((t) => isResourceSupported(t, caps));
+        }
         const { domain, search_terms, scope } = args;
         const hasDomain = typeof domain === 'string' && domain.length > 0;
         const hasTerms = Array.isArray(search_terms) && search_terms.length > 0;
@@ -177,7 +190,7 @@ export const createDescribeToolInputHandler = (tools) => {
  * `execute_tool` registration runs without analytics to avoid double-emit.
  */
 export const createExecuteToolHandler = (tools, opts = {}) => {
-    const { analytics, mode = 'dynamic' } = opts;
+    const { analytics, mode = 'dynamic', resolveCapabilities } = opts;
     return async (args, extra) => {
         const { name, input } = args;
         const target = typeof name === 'string' ? name : '';
@@ -262,6 +275,28 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
                 next_action: 'describe_tool_input',
             });
         }
+        // Refuse a call the connection's connector cannot serve, before any
+        // downstream request. Effective service id mirrors dispatchHandler.
+        if (tool.resource !== undefined && resolveCapabilities !== undefined) {
+            const store = contextStorage.getStore();
+            const callArg = resolvedInput.service_id;
+            const serviceId = store?.lockIdentity !== true && typeof callArg === 'string' && callArg !== ''
+                ? callArg
+                : store?.serviceId;
+            if (typeof serviceId === 'string' && serviceId !== '') {
+                const caps = await resolveCapabilities(serviceId);
+                if (!isResourceSupported(tool, caps)) {
+                    return reject({
+                        code: 'unsupported_resource',
+                        service_id: serviceId,
+                        unified_api: tool.resource.api,
+                        resource: tool.resource.id,
+                        message: `The connector for service_id "${serviceId}" does not support ${tool.resource.api} resource "${tool.resource.id}". This is not an empty result; no API call was made.`,
+                        next_action: 'list_tools',
+                    });
+                }
+            }
+        }
         const dispatchTool = analytics
             ? wrapHandlerWithAnalytics(tool, analytics, mode)
             : tool;
@@ -276,6 +311,22 @@ export const createExecuteToolHandler = (tools, opts = {}) => {
             // shape in tools.ts — so callers see the real `detail.error` instead of a
             // bare "HTTP <status>". Runtime failures without a status (network error,
             // loop exhausted) keep returning the plain message. GH-11245.
+            if (err instanceof RuntimeError && err.code === 'unsupported_resource') {
+                return {
+                    content: [
+                        {
+                            type: 'text',
+                            text: JSON.stringify({
+                                code: err.code,
+                                message: err.message,
+                                status: err.status,
+                                body: err.body,
+                            }),
+                        },
+                    ],
+                    isError: true,
+                };
+            }
             if (err instanceof RuntimeError && err.status !== undefined) {
                 return {
                     content: [

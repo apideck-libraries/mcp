@@ -65,6 +65,20 @@ export const createHandler = (opts = {}) => async (req, res) => {
         return;
     }
     if (method === 'GET') {
+        // Stateless server: no standalone SSE stream. The SDK client treats any
+        // 2xx here as a stream and re-opens it every second forever; 405 is the
+        // spec-defined "not offered" signal that stops it (issue #204).
+        if (getHeader(req.headers, 'accept')
+            ?.toLowerCase()
+            .includes('text/event-stream')) {
+            createConsoleLogger().info('mcp.sse_get_rejected', {
+                userAgent: getHeader(req.headers, 'user-agent'),
+            });
+            res.statusCode = 405;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+        }
         const body = {
             name: 'apideck-mcp',
             description: SERVER_DESCRIPTION,
@@ -90,6 +104,13 @@ export const createHandler = (opts = {}) => async (req, res) => {
     const headerConsumerId = getHeader(req.headers, 'x-apideck-consumer-id');
     const headerAppId = getHeader(req.headers, 'x-apideck-app-id');
     const headerServiceId = getHeader(req.headers, 'x-apideck-service-id');
+    // Identity query params for clients that can send only one credential (a
+    // bearer). Ids aren't secrets; the API key is never read from the query.
+    // Precedence: header > query > env. Empty values count as absent.
+    const queryParam = (name) => url.searchParams.get(name) || undefined;
+    const queryAppId = queryParam('app_id');
+    const queryConsumerId = queryParam('consumer_id');
+    const queryServiceId = queryParam('service_id');
     // Opt-in Vault session auth: with `x-apideck-auth-type: JWT` the bearer
     // credential is a session token (see CallContext.authType). Any other
     // value keeps API-key auth, matching Unify. Only honoured with a
@@ -132,10 +153,10 @@ export const createHandler = (opts = {}) => async (req, res) => {
         scopes = scopeTokens;
     }
     // Consumer is optional: boot unscoped and let a per-call `consumer_id` arg
-    // (or the header) supply it. App ID stays required.
-    const consumerId = headerConsumerId ?? process.env.APIDECK_CONSUMER_ID;
+    // (or the header/query) supply it. App ID stays required.
+    const consumerId = headerConsumerId ?? queryConsumerId ?? process.env.APIDECK_CONSUMER_ID;
     // Opt-in: when true, per-call consumer_id/service_id tool arguments are
-    // ignored and identity comes only from the boot header/env (see
+    // ignored and identity comes only from the boot header/query/env (see
     // CallContext.lockIdentity).
     const lockIdentityParam = url.searchParams.get('lock_identity');
     if (lockIdentityParam !== null &&
@@ -158,12 +179,14 @@ export const createHandler = (opts = {}) => async (req, res) => {
             return { apiKey: key };
         },
         ...(consumerId !== undefined && consumerId !== '' ? { consumerId } : {}),
-        appId: headerAppId ?? envOrThrow('APIDECK_APP_ID'),
+        appId: headerAppId ?? queryAppId ?? envOrThrow('APIDECK_APP_ID'),
         ...(headerServiceId !== undefined && headerServiceId !== ''
             ? { serviceId: headerServiceId }
-            : process.env.APIDECK_SERVICE_ID
-                ? { serviceId: process.env.APIDECK_SERVICE_ID }
-                : {}),
+            : queryServiceId
+                ? { serviceId: queryServiceId }
+                : process.env.APIDECK_SERVICE_ID
+                    ? { serviceId: process.env.APIDECK_SERVICE_ID }
+                    : {}),
         logger: createConsoleLogger(),
         mode,
         correlationId,

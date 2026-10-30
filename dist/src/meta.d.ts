@@ -1,4 +1,5 @@
 import type { Analytics } from './analytics.js';
+import { type SupportedResources } from './capabilities.js';
 import type { CallToolResult, MCPMode, MCPScope, RequestHandlerExtra, ServerNotification, ServerRequest, ToolDefinition } from './types.js';
 /**
  * Maximum tools returned by `list_tools` in a single response. Tied to the
@@ -52,6 +53,10 @@ export declare const buildDomainIndex: (tools: ReadonlyArray<ToolDefinition>) =>
  */
 export declare const filterTools: (tools: ReadonlyArray<ToolDefinition>, opts: FilterOpts) => FilterResult;
 type MetaHandler = (args: Record<string, unknown>, extra: RequestHandlerExtra<ServerRequest, ServerNotification>) => CallToolResult | Promise<CallToolResult>;
+export type CapabilityResolver = (serviceId: string) => Promise<SupportedResources | null>;
+export interface ListToolsHandlerOpts {
+    resolveCapabilities?: CapabilityResolver;
+}
 /**
  * Factory for the `list_tools` meta-tool handler.
  *
@@ -63,7 +68,7 @@ type MetaHandler = (args: Record<string, unknown>, extra: RequestHandlerExtra<Se
  * Budget B SLO: every response stays under 1300 tokens. Enforced by the
  * probe in `src/meta.test.ts` against the real `tools` array.
  */
-export declare const createListToolsHandler: (tools: ReadonlyArray<ToolDefinition>) => MetaHandler;
+export declare const createListToolsHandler: (allTools: ReadonlyArray<ToolDefinition>, opts?: ListToolsHandlerOpts) => MetaHandler;
 /**
  * Factory for `describe_tool_input` — emits JSON-Schema for a tool's
  * `inputSchema` via `z.toJSONSchema(schema, { unrepresentable: 'any', io:
@@ -74,6 +79,7 @@ export declare const createDescribeToolInputHandler: (tools: ReadonlyArray<ToolD
 export interface ExecuteToolHandlerOpts {
     analytics?: Analytics;
     mode?: MCPMode;
+    resolveCapabilities?: CapabilityResolver;
 }
 /**
  * Factory for `execute_tool` — single-hop dispatch to `tool.handler`. A

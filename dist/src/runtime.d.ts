@@ -28,6 +28,7 @@ export interface CallRuntimeOptions {
     baseDelayMs?: number;
     capMs?: number;
 }
+export { DEFAULT_BASE_URL } from './capabilities.js';
 export declare const computeDelay: (attempt: number, base: number, cap: number) => number;
 export type CallRuntimeResult = RuntimeResult | CallToolResult;
 export declare const callRuntime: (req: RuntimeRequest, options?: CallRuntimeOptions) => Promise<CallRuntimeResult>;

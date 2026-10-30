@@ -6,11 +6,14 @@
  * `dynamic` mode registers the four Tiered Discovery meta-tools
  * (`list_tools`, `describe_tool_input`, `execute_tool`, `list_scopes`)
  * over the generated tool array, pre-filtered by `opts.scopes` and
- * `opts.allowedTools`. `static` mode currently only registers the optional smoke tool; full static-mode registration is pending. `code` mode registers only `apideck_search` + `apideck_run`, over the
+ * `opts.allowedTools`. `static` mode registers the workflow tools plus every
+ * generated endpoint tool (and the optional smoke tool), filtered by
+ * `opts.scopes` and `opts.allowedTools`. `code` mode registers only `apideck_search` + `apideck_run`, over the
  * tool array pre-filtered by `opts.scopes` (not `opts.allowedTools`).
  */
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
+import { fetchSupportedResources } from './capabilities.js';
 import { createDescribeToolInputHandler, createExecuteToolHandler, createListScopesHandler, createListToolsHandler, } from './meta.js';
 import { wrapHandlerWithAnalytics } from './analytics.js';
 import { createRunTool } from './code-tools/run.js';
@@ -59,7 +62,7 @@ export const createServer = (opts) => {
     // Meta-tools read a local in-process tool registry, so they are closed-world
     // (openWorldHint:false) and idempotent — except execute_tool, which
     // dispatches an arbitrary downstream Apideck call (open-world, not safe to
-    // assume idempotent or non-destructive).
+    // assume idempotent, and destructive unless filtering removed delete tools).
     const READ_META_ANNOTATIONS = {
         readOnlyHint: true,
         destructiveHint: false,
@@ -91,7 +94,15 @@ export const createServer = (opts) => {
         const visibleTools = filterByOpts(allTools, opts);
         const filteredWorkflows = filterByOpts(workflows, opts);
         const allVisible = [...visibleTools, ...filteredWorkflows];
-        registerMetaTool('list_tools', 'Discover Apideck tools. Call with no args for domain index; filter with domain/search_terms/scope.', {
+        // Reads the session context set by wrapWithContext; without one (no
+        // getContext) the lookup is skipped and the catalog stays unscoped.
+        const resolveCapabilities = (serviceId) => {
+            const ctx = contextStorage.getStore();
+            return ctx
+                ? fetchSupportedResources({ context: ctx, serviceId })
+                : Promise.resolve(null);
+        };
+        registerMetaTool('list_tools', 'Discover Apideck tools. Call with no args for domain index; filter with domain/search_terms/scope. Scoped to the connection\'s supported resources when service_id is set.', {
             domain: z
                 .string()
                 .optional()
@@ -101,7 +112,7 @@ export const createServer = (opts) => {
                 .optional()
                 .describe('Case-insensitive substring terms ANDed across a tool name/description (e.g. ["invoice","create"]). Omit to list everything in the domain.'),
             scope: SCOPE_ENUM.optional().describe('Filter by mutation scope: "read" (no writes), "write" (creates/updates), or "destructive" (deletes/overwrites). Omit to include all scopes.'),
-        }, createListToolsHandler(allVisible), READ_META_ANNOTATIONS);
+        }, createListToolsHandler(allVisible, { resolveCapabilities }), READ_META_ANNOTATIONS);
         registerMetaTool('describe_tool_input', 'Return the JSON-Schema input contract for a tool by name.', {
             name: z
                 .string()
@@ -118,12 +129,15 @@ export const createServer = (opts) => {
         }, createExecuteToolHandler(allVisible, {
             ...(opts.analytics ? { analytics: opts.analytics } : {}),
             mode: opts.mode,
+            resolveCapabilities,
         }), 
         // execute_tool dispatches an arbitrary downstream Apideck call: open-world,
-        // and neither idempotent nor guaranteed-additive at this layer.
+        // and neither idempotent nor guaranteed-additive at this layer. It can
+        // reach delete tools unless scopes/allowedTools filtered them all out
+        // (MCP spec: destructiveHint defaults to true for non-read-only tools).
         {
             readOnlyHint: false,
-            destructiveHint: false,
+            destructiveHint: allVisible.some((t) => t.scope === 'destructive'),
             idempotentHint: false,
             openWorldHint: true,
         }, composeNoAnalytics);
@@ -139,8 +153,9 @@ export const createServer = (opts) => {
         });
     }
     if (opts.mode === 'static') {
-        for (const wf of workflows) {
-            registerTool(server, compose(wf), {
+        // Workflows first so they lead tools/list (tests index calls[0]).
+        for (const tool of [...workflows, ...allTools]) {
+            registerTool(server, compose(tool), {
                 ...(opts.allowedTools !== undefined
                     ? { allowedTools: opts.allowedTools }
                     : {}),

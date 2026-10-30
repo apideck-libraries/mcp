@@ -14,6 +14,7 @@ import vm from 'node:vm';
 import { z } from 'zod';
 import { wrapHandlerWithAnalytics } from '../analytics.js';
 import { kebabToCamel } from '../search-filter.js';
+import { RuntimeError } from '../types.js';
 const inputSchema = z.object({
     script: z
         .string()
@@ -39,6 +40,19 @@ const stringifyArg = (arg) => {
     }
     return String(arg);
 };
+/**
+ * Build a readable message for an upstream HTTP failure: `HTTP <status>`,
+ * plus `: <message> - <detail>` from the Apideck error body when present.
+ */
+export const formatHttpErrorMessage = (status, body) => {
+    const fields = body !== null && typeof body === 'object'
+        ? body
+        : {};
+    const parts = [fields.message, fields.detail].filter((part) => typeof part === 'string' && part !== '');
+    return parts.length > 0
+        ? `HTTP ${status}: ${parts.join(' - ')}`
+        : `HTTP ${status}`;
+};
 const buildApideckProxy = (endpointTools, extra, opts = {}) => {
     const { analytics, mode = 'code' } = opts;
     const proxy = {};
@@ -48,7 +62,18 @@ const buildApideckProxy = (endpointTools, extra, opts = {}) => {
             ? wrapHandlerWithAnalytics(t, analytics, mode)
             : t;
         proxy[key] = async (input) => {
-            const result = await dispatchTool.handler(input ?? {}, extra);
+            let result;
+            try {
+                result = await dispatchTool.handler(input ?? {}, extra);
+            }
+            catch (err) {
+                // Keep the upstream status + Apideck error body so scripts and the
+                // `apideck_run` result can see them (#236).
+                if (err instanceof RuntimeError && err.status !== undefined) {
+                    throw Object.assign(new Error(formatHttpErrorMessage(err.status, err.body)), { status: err.status, body: err.body });
+                }
+                throw err;
+            }
             const first = result.content[0];
             const text = first !== undefined && first.type === 'text' ? first.text : '';
             if (result.isError === true) {
@@ -79,7 +104,7 @@ const buildApideckProxy = (endpointTools, extra, opts = {}) => {
 export const createRunTool = (endpointTools, opts = {}) => ({
     name: 'apideck_run',
     title: 'Apideck Run',
-    description: 'Execute a JavaScript script in a sandbox. The `apideck` global exposes endpoint methods (e.g. apideck.accountingInvoicesList(input)). Returns { result, logs } on success.',
+    description: 'Execute a JavaScript script in a sandbox. The `apideck` global exposes endpoint methods (e.g. apideck.accountingInvoicesList(input)). Returns { result, logs } on success, or isError with { error, logs } on failure; endpoint HTTP errors also include status and body (the Apideck error body). Inside scripts, catch (e) exposes e.message, e.status and e.body.',
     domain: 'code-tools',
     scope: 'destructive',
     inputSchema,
@@ -114,8 +139,9 @@ export const createRunTool = (endpointTools, opts = {}) => ({
         // host-realm Promise/value/Error an endpoint dispatch returns would
         // otherwise expose `<hostObj>.constructor.constructor` → host Function
         // → host process. We re-realm the resolved value via vm-realm JSON and
-        // re-throw failures as a vm-realm Error carrying only `.message`, so no
-        // host-realm reference is ever handed to the script. `Promise`/`JSON`
+        // re-throw failures as a vm-realm Error carrying `.message`, a primitive
+        // `.status` and a vm-realm JSON clone of `.body` (#236), so no host-realm
+        // reference is ever handed to the script. `Promise`/`JSON`
         // here are vm-realm globals because the bootstrap runs in the context.
         const bootstrap = `
       (() => {
@@ -136,7 +162,15 @@ export const createRunTool = (endpointTools, opts = {}) => ({
                 .then(() => fn.apply(undefined, args))
                 .then(
                   (v) => (v === undefined ? undefined : JSON.parse(JSON.stringify(v))),
-                  (e) => { throw new Error(e && e.message ? String(e.message) : String(e)); }
+                  (e) => {
+                    const err = new Error(e && e.message ? String(e.message) : String(e));
+                    if (e && typeof e.status === 'number') err.status = e.status;
+                    if (e && e.body !== undefined) {
+                      // Unclonable body: drop it, keep message + status.
+                      try { err.body = JSON.parse(JSON.stringify(e.body)); } catch {}
+                    }
+                    throw err;
+                  }
                 );
             };
           }
@@ -170,11 +204,19 @@ export const createRunTool = (endpointTools, opts = {}) => ({
                 typeof err.message === 'string'
                 ? err.message
                 : String(err);
+            const fields = err !== null && typeof err === 'object'
+                ? err
+                : {};
+            const payload = {
+                error: message,
+                ...(typeof fields.status === 'number'
+                    ? { status: fields.status, body: fields.body }
+                    : {}),
+                logs,
+            };
             return {
                 isError: true,
-                content: [
-                    { type: 'text', text: JSON.stringify({ error: message, logs }) },
-                ],
+                content: [{ type: 'text', text: JSON.stringify(payload) }],
             };
         }
         finally {

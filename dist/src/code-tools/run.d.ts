@@ -1,5 +1,10 @@
 import type { Analytics } from '../analytics.js';
 import type { MCPMode, ToolDefinition } from '../types.js';
+/**
+ * Build a readable message for an upstream HTTP failure: `HTTP <status>`,
+ * plus `: <message> - <detail>` from the Apideck error body when present.
+ */
+export declare const formatHttpErrorMessage: (status: number, body: unknown) => string;
 export interface RunToolOpts {
     analytics?: Analytics;
     mode?: MCPMode;

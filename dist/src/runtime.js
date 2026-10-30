@@ -2,10 +2,11 @@
 // Copyright (c) 2026 Apideck
 import { Buffer } from 'node:buffer';
 import { API_VERSION } from './api-version.js';
+import { DEFAULT_BASE_URL, detectUnsupportedResource } from './capabilities.js';
 import { RuntimeError } from './types.js';
 import { buildConnectionElicitation, connectionIssueFallback, detectConnectionIssue, mintVaultSessionUrl, } from './elicitation.js';
 import { PKG_VERSION } from './version.js';
-const DEFAULT_BASE_URL = 'https://unify.apideck.com';
+export { DEFAULT_BASE_URL } from './capabilities.js';
 const MAX_ATTEMPTS = 4;
 const BASE_DELAY_MS = 500;
 const CAP_MS = 30_000;
@@ -336,6 +337,15 @@ export const callRuntime = async (req, options = {}) => {
             if (sessionUrl !== null)
                 throw buildConnectionElicitation(issue, sessionUrl);
             return connectionIssueFallback(issue);
+        }
+        const unsupported = detectUnsupportedResource(resp.status, body);
+        if (unsupported) {
+            logger.warn('runtime.unsupported-resource', { ...corr });
+            const connector = unsupported.connector ?? 'unknown';
+            const unifiedApi = unsupported.unifiedApi ?? 'unknown';
+            const resource = unsupported.resource ?? 'unknown';
+            const action = unsupported.action ?? 'unknown';
+            throw new RuntimeError(`unsupported_resource: the ${connector} connector does not support ${unifiedApi} resource "${resource}" (${action}). This is not an empty result; the data cannot be read through this connection.`, { status: resp.status, body, code: 'unsupported_resource' });
         }
         throw new RuntimeError(`HTTP ${resp.status}`, {
             status: resp.status,

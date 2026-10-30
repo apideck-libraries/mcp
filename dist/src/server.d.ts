@@ -4,7 +4,9 @@
  * `dynamic` mode registers the four Tiered Discovery meta-tools
  * (`list_tools`, `describe_tool_input`, `execute_tool`, `list_scopes`)
  * over the generated tool array, pre-filtered by `opts.scopes` and
- * `opts.allowedTools`. `static` mode currently only registers the optional smoke tool; full static-mode registration is pending. `code` mode registers only `apideck_search` + `apideck_run`, over the
+ * `opts.allowedTools`. `static` mode registers the workflow tools plus every
+ * generated endpoint tool (and the optional smoke tool), filtered by
+ * `opts.scopes` and `opts.allowedTools`. `code` mode registers only `apideck_search` + `apideck_run`, over the
  * tool array pre-filtered by `opts.scopes` (not `opts.allowedTools`).
  */
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';

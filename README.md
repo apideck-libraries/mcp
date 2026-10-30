@@ -127,33 +127,33 @@ Settings → Cascade → Manage MCPs → View raw config, then paste:
 
 ## Claude Desktop (.mcpb plugin bundle)
 
-Apideck ships a Claude plugin bundle (`.mcpb` — Anthropic's Model Context Protocol Bundle format). Drop it into Claude Desktop and you get the full server (330 endpoint tools + 4 workflow tools) with API key / consumer ID / app ID prompted via the standard plugin UI.
+Apideck ships a Claude plugin bundle (`.mcpb` — Anthropic's Model Context Protocol Bundle format). Drop it into Claude Desktop and you get the full server (380+ tools: every endpoint tool plus 4 workflow tools) with API key / consumer ID / app ID prompted via the standard plugin UI.
 
 ```bash
 pnpm mcpb:build       # → dist/mcp-server.mcpb (~590 KB)
 ```
 
-The bundle is built locally; CI publication to GitHub Releases is deferred. Open the `.mcpb` with Claude Desktop's plugin installer; Claude Desktop reads `manifest.json` to wire credentials and spawn the server.
+Each release attaches `mcp-server.mcpb` to the [latest release](https://github.com/apideck-libraries/mcp/releases/latest). To build it yourself: `pnpm mcpb:build` → `dist/mcp-server.mcpb`. Open the `.mcpb` with Claude Desktop's plugin installer; Claude Desktop reads `manifest.json` to wire credentials and spawn the server.
 
 ---
 
 ## Tools
 
-**330 tools** across 10 unified APIs:
+**380+ tools** across 10 unified APIs (run `list_tools({})` for live per-domain counts):
 
-| API | Tools | Coverage |
-|---|---|---|
-| Accounting | 143 | Invoices, bills, payments, suppliers, customers, journal entries, ledger accounts, purchase orders, tax rates, P&L, balance sheet, and more |
-| CRM | 50 | Companies, contacts, leads, opportunities, pipelines, notes, activities, users |
-| File Storage | 32 | Files, folders, drives, shared links, upload sessions |
-| HRIS | 25 | Employees, companies, departments, payrolls, time-off requests |
-| Vault | 23 | Connections, consumers, sessions, custom mappings, logs |
-| ATS | 15 | Applicants, applications, jobs |
-| Issue Tracking | 15 | Collections, tickets, users, tags, comments |
-| Connector | 8 | APIs, connectors, resources, coverage metadata |
-| Ecommerce | 7 | Customers, orders, products, stores |
-| Webhook | 6 | Webhook subscriptions, logs |
-| Proxy | 6 | GET, POST, PUT, PATCH, DELETE, OPTIONS |
+| API | Coverage |
+|---|---|
+| Accounting | Invoices, bills, payments, suppliers, customers, journal entries, ledger accounts, purchase orders, tax rates, P&L, balance sheet, and more |
+| CRM | Companies, contacts, leads, opportunities, pipelines, notes, activities, users |
+| File Storage | Files, folders, drives, shared links, upload sessions |
+| HRIS | Employees, companies, departments, payrolls, time-off requests |
+| Vault | Connections, consumers, sessions, custom mappings, logs |
+| ATS | Applicants, applications, jobs |
+| Issue Tracking | Collections, tickets, users, tags, comments |
+| Connector | APIs, connectors, resources, coverage metadata |
+| Ecommerce | Customers, orders, products, stores |
+| Webhook | Webhook subscriptions, logs |
+| Proxy | GET, POST, PUT, PATCH, DELETE |
 
 ### Workflow tools
 
@@ -162,6 +162,9 @@ Intent-grouped workflows orchestrate multiple calls behind a single MCP tool —
 | Tool | What it does | Calls |
 |---|---|---|
 | `apideck-month-end-close-check` | Fans out aged-creditors, aged-debtors, balance-sheet, and P&L in parallel. Returns a partial result when some reports aren't supported by the connector. | 4 |
+| `apideck-pay-bill` | Looks up a vendor bill and creates a bill payment allocated against it, so the accounting system marks the bill (partially) paid. | 2 |
+| `apideck-receive-customer-payment` | Looks up an invoice and creates a customer payment allocated against it, so the accounting system marks the invoice (partially) paid. | 2 |
+| `apideck-onboard-employee` | Converts a hired ATS applicant into an HRIS employee, and optionally moves the applicant to a "hired" stage. | 2–3 |
 
 ---
 
@@ -181,6 +184,20 @@ Pass credentials via headers:
 | `x-apideck-consumer-id` | The end-user / customer ID in your app (**optional** — see below) |
 | `x-apideck-app-id` | Your Apideck application ID |
 | `x-apideck-auth-type` | Optional. Set to `JWT` to authenticate with a Vault session token instead of an API key |
+
+#### Query parameters (single-credential clients)
+
+Some clients can send only one credential, such as a bearer token. Put the API
+key in `Authorization` and the ids in the URL:
+
+```
+https://mcp.apideck.dev/mcp?app_id=<your app ID>&consumer_id=<consumer ID>
+Authorization: Bearer <your API key>
+```
+
+`service_id` works the same way. Precedence: header > query param > env var.
+Empty values are ignored. The API key is never accepted in the URL, because
+URLs end up in logs.
 
 #### Vault session tokens (JWT)
 
@@ -216,8 +233,8 @@ override the consumer per call by passing a `consumer_id` argument to any tool:
 execute_tool({ name: "crm-contacts-all", input: { consumer_id: "acme-inc" } })
 ```
 
-Precedence: the per-call `consumer_id` argument wins over the
-`APIDECK_CONSUMER_ID` env var / `x-apideck-consumer-id` header.
+Precedence: per-call `consumer_id` argument > `x-apideck-consumer-id` header >
+`?consumer_id=` query param > `APIDECK_CONSUMER_ID` env var.
 
 - **Unscoped calls** work for application-scoped endpoints that don't need a
   consumer — e.g. webhook logs (`webhook-event-logs-all`) and
@@ -227,7 +244,7 @@ Precedence: the per-call `consumer_id` argument wins over the
 
 #### Locking identity (opt-in)
 
-To pin identity to the boot header/env and stop agents from switching consumer
+To pin identity to the boot header/query/env and stop agents from switching consumer
 or connection per call, start with `--lock-identity` (CLI) or append
 `?lock_identity=true` (hosted). Locked calls ignore per-call `consumer_id` /
 `service_id` arguments. Off by default. Vault consumer tools that take
@@ -242,16 +259,16 @@ locked consumer; any other value, or no locked consumer, is refused.
 | Mode | Tools exposed | Initial tokens | Best for |
 |---|---|---|---|
 | `dynamic` (default) | 4 meta-tools | ~1,300 | General-purpose agents, token-sensitive contexts |
-| `static` | All 330 tools | ~35–55K | Focused agents doing a specific API |
+| `static` | All endpoint tools + workflows | ~35–55K | Focused agents doing a specific API |
 | `code` | `apideck_search` + `apideck_run` | ~600 | Agents that call endpoints programmatically via JS |
 
 ### Dynamic mode
 
-Agents discover tools progressively — **~85% fewer tokens** than loading all 330 schemas upfront:
+Agents discover tools progressively — **~85% fewer tokens** than loading all 380+ schemas upfront:
 
 ```
 list_tools({})
-  → { total: 330, domains: [{ name: "accounting", count: 143 }, ...],
+  → { total: <n>, domains: [{ name: "accounting", count: <n> }, ...],
       hint: "Call list_tools(domain=X) or list_tools(search_terms=[...])" }
 
 list_tools({"search_terms": ["invoices"]})
@@ -271,6 +288,10 @@ malformed wrappers and schema violations return `isError: true` with
 Write tools also reject unknown top-level fields, so nothing undeclared reaches
 the API. Validation errors do not echo submitted values. Per-call `consumer_id` and
 `service_id` overrides remain supported; identity-lock rules still apply.
+When a `service_id` is set, `list_tools` only lists tools the connector
+supports, and calls to an unsupported resource return
+`code: "unsupported_resource"`, which means the connector can't serve it, not
+that the result is empty.
 Request schemas omit read-only response fields, while retaining writable linked
 IDs and required path IDs. This does not add idempotency or make write retries safe.
 
@@ -290,7 +311,7 @@ You can combine dynamic mode with a scope filter:
 
 ### Code mode
 
-Code mode exposes two tools instead of 330+. Designed for agents that prefer calling endpoints as methods rather than tool calls:
+Code mode exposes two tools instead of 380+. Designed for agents that prefer calling endpoints as methods rather than tool calls:
 
 1. **`apideck_search`** — find endpoints by substring, returns camelCase method names
 2. **`apideck_run`** — execute a JS script with `apideck.<methodName>` bound to live endpoint dispatchers, sandboxed in `node:vm`
@@ -313,6 +334,14 @@ apideck_run({
   → Invoice data from the connected accounting system
 ```
 
+If an endpoint call fails with an HTTP error, `apideck_run` returns the status and the Apideck error body next to the message, matching `execute_tool`:
+
+```json
+{"error":"HTTP 401: Unauthorized Request - Application: invalid-test-app not found.","status":401,"body":{"type_name":"UnauthorizedError","detail":"Application: invalid-test-app not found.","...":"..."},"logs":[]}
+```
+
+Scripts can handle it themselves: `catch (e)` exposes `e.message`, `e.status` and `e.body`.
+
 The sandbox strips `process`, `require`, `fs`, `child_process`, and other Node globals — scripts only have access to the `apideck` object.
 
 ---
@@ -330,7 +359,8 @@ Filter tools by HTTP method class:
 Repeat the flag to combine scopes (`--scope read --scope write`). On the hosted
 endpoint use a comma-separated query param: `?scopes=read,write`. Invalid or
 empty values are rejected (CLI parse error / HTTP 400). Scopes apply in every
-mode, including `code`.
+mode, including `code`. When the scopes leave out `destructive`, `execute_tool`
+is also marked non-destructive (`destructiveHint: false`).
 
 ---
 
@@ -400,7 +430,7 @@ pnpm build
 # Dynamic mode (default)
 APIDECK_API_KEY=... APIDECK_CONSUMER_ID=... APIDECK_APP_ID=... node dist/bin/mcp.js start
 
-# Static mode (all 330 tools)
+# Static mode (all endpoint tools + workflows)
 APIDECK_API_KEY=... node dist/bin/mcp.js start --mode static
 
 # Code mode
