@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.30.0](https://github.com/apideck-libraries/mcp/compare/v0.29.0...v0.30.0) (2026-11-16)
+
+
+### Features
+
+* **spec:** regenerate tools from OpenAPI 43816783516 ([#257](https://github.com/apideck-libraries/mcp/issues/257)) ([aa5f174](https://github.com/apideck-libraries/mcp/commit/aa5f174598052889cb9c579a46cf0d3b58b64dde))
+
 ## [0.29.0](https://github.com/apideck-libraries/mcp/compare/v0.28.0...v0.29.0) (2026-11-09)
 
 
